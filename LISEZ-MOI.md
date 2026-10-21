@@ -15,7 +15,7 @@ Site d'une seule page : le test, les formules, les mentions légales et la polit
 
 ## Publication
 
-Toute modification enregistrée sur la branche `main` est publiée automatiquement par Netlify, en une minute environ.
+Toute modification enregistrée sur la branche `main` est publiée automatiquement par Netlify (projet `cadence-hemistiches-site`), en une minute environ.
 
 Le formulaire `rapport-cadence` est reçu par Netlify Forms ; une notification est envoyée à chaque demande.
 
