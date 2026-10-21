@@ -2,13 +2,14 @@
 
 Site de diagnostic de la direction juridique externalisée : https://cadence.hemistiches.com
 
-Site d'une seule page : le test, les formules, les mentions légales et la politique de confidentialité sont dans `index.html`. Aucune compilation ni dépendance : ce que contient ce dépôt est exactement ce qui est publié.
+Deux pages, française (`index.html`) et anglaise (`en/index.html`), reliées par le sélecteur FR | EN de l'en-tête. Chacune contient le test, les formules, les mentions légales et la politique de confidentialité ; toute modification de fond se reporte dans les deux fichiers. Aucune compilation ni dépendance : ce que contient ce dépôt est exactement ce qui est publié.
 
 ## Contenu
 
 | Fichier | Rôle |
 |---|---|
-| `index.html` | Le site complet (textes, test, calcul, mentions légales et confidentialité) |
+| `index.html` | La version française (textes, test, calcul, mentions légales et confidentialité) |
+| `en/index.html` | La version anglaise, même barème et même formulaire ; les mentions indiquent que la version française prévaut |
 | `netlify.toml` | Configuration de publication Netlify |
 | `robots.txt` | Autorise l'indexation |
 | `favicon.ico`, `favicon-32.png`, `apple-touch-icon.png` | Icônes reprises de hemistiches.com |
