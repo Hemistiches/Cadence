@@ -477,7 +477,7 @@ h1,h2,h3,h4{margin:0;font-weight:300;line-height:1.1;letter-spacing:-0.01em;text
 
       <div class="note" id="fin-anticipee">
         <h4>Durée et fin anticipée</h4>
-        <p>Les forfaits sont tarifés pour une durée initiale de six mois. En cas d’arrêt anticipé, hors manquement du cabinet, c’est le tarif de la durée réellement exécutée qui s’applique. Par exemple, un forfait Essentiel arrêté après un mois est facturé au tarif « moins de 3 mois » : <span data-p="m:2:lt3">1 800 €</span> HT au lieu de <span data-p="m:2:des6">1 500 €</span>, soit 300 € de complément. Aucune mensualité future n’est due. <a href="#faq-fin">Détails</a></p>
+        <p>En cas d’arrêt anticipé, quels que soient la formule et la durée choisies, c’est le tarif de la durée réellement exécutée qui s’applique, avec un préavis d’un mois.</p>
       </div>
 
       <h3 class="sub-h3">Engagements plus courts</h3>
@@ -533,7 +533,7 @@ h1,h2,h3,h4{margin:0;font-weight:300;line-height:1.1;letter-spacing:-0.01em;text
         <details id="faq-fin">
           <summary>Que se passe-t-il si je mets fin à un forfait avant six mois ?</summary>
           <div>
-            <p>Vous pouvez mettre fin à la mission à tout moment. Le tarif du forfait étant lié à une durée initiale de six mois, un arrêt anticipé fait s’appliquer le tarif publié pour la durée réellement exécutée : celui des engagements de moins de 3 mois, ou de 3 à moins de 6 mois. La différence avec les sommes déjà réglées est facturée ; aucune mensualité future n’est due.</p>
+            <p>Vous pouvez mettre fin à la mission à tout moment, moyennant un préavis d’un mois. Le tarif du forfait étant lié à une durée initiale de six mois, un arrêt anticipé fait s’appliquer le tarif publié pour la durée réellement exécutée : celui des engagements de moins de 3 mois, ou de 3 à moins de 6 mois. La différence avec les sommes déjà réglées est facturée ; aucune mensualité future n’est due.</p>
             <p><b>Exemples, forfait Essentiel :</b></p>
             <ul>
               <li>Arrêt après un mois : tarif « moins de 3 mois », 1 800 € HT au lieu de 1 500 €, soit 300 € HT de complément.</li>
@@ -556,7 +556,7 @@ h1,h2,h3,h4{margin:0;font-weight:300;line-height:1.1;letter-spacing:-0.01em;text
         </details>
         <details>
           <summary>La transition fonctionne-t-elle de la même façon ?</summary>
-          <div><p>Non. La transition repose sur un tarif journalier fixé selon la durée initiale convenue, pour 12 à 16 jours par mois sur site. Le report de trois heures ne s’y applique pas. En cas d’arrêt anticipé, les journées accomplies sont facturées au tarif journalier de la durée réellement exécutée ; aucune journée future non réalisée n’est facturée. Une prise de fonction se convient selon mes engagements en cours : je vous indique la date possible dès le premier échange.</p></div>
+          <div><p>Non. La transition repose sur un tarif journalier fixé selon la durée initiale convenue, pour 12 à 16 jours par mois sur site. Le report de trois heures ne s’y applique pas. En cas d’arrêt anticipé, avec un préavis d’un mois, les journées accomplies sont facturées au tarif journalier de la durée réellement exécutée ; aucune journée future non réalisée n’est facturée. Une prise de fonction se convient selon mes engagements en cours : je vous indique la date possible dès le premier échange.</p></div>
         </details>
         <details>
           <summary>Pouvez-vous intervenir dans nos locaux dans le cadre d’un forfait ?</summary>
@@ -897,7 +897,7 @@ function contenu(r){
     o.conditions.push("Report de trois heures non consommées au plus, sur le mois suivant uniquement.");
     o.conditions.push("Dépassements à "+eur(C.TARIFS.tauxHoraire)+" HT de l'heure, après estimation et accord préalable, sous réserve de disponibilité.");
     if(d.incertaine || d.tranche==="des6"){
-      o.fin.push("Le forfait est tarifé pour une durée initiale de six mois. En cas d'arrêt anticipé, hors manquement du cabinet, c'est le tarif de la durée réellement exécutée qui s'applique, et la différence avec les sommes réglées est facturée. Aucune mensualité future n'est due.");
+      o.fin.push("Le forfait est tarifé pour une durée initiale de six mois. En cas d'arrêt anticipé, avec un préavis d'un mois et hors manquement du cabinet, c'est le tarif de la durée réellement exécutée qui s'applique, et la différence avec les sommes réglées est facturée. Aucune mensualité future n'est due.");
       o.fin.push("Exemple : "+NOMS[j]+" arrêté après un mois, tarif « moins de 3 mois » : "+eur(C.mensuelExt(j,"lt3"))+" HT au lieu de "+eur(C.mensuelExt(j,"des6"))+", soit "+eur(C.recalculDepart(j,1,C.mensuelExt(j,"des6")).solde)+" HT de complément.");
       o.fin.push("Après six mois : poursuite au même tarif, préavis d'un mois. Les modalités figurent dans la convention d'honoraires.");
     } else {
@@ -920,7 +920,7 @@ function contenu(r){
     o.conditions.push("Présence sur site comprise ; frais de déplacement et d'hébergement éventuels estimés et convenus au préalable.");
     o.conditions.push("Jours supplémentaires au tarif journalier convenu, après accord préalable.");
     o.conditions.push("Prise de fonction à convenir selon mes engagements en cours.");
-    o.fin.push("En cas d'arrêt anticipé, les journées accomplies sont facturées au tarif journalier de la durée réellement exécutée. Aucune journée future non réalisée n'est facturée.");
+    o.fin.push("En cas d'arrêt anticipé, avec un préavis d'un mois, les journées accomplies sont facturées au tarif journalier de la durée réellement exécutée. Aucune journée future non réalisée n'est facturée.");
   }
   if(r.mode==="personnalise"){
     var ext = r.jours ? NOMS[r.jours]+" ("+r.jours+" jours, "+C.heures(r.jours)+" heures par mois, à partir de "+eur(C.mensuelExt(r.jours,"des6"))+" HT par mois sur six mois)" : null;

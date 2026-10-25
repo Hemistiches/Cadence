@@ -477,7 +477,7 @@ h1,h2,h3,h4{margin:0;font-weight:300;line-height:1.1;letter-spacing:-0.01em;text
 
       <div class="note" id="fin-anticipee">
         <h4>Term and early termination</h4>
-        <p>The plans are priced for an initial term of six months. If the engagement ends early, other than for a failure on the firm’s part, the rate for the period actually completed applies. For example, an Essentiel plan ended after one month is charged at the “less than 3 months” rate: <span data-p="m:2:lt3">€1,800</span> excl. VAT instead of <span data-p="m:2:des6">€1,500</span>, i.e. a €300 top-up. No future monthly instalment is due. <a href="#faq-fin">Details</a></p>
+        <p>If the engagement ends early, whatever the plan and term chosen, the rate for the period actually completed applies, with one month’s notice.</p>
       </div>
 
       <h3 class="sub-h3">Shorter commitments</h3>
@@ -533,7 +533,7 @@ h1,h2,h3,h4{margin:0;font-weight:300;line-height:1.1;letter-spacing:-0.01em;text
         <details id="faq-fin">
           <summary>What happens if I end a plan before six months?</summary>
           <div>
-            <p>You may end the engagement at any time. As the plan rate is linked to an initial term of six months, early termination triggers the published rate for the period actually completed: that of commitments of less than 3 months, or of 3 to less than 6 months. The difference from the sums already paid is invoiced; no future monthly instalment is due.</p>
+            <p>You may end the engagement at any time, with one month’s notice. As the plan rate is linked to an initial term of six months, early termination triggers the published rate for the period actually completed: that of commitments of less than 3 months, or of 3 to less than 6 months. The difference from the sums already paid is invoiced; no future monthly instalment is due.</p>
             <p><b>Examples, Essentiel plan:</b></p>
             <ul>
               <li>Ended after one month: “less than 3 months” rate, €1,800 excl. VAT instead of €1,500, i.e. a €300 excl. VAT top-up.</li>
@@ -556,7 +556,7 @@ h1,h2,h3,h4{margin:0;font-weight:300;line-height:1.1;letter-spacing:-0.01em;text
         </details>
         <details>
           <summary>Does the interim mode work the same way?</summary>
-          <div><p>No. The interim mode is based on a day rate set according to the agreed initial term, for 12 to 16 days per month on site. The three-hour carry-over does not apply. If the engagement ends early, the days worked are charged at the day rate for the period actually completed; no future day not worked is charged. A start date is agreed in light of my existing commitments: I tell you the possible date in our first conversation.</p></div>
+          <div><p>No. The interim mode is based on a day rate set according to the agreed initial term, for 12 to 16 days per month on site. The three-hour carry-over does not apply. If the engagement ends early, with one month’s notice, the days worked are charged at the day rate for the period actually completed; no future day not worked is charged. A start date is agreed in light of my existing commitments: I tell you the possible date in our first conversation.</p></div>
         </details>
         <details>
           <summary>Can you work on our premises under a plan?</summary>
@@ -888,7 +888,7 @@ function contenu(r){
     o.conditions.push("Carry-over of at most three unused hours, to the following month only.");
     o.conditions.push("Additional hours at "+eur(C.TARIFS.tauxHoraire)+" excl. VAT per hour, after an estimate and prior agreement, subject to availability.");
     if(d.incertaine || d.tranche==="des6"){
-      o.fin.push("The plan is priced for an initial term of six months. If the engagement ends early, other than for a failure on the firm's part, the rate for the period actually completed applies, and the difference from the sums paid is invoiced. No future monthly instalment is due.");
+      o.fin.push("The plan is priced for an initial term of six months. If the engagement ends early, with one month's notice and other than for a failure on the firm's part, the rate for the period actually completed applies, and the difference from the sums paid is invoiced. No future monthly instalment is due.");
       o.fin.push("Example: "+NOMS[j]+" ended after one month, “less than 3 months” rate: "+eur(C.mensuelExt(j,"lt3"))+" excl. VAT instead of "+eur(C.mensuelExt(j,"des6"))+", i.e. a top-up of "+eur(C.recalculDepart(j,1,C.mensuelExt(j,"des6")).solde)+" excl. VAT.");
       o.fin.push("After six months: continuation at the same rate, one month's notice. The terms are set out in the engagement letter.");
     } else {
@@ -911,7 +911,7 @@ function contenu(r){
     o.conditions.push("Presence on site included; any travel and accommodation costs estimated and agreed in advance.");
     o.conditions.push("Additional days at the agreed day rate, with prior agreement.");
     o.conditions.push("Start date to be agreed in light of my existing commitments.");
-    o.fin.push("If the engagement ends early, the days worked are charged at the day rate for the period actually completed. No future day not worked is charged.");
+    o.fin.push("If the engagement ends early, with one month's notice, the days worked are charged at the day rate for the period actually completed. No future day not worked is charged.");
   }
   if(r.mode==="personnalise"){
     var ext = r.jours ? NOMS[r.jours]+" ("+r.jours+" days, "+C.heures(r.jours)+" hours per month, from "+eur(C.mensuelExt(r.jours,"des6"))+" excl. VAT per month over six months)" : null;
