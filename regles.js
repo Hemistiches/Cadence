@@ -8,7 +8,7 @@
     version: "2026-10-25",
     heuresParJour: 7,
     plancherJour: 650,            // aucun tarif journalier en dessous
-    tauxHoraire: 150,             // dépassements accordés et recalcul en cas de départ anticipé (forfaits externalisés)
+    tauxHoraire: 150,             // taux horaire habituel du cabinet : dépassements et recalcul en cas de départ anticipé
     reportMaxHeures: 3,           // heures non consommées reportables sur le mois suivant uniquement
     dureeInitialeForfaits: 6,     // mois
     preavisMois: 1,
@@ -46,13 +46,6 @@
   function recalculDepart(heuresTravaillees, sommesRecues) {
     var du = Math.round(heuresTravaillees * TARIFS.tauxHoraire * 100) / 100;
     return { du: du, recu: sommesRecues, solde: Math.round((du - sommesRecues) * 100) / 100 };
-  }
-  /* Variante de sécurisation, soumise à décision : plafonner le recalcul au prix de la grille correspondant à la durée réellement exécutée. */
-  function recalculDepartPlafonne(heuresTravaillees, sommesRecues, jours, moisExecutes) {
-    var base = recalculDepart(heuresTravaillees, sommesRecues);
-    var plafond = mensuelExt(jours, tranche(moisExecutes)) * Math.max(1, Math.ceil(moisExecutes));
-    var du = Math.min(base.du, plafond);
-    return { du: du, plafond: plafond, recu: sommesRecues, solde: Math.round((du - sommesRecues) * 100) / 100 };
   }
   /* Transition : recalcul proposé des journées accomplies au tarif de la durée réellement exécutée (à valider). */
   function recalculTransition(joursAccomplis, moisExecutes, sommesRecues) {
@@ -145,7 +138,7 @@
     TARIFS: TARIFS, POIDS: POIDS, SEUILS: SEUILS,
     tranche: tranche, formule: formule, prixJourExt: prixJourExt, mensuelExt: mensuelExt, heures: heures,
     prixJourTransition: prixJourTransition, mensuelTransition: mensuelTransition,
-    recalculDepart: recalculDepart, recalculDepartPlafonne: recalculDepartPlafonne, recalculTransition: recalculTransition,
+    recalculDepart: recalculDepart, recalculTransition: recalculTransition,
     volume: volume, orienter: orienter, scenarios: scenarios
   };
 })(typeof window !== "undefined" ? window : this);

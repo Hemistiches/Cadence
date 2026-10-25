@@ -477,7 +477,7 @@ h1,h2,h3,h4{margin:0;font-weight:300;line-height:1.1;letter-spacing:-0.01em;text
 
       <div class="note" id="fin-anticipee">
         <h4>Term and early termination</h4>
-        <p>The plans carry a rate linked to an initial term of six months. If you end the engagement before that term, other than for a failure on the firm’s part, the work actually performed is recalculated at <span data-p="taux">€150</span> excl. VAT per hour, in place of the plan and after deduction of the sums already paid. This may result in a top-up or a refund. No future monthly instalment is charged. The terms are set out in the engagement letter, which alone makes them applicable. <a href="#faq-fin">Examples</a></p>
+        <p>The plans carry a rate linked to an initial term of six months. If you end the engagement before that term, other than for a failure on the firm’s part, the work actually performed is recalculated at the firm’s usual hourly rate of <span data-p="taux">€150</span> excl. VAT, in place of the plan and after deduction of the sums already paid. This may result in a top-up or a refund. No future monthly instalment is charged. The terms are set out in the engagement letter, which alone makes them applicable. <a href="#faq-fin">Examples</a></p>
       </div>
 
       <h3 class="sub-h3">Shorter commitments</h3>
@@ -533,7 +533,7 @@ h1,h2,h3,h4{margin:0;font-weight:300;line-height:1.1;letter-spacing:-0.01em;text
         <details id="faq-fin">
           <summary>What happens if I end a plan before six months?</summary>
           <div>
-            <p>You may end the engagement at any time. As the plan rate is linked to an initial term of six months, the work actually performed since the start is then recalculated at <span data-p="taux">€150</span> excl. VAT per hour, in place of the plan. All sums already paid are deducted in full; additional hours already invoiced are not counted twice. Depending on the case, you receive a top-up invoice or a refund. No future monthly instalment is charged.</p>
+            <p>You may end the engagement at any time. As the plan rate is linked to an initial term of six months, the work actually performed since the start is then recalculated at the firm’s usual hourly rate of <span data-p="taux">€150</span> excl. VAT, which is also the rate for additional hours: the plan rate is a discount granted in return for the initial term. This calculation replaces the plan. All sums already paid are deducted in full; additional hours already invoiced are not counted twice. Depending on the case, you receive a top-up invoice or a refund. No future monthly instalment is charged.</p>
             <p>Only hours actually worked and shown in the statement of work count: hours reserved or carried over but not used are not charged. This rule does not apply if the interruption results from a failure on the firm’s part or is at its initiative.</p>
             <p><b>Two examples, Essentiel plan, ended after one month, €1,500 excl. VAT paid:</b></p>
             <ul>
@@ -889,7 +889,7 @@ function contenu(r){
     o.conditions.push("Carry-over of at most three unused hours, to the following month only.");
     o.conditions.push("Additional hours at "+eur(C.TARIFS.tauxHoraire)+" excl. VAT per hour, after an estimate and prior agreement, subject to availability.");
     if(d.incertaine || d.tranche==="des6"){
-      o.fin.push("The plan carries a rate linked to an initial term of six months. If you end the engagement before that term, other than for a failure on the firm's part, the work actually performed is recalculated at "+eur(C.TARIFS.tauxHoraire)+" excl. VAT per hour, in place of the plan and after deduction of the sums already paid.");
+      o.fin.push("The plan carries a rate linked to an initial term of six months. If you end the engagement before that term, other than for a failure on the firm's part, the work actually performed is recalculated at the firm's usual hourly rate of "+eur(C.TARIFS.tauxHoraire)+" excl. VAT, in place of the plan and after deduction of the sums already paid.");
       o.fin.push("This may result in a top-up or a refund. No future monthly instalment is charged. Example, "+NOMS[2]+" ended after one month with "+eur(C.mensuelExt(2,"des6"))+" paid: 14 hours worked give a top-up of "+eur(C.recalculDepart(14,C.mensuelExt(2,"des6")).solde)+" excl. VAT; 5 hours give a refund of "+eur(-C.recalculDepart(5,C.mensuelExt(2,"des6")).solde)+" excl. VAT.");
       o.fin.push("After six months: continuation at the same rate, one month's notice. The terms are set out in the engagement letter.");
     } else {
