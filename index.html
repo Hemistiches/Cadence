@@ -410,7 +410,7 @@ h1,h2,h3,h4{margin:0;font-weight:300;line-height:1.1;letter-spacing:-0.01em;text
         <p class="verse">En musique, la cadence est le rythme qui porte une phrase et la conduit à sa résolution.</p>
       </div>
       <div class="prose">
-        <p>Pour une entreprise sans direction juridique, c’est le temps juridique dont elle a réellement besoin, ni plus ni moins : deux, quatre ou huit jours par mois depuis le cabinet, ou douze à seize jours par mois dans vos locaux le temps d’une transition.</p>
+        <p>Pour une entreprise sans direction juridique, c’est le temps juridique dont elle a réellement besoin, ni plus ni moins : deux, quatre ou huit jours par mois depuis le cabinet, ou douze à seize jours par mois le temps d’une transition.</p>
         <p>Le test le mesure à partir de situations concrètes. Il ne vous demande pas de fixer vous-même un nombre de jours.</p>
       </div>
     </div>
@@ -437,10 +437,10 @@ h1,h2,h3,h4{margin:0;font-weight:300;line-height:1.1;letter-spacing:-0.01em;text
           <ul><li>2, 4 ou 8 jours par mois</li><li>Durée initiale de six mois, puis poursuite avec un mois de préavis</li><li>Provision mensuelle et relevé des diligences</li></ul>
         </article>
         <article>
-          <p class="label">Dans vos locaux</p>
+          <p class="label">Pour reprendre la fonction</p>
           <h3>Direction juridique de transition</h3>
-          <p>La mission est exercée dans vos locaux, selon un calendrier convenu, pour reprendre temporairement la fonction juridique : absence, départ, poste vacant ou renforcement temporaire substantiel.</p>
-          <p>Elle suppose un volume de 12 à 16 jours par mois. La présence sur site est comprise dans les honoraires ; les frais de déplacement et d’hébergement éventuels sont distincts, estimés et convenus au préalable.</p>
+          <p>La mission reprend temporairement la fonction juridique, selon un calendrier convenu : absence, départ, poste vacant ou renforcement temporaire substantiel. Elle s’exerce principalement à distance, avec une présence dans vos locaux pour les réunions et les moments qui l’exigent.</p>
+          <p>Elle suppose un volume de 12 à 16 jours par mois. Les journées sur place sont comprises dans les honoraires ; les frais de déplacement et d’hébergement éventuels sont distincts, estimés et convenus au préalable.</p>
           <ul><li>12 à 16 jours par mois</li><li>Tarif journalier selon la durée initiale convenue</li><li>Calendrier et organisation fixés dans la convention</li></ul>
         </article>
       </div>
@@ -502,7 +502,7 @@ h1,h2,h3,h4{margin:0;font-weight:300;line-height:1.1;letter-spacing:-0.01em;text
           <tr><th scope="row">6 mois ou plus</th><td><span data-p="tj:des6">650 €</span></td><td><span data-p="tm:12:des6">7 800 €</span> à <span data-p="tm:16:des6">10 400 €</span> par mois</td></tr>
         </tbody>
       </table></div>
-      <p class="cadre">Le tarif dépend du volume et de la durée convenus au départ ; la seule prolongation d’une mission n’entraîne aucune baisse automatique. La convention fixe le calendrier, le volume mensuel et l’organisation sur site ; les jours supplémentaires sont facturés au tarif journalier convenu, après accord préalable. Frais de déplacement et d’hébergement éventuels distincts, estimés et convenus avant la mission.</p>
+      <p class="cadre">Le tarif dépend du volume et de la durée convenus au départ ; la seule prolongation d’une mission n’entraîne aucune baisse automatique. La convention fixe le calendrier, le volume mensuel et les journées sur place ; les jours supplémentaires sont facturés au tarif journalier convenu, après accord préalable. Frais de déplacement et d’hébergement éventuels distincts, estimés et convenus avant la mission.</p>
 
       <h3 class="sub-h3">Secrétariat juridique</h3>
       <div class="three one">
@@ -593,7 +593,7 @@ h1,h2,h3,h4{margin:0;font-weight:300;line-height:1.1;letter-spacing:-0.01em;text
       <ul class="eng">
         <li><b>Le test n’est pas une consultation</b><span>Le résultat est une estimation indicative, établie à partir de vos seules réponses. La consultation commence avec l’avocat, dans le cadre d’une convention d’honoraires.</span></li>
         <li><b>Une convention signée</b><span>Elle fixe le mode, le volume, la durée, le périmètre et ses exclusions, les délais, le report, les dépassements et les conditions de fin anticipée. Elle est précédée d’une vérification des conflits d’intérêts.</span></li>
-        <li><b>Un volume, pas une permanence</b><span>Le forfait réserve un volume mensuel ; la transition fixe un calendrier sur site. J’interviens en toute indépendance, sans lien hiérarchique.</span></li>
+        <li><b>Un volume, pas une permanence</b><span>Le forfait réserve un volume mensuel ; la transition fixe un calendrier convenu. J’interviens en toute indépendance, sans lien hiérarchique.</span></li>
         <li><b>Un interlocuteur, un rythme</b><span>Un référent désigné chez vous, un canal unique, un point mensuel des priorités et le relevé des diligences avec chaque facture.</span></li>
         <li><b>Un prix confirmé par écrit</b><span>Rien ne change de palier automatiquement, et aucun travail supplémentaire n’est facturé sans votre accord préalable.</span></li>
         <li><b>Vos réponses restent chez vous</b><span>Le questionnaire fonctionne dans votre navigateur. Seuls votre adresse électronique et le résumé de votre résultat me sont transmis.</span></li>
@@ -907,7 +907,7 @@ function contenu(r){
   if(r.mode==="transition"){
     var jt = r.jours;
     o.titre = "Direction juridique de transition";
-    o.sousTitre = jt+" jours par mois dans vos locaux, selon un calendrier convenu.";
+    o.sousTitre = jt+" jours par mois, selon un calendrier convenu, principalement à distance.";
     if(d.incertaine){
       o.prix.push("Selon la durée initiale retenue : de "+eur(C.prixJourTransition("des6"))+" à "+eur(C.prixJourTransition("lt3"))+" HT par jour, soit "+eur(C.mensuelTransition(jt,"des6"))+" à "+eur(C.mensuelTransition(jt,"lt3"))+" HT par mois.");
       o.scen = [["6 mois ou plus", C.prixJourTransition("des6"), C.mensuelTransition(jt,"des6"), ""],["De 3 à moins de 6 mois", C.prixJourTransition("de3a6"), C.mensuelTransition(jt,"de3a6"), ""],["Moins de 3 mois", C.prixJourTransition("lt3"), C.mensuelTransition(jt,"lt3"), ""]];
@@ -917,7 +917,7 @@ function contenu(r){
       o.prix.push(eur(C.prixJourTransition(d.tranche))+" HT par jour pour une durée initiale "+TR[d.tranche]+", soit "+eur(mt)+" HT par mois.");
       o.budget.push(d.mois ? "Budget pour "+d.mois+(d.mois===12?" mois et plus":" mois")+" : "+eur(mt*d.mois)+" HT." : "Budget : "+eur(mt)+" HT par mois, pour la durée convenue.");
     }
-    o.conditions.push("Présence sur site comprise ; frais de déplacement et d'hébergement éventuels estimés et convenus au préalable.");
+    o.conditions.push("Journées sur place comprises ; frais de déplacement et d'hébergement éventuels estimés et convenus au préalable.");
     o.conditions.push("Jours supplémentaires au tarif journalier convenu, après accord préalable.");
     o.conditions.push("Prise de fonction à convenir selon mes engagements en cours.");
     o.fin.push("En cas d'arrêt anticipé, avec un préavis d'un mois, les journées accomplies sont facturées au tarif journalier de la durée réellement exécutée. Aucune journée future non réalisée n'est facturée.");
@@ -929,7 +929,7 @@ function contenu(r){
       "presence-faible-volume": ["Proposition personnalisée","Une présence soutenue est demandée, mais la charge estimée reste inférieure aux 12 à 16 jours par mois d'une transition."+(ext?" Volume estimé : "+ext+".":"")+" Nous verrons ensemble comment organiser la présence sans facturer des journées inoccupées."],
       "presence-permanente": ["Proposition personnalisée","Votre besoin est durable et suppose une présence soutenue : c'est le profil d'un poste de juriste interne. Une transition peut tenir la fonction le temps du recrutement ; nous en verrons les conditions."],
       "entre-8-et-12": ["Proposition personnalisée","La charge estimée se situe entre 8 et 12 jours par mois : au-delà du forfait Intégré, en deçà d'une transition. Selon vos priorités, Intégré avec des dépassements accordés, ou une organisation sur mesure."],
-      "volume-eleve-a-distance": ["Proposition personnalisée","La charge estimée atteint 12 jours par mois ou plus sans présence sur site. Une transition dans vos locaux ou une organisation sur mesure seront à comparer."],
+      "volume-eleve-a-distance": ["Proposition personnalisée","La charge estimée atteint 12 jours par mois ou plus sans présence sur site. Une mission de transition ou une organisation sur mesure seront à comparer."],
       "au-dela-16": ["Proposition personnalisée","La charge estimée dépasse 16 jours par mois : elle excède ce qu'un seul intervenant peut tenir. Un recrutement, éventuellement préparé par une mission de transition, est à envisager."]
     }[r.cas];
     o.titre = T[0]; o.sousTitre = T[1];

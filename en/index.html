@@ -410,7 +410,7 @@ h1,h2,h3,h4{margin:0;font-weight:300;line-height:1.1;letter-spacing:-0.01em;text
         <p class="verse">In music, a cadence is the rhythm that carries a phrase and leads it to its resolution.</p>
       </div>
       <div class="prose">
-        <p>For a company without an in-house legal department, it is the legal time it actually needs, no more and no less: two, four or eight days a month from the firm, or twelve to sixteen days a month on your premises for the duration of a transition.</p>
+        <p>For a company without an in-house legal department, it is the legal time it actually needs, no more and no less: two, four or eight days a month from the firm, or twelve to sixteen days a month for the duration of a transition.</p>
         <p>The test measures it from concrete situations. It never asks you to choose a number of days yourself.</p>
       </div>
     </div>
@@ -437,11 +437,11 @@ h1,h2,h3,h4{margin:0;font-weight:300;line-height:1.1;letter-spacing:-0.01em;text
           <ul><li>2, 4 or 8 days per month</li><li>Initial term of six months, then continuation with one month’s notice</li><li>Monthly retainer and statement of work</li></ul>
         </article>
         <article>
-          <p class="label">On your premises</p>
+          <p class="label">To take over the function</p>
           <h3>Interim general counsel</h3>
-          <p>The work is carried out on your premises, on an agreed schedule, to take over the legal function temporarily: absence, departure, vacant position or a substantial temporary reinforcement.</p>
-          <p>It requires 12 to 16 days per month. Presence on site is included in the fees; any travel and accommodation costs are separate, estimated and agreed in advance.</p>
-          <ul><li>12 to 16 days per month</li><li>Day rate depending on the agreed initial term</li><li>Schedule and on-site organisation set in the engagement letter</li></ul>
+          <p>The engagement takes over the legal function temporarily, on an agreed schedule: absence, departure, vacant position or a substantial temporary reinforcement. It is carried out mainly remotely, with presence on your premises for meetings and the moments that require it.</p>
+          <p>It requires 12 to 16 days per month. Days on site are included in the fees; any travel and accommodation costs are separate, estimated and agreed in advance.</p>
+          <ul><li>12 to 16 days per month</li><li>Day rate depending on the agreed initial term</li><li>Schedule and organisation set in the engagement letter</li></ul>
         </article>
       </div>
     </div>
@@ -502,7 +502,7 @@ h1,h2,h3,h4{margin:0;font-weight:300;line-height:1.1;letter-spacing:-0.01em;text
           <tr><th scope="row">6 months or more</th><td><span data-p="tj:des6">€650</span></td><td><span data-p="tm:12:des6">€7,800</span> to <span data-p="tm:16:des6">€10,400</span> per month</td></tr>
         </tbody>
       </table></div>
-      <p class="cadre">The rate depends on the volume and duration agreed at the outset; merely extending an engagement does not lower it automatically. The engagement letter sets the schedule, the monthly volume and the on-site organisation; additional days are charged at the agreed day rate, with prior agreement. Any travel and accommodation costs are separate, estimated and agreed before the engagement.</p>
+      <p class="cadre">The rate depends on the volume and duration agreed at the outset; merely extending an engagement does not lower it automatically. The engagement letter sets the schedule, the monthly volume and the days on site; additional days are charged at the agreed day rate, with prior agreement. Any travel and accommodation costs are separate, estimated and agreed before the engagement.</p>
 
       <h3 class="sub-h3">Corporate secretarial service</h3>
       <div class="three one">
@@ -593,7 +593,7 @@ h1,h2,h3,h4{margin:0;font-weight:300;line-height:1.1;letter-spacing:-0.01em;text
       <ul class="eng">
         <li><b>The test is not legal advice</b><span>The result is an indicative estimate, based solely on your answers. Advice starts with the lawyer, under an engagement letter.</span></li>
         <li><b>A signed engagement letter</b><span>It sets the mode, volume, duration, scope and exclusions, response times, carry-over, additional hours and early termination terms. It is preceded by a conflict check.</span></li>
-        <li><b>A volume, not an on-call service</b><span>A plan reserves a monthly volume; the interim mode sets an on-site schedule. I work fully independently, with no reporting line.</span></li>
+        <li><b>A volume, not an on-call service</b><span>A plan reserves a monthly volume; the interim mode sets an agreed schedule. I work fully independently, with no reporting line.</span></li>
         <li><b>One contact, one rhythm</b><span>A designated contact on your side, a single channel, a monthly review of priorities and a statement of work with each invoice.</span></li>
         <li><b>A price confirmed in writing</b><span>Nothing moves to another tier automatically, and no additional work is charged without your prior agreement.</span></li>
         <li><b>Your answers stay with you</b><span>The questionnaire runs in your browser. Only your email address and the summary of your result are sent to me.</span></li>
@@ -898,7 +898,7 @@ function contenu(r){
   if(r.mode==="transition"){
     var jt = r.jours;
     o.titre = "Interim general counsel";
-    o.sousTitre = jt+" days per month on your premises, on an agreed schedule.";
+    o.sousTitre = jt+" days per month, on an agreed schedule, mainly remotely.";
     if(d.incertaine){
       o.prix.push("Depending on the initial term chosen: from "+eur(C.prixJourTransition("des6"))+" to "+eur(C.prixJourTransition("lt3"))+" excl. VAT per day, i.e. "+eur(C.mensuelTransition(jt,"des6"))+" to "+eur(C.mensuelTransition(jt,"lt3"))+" excl. VAT per month.");
       o.scen = [["6 months or more", C.prixJourTransition("des6"), C.mensuelTransition(jt,"des6"), ""],["3 to less than 6 months", C.prixJourTransition("de3a6"), C.mensuelTransition(jt,"de3a6"), ""],["Less than 3 months", C.prixJourTransition("lt3"), C.mensuelTransition(jt,"lt3"), ""]];
@@ -908,7 +908,7 @@ function contenu(r){
       o.prix.push(eur(C.prixJourTransition(d.tranche))+" excl. VAT per day for an initial term "+TR[d.tranche]+", i.e. "+eur(mt)+" excl. VAT per month.");
       o.budget.push(d.mois ? "Budget for "+d.mois+(d.mois===12?" months or more":" months")+": "+eur(mt*d.mois)+" excl. VAT." : "Budget: "+eur(mt)+" excl. VAT per month, for the agreed duration.");
     }
-    o.conditions.push("Presence on site included; any travel and accommodation costs estimated and agreed in advance.");
+    o.conditions.push("Days on site included; any travel and accommodation costs estimated and agreed in advance.");
     o.conditions.push("Additional days at the agreed day rate, with prior agreement.");
     o.conditions.push("Start date to be agreed in light of my existing commitments.");
     o.fin.push("If the engagement ends early, with one month's notice, the days worked are charged at the day rate for the period actually completed. No future day not worked is charged.");
@@ -920,7 +920,7 @@ function contenu(r){
       "presence-faible-volume": ["Personalised proposal","A sustained presence is requested, but the estimated workload remains below the 12 to 16 days per month of an interim engagement."+(ext?" Estimated volume: "+ext+".":"")+" We will look together at how to organise the presence without charging for idle days."],
       "presence-permanente": ["Personalised proposal","Your need is lasting and requires a sustained presence: that is the profile of an in-house lawyer. An interim engagement can hold the function during recruitment; we will discuss the terms."],
       "entre-8-et-12": ["Personalised proposal","The estimated workload lies between 8 and 12 days per month: above the Intégré plan, below an interim engagement. Depending on your priorities, Intégré with agreed additional hours, or a tailored arrangement."],
-      "volume-eleve-a-distance": ["Personalised proposal","The estimated workload reaches 12 days per month or more without presence on site. An interim engagement on your premises or a tailored arrangement should be compared."],
+      "volume-eleve-a-distance": ["Personalised proposal","The estimated workload reaches 12 days per month or more without presence on site. An interim engagement or a tailored arrangement should be compared."],
       "au-dela-16": ["Personalised proposal","The estimated workload exceeds 16 days per month: more than a single person can hold. A recruitment, possibly prepared by an interim engagement, should be considered."]
     }[r.cas];
     o.titre = T[0]; o.sousTitre = T[1];
