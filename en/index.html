@@ -477,7 +477,7 @@ h1,h2,h3,h4{margin:0;font-weight:300;line-height:1.1;letter-spacing:-0.01em;text
 
       <div class="note" id="fin-anticipee">
         <h4>Term and early termination</h4>
-        <p>The plans carry a rate linked to an initial term of six months. If you end the engagement before that term, other than for a failure on the firm’s part, the work actually performed is recalculated at the firm’s usual hourly rate of <span data-p="taux">€150</span> excl. VAT, in place of the plan and after deduction of the sums already paid, capped at the published price of a shorter commitment of the same volume for the period actually completed. This may result in a top-up or a refund. No future monthly instalment is charged. The terms are set out in the engagement letter, which alone makes them applicable. <a href="#faq-fin">Examples</a></p>
+        <p>The plans are priced for an initial term of six months. If the engagement ends early, other than for a failure on the firm’s part, the rate for the period actually completed applies. For example, an Essentiel plan ended after one month is charged at the “less than 3 months” rate: <span data-p="m:2:lt3">€1,800</span> excl. VAT instead of <span data-p="m:2:des6">€1,500</span>, i.e. a €300 top-up. No future monthly instalment is due. <a href="#faq-fin">Details</a></p>
       </div>
 
       <h3 class="sub-h3">Shorter commitments</h3>
@@ -533,14 +533,13 @@ h1,h2,h3,h4{margin:0;font-weight:300;line-height:1.1;letter-spacing:-0.01em;text
         <details id="faq-fin">
           <summary>What happens if I end a plan before six months?</summary>
           <div>
-            <p>You may end the engagement at any time. As the plan rate is linked to an initial term of six months, the work actually performed since the start is then recalculated at the firm’s usual hourly rate of <span data-p="taux">€150</span> excl. VAT, which is also the rate for additional hours: the plan rate is a discount granted in return for the initial term. This calculation replaces the plan. It is capped, however, at the published price of a shorter commitment of the same volume for the period actually completed: you never pay more than if you had chosen that commitment from the start. Additional hours agreed remain payable on top. All sums already paid are deducted in full; additional hours already invoiced are not counted twice. Depending on the case, you receive a top-up invoice or a refund. No future monthly instalment is charged.</p>
-            <p>Only hours actually worked and shown in the statement of work count: hours reserved or carried over but not used are not charged. This rule does not apply if the interruption results from a failure on the firm’s part or is at its initiative.</p>
-            <p><b>Two examples, Essentiel plan, ended after one month, €1,500 excl. VAT paid:</b></p>
+            <p>You may end the engagement at any time. As the plan rate is linked to an initial term of six months, early termination triggers the published rate for the period actually completed: that of commitments of less than 3 months, or of 3 to less than 6 months. The difference from the sums already paid is invoiced; no future monthly instalment is due.</p>
+            <p><b>Examples, Essentiel plan:</b></p>
             <ul>
-              <li>14 hours worked: 14 × €150 = €2,100 excl. VAT, capped at the price of one month of a shorter commitment, €1,800 excl. VAT, i.e. €300 excl. VAT top-up.</li>
-              <li>5 hours worked: 5 × €150 = €750 excl. VAT, i.e. €750 excl. VAT refunded.</li>
+              <li>Ended after one month: “less than 3 months” rate, €1,800 excl. VAT instead of €1,500, i.e. a €300 excl. VAT top-up.</li>
+              <li>Ended after four months: “3 to less than 6 months” rate, 4 × €1,650 = €6,600 excl. VAT instead of €6,000, i.e. a €600 excl. VAT top-up.</li>
             </ul>
-            <p>This information does not replace the engagement letter: the mechanism applies only if it has been accepted there, and remains subject to the rules governing lawyers’ fees and their review.</p>
+            <p>Additional hours agreed and already invoiced are not affected. This rule does not apply if the termination results from a failure on the firm’s part or is at its initiative. It is set out in the engagement letter, which alone makes it applicable.</p>
           </div>
         </details>
         <details>
@@ -557,7 +556,7 @@ h1,h2,h3,h4{margin:0;font-weight:300;line-height:1.1;letter-spacing:-0.01em;text
         </details>
         <details>
           <summary>Does the interim mode work the same way?</summary>
-          <div><p>No. The interim mode is based on a day rate set according to the agreed initial term, for 12 to 16 days per month on site. The three-hour carry-over and the hourly recalculation of the plans do not apply. The engagement letter sets the duration, the schedule and the terms of early termination; no future day not worked is charged automatically. A start date is agreed in light of my existing commitments: I tell you the possible date in our first conversation.</p></div>
+          <div><p>No. The interim mode is based on a day rate set according to the agreed initial term, for 12 to 16 days per month on site. The three-hour carry-over does not apply. If the engagement ends early, the days worked are charged at the day rate for the period actually completed; no future day not worked is charged. A start date is agreed in light of my existing commitments: I tell you the possible date in our first conversation.</p></div>
         </details>
         <details>
           <summary>Can you work on our premises under a plan?</summary>
@@ -767,7 +766,7 @@ function intro(){
   idx = -1;
   box.innerHTML =
     '<p class="label">Before you start</p>'+
-    '<h3 class="qtitle">'+esc("Answer for the company as it is today, not as it should be.")+'</h3>'+
+    '<h3 class="qtitle">'+esc("Answer based on what you experience today: workload, urgent matters, organisation.")+'</h3>'+
     '<p class="qhint">'+esc("Your answers stay in your browser. At the end, you are asked for your email address to display your result; only that address and the summary of the result are sent to me, never your answers.")+'</p>'+
     '<div class="dnav" style="justify-content:flex-start"><button class="btn btn-ink" type="button" id="start">Start the test</button></div>'+
     '<p class="notice">'+esc("The result is an estimate generated automatically from your answers alone, without verification or review of documents. It is neither legal advice nor a contractual offer, and creates no relationship between you and the firm.")+'</p>';
@@ -889,8 +888,8 @@ function contenu(r){
     o.conditions.push("Carry-over of at most three unused hours, to the following month only.");
     o.conditions.push("Additional hours at "+eur(C.TARIFS.tauxHoraire)+" excl. VAT per hour, after an estimate and prior agreement, subject to availability.");
     if(d.incertaine || d.tranche==="des6"){
-      o.fin.push("The plan carries a rate linked to an initial term of six months. If you end the engagement before that term, other than for a failure on the firm's part, the work actually performed is recalculated at the firm's usual hourly rate of "+eur(C.TARIFS.tauxHoraire)+" excl. VAT, in place of the plan and after deduction of the sums already paid, capped at the published price of a shorter commitment of the same volume for the period actually completed.");
-      o.fin.push("This may result in a top-up or a refund. No future monthly instalment is charged. Example, "+NOMS[2]+" ended after one month with "+eur(C.mensuelExt(2,"des6"))+" paid: 14 hours worked give a top-up of "+eur(C.recalculDepart(14,C.mensuelExt(2,"des6"),2,1).solde)+" excl. VAT; 5 hours give a refund of "+eur(-C.recalculDepart(5,C.mensuelExt(2,"des6"),2,1).solde)+" excl. VAT.");
+      o.fin.push("The plan is priced for an initial term of six months. If the engagement ends early, other than for a failure on the firm's part, the rate for the period actually completed applies, and the difference from the sums paid is invoiced. No future monthly instalment is due.");
+      o.fin.push("Example: "+NOMS[j]+" ended after one month, “less than 3 months” rate: "+eur(C.mensuelExt(j,"lt3"))+" excl. VAT instead of "+eur(C.mensuelExt(j,"des6"))+", i.e. a top-up of "+eur(C.recalculDepart(j,1,C.mensuelExt(j,"des6")).solde)+" excl. VAT.");
       o.fin.push("After six months: continuation at the same rate, one month's notice. The terms are set out in the engagement letter.");
     } else {
       o.fin.push("The engagement letter sets the duration and the volume; any extension or change of price is agreed in writing.");
@@ -912,7 +911,7 @@ function contenu(r){
     o.conditions.push("Presence on site included; any travel and accommodation costs estimated and agreed in advance.");
     o.conditions.push("Additional days at the agreed day rate, with prior agreement.");
     o.conditions.push("Start date to be agreed in light of my existing commitments.");
-    o.fin.push("The engagement letter sets the duration, the schedule and the terms of early termination. No future day not worked is charged automatically.");
+    o.fin.push("If the engagement ends early, the days worked are charged at the day rate for the period actually completed. No future day not worked is charged.");
   }
   if(r.mode==="personnalise"){
     var ext = r.jours ? NOMS[r.jours]+" ("+r.jours+" days, "+C.heures(r.jours)+" hours per month, from "+eur(C.mensuelExt(r.jours,"des6"))+" excl. VAT per month over six months)" : null;

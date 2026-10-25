@@ -8,7 +8,7 @@
     version: "2026-10-25",
     heuresParJour: 7,
     plancherJour: 650,            // aucun tarif journalier en dessous
-    tauxHoraire: 150,             // taux horaire habituel du cabinet : dépassements et recalcul en cas de départ anticipé
+    tauxHoraire: 150,             // taux horaire habituel du cabinet : dépassements accordés
     reportMaxHeures: 3,           // heures non consommées reportables sur le mois suivant uniquement
     dureeInitialeForfaits: 6,     // mois
     preavisMois: 1,
@@ -38,22 +38,16 @@
   function prixJourTransition(tr) { return TARIFS.transition[tr]; }
   function mensuelTransition(jours, tr) { return jours * prixJourTransition(tr); }
 
-  /* ---------- Départ anticipé d'un forfait externalisé de six mois (mécanisme proposé, à faire accepter dans la convention) ----------
-     heuresForfait : diligences effectivement accomplies et justifiables depuis le début, hors dépassements accordés ;
-     sommesRecues : provisions mensuelles et factures de dépassement déjà réglées ;
-     jours, moisCommences : volume du forfait et durée réellement exécutée, en mois (2,5 = deux mois et demi : tarif « moins de 3 mois », trois mois commencés) ;
-     heuresDepassement : dépassements accordés par écrit, déjà facturés au même taux (hors plafond).
-     Recalcul au taux horaire habituel, plafonné au prix de l'engagement court de même volume pour la durée
-     réellement exécutée (décision du 25 octobre 2026). Les dépassements figurent des deux côtés : aucun double compte.
-     Résultat positif : complément à facturer ; négatif : somme à restituer. Aucune mensualité future n'est ajoutée. */
-  function recalculDepart(heuresForfait, sommesRecues, jours, moisCommences, heuresDepassement) {
-    var t = TARIFS.tauxHoraire, m = Math.max(1, Math.ceil(moisCommences || 1));
-    var horaire = heuresForfait * t;
-    var plafond = mensuelExt(jours, tranche(moisCommences || 1)) * m;   // tarif selon la durée réellement exécutée, sur les mois commencés
-    var du = Math.min(horaire, plafond) + (heuresDepassement || 0) * t;
-    return { horaire: horaire, plafond: plafond, du: du, recu: sommesRecues, solde: Math.round((du - sommesRecues) * 100) / 100 };
+  /* ---------- Arrêt anticipé d'un forfait externalisé de six mois (règle retenue le 25 octobre 2026) ----------
+     Le tarif publié pour la durée réellement exécutée s'applique (moins de 3 mois, ou de 3 à moins de 6 mois),
+     sur les mois commencés ; la différence avec les provisions réglées est facturée. Les dépassements accordés,
+     facturés à part, ne sont pas concernés. Aucune mensualité future n'est ajoutée. */
+  function recalculDepart(jours, moisExecutes, provisionsRecues) {
+    var m = Math.max(1, Math.ceil(moisExecutes || 1));
+    var du = mensuelExt(jours, tranche(moisExecutes || 1)) * m;
+    return { du: du, recu: provisionsRecues, solde: du - provisionsRecues };
   }
-  /* Transition : recalcul proposé des journées accomplies au tarif de la durée réellement exécutée (à valider). */
+  /* Transition : journées accomplies facturées au tarif de la durée réellement exécutée (règle retenue le 25 octobre 2026). */
   function recalculTransition(joursAccomplis, moisExecutes, sommesRecues) {
     var du = joursAccomplis * prixJourTransition(tranche(moisExecutes));
     return { du: du, recu: sommesRecues, solde: du - sommesRecues };
