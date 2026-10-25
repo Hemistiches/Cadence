@@ -39,13 +39,19 @@
   function mensuelTransition(jours, tr) { return jours * prixJourTransition(tr); }
 
   /* ---------- Départ anticipé d'un forfait externalisé de six mois (mécanisme proposé, à faire accepter dans la convention) ----------
-     heuresTravaillees : diligences effectivement accomplies et justifiables depuis le début, dépassements compris ;
-     sommesRecues : provisions mensuelles et factures de dépassement déjà réglées.
-     Les dépassements déjà facturés le sont au même taux : les inclure des deux côtés évite tout double compte.
+     heuresForfait : diligences effectivement accomplies et justifiables depuis le début, hors dépassements accordés ;
+     sommesRecues : provisions mensuelles et factures de dépassement déjà réglées ;
+     jours, moisCommences : volume du forfait et durée réellement exécutée, en mois (2,5 = deux mois et demi : tarif « moins de 3 mois », trois mois commencés) ;
+     heuresDepassement : dépassements accordés par écrit, déjà facturés au même taux (hors plafond).
+     Recalcul au taux horaire habituel, plafonné au prix de l'engagement court de même volume pour la durée
+     réellement exécutée (décision du 25 octobre 2026). Les dépassements figurent des deux côtés : aucun double compte.
      Résultat positif : complément à facturer ; négatif : somme à restituer. Aucune mensualité future n'est ajoutée. */
-  function recalculDepart(heuresTravaillees, sommesRecues) {
-    var du = Math.round(heuresTravaillees * TARIFS.tauxHoraire * 100) / 100;
-    return { du: du, recu: sommesRecues, solde: Math.round((du - sommesRecues) * 100) / 100 };
+  function recalculDepart(heuresForfait, sommesRecues, jours, moisCommences, heuresDepassement) {
+    var t = TARIFS.tauxHoraire, m = Math.max(1, Math.ceil(moisCommences || 1));
+    var horaire = heuresForfait * t;
+    var plafond = mensuelExt(jours, tranche(moisCommences || 1)) * m;   // tarif selon la durée réellement exécutée, sur les mois commencés
+    var du = Math.min(horaire, plafond) + (heuresDepassement || 0) * t;
+    return { horaire: horaire, plafond: plafond, du: du, recu: sommesRecues, solde: Math.round((du - sommesRecues) * 100) / 100 };
   }
   /* Transition : recalcul proposé des journées accomplies au tarif de la durée réellement exécutée (à valider). */
   function recalculTransition(joursAccomplis, moisExecutes, sommesRecues) {

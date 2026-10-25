@@ -477,7 +477,7 @@ h1,h2,h3,h4{margin:0;font-weight:300;line-height:1.1;letter-spacing:-0.01em;text
 
       <div class="note" id="fin-anticipee">
         <h4>Durée et fin anticipée</h4>
-        <p>Les forfaits bénéficient d’un tarif lié à une durée initiale de six mois. Si vous mettez fin à la mission avant ce terme, hors manquement du cabinet, les diligences effectivement réalisées sont recalculées au taux horaire habituel du cabinet, <span data-p="taux">150 €</span> HT, en remplacement du forfait et après déduction des sommes déjà réglées. Ce décompte peut donner lieu à un complément ou à une restitution. Aucune mensualité future n’est exigée. Les modalités figurent dans la convention d’honoraires, qui seule les rend applicables. <a href="#faq-fin">Exemples</a></p>
+        <p>Les forfaits bénéficient d’un tarif lié à une durée initiale de six mois. Si vous mettez fin à la mission avant ce terme, hors manquement du cabinet, les diligences effectivement réalisées sont recalculées au taux horaire habituel du cabinet, <span data-p="taux">150 €</span> HT, en remplacement du forfait et après déduction des sommes déjà réglées, sans pouvoir dépasser le prix publié d’un engagement court de même volume pour la durée réellement exécutée. Ce décompte peut donner lieu à un complément ou à une restitution. Aucune mensualité future n’est exigée. Les modalités figurent dans la convention d’honoraires, qui seule les rend applicables. <a href="#faq-fin">Exemples</a></p>
       </div>
 
       <h3 class="sub-h3">Engagements plus courts</h3>
@@ -533,11 +533,11 @@ h1,h2,h3,h4{margin:0;font-weight:300;line-height:1.1;letter-spacing:-0.01em;text
         <details id="faq-fin">
           <summary>Que se passe-t-il si je mets fin à un forfait avant six mois ?</summary>
           <div>
-            <p>Vous pouvez mettre fin à la mission à tout moment. Le tarif du forfait étant lié à une durée initiale de six mois, les diligences effectivement réalisées depuis le début sont alors recalculées au taux horaire habituel du cabinet, <span data-p="taux">150 €</span> HT, qui est aussi celui des dépassements : le tarif du forfait est une remise consentie en contrepartie de la durée initiale. Ce décompte remplace le forfait. Les sommes déjà réglées sont déduites intégralement ; les dépassements déjà facturés ne sont pas comptés deux fois. Selon le cas, vous recevez une facture complémentaire ou une restitution. Aucune mensualité future n’est exigée.</p>
+            <p>Vous pouvez mettre fin à la mission à tout moment. Le tarif du forfait étant lié à une durée initiale de six mois, les diligences effectivement réalisées depuis le début sont alors recalculées au taux horaire habituel du cabinet, <span data-p="taux">150 €</span> HT, qui est aussi celui des dépassements : le tarif du forfait est une remise consentie en contrepartie de la durée initiale. Ce décompte remplace le forfait. Il ne peut toutefois dépasser le prix publié d’un engagement court de même volume pour la durée réellement exécutée : vous ne payez jamais plus que si vous aviez choisi cet engagement dès le départ. Les dépassements accordés restent dus en sus. Les sommes déjà réglées sont déduites intégralement ; les dépassements déjà facturés ne sont pas comptés deux fois. Selon le cas, vous recevez une facture complémentaire ou une restitution. Aucune mensualité future n’est exigée.</p>
             <p>Seules comptent les heures réellement travaillées et justifiées par le relevé des diligences : les heures réservées ou reportées mais non utilisées ne sont pas facturées. Cette règle ne s’applique pas si l’interruption tient à un manquement du cabinet ou intervient à son initiative.</p>
             <p><b>Deux exemples, forfait Essentiel, fin après un mois, 1 500 € HT réglés :</b></p>
             <ul>
-              <li>14 heures travaillées : 14 × 150 € = 2 100 € HT, soit 600 € HT à compléter.</li>
+              <li>14 heures travaillées : 14 × 150 € = 2 100 € HT, ramenés au prix d’un mois d’engagement court, 1 800 € HT, soit 300 € HT à compléter.</li>
               <li>5 heures travaillées : 5 × 150 € = 750 € HT, soit 750 € HT à restituer.</li>
             </ul>
             <p>La présente information ne remplace pas la convention d’honoraires : le mécanisme ne s’applique que s’il y a été accepté, et reste soumis aux règles qui encadrent les honoraires d’avocat et à leur contrôle.</p>
@@ -898,8 +898,8 @@ function contenu(r){
     o.conditions.push("Report de trois heures non consommées au plus, sur le mois suivant uniquement.");
     o.conditions.push("Dépassements à "+eur(C.TARIFS.tauxHoraire)+" HT de l'heure, après estimation et accord préalable, sous réserve de disponibilité.");
     if(d.incertaine || d.tranche==="des6"){
-      o.fin.push("Le forfait bénéficie d'un tarif lié à une durée initiale de six mois. Si vous mettez fin à la mission avant ce terme, hors manquement du cabinet, les diligences effectivement réalisées sont recalculées au taux horaire habituel du cabinet, "+eur(C.TARIFS.tauxHoraire)+" HT, en remplacement du forfait et après déduction des sommes déjà réglées.");
-      o.fin.push("Ce décompte peut donner lieu à un complément ou à une restitution. Aucune mensualité future n'est exigée. Exemple, "+NOMS[2]+" arrêté après un mois et "+eur(C.mensuelExt(2,"des6"))+" réglés : 14 heures travaillées donnent "+eur(C.recalculDepart(14,C.mensuelExt(2,"des6")).solde)+" HT à compléter ; 5 heures donnent "+eur(-C.recalculDepart(5,C.mensuelExt(2,"des6")).solde)+" HT à restituer.");
+      o.fin.push("Le forfait bénéficie d'un tarif lié à une durée initiale de six mois. Si vous mettez fin à la mission avant ce terme, hors manquement du cabinet, les diligences effectivement réalisées sont recalculées au taux horaire habituel du cabinet, "+eur(C.TARIFS.tauxHoraire)+" HT, en remplacement du forfait et après déduction des sommes déjà réglées, sans dépasser le prix publié d'un engagement court de même volume pour la durée réellement exécutée.");
+      o.fin.push("Ce décompte peut donner lieu à un complément ou à une restitution. Aucune mensualité future n'est exigée. Exemple, "+NOMS[2]+" arrêté après un mois et "+eur(C.mensuelExt(2,"des6"))+" réglés : 14 heures travaillées donnent "+eur(C.recalculDepart(14,C.mensuelExt(2,"des6"),2,1).solde)+" HT à compléter ; 5 heures donnent "+eur(-C.recalculDepart(5,C.mensuelExt(2,"des6"),2,1).solde)+" HT à restituer.");
       o.fin.push("Après six mois : poursuite au même tarif, préavis d'un mois. Les modalités figurent dans la convention d'honoraires.");
     } else {
       o.fin.push("La convention fixe la durée et le volume ; toute prolongation ou modification tarifaire se convient par écrit.");
