@@ -6,17 +6,20 @@
 <title>Cadence par Hémistiches</title>
 <meta name="theme-color" content="#000000">
 <meta property="og:title" content="Cadence, par Hémistiches">
-<meta property="og:description" content="Le test de la direction juridique externalisée : onze questions, et la cadence juridique dont votre entreprise a besoin, avec son prix.">
+<meta property="og:description" content="Direction juridique externalisée ou de transition : le test donne le mode, le volume mensuel et la durée adaptés, avec une estimation personnalisée.">
 <meta property="og:type" content="website">
+<meta property="og:url" content="https://cadence.hemistiches.com/">
 <meta property="og:locale" content="fr_FR">
 <meta property="og:locale:alternate" content="en_GB">
+<link rel="canonical" href="https://cadence.hemistiches.com/">
 <link rel="alternate" hreflang="fr" href="https://cadence.hemistiches.com/">
 <link rel="alternate" hreflang="en" href="https://cadence.hemistiches.com/en/">
 <link rel="alternate" hreflang="x-default" href="https://cadence.hemistiches.com/">
-<link rel="icon" href="favicon.ico" sizes="any">
-<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
-<link rel="apple-touch-icon" href="apple-touch-icon.png">
-<meta name="description" content="Cadence, par Hémistiches : le test de la direction juridique externalisée. Onze questions, et la cadence juridique dont votre entreprise a besoin, en jours par mois, avec son prix.">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta name="description" content="Cadence, par Hémistiches : direction juridique externalisée (2, 4 ou 8 jours par mois) ou de transition (12 à 16 jours par mois sur site). Un test de quelques questions concrètes donne le mode, le volume et la durée adaptés, avec une estimation personnalisée à confirmer.">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LegalService", "name": "Cadence, par Hémistiches", "url": "https://cadence.hemistiches.com/", "inLanguage": "fr", "description": "Cadence, par Hémistiches : direction juridique externalisée (2, 4 ou 8 jours par mois) ou de transition (12 à 16 jours par mois sur site). Un test de quelques questions concrètes donne le mode, le volume et la durée adaptés, avec une estimation personnalisée à confirmer.", "provider": {"@type": "Attorney", "name": "François Césure", "url": "https://www.hemistiches.com", "address": {"@type": "PostalAddress", "streetAddress": "33, avenue Mac-Mahon", "postalCode": "75017", "addressLocality": "Paris", "addressCountry": "FR"}, "telephone": "+33647888025", "email": "francois.cesure@hemistiches.com"}, "areaServed": "FR", "priceRange": "€€", "hasOfferCatalog": {"@type": "OfferCatalog", "name": "Tarifs HT", "itemListElement": [{"@type": "Offer", "name": "Essentiel", "description": "Direction juridique externalisée, 2 jours (14 heures) par mois, durée initiale de six mois", "priceSpecification": {"@type": "UnitPriceSpecification", "price": 1500, "priceCurrency": "EUR", "unitText": "MON", "valueAddedTaxIncluded": false}}, {"@type": "Offer", "name": "Régulier", "description": "Direction juridique externalisée, 4 jours (28 heures) par mois, durée initiale de six mois", "priceSpecification": {"@type": "UnitPriceSpecification", "price": 2900, "priceCurrency": "EUR", "unitText": "MON", "valueAddedTaxIncluded": false}}, {"@type": "Offer", "name": "Intégré", "description": "Direction juridique externalisée, 8 jours (56 heures) par mois, durée initiale de six mois", "priceSpecification": {"@type": "UnitPriceSpecification", "price": 5600, "priceCurrency": "EUR", "unitText": "MON", "valueAddedTaxIncluded": false}}, {"@type": "Offer", "name": "Direction juridique de transition", "description": "12 à 16 jours par mois sur site ; tarif journalier de 800 à 650 € HT selon la durée initiale convenue", "priceSpecification": {"@type": "UnitPriceSpecification", "minPrice": 650, "maxPrice": 800, "priceCurrency": "EUR", "unitText": "DAY", "valueAddedTaxIncluded": false}}]}}</script>
 <style>
 /* Charte reprise de hemistiches.com : noir et blanc, Avenir Next léger, filets plutôt que cartes, angles droits, césure verticale. */
 :root{
@@ -285,6 +288,63 @@ h1,h2,h3,h4{margin:0;font-weight:300;line-height:1.1;letter-spacing:-0.01em;text
   .contact .btn{width:100%}
   .foot{flex-direction:column;align-items:flex-start}
 }
+/* ---- Refonte 2026-10-25 : deux modes, tableaux, encadré, règles, FAQ ---- */
+.modes-s{padding-block:clamp(72px,9vw,120px);border-top:1px solid var(--rule)}
+.two{margin-top:clamp(36px,4.5vw,64px);display:grid;grid-template-columns:repeat(2,minmax(0,1fr));border-top:1px solid var(--ink)}
+.two article{padding:clamp(24px,3vw,40px) clamp(24px,3vw,48px) 0 0;display:flex;flex-direction:column;gap:14px;min-width:0}
+.two article + article{padding-left:clamp(24px,3vw,48px);border-left:1px solid var(--ink)}
+.two h3{font-size:clamp(22px,2vw,28px);font-weight:400}
+.two .label{margin-bottom:0}
+.two p{font-size:clamp(15px,1.25vw,17px);color:var(--ink-2);max-width:56ch}
+.two ul{list-style:none;margin:6px 0 0;padding:0;border-top:1px solid var(--rule)}
+.two li{padding:10px 0;border-bottom:1px solid var(--rule);font-size:15px;color:var(--ink-2)}
+.sub-h3{font-size:clamp(20px,1.8vw,26px);font-weight:400;margin-top:clamp(56px,7vw,96px)}
+.sub-h3 + .three,.sub-h3 + .tbl-wrap{margin-top:22px}
+.three.one{grid-template-columns:minmax(0,1fr)}
+.three.one p{max-width:70ch}
+.note{margin-top:clamp(28px,3.5vw,40px);border-left:2px solid var(--ink);padding:4px 0 4px clamp(16px,2vw,24px);max-width:78ch}
+.note h4{font-family:var(--font);font-weight:400;font-size:clamp(17px,1.4vw,19px);margin:0 0 6px}
+.note p{font-size:15px;color:var(--ink-2);margin:0}
+.note p + p{margin-top:10px}
+.note a{color:inherit}
+.tbl-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin-top:16px}
+.tbl{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums;font-size:15px;min-width:420px}
+.tbl caption{text-align:left;font-size:14px;color:var(--mute);padding-bottom:10px;caption-side:top}
+.tbl th,.tbl td{text-align:left;padding:12px 16px 12px 0;border-bottom:1px solid var(--rule);font-weight:400;vertical-align:top}
+.tbl thead th{border-bottom:1px solid var(--ink);color:var(--mute);font-size:14px}
+.tbl tbody th{color:var(--ink)}
+.tbl td{color:var(--ink-2)}
+.rules{list-style:none;margin:22px 0 0;padding:0;border-top:1px solid var(--ink);display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:clamp(24px,3vw,48px)}
+.rules li{padding:18px 0;border-bottom:1px solid var(--rule);min-width:0}
+.rules b{display:block;font-weight:400;font-size:clamp(17px,1.4vw,19px)}
+.rules > li > span{display:block;font-size:15px;color:var(--ink-2);margin-top:4px}
+.rules a{color:inherit}
+.faq-s{padding-block:clamp(72px,9vw,120px)}
+.faq{margin-top:clamp(28px,3.5vw,48px);border-top:1px solid var(--ink);max-width:900px}
+.faq details{border-bottom:1px solid var(--rule)}
+.faq summary{cursor:pointer;list-style:none;padding:18px 32px 18px 0;position:relative;font-size:clamp(17px,1.4vw,20px)}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";position:absolute;right:4px;top:16px;font-weight:300;font-size:22px;line-height:1}
+.faq details[open] summary::after{content:"–"}
+.faq summary:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
+.faq details > div{padding:0 0 20px;font-size:16px;color:var(--ink-2);max-width:70ch}
+.faq details > div p + p,.faq details > div ul{margin-top:10px}
+.faq ul{padding-left:20px}
+.rsec .note{margin-top:12px}
+.rsec .tbl-wrap{margin-top:14px}
+.rsec .tbl{min-width:0;font-size:14px}
+.rsec .tbl th,.rsec .tbl td{padding-right:10px}
+@media (max-width:860px){
+  .two{grid-template-columns:minmax(0,1fr)}
+  .two article{padding:28px 0}
+  .two article + article{padding-left:0;border-left:0;border-top:1px solid var(--ink)}
+  .rules{grid-template-columns:minmax(0,1fr)}
+}
+@media print{
+  .modes-s,.faq-s{display:none!important}
+  .tbl{min-width:0}
+  .note{break-inside:avoid}
+}
 </style>
 </head>
 <body>
@@ -295,9 +355,9 @@ h1,h2,h3,h4{margin:0;font-weight:300;line-height:1.1;letter-spacing:-0.01em;text
     <a class="brand" href="#top" data-view="home" aria-label="Cadence, par Hémistiches, accueil"><img src="data:image/png;base64,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" alt="Hémistiches." width="181" height="30"><i class="sep" aria-hidden="true"></i><span>Cadence</span></a>
     <div class="right">
     <nav class="nav" aria-label="Navigation principale">
-      <a href="#fonction">La fonction</a>
-      <a href="#formules">Formules</a>
-      <a href="#cadre">Le cadre</a>
+      <a href="#modes">Deux modes</a>
+      <a href="#formules">Tarifs</a>
+      <a href="#faq">Questions</a>
       <a class="cta" href="#test">Faire le test</a>
     </nav>
     <a class="lang" href="/en/" hreflang="en" lang="en" aria-label="English version">EN</a>
@@ -316,10 +376,10 @@ h1,h2,h3,h4{margin:0;font-weight:300;line-height:1.1;letter-spacing:-0.01em;text
     </button>
   </div>
   <nav aria-label="Navigation mobile">
-    <a href="#fonction">La fonction</a>
     <a href="#test">Faire le test</a>
-    <a href="#formules">Formules</a>
-    <a href="#cadre">Le cadre</a>
+    <a href="#modes">Deux modes</a>
+    <a href="#formules">Tarifs</a>
+    <a href="#faq">Questions</a>
     <a href="#contact">Échanger</a>
   </nav>
   <div class="drawer-contact">
@@ -332,14 +392,14 @@ h1,h2,h3,h4{margin:0;font-weight:300;line-height:1.1;letter-spacing:-0.01em;text
  <div id="home">
   <section class="hero" id="top" aria-labelledby="titre">
     <div class="wrap">
-      <p class="who"><strong>Cadence</strong><span>Direction juridique externalisée, par Hémistiches</span></p>
-      <h1 id="titre">Pour votre direction juridique externalisée<span class="cesure" aria-hidden="true"></span> Hémistiches crée la cadence</h1>
-      <p class="lede">Faites le test de vos besoins. Onze questions sur ce que fait une direction juridique, et votre résultat en jours par mois, avec son prix.</p>
+      <p class="who"><strong>Cadence</strong><span>Direction juridique externalisée et de transition, par Hémistiches</span></p>
+      <h1 id="titre">Pour votre direction juridique<span class="cesure" aria-hidden="true"></span> Hémistiches crée la cadence</h1>
+      <p class="lede">Faites le test de vos besoins. En quelques questions concrètes, vous obtenez le mode d’intervention, le volume mensuel et la durée qui conviennent à votre entreprise, avec une estimation personnalisée à confirmer ensemble.</p>
       <div class="actions">
         <a class="btn btn-light" href="#test">Faire le test</a>
-        <a class="link-quiet" href="#formules">Voir les formules</a>
+        <a class="link-quiet" href="#formules">Voir les tarifs</a>
       </div>
-      <p class="facts"><span>Quatre minutes</span><span>Gratuit</span><span>Vos réponses restent dans votre navigateur</span><span>Prix hors taxes</span></p>
+      <p class="facts"><span>Cinq minutes</span><span>Gratuit</span><span>Vos réponses restent dans votre navigateur</span><span>Prix hors taxes</span></p>
     </div>
   </section>
 
@@ -350,63 +410,164 @@ h1,h2,h3,h4{margin:0;font-weight:300;line-height:1.1;letter-spacing:-0.01em;text
         <p class="verse">En musique, la cadence est le rythme qui porte une phrase et la conduit à sa résolution.</p>
       </div>
       <div class="prose">
-        <p>Pour une entreprise sans direction juridique, c’est le temps juridique dont elle a réellement besoin, ni plus ni moins : deux jours par mois, un jour par semaine, deux jours par semaine.</p>
-        <p>Le test le mesure. Il ne vous demande pas si vous avez besoin d’un juriste. Il regarde ce qu’une direction juridique fait, et ce qui, chez vous, n’est fait par personne.</p>
+        <p>Pour une entreprise sans direction juridique, c’est le temps juridique dont elle a réellement besoin, ni plus ni moins : deux, quatre ou huit jours par mois depuis le cabinet, ou douze à seize jours par mois dans vos locaux le temps d’une transition.</p>
+        <p>Le test le mesure à partir de situations concrètes. Il ne vous demande pas de fixer vous-même un nombre de jours.</p>
       </div>
-    </div>
-  </section>
-
-  <section class="fonction-s" id="fonction" aria-labelledby="t-fct">
-    <div class="wrap">
-      <h2 class="sec-h2" id="t-fct">Ce que fait une direction juridique</h2>
-      <p class="intro">Une PME n’a pas besoin d’un juriste à temps plein. Elle a besoin que chacune de ces neuf fonctions soit tenue. Le test les passe toutes en revue.</p>
-      <ul class="fonctions">
-        <li><b>Contrats</b><span>Relire, négocier, sécuriser ce que vous signez, à partir de conditions générales à jour.</span></li>
-        <li><b>Vie sociale</b><span>Approbation des comptes, registres, opérations sur le capital.</span></li>
-        <li><b>Réglementation et échéances</b><span>Suivre les textes de votre secteur et les nouvelles obligations avant qu’elles ne s’appliquent.</span></li>
-        <li><b>Protection des données</b><span>Registre, demandes d’accès, délégué.</span></li>
-        <li><b>Précontentieux</b><span>Piloter les différends dès le premier courrier.</span></li>
-        <li><b>Conseils externes</b><span>Choisir les avocats, cadrer leurs honoraires.</span></li>
-        <li><b>Propriété intellectuelle</b><span>Marques déposées, droits sur ce que créent vos équipes et vos prestataires.</span></li>
-        <li><b>Risques et assurances</b><span>Vérifier que la police couvre ce que vous signez.</span></li>
-        <li><b>Délégations</b><span>Ce que vos équipes peuvent accepter seules.</span></li>
-      </ul>
     </div>
   </section>
 
   <section class="test-s" id="test" aria-labelledby="t-test">
     <div class="wrap">
-      <h2 class="sec-h2" id="t-test">Quelle cadence pour votre fonction juridique ?</h2>
-      <p class="intro">Onze questions, posées comme des situations concrètes. Le parcours s’adapte à votre secteur et à votre taille.</p>
+      <h2 class="sec-h2" id="t-test">Quelle organisation pour votre fonction juridique ?</h2>
+      <p class="intro">Dix questions au plus, posées comme des situations concrètes. Le parcours s’adapte à vos réponses et ne vous demande aucun document ni détail de dossier.</p>
       <div class="diagbox" id="diagbox" aria-live="polite"><noscript><p class="qhint">Le test fonctionne dans votre navigateur et nécessite JavaScript. Vous pouvez aussi écrire directement à francois.cesure@hemistiches.com.</p></noscript></div>
+    </div>
+  </section>
+
+  <section class="modes-s" id="modes" aria-labelledby="t-modes">
+    <div class="wrap">
+      <h2 class="sec-h2" id="t-modes">Deux modes d’intervention</h2>
+      <p class="intro">Le même avocat, les mêmes domaines de compétence. Ce qui change : l’organisation, le volume et la durée.</p>
+      <div class="two">
+        <article>
+          <p class="label">Depuis le cabinet</p>
+          <h3>Direction juridique externalisée</h3>
+          <p>La mission est exercée depuis mon cabinet, avec des échanges à distance et des interventions ponctuelles dans vos locaux, convenues à l’avance.</p>
+          <p>Elle permet de tenir vos priorités juridiques dans un volume mensuel réservé : 14, 28 ou 56 heures. Ce n’est ni une permanence illimitée ni une présence hebdomadaire chez vous.</p>
+          <ul><li>2, 4 ou 8 jours par mois</li><li>Durée initiale de six mois, puis poursuite avec un mois de préavis</li><li>Provision mensuelle et relevé des diligences</li></ul>
+        </article>
+        <article>
+          <p class="label">Dans vos locaux</p>
+          <h3>Direction juridique de transition</h3>
+          <p>La mission est exercée dans vos locaux, selon un calendrier convenu, pour reprendre temporairement la fonction juridique : absence, départ, poste vacant ou renforcement temporaire substantiel.</p>
+          <p>Elle suppose un volume de 12 à 16 jours par mois. La présence sur site est comprise dans les honoraires ; les frais de déplacement et d’hébergement éventuels sont distincts, estimés et convenus au préalable.</p>
+          <ul><li>12 à 16 jours par mois, sur site</li><li>Tarif journalier selon la durée initiale convenue</li><li>Calendrier et organisation fixés dans la convention</li></ul>
+        </article>
+      </div>
     </div>
   </section>
 
   <section class="formules-s" id="formules" aria-labelledby="t-form">
     <div class="wrap">
-      <h2 class="sec-h2" id="t-form">Formules</h2>
-      <p class="intro">Le test vous donne votre cadence et son prix exact. Voici le point de départ de chaque formule.</p>
+      <h2 class="sec-h2" id="t-form">Tarifs</h2>
+      <p class="intro">Tous les prix s’entendent hors taxes. Une journée correspond à sept heures. Le test vous donne une estimation personnalisée, à confirmer lors d’un échange.</p>
+
+      <h3 class="sub-h3">Direction juridique externalisée : trois forfaits sur six mois</h3>
       <div class="three">
         <article>
-          <h3>Direction juridique à temps partagé</h3>
-          <div><p class="from">À partir de</p><p class="amount">1 500 € <small>HT par mois</small></p></div>
-          <p>La fonction juridique tenue à votre rythme : deux jours par mois, un jour par semaine ou deux jours par semaine.</p>
-          <ul><li>Forfait mensuel, avec relevé du temps passé</li><li>Engagement de six mois, puis préavis d’un mois</li><li>Pilotage des avocats contentieux inclus</li></ul>
+          <h3>Essentiel</h3>
+          <div><p class="from">2 jours, soit 14 heures par mois</p><p class="amount"><span data-p="m:2:des6">1 500 €</span> <small>HT par mois</small></p></div>
+          <p>Pour tenir les priorités convenues dans 14 heures mensuelles. Le volume fixe la capacité de traitement : il ne garantit pas la couverture de toutes les fonctions quelle que soit la charge.</p>
+          <ul><li>Budget pour six mois complets : <span data-p="b:2:des6:6">9 000 €</span> HT</li></ul>
         </article>
         <article>
-          <h3>Secrétariat juridique</h3>
-          <div><p class="from">À partir de</p><p class="amount">1 200 € <small>HT par an</small></p></div>
-          <p>Votre vie sociale tenue sur l’année : approbation des comptes, registres, une opération courante.</p>
-          <ul><li>Ou à l’acte, sur devis</li><li>Frais de greffe et d’annonces légales en sus</li><li>Inclus dans toute formule à temps partagé</li></ul>
+          <h3>Régulier</h3>
+          <div><p class="from">4 jours, soit 28 heures par mois</p><p class="amount"><span data-p="m:4:des6">2 900 €</span> <small>HT par mois</small></p></div>
+          <p>Pour un flux régulier de contrats et plusieurs fonctions à tenir : vie sociale, réglementation, données, précontentieux.</p>
+          <ul><li>Budget pour six mois complets : <span data-p="b:4:des6:6">17 400 €</span> HT</li></ul>
         </article>
         <article>
-          <h3>Direction juridique de transition</h3>
-          <div><p class="from">À partir de</p><p class="amount">800 € <small>HT par jour</small></p></div>
-          <p>Départ, absence ou poste vacant, opération en cours : je reprends la fonction juridique immédiatement, pour une durée déterminée.</p>
-          <ul><li>Taux selon la durée d’engagement</li><li>Trois à quatre jours par semaine en général</li><li>Mission à objet défini</li></ul>
+          <h3>Intégré</h3>
+          <div><p class="from">8 jours, soit 56 heures par mois</p><p class="amount"><span data-p="m:8:des6">5 600 €</span> <small>HT par mois</small></p></div>
+          <p>Pour une charge soutenue, plusieurs entités ou pays, de nombreux intervenants à coordonner.</p>
+          <ul><li>Budget pour six mois complets : <span data-p="b:8:des6:6">33 600 €</span> HT</li></ul>
         </article>
       </div>
-      <p class="cadre">En cas d’accord, la formule retenue fait l’objet d’une convention d’honoraires signée avant toute intervention. Elle fixe le volume mensuel en heures, le périmètre et ses exclusions, les délais de réponse, le relevé du temps passé joint à chaque facture, le sort des heures non consommées et les conditions de révision de la cadence. Elle est précédée d’une vérification des conflits d’intérêts. Les opérations exceptionnelles (levée de fonds, cession, acquisition) font l’objet d’un devis distinct. Les montants s’entendent hors taxes.</p>
+      <p class="cadre">Les budgets correspondent à six mois complets d’exécution ; ils ne sont pas exigibles à la signature. Une provision mensuelle est appelée avant chaque mois d’intervention, et le relevé des diligences accompagne la facture.</p>
+
+      <div class="note" id="fin-anticipee">
+        <h4>Durée et fin anticipée</h4>
+        <p>Les forfaits bénéficient d’un tarif lié à une durée initiale de six mois. Si vous mettez fin à la mission avant ce terme, hors manquement du cabinet, les diligences effectivement réalisées sont recalculées au taux horaire habituel du cabinet, <span data-p="taux">150 €</span> HT, en remplacement du forfait et après déduction des sommes déjà réglées, sans pouvoir dépasser le prix publié d’un engagement court de même volume pour la durée réellement exécutée. Ce décompte peut donner lieu à un complément ou à une restitution. Aucune mensualité future n’est exigée. Les modalités figurent dans la convention d’honoraires, qui seule les rend applicables. <a href="#faq-fin">Exemples</a></p>
+      </div>
+
+      <h3 class="sub-h3">Engagements plus courts</h3>
+      <div class="tbl-wrap"><table class="tbl">
+        <caption>Direction juridique externalisée, honoraires mensuels HT selon la durée initiale convenue</caption>
+        <thead><tr><th scope="col">Volume mensuel</th><th scope="col">Moins de 3 mois</th><th scope="col">De 3 à moins de 6 mois</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">2 jours / 14 h</th><td><span data-p="m:2:lt3">1 800 €</span></td><td><span data-p="m:2:de3a6">1 650 €</span></td></tr>
+          <tr><th scope="row">4 jours / 28 h</th><td><span data-p="m:4:lt3">3 500 €</span></td><td><span data-p="m:4:de3a6">3 200 €</span></td></tr>
+          <tr><th scope="row">8 jours / 56 h</th><td><span data-p="m:8:lt3">6 800 €</span></td><td><span data-p="m:8:de3a6">6 200 €</span></td></tr>
+        </tbody>
+      </table></div>
+      <p class="cadre">Pour ces engagements, la convention fixe la durée et le volume ; toute prolongation ou modification tarifaire fait l’objet d’un accord écrit.</p>
+
+      <h3 class="sub-h3">Direction juridique de transition : 12 à 16 jours par mois sur site</h3>
+      <div class="tbl-wrap"><table class="tbl">
+        <caption>Direction juridique de transition, tarif journalier HT selon la durée initiale convenue</caption>
+        <thead><tr><th scope="col">Durée initiale convenue</th><th scope="col">Prix par jour</th><th scope="col">Budget pour 12 à 16 jours par mois</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Moins de 3 mois</th><td><span data-p="tj:lt3">800 €</span></td><td><span data-p="tm:12:lt3">9 600 €</span> à <span data-p="tm:16:lt3">12 800 €</span> par mois</td></tr>
+          <tr><th scope="row">De 3 à moins de 6 mois</th><td><span data-p="tj:de3a6">725 €</span></td><td><span data-p="tm:12:de3a6">8 700 €</span> à <span data-p="tm:16:de3a6">11 600 €</span> par mois</td></tr>
+          <tr><th scope="row">6 mois ou plus</th><td><span data-p="tj:des6">650 €</span></td><td><span data-p="tm:12:des6">7 800 €</span> à <span data-p="tm:16:des6">10 400 €</span> par mois</td></tr>
+        </tbody>
+      </table></div>
+      <p class="cadre">Le tarif dépend du volume et de la durée convenus au départ ; la seule prolongation d’une mission n’entraîne aucune baisse automatique. La convention fixe le calendrier, le volume mensuel et l’organisation sur site ; les jours supplémentaires sont facturés au tarif journalier convenu, après accord préalable. Frais de déplacement et d’hébergement éventuels distincts, estimés et convenus avant la mission.</p>
+
+      <h3 class="sub-h3">Secrétariat juridique</h3>
+      <div class="three one">
+        <article>
+          <h3>Secrétariat juridique annuel</h3>
+          <div><p class="from">À partir de</p><p class="amount"><span data-p="sec">1 200 €</span> <small>HT par an</small></p></div>
+          <p>Pour une société simple : approbation annuelle des comptes et documents sociaux correspondants, établis sur la base des informations que vous fournissez. Autres opérations sur devis ; frais de greffe et d’annonces légales en supplément.</p>
+        </article>
+      </div>
+
+      <h3 class="sub-h3">Ce que couvrent les forfaits externalisés</h3>
+      <ul class="rules">
+        <li><b>Mêmes domaines pour les trois forfaits</b><span>Contrats, vie sociale, réglementation sectorielle, données personnelles, précontentieux, propriété intellectuelle, risques et assurances, conformité. Le volume détermine la capacité de traitement.</span></li>
+        <li><b>Ce qui consomme le volume</b><span>Préparation, analyse, rédaction, réunions, appels, courriels substantiels, veille propre à votre entreprise et coordination. Le secrétariat juridique courant et le pilotage de vos autres conseils en font partie ; leurs honoraires et les débours restent distincts.</span></li>
+        <li><b>Report limité</b><span>Trois heures non consommées au plus sont reportées sur le mois suivant uniquement, et utilisées en priorité. Elles expirent à la fin de ce mois, ne sont jamais reportées deux fois ni au-delà de la fin du contrat.</span></li>
+        <li><b>Dépassements</b><span><span data-p="taux">150 €</span> HT de l’heure, après estimation et accord préalable de votre part, sous réserve de disponibilité. Un dépassement ponctuel ne change pas de forfait ; des dépassements répétés conduisent à proposer un volume mieux adapté.</span></li>
+        <li><b>Délais</b><span>Premier retour le jour ouvré même pour une urgence signalée avant midi, sinon le jour ouvré suivant ; sous deux jours ouvrés pour une demande courante. Le premier retour fixe le calendrier de réalisation complète, selon l’ampleur du travail.</span></li>
+        <li><b>Hors forfait, sur devis</b><span>Reprise d’un stock de dossiers en retard et opérations exceptionnelles (levée de fonds, cession, acquisition, réorganisation). Pas d’audit initial facturé systématiquement, ni de double facturation : une reprise sur devis ne consomme pas le volume mensuel.</span></li>
+        <li><b>Offres spécialisées</b><span>Le suivi courant inclut les questions de données personnelles ou de réglementation des produits qui s’y rattachent. La désignation comme délégué à la protection des données (<a href="https://diapason.hemistiches.com" target="_blank" rel="noopener">Diapason</a>) ou une mission de conformité des dispositifs médicaux (<a href="https://concordance.hemistiches.com" target="_blank" rel="noopener">Concordance</a>) font l’objet d’une convention distincte.</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="faq-s" id="faq" aria-labelledby="t-faq">
+    <div class="wrap">
+      <h2 class="sec-h2" id="t-faq">Questions fréquentes</h2>
+      <div class="faq">
+        <details id="faq-fin">
+          <summary>Que se passe-t-il si je mets fin à un forfait avant six mois ?</summary>
+          <div>
+            <p>Vous pouvez mettre fin à la mission à tout moment. Le tarif du forfait étant lié à une durée initiale de six mois, les diligences effectivement réalisées depuis le début sont alors recalculées au taux horaire habituel du cabinet, <span data-p="taux">150 €</span> HT, qui est aussi celui des dépassements : le tarif du forfait est une remise consentie en contrepartie de la durée initiale. Ce décompte remplace le forfait. Il ne peut toutefois dépasser le prix publié d’un engagement court de même volume pour la durée réellement exécutée : vous ne payez jamais plus que si vous aviez choisi cet engagement dès le départ. Les dépassements accordés restent dus en sus. Les sommes déjà réglées sont déduites intégralement ; les dépassements déjà facturés ne sont pas comptés deux fois. Selon le cas, vous recevez une facture complémentaire ou une restitution. Aucune mensualité future n’est exigée.</p>
+            <p>Seules comptent les heures réellement travaillées et justifiées par le relevé des diligences : les heures réservées ou reportées mais non utilisées ne sont pas facturées. Cette règle ne s’applique pas si l’interruption tient à un manquement du cabinet ou intervient à son initiative.</p>
+            <p><b>Deux exemples, forfait Essentiel, fin après un mois, 1 500 € HT réglés :</b></p>
+            <ul>
+              <li>14 heures travaillées : 14 × 150 € = 2 100 € HT, ramenés au prix d’un mois d’engagement court, 1 800 € HT, soit 300 € HT à compléter.</li>
+              <li>5 heures travaillées : 5 × 150 € = 750 € HT, soit 750 € HT à restituer.</li>
+            </ul>
+            <p>La présente information ne remplace pas la convention d’honoraires : le mécanisme ne s’applique que s’il y a été accepté, et reste soumis aux règles qui encadrent les honoraires d’avocat et à leur contrôle.</p>
+          </div>
+        </details>
+        <details>
+          <summary>Et après les six premiers mois ?</summary>
+          <div><p>La mission se poursuit au même tarif, pour une durée indéterminée, avec un mois de préavis de part et d’autre. Vous pouvez réduire le volume à l’échéance des six mois, sous réserve du préavis, puis à tout moment avec ce même préavis ; l’augmenter se fait par accord écrit. Il n’y a pas de changement automatique de forfait, et une nouvelle période initiale n’existe que si vous l’acceptez expressément.</p></div>
+        </details>
+        <details>
+          <summary>Comment les heures sont-elles comptées et reportées ?</summary>
+          <div><p>Chaque diligence réalisée pour vous consomme le volume du mois. Jusqu’à trois heures non utilisées passent sur le mois suivant, sont utilisées en premier et expirent à la fin de ce mois. Si une prestation demandée dans le périmètre et le calendrier convenus n’a pas pu être assurée par le cabinet, les heures correspondantes ne sont pas perdues : elles sont reportées sans plafond sur le mois suivant ou, à votre choix, déduites de la provision suivante.</p></div>
+        </details>
+        <details>
+          <summary>Que se passe-t-il si j’ai besoin de plus d’heures un mois donné ?</summary>
+          <div><p>Je vous adresse une estimation ; le dépassement n’est réalisé qu’avec votre accord, au tarif de <span data-p="taux">150 €</span> HT de l’heure et selon mes disponibilités. Si les dépassements deviennent réguliers, je vous propose un volume mieux adapté.</p></div>
+        </details>
+        <details>
+          <summary>La transition fonctionne-t-elle de la même façon ?</summary>
+          <div><p>Non. La transition repose sur un tarif journalier fixé selon la durée initiale convenue, pour 12 à 16 jours par mois sur site. Le report de trois heures et le recalcul à l’heure des forfaits ne s’y appliquent pas. La convention fixe la durée, le calendrier et les conditions d’une fin anticipée ; aucune journée future non réalisée n’est facturée automatiquement. Une prise de fonction se convient selon mes engagements en cours : je vous indique la date possible dès le premier échange.</p></div>
+        </details>
+        <details>
+          <summary>Pouvez-vous intervenir dans nos locaux dans le cadre d’un forfait ?</summary>
+          <div><p>Oui, ponctuellement et à des dates convenues à l’avance. Le temps passé sur place consomme le volume ; le traitement du déplacement et des frais est convenu avant l’intervention. Si une présence régulière est indispensable, le test vous orientera vers une proposition personnalisée.</p></div>
+        </details>
+        <details>
+          <summary>Le résultat du test m’engage-t-il ?</summary>
+          <div><p>Non. C’est une estimation personnalisée, établie à partir de vos seules réponses. Elle ne constitue ni une consultation juridique ni une offre contractuelle : le périmètre, le volume et la durée sont confirmés lors d’un échange, puis dans une convention d’honoraires signée.</p></div>
+        </details>
+      </div>
     </div>
   </section>
 
@@ -431,23 +592,22 @@ h1,h2,h3,h4{margin:0;font-weight:300;line-height:1.1;letter-spacing:-0.01em;text
       <p class="label">Le cadre</p>
       <h2 class="sec-h2" id="t-cadre">Ce qui est posé avant toute mission</h2>
       <ul class="eng">
-        <li><b>Le test n’est pas une consultation</b><span>Le résultat est une pré-analyse indicative, établie à partir de vos seules réponses. La consultation commence avec l’avocat, dans le cadre d’une convention d’honoraires.</span></li>
-        <li><b>Un volume de travail, pas une présence</b><span>La cadence fixe le temps consacré à votre fonction juridique, pas des jours de présence imposés. J’interviens en toute indépendance, sans lien hiérarchique.</span></li>
-        <li><b>Un interlocuteur, un rythme</b><span>Un référent désigné chez vous, un canal unique, un point mensuel des priorités et un relevé du temps passé avec chaque facture.</span></li>
-        <li><b>Un prix confirmé par écrit</b><span>Le périmètre, les exclusions et ce qui déclenche un devis sont écrits avant de commencer. Aucun travail supplémentaire sans votre accord.</span></li>
-        <li><b>Vérification des conflits d’intérêts</b><span>Avant toute mission. S’il en existe un, vous le savez, et le dossier n’est pas ouvert.</span></li>
+        <li><b>Le test n’est pas une consultation</b><span>Le résultat est une estimation indicative, établie à partir de vos seules réponses. La consultation commence avec l’avocat, dans le cadre d’une convention d’honoraires.</span></li>
+        <li><b>Une convention signée</b><span>Elle fixe le mode, le volume, la durée, le périmètre et ses exclusions, les délais, le report, les dépassements et les conditions de fin anticipée. Elle est précédée d’une vérification des conflits d’intérêts.</span></li>
+        <li><b>Un volume, pas une permanence</b><span>Le forfait réserve un volume mensuel ; la transition fixe un calendrier sur site. J’interviens en toute indépendance, sans lien hiérarchique.</span></li>
+        <li><b>Un interlocuteur, un rythme</b><span>Un référent désigné chez vous, un canal unique, un point mensuel des priorités et le relevé des diligences avec chaque facture.</span></li>
+        <li><b>Un prix confirmé par écrit</b><span>Rien ne change de palier automatiquement, et aucun travail supplémentaire n’est facturé sans votre accord préalable.</span></li>
         <li><b>Vos réponses restent chez vous</b><span>Le questionnaire fonctionne dans votre navigateur. Seuls votre adresse électronique et le résumé de votre résultat me sont transmis.</span></li>
       </ul>
     </div>
   </section>
  </div>
-
  <div id="mentions" hidden>
   <section class="doc-page">
     <div class="wrap">
       <button class="backlink" type="button" data-view="home">Retour au site</button>
       <h1 style="margin-top:28px">Mentions légales et confidentialité</h1>
-      <p class="label" style="margin-top:12px">Dernière mise à jour : 21 octobre 2026</p>
+      <p class="label" style="margin-top:12px">Dernière mise à jour : 25 octobre 2026</p>
       <div class="doc">
         <section>
           <h2>Éditeur du site</h2>
@@ -461,7 +621,7 @@ h1,h2,h3,h4{margin:0;font-weight:300;line-height:1.1;letter-spacing:-0.01em;text
         </section>
         <section>
           <h2>Profession réglementée</h2>
-          <p>Avocat inscrit au barreau de Paris (Ordre des avocats de Paris, Maison du Barreau, 2, rue de Harlay, 75001 Paris). La profession d’avocat est régie notamment par la loi n° 71-1130 du 31 décembre 1971, le décret n° 91-1197 du 27 novembre 1991 et le Règlement intérieur national de la profession d’avocat. Assurance de responsabilité civile professionnelle souscrite dans le cadre de la police collective du barreau de Paris.</p>
+          <p>Avocat inscrit au barreau de Paris (Ordre des avocats de Paris, Maison du Barreau, 2, rue de Harlay, 75001 Paris). La profession d’avocat est régie notamment par la loi n° 71-1130 du 31 décembre 1971, le décret n° 91-1197 du 27 novembre 1991, le décret n° 2023-552 du 30 juin 2023 portant code de déontologie des avocats et le Règlement intérieur national de la profession d’avocat. Assurance de responsabilité civile professionnelle souscrite dans le cadre de la police collective du barreau de Paris.</p>
         </section>
         <section>
           <h2>Nature des contenus</h2>
@@ -479,7 +639,7 @@ h1,h2,h3,h4{margin:0;font-weight:300;line-height:1.1;letter-spacing:-0.01em;text
           <h3>Responsable de traitement</h3>
           <p>Mᵉ François Césure (Hémistiches), 33, avenue Mac-Mahon, 75017 Paris · francois.cesure@hemistiches.com.</p>
           <h3>Ce qui est collecté, et ce qui ne l’est pas</h3>
-          <p>Le questionnaire fonctionne dans votre navigateur : vos réponses ne sont ni transmises ni conservées, et disparaissent à la fermeture de la page. Pour afficher votre résultat, votre adresse électronique professionnelle vous est demandée. Avec elle me sont transmis le résumé de votre résultat (cadence, orientation, intitulés des priorités, secteur et tranche d’effectif), la date de la demande et la version de l’information présentée.</p>
+          <p>Le questionnaire fonctionne dans votre navigateur : vos réponses ne sont ni transmises ni conservées, et disparaissent à la fermeture de la page. Pour afficher votre résultat, votre adresse électronique professionnelle vous est demandée. Avec elle me sont transmis le résumé de votre résultat (formule ou mode suggéré, volume estimé, orientation, principales raisons, durée envisagée, secteur et tranche d’effectif), la date de la demande et la version de l’information présentée.</p>
           <h3>Finalités, bases légales et durées</h3>
           <ul>
             <li>Reprendre contact avec vous au sujet de votre résultat et, si vous sollicitez un avocat, vérifier l’absence de conflit d’intérêts : mesures précontractuelles prises à votre demande et intérêt légitime (art. 6, § 1, b et f du RGPD).</li>
@@ -497,6 +657,7 @@ h1,h2,h3,h4{margin:0;font-weight:300;line-height:1.1;letter-spacing:-0.01em;text
     </div>
   </section>
  </div>
+
 </main>
 
 <footer class="contact" id="contact" aria-labelledby="t-contact">
@@ -504,7 +665,7 @@ h1,h2,h3,h4{margin:0;font-weight:300;line-height:1.1;letter-spacing:-0.01em;text
     <div class="twelve">
       <div class="head">
         <h2 id="t-contact">Échanger sur votre cadence</h2>
-        <p class="contact-lede">Pour un premier échange, écrivez-moi ou appelez-moi directement.</p>
+        <p class="contact-lede">Pour un premier échange de vingt minutes, gratuit et sans engagement, écrivez-moi ou appelez-moi directement.</p>
         <a class="btn btn-light" href="mailto:francois.cesure@hemistiches.com?subject=Cadence">Écrire au cabinet</a>
       </div>
       <address class="coords">
@@ -520,123 +681,92 @@ h1,h2,h3,h4{margin:0;font-weight:300;line-height:1.1;letter-spacing:-0.01em;text
         <a href="/en/" hreflang="en" lang="en">English version</a>
         <span>© 2026 Hémistiches</span>
       </nav>
-      <p class="legal">Les contenus de ce site, y compris le test et son résultat, sont fournis à titre indicatif et ne constituent pas une consultation juridique. Ils ne créent aucune relation entre vous et le cabinet. Toute mission fait l’objet d’une convention d’honoraires et d’une vérification préalable des conflits d’intérêts. SIREN 833 468 358. Prix hors taxes.</p>
+      <p class="legal">Les contenus de ce site, y compris le test et son résultat, sont fournis à titre indicatif et ne constituent ni une consultation juridique ni une offre contractuelle. Ils ne créent aucune relation entre vous et le cabinet. Toute mission fait l’objet d’une convention d’honoraires et d’une vérification préalable des conflits d’intérêts. SIREN 833 468 358. Prix hors taxes.</p>
     </div>
   </div>
 </footer>
 
 <!-- Formulaire statique pour la détection par Netlify Forms (ne pas renommer les champs) -->
 <form name="rapport-cadence" data-netlify="true" netlify-honeypot="bot-field" hidden>
-  <input name="bot-field"><input name="email"><input name="opposition"><input name="cadence"><input name="charge"><input name="orientation"><input name="priorites"><input name="secteur"><input name="effectif"><input name="horodatage"><input name="version_information">
+  <input name="bot-field"><input name="email"><input name="opposition"><input name="cadence"><input name="charge"><input name="orientation"><input name="priorites"><input name="secteur"><input name="effectif"><input name="duree"><input name="horodatage"><input name="version_information">
 </form>
 
+<script src="/regles.js"></script>
 <script>
 (function(){
 "use strict";
-var VERSION = "cadence-2026-10-21";
+var C = window.CADENCE;
+var VERSION = "cadence-2026-10-25";
 var CONTACT = "francois.cesure@hemistiches.com";
-
-/* ---------- Typographie française : espaces fines et insécables ---------- */
 var NB = " ", FN = " ";
-function fr(s){ return String(s).replace(/'/g,"’").replace(/ ([?;!»])/g, FN+"$1").replace(/ :/g, NB+":").replace(/« /g, "«"+FN).replace(/(\d) (€|%)/g, "$1"+NB+"$2").replace(/(\d) (\d{3})/g, "$1"+NB+"$2"); }
-function frDom(root){
-  var w = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, null), n;
-  while((n = w.nextNode())){ var p = n.parentNode; if(p && /SCRIPT|STYLE|CODE/.test(p.nodeName)) continue; var t = fr(n.nodeValue); if(t !== n.nodeValue) n.nodeValue = t; }
-}
+
+/* ---------- Typographie française ---------- */
+function fr(s){ return String(s).replace(/'/g,"’").replace(/ ([?;!»])/g, FN+"$1").replace(/ :/g, NB+":").replace(/« /g, "«"+FN).replace(/(\d) (€|%|h\b)/g, "$1"+NB+"$2").replace(/(\d) (\d{3})/g, "$1"+NB+"$2"); }
+function frDom(root){ var w = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, null), n; while((n = w.nextNode())){ var p = n.parentNode; if(p && /SCRIPT|STYLE|CODE/.test(p.nodeName)) continue; var t = fr(n.nodeValue); if(t !== n.nodeValue) n.nodeValue = t; } }
 function esc(s){ return fr(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;"); }
+function eur(n){ return String(Math.round(n)).replace(/\B(?=(\d{3})+(?!\d))/g, NB)+NB+"€"; }
 
-/* ---------- Questions ---------- */
-var SENSIBLE = ["sante","reglemente"];
-function sect(a){ return [a.secteur, a.sante_type].filter(Boolean); }
-function has(arr, list){ for(var i=0;i<list.length;i++){ if(arr && arr.indexOf(list[i])>-1) return true; } return false; }
+/* ---------- Prix affichés : toujours recalculés depuis regles.js ---------- */
+function prixAttr(code){
+  var p = code.split(":");
+  switch(p[0]){
+    case "m": return eur(C.mensuelExt(+p[1], p[2]));
+    case "b": return eur(C.mensuelExt(+p[1], p[2]) * (+p[3]));
+    case "j": return eur(C.prixJourExt(+p[1], p[2]));
+    case "tj": return eur(C.prixJourTransition(p[1]));
+    case "tm": return eur(C.mensuelTransition(+p[1], p[2]));
+    case "taux": return eur(C.TARIFS.tauxHoraire);
+    case "sec": return eur(C.TARIFS.secretariatAnnuel);
+  }
+  return null;
+}
+document.querySelectorAll("[data-p]").forEach(function(el){ var v = prixAttr(el.getAttribute("data-p")); if(v) el.textContent = v; });
 
-var ECHEANCES = [
-  {k:"facture", t:"Facturation électronique", d:"Réception obligatoire depuis le 1er septembre 2026 ; émission au 1er septembre 2027 pour les PME.", show:function(){return true;}},
-  {k:"alerte", t:"Procédure interne de recueil des signalements", d:"Obligatoire à partir de 50 salariés.", show:function(a){return a.effectif && a.effectif!=="lt50";}},
-  {k:"cra", t:"Signalement des vulnérabilités de vos produits numériques", d:"Depuis le 11 septembre 2026, y compris pour les produits déjà sur le marché.", show:function(a){return has(sect(a),["dm","reglemente"]);}},
-  {k:"ia", t:"Qualification de vos usages d'intelligence artificielle", d:"Recrutement, produits, outils internes.", show:function(){return true;}},
-  {k:"transparence", t:"Transparence des liens avec les professionnels de santé", d:"Déclaration des conventions, rémunérations et avantages.", show:function(a){return has(sect(a),["dm","medicament"]);}},
-  {k:"doubleusage", t:"Contrôle des biens et technologies à double usage", d:"Exportations et transferts de technologies sensibles.", show:function(a){return a.secteur==="reglemente";}}
-];
-
-var STEPS = [
-  {id:"profil", kicker:"Votre entreprise", title:"Votre secteur et votre taille", groups:[
-    {key:"secteur", label:"Dans quel secteur exercez-vous ?", opts:[
-      ["sante","Santé"],["reglemente","Autre secteur réglementé","Défense, énergie et nucléaire, aéronautique, électronique avancée"],["autre","Secteur non réglementé"]]},
-    {key:"sante_type", label:"Dans la santé, plus précisément ?", when:function(a){return a.secteur==="sante";}, opts:[
-      ["dm","Dispositifs médicaux ou diagnostic in vitro"],["medicament","Médicament ou biotechnologie"],["sante_autre","Autre activité de santé","E-santé, études cliniques, prestataire de soins…"]]},
-    {key:"effectif", label:"Combien de salariés ?", opts:[["lt50","Moins de 50"],["50-249","De 50 à 249"],["gte250","250 et plus"]]}]},
-  {id:"contrats", kicker:"Contrats", title:"Un client important vous envoie son contrat. Que se passe-t-il ?", groups:[{key:"contrats", opts:[["0","Un juriste le relit et le négocie, à partir de nos conditions à jour"],["0.5","Un avocat, au coup par coup"],["1","Le dirigeant ou le commercial le lit"],["1b","On le signe généralement tel quel"]]}]},
-  {id:"vie", kicker:"Vie sociale", title:"Approbation des comptes, nominations, opérations sur le capital : qui tient votre vie sociale ?", groups:[{key:"vie", opts:[["0","Un avocat, registres et délégations compris"],["0.5","L'expert-comptable"],["1","Nous-mêmes"],["1b","Elle est en retard, ou je ne sais pas"]]}]},
-  {id:"reglementation", kicker:"Réglementation et échéances", title:"Un texte de votre secteur change, ou une nouvelle obligation entre en vigueur. Comment l'apprenez-vous ?", hint:"Par exemple la facturation électronique, la procédure d'alerte ou les règles sur l'intelligence artificielle.", groups:[{key:"reglementation", opts:[["0","Par une veille organisée, avec un responsable"],["0.5","Par la fédération, les clients ou la presse, au fil de l'eau"],["1","Souvent trop tard, ou je ne sais pas"]]}]},
-  {id:"donnees", kicker:"Protection des données", title:"Une personne vous demande l'accès à ses données personnelles. Qui lui répond dans le délai d'un mois, à partir de quel registre ?", groups:[{key:"donnees", opts:[["0","Un délégué ou un référent, avec un registre à jour"],["0.5","Quelqu'un répondrait, mais le registre est incomplet"],["1","Personne, ou je ne sais pas"]]}]},
-  {id:"precontentieux", kicker:"Précontentieux", title:"Lors de la dernière mise en demeure ou du dernier litige, qui a piloté ?", groups:[{key:"precontentieux", opts:[["0","Un juriste ou un avocat mandaté, avec un suivi"],["0.5","Un avocat, avec le dirigeant en relais"],["1","Le dirigeant seul, ou c'est resté sans suite"],["0b","Aucun incident ces deux dernières années"]]}]},
-  {id:"conseils", kicker:"Conseils externes", title:"Combien dépensez-vous en avocats par an ?", groups:[{key:"depense", opts:[["lt10","Moins de 10 000 €"],["10-30","De 10 000 à 30 000 €"],["30-80","De 30 000 à 80 000 €"],["gt80","Plus de 80 000 €"]]}]},
-  {id:"pi", kicker:"Propriété intellectuelle", title:"Vos marques sont-elles déposées, et détenez-vous les droits sur ce que créent vos salariés et vos prestataires ?", hint:"Logiciels, designs, contenus, documentation : hors les logiciels créés par vos salariés, ces droits ne vous reviennent que par une cession écrite.", groups:[{key:"pi", opts:[["0","Les deux"],["0.5","L'un des deux"],["1","Ni l'un ni l'autre, ou je ne sais pas"]]}]},
-  {id:"assurances", kicker:"Risques et assurances", title:"Quelqu'un a-t-il vérifié que votre responsabilité civile couvre ce que vous signez ?", groups:[{key:"assurances", opts:[["0","Oui, lors des derniers contrats importants"],["0.5","Le courtier suit la police, sans lien avec les contrats"],["1","Jamais, ou je ne sais pas"]]}]},
-  {id:"delegations", kicker:"Délégations", title:"Vos commerciaux savent-ils ce qu'ils peuvent accepter seuls en négociation ?", groups:[{key:"delegations", opts:[["0","Oui, il existe une grille et des délégations écrites"],["0.5","Des consignes orales"],["1","Non"]]}]},
-  {id:"projets", kicker:"Les douze prochains mois", title:"Qu'est-ce qui vous attend dans les douze prochains mois ?", hint:"Plusieurs réponses possibles.", multi:true, groups:[{key:"projets", opts:[["juriste","Un juriste absent, sur le départ, ou un poste à pourvoir"],["levee","Une levée de fonds"],["cession","Une cession ou une acquisition"],["export","Un nouveau marché à l'étranger"],["produit","Un nouveau produit réglementé ou un appel d'offres public"],["aucun","Rien de tout cela"]]}]}
-];
-
-/* ---------- Barème ---------- */
-var BASE = {contrats:5, vie:2.5, reglementation:3, donnees:2, precontentieux:1, pi:1, assurances:1, delegations:1};
-var SIZE = {lt50:0.6, "50-249":1, gte250:1.5};
-var PROJ = {levee:2, cession:4, export:1, produit:2};
-function coef(v){ if(v==null) return 0; return parseFloat(String(v).replace(/[a-z]/g,"")) || 0; }
-
-var LABELS = {
-  contrats:["Contrats","Vos contrats importants sont signés sans relecture juridique, souvent sans conditions générales à jour : les clauses de responsabilité, de résiliation et de paiement restent celles de l'autre partie."],
-  vie:["Vie sociale","Approbation des comptes, registres et opérations sur le capital traités sans suivi juridique : c'est la première source d'irrégularités dans les petites sociétés, et elles ressortent lors d'une levée ou d'une cession."],
-  reglementation:["Réglementation et échéances",""],
-  donnees:["Protection des données","Sans registre à jour ni référent, une demande d'accès ou une violation de données ne peut pas être traitée dans les délais du RGPD."],
-  precontentieux:["Précontentieux","Le dernier différend a été géré sans pilotage juridique. Ce sont pourtant les premiers courriers qui fixent les positions."],
-  pi:["Propriété intellectuelle","Marques non déposées, ou droits sur les créations de vos salariés et prestataires non cédés par écrit : rien ne garantit que vous êtes titulaire des droits sur ce que vous vendez."],
-  assurances:["Risques et assurances","Votre responsabilité civile n'a pas été confrontée à vos engagements contractuels. Un sinistre peut tomber entre les deux."],
-  delegations:["Délégations","Vos équipes négocient sans savoir ce qu'elles peuvent accepter seules. Des engagements se prennent sans vous."]
+/* ---------- Libellés ---------- */
+var TR = { lt3:"inférieure à 3 mois", de3a6:"de 3 mois à moins de 6 mois", des6:"de 6 mois ou plus" };
+var NOMS = { 2:"Essentiel", 4:"Régulier", 8:"Intégré" };
+var SOURCES = {
+  contrats:"le volume de contrats et de négociations", vie:"la vie sociale", reglementation:"la réglementation de votre secteur",
+  donnees:"les données personnelles", contentieux:"les différends et le précontentieux", pi:"la propriété intellectuelle",
+  assurances:"les risques et assurances", conseils:"le pilotage de vos autres conseils", conformite:"la conformité (anticorruption, alerte)",
+  urgences:"la fréquence des urgences"
 };
 
-var CADENCES = [
-  {max:3.5, key:"aucune",   label:"Pas de cadence nécessaire", cells:0,  monthly:null, hours:0},
-  {max:7,   key:"2j-mois",  label:"Deux jours par mois",       cells:2,  monthly:1500, hours:14},
-  {max:10,  key:"1j-sem",   label:"Un jour par semaine",       cells:4,  monthly:2850, hours:28},
-  {max:15,  key:"2j-sem",   label:"Deux jours par semaine",    cells:8,  monthly:5400, hours:56},
-  {max:1e9, key:"recrutement", label:"Un juriste interne se justifie", cells:12, monthly:5400, hours:56}
+/* ---------- Questions ---------- */
+var STEPS = [
+  {id:"profil", kicker:"Votre entreprise", title:"Votre secteur et votre taille", groups:[
+    {key:"secteur", label:"Dans quel secteur exercez-vous ?", opts:[["sante","Santé"],["reglemente","Autre secteur réglementé","Défense, énergie et nucléaire, aéronautique, électronique avancée"],["autre","Secteur non réglementé"]]},
+    {key:"sante_type", label:"Dans la santé, plus précisément ?", when:function(a){return a.secteur==="sante";}, opts:[["dm","Dispositifs médicaux ou diagnostic in vitro"],["medicament","Médicament ou biotechnologie"],["sante_autre","Autre activité de santé","E-santé, études cliniques, prestataire de soins…"]]},
+    {key:"effectif", label:"Combien de salariés ?", opts:[["lt50","Moins de 50"],["50-249","De 50 à 249"],["gte250","250 et plus"]]}]},
+  {id:"organisation", kicker:"Organisation actuelle", title:"Aujourd'hui, qui traite le juridique chez vous ?", groups:[{key:"organisation", opts:[
+    ["dirigeant","Le dirigeant, le DAF ou les RH, en plus de leurs fonctions"],["avocat","Un avocat, au cas par cas"],["juriste","Un juriste ou une équipe juridique en poste"],["vacant","Le juriste est absent ou parti, ou le poste est vacant"]]}]},
+  {id:"besoin", kicker:"Votre besoin", title:"De quoi avez-vous besoin ?", groups:[{key:"besoin", opts:[
+    ["recurrent","Un suivi juridique régulier, dans la durée"],["remplacement","Remplacer un juriste absent ou parti, le temps d'un retour ou d'un recrutement"],["renfort","Renforcer l'équipe pour un temps","Opération, chantier réglementaire, pic d'activité"],["ponctuel","Traiter un dossier ou une question précise"]]}]},
+  {id:"duree", kicker:"Durée", title:"Pour combien de temps envisagez-vous cet accompagnement ?", when:function(a){return a.besoin!=="ponctuel";}, groups:[{key:"duree", opts:[
+    ["lt3","Moins de trois mois"],["3","Trois mois"],["4","Quatre mois"],["5","Cinq mois"],["6","Six mois"],["9","Neuf mois"],["12","Un an ou plus"],["nsp","Je ne sais pas encore"]]}]},
+  {id:"presence", kicker:"Organisation de la mission", title:"Faut-il être présent dans vos locaux ?", when:function(a){return a.besoin!=="ponctuel";}, groups:[{key:"presence", opts:[
+    ["cabinet","Non, des échanges à distance suffisent"],["ponctuelle","Quelques réunions sur place dans l'année","Comités, réunions de direction, négociations"],["mensuelle","Une présence régulière, un ou deux jours par mois"],["soutenue","Une présence soutenue, plusieurs jours par semaine, est indispensable"]]}]},
+  {id:"contrats", kicker:"Charge contractuelle", title:"En moyenne, combien de contrats ou de négociations à traiter chaque mois ?", hint:"Contrats clients et fournisseurs, partenariats, accords de confidentialité, avenants.", when:function(a){return a.besoin!=="ponctuel";}, groups:[{key:"contrats", opts:[
+    ["c1","Moins de trois, plutôt simples"],["c2","Trois à six, dont certains négociés"],["c3","Sept à quinze, avec des négociations régulières"],["c4","Plus de quinze, ou des négociations lourdes chaque mois"]]}]},
+  {id:"fonctions", kicker:"Autres fonctions", title:"Quelles autres fonctions faut-il tenir ?", hint:"Plusieurs réponses possibles.", multi:true, when:function(a){return a.besoin!=="ponctuel";}, groups:[{key:"fonctions", opts:[
+    ["vie","Vie sociale","Approbation des comptes, assemblées, registres"],["reglementation","Réglementation de votre secteur"],["donnees","Données personnelles"],["contentieux","Différends en cours ou précontentieux à piloter"],["pi","Propriété intellectuelle"],["assurances","Risques et assurances"],["conseils","Pilotage de vos autres conseils"],["conformite","Conformité","Anticorruption, procédure d'alerte"],["aucune","Aucune de ces fonctions"]]}]},
+  {id:"stock", kicker:"Retard et opérations", title:"Y a-t-il du retard accumulé ?", hint:"Contrats non revus, vie sociale en retard, dossiers en attente. Ce stock se traite à part et ne modifie pas le forfait mensuel.", when:function(a){return a.besoin!=="ponctuel";}, groups:[
+    {key:"retard", opts:[["aucun","Non"],["quelques","Quelques dossiers en attente"],["important","Un retard important"]]},
+    {key:"exceptionnelle", label:"Une opération exceptionnelle est-elle prévue dans les douze mois ?", opts:[["non","Non"],["oui","Oui","Levée de fonds, cession, acquisition, réorganisation"]]}]},
+  {id:"perimetre", kicker:"Périmètre", title:"Votre périmètre", hint:"Plusieurs réponses possibles.", multi:true, when:function(a){return a.besoin!=="ponctuel";}, groups:[{key:"perimetre", opts:[
+    ["simple","Une société, en France, peu d'intervenants"],["multi","Plusieurs sociétés ou plusieurs pays"],["intervenants","De nombreux intervenants à coordonner","Conseils, auditeurs, autorités, partenaires"]]}]},
+  {id:"continuite", kicker:"Continuité", title:"Urgences et coordination", when:function(a){return a.besoin!=="ponctuel";}, groups:[
+    {key:"urgences", label:"Les sujets juridiques urgents, à traiter dans la journée, arrivent…", opts:[["rare","Rarement"],["mois","Quelques fois par mois"],["semaine","Plusieurs fois par semaine"]]},
+    {key:"referent", label:"Qui centraliserait les demandes chez vous ?", opts:[["oui","Un référent identifié"],["plusieurs","Plusieurs interlocuteurs, sans centralisation"],["non","Personne pour l'instant"]]}]}
 ];
-var DEPENSE = {lt10:"moins de 10 000 €", "10-30":"entre 10 000 et 30 000 €", "30-80":"entre 30 000 et 80 000 €", gt80:"plus de 80 000 €"};
+function activeSteps(){ return STEPS.filter(function(s){ return !s.when || s.when(A); }); }
 
-function compute(a){
-  var size = SIZE[a.effectif] || 1;
-  var parts = {};
-  ["contrats","vie","donnees","precontentieux","pi","assurances","delegations"].forEach(function(k){ parts[k] = BASE[k]*coef(a[k]); });
-  parts.reglementation = (has(sect(a),SENSIBLE)?4:BASE.reglementation) * coef(a.reglementation);
-  var fn = 0; Object.keys(parts).forEach(function(k){ fn += parts[k]; });
-  var pj = 0; (a.projets||[]).forEach(function(p){ pj += PROJ[p]||0; });
-  var charge = Math.round((fn*size + pj)*100)/100;
-  var cad = CADENCES.filter(function(c){ return charge < c.max; })[0];
-  var vieOpen = coef(a.vie)>=0.5;
-  var pr = a.projets||[];
-  var orient;
-  if(pr.indexOf("juriste")>-1) orient = "transition";
-  else if(pr.indexOf("cession")>-1 && coef(a.contrats)>0) orient = "operation";
-  else if(charge>=15) orient = "relais";
-  else if(charge>=3.5) orient = "partage";
-  else if(vieOpen) orient = "secretariat";
-  else orient = "ponctuel";
-  var prios = Object.keys(parts).map(function(k){ return {k:k, v:parts[k]}; })
-    .filter(function(p){ return p.v>0; }).sort(function(x,y){ return y.v-x.v; }).slice(0,3);
-  var echeances = ECHEANCES.filter(function(e){ return e.show(a); });
-  return {charge:charge, cad:cad, orient:orient, prios:prios, echeances:echeances, registre:coef(a.donnees)>=1, vieOpen:vieOpen};
-}
 /* ---------- Rendu du test ---------- */
 var box = document.getElementById("diagbox");
-var A = {projets:[]};
+var A = {fonctions:[], perimetre:[]};
 var idx = -1;
-
 function visibleGroups(step){ return (step.groups||[]).filter(function(g){ return !g.when || g.when(A); }); }
-function answered(step){
-  if(step.echeances) return true;
-  return visibleGroups(step).every(function(g){ var v = A[g.key]; return (g.multi||step.multi) ? (v && v.length>0) : (v!=null && v!==""); });
-}
+function answered(step){ return visibleGroups(step).every(function(g){ var v = A[g.key]; return step.multi ? (v && v.length>0) : (v!=null && v!==""); }); }
 
 function intro(){
   idx = -1;
@@ -645,64 +775,53 @@ function intro(){
     '<h3 class="qtitle">'+esc("Répondez pour l'entreprise telle qu'elle est aujourd'hui, pas telle qu'elle devrait être.")+'</h3>'+
     '<p class="qhint">'+esc("Vos réponses restent dans votre navigateur. À la fin, votre adresse électronique vous est demandée pour afficher votre résultat ; seuls cette adresse et le résumé de ce résultat me sont transmis, jamais vos réponses.")+'</p>'+
     '<div class="dnav" style="justify-content:flex-start"><button class="btn btn-ink" type="button" id="start">Commencer le test</button></div>'+
-    '<p class="notice">'+esc("Le résultat est généré automatiquement à partir de vos seules réponses, sans vérification ni examen de pièces. C'est une information indicative : il ne constitue ni une consultation juridique ni un avis, et ne crée aucune relation entre vous et le cabinet.")+'</p>';
+    '<p class="notice">'+esc("Le résultat est une estimation établie automatiquement à partir de vos seules réponses, sans vérification ni examen de pièces. Il ne constitue ni une consultation juridique ni une offre contractuelle, et ne crée aucune relation entre vous et le cabinet.")+'</p>';
   document.getElementById("start").onclick = function(){ go(0); };
 }
-
 function optHTML(g, multi, o){
-  var v = A[g.key];
-  var on = multi ? (v||[]).indexOf(o[0])>-1 : v===o[0];
+  var v = A[g.key], on = multi ? (v||[]).indexOf(o[0])>-1 : v===o[0];
   return '<button type="button" class="opt'+(multi?' multi':'')+'" role="'+(multi?'checkbox':'radio')+'" aria-checked="'+on+'" data-g="'+g.key+'" data-v="'+o[0]+'"><span class="mk"></span><span>'+esc(o[1])+(o[2]?'<small>'+esc(o[2])+'</small>':'')+'</span></button>';
 }
-
 function render(){
-  var step = STEPS[idx];
-  var bars = STEPS.map(function(s,i){ return '<i class="'+(i<=idx?'on':'')+'"></i>'; }).join("");
+  var steps = activeSteps(), step = steps[idx];
+  var bars = steps.map(function(s,i){ return '<i class="'+(i<=idx?'on':'')+'"></i>'; }).join("");
   var html = '<div class="progress" aria-hidden="true">'+bars+'</div>'+
-    '<div class="qmeta"><span>'+esc(step.kicker)+'</span><span>'+(idx+1)+' / '+STEPS.length+'</span></div>'+
+    '<div class="qmeta"><span>'+esc(step.kicker)+'</span><span>'+(idx+1)+' / '+steps.length+'</span></div>'+
     '<h3 class="qtitle" id="qt" tabindex="-1">'+esc(step.title)+'</h3>'+(step.hint?'<p class="qhint">'+esc(step.hint)+'</p>':'');
-  if(step.echeances){
-    var list = ECHEANCES.filter(function(e){ return e.show(A); });
-    html += '<div class="qgroup"><div class="opts" role="group" aria-labelledby="qt">'+list.map(function(e){ return optHTML({key:"echeances"}, true, [e.k, e.t, e.d]); }).join("")+'</div>'+
-      '<p class="qnote">'+esc("Cybersécurité NIS2 : la loi de transposition n'est pas encore adoptée en France. Le sujet est signalé dans votre résultat au titre de l'anticipation, sans entrer dans le calcul.")+'</p></div>';
-  } else {
-    visibleGroups(step).forEach(function(g){
-      html += '<div class="qgroup">'+(g.label?'<p class="qlabel">'+esc(g.label)+'</p>':'')+
-        '<div class="opts" role="'+((g.multi||step.multi)?'group':'radiogroup')+'" aria-label="'+esc(g.label||step.title)+'">'+g.opts.map(function(o){ return optHTML(g, g.multi||step.multi, o); }).join("")+'</div></div>';
-    });
-  }
-  html += '<div class="dnav"><button type="button" class="linkbtn" id="prev">Précédent</button><button type="button" class="btn btn-ink" id="next"'+(answered(step)?'':' disabled')+'>'+(idx===STEPS.length-1?'Voir mon résultat':'Suivant')+'</button></div>';
+  visibleGroups(step).forEach(function(g){
+    html += '<div class="qgroup">'+(g.label?'<p class="qlabel">'+esc(g.label)+'</p>':'')+
+      '<div class="opts" role="'+(step.multi?'group':'radiogroup')+'" aria-label="'+esc(g.label||step.title)+'">'+g.opts.map(function(o){ return optHTML(g, step.multi, o); }).join("")+'</div></div>';
+  });
+  var last = idx===steps.length-1;
+  html += '<div class="dnav"><button type="button" class="linkbtn" id="prev">Précédent</button><button type="button" class="btn btn-ink" id="next"'+(answered(step)?'':' disabled')+'>'+(last?'Voir mon résultat':'Suivant')+'</button></div>';
   box.innerHTML = html;
   box.querySelectorAll(".opt").forEach(function(b){ b.onclick = function(){ pick(b.classList.contains("multi"), b.getAttribute("data-g"), b.getAttribute("data-v")); }; });
   document.getElementById("prev").onclick = function(){ if(idx===0) intro(); else go(idx-1); };
-  document.getElementById("next").onclick = function(){ if(!answered(step)) return; if(idx===STEPS.length-1) gate(); else go(idx+1); };
+  document.getElementById("next").onclick = function(){ if(!answered(step)) return; if(idx===activeSteps().length-1) gate(); else go(idx+1); };
 }
-
+var EXCLUSIF = { fonctions:"aucune", perimetre:"simple" };
 function pick(multi, key, val){
   if(multi){
-    var arr = (A[key]||[]).slice(), i = arr.indexOf(val);
-    if(key==="projets"){
-      if(val==="aucun") arr = i>-1 ? [] : ["aucun"];
-      else { arr = arr.filter(function(x){return x!=="aucun";}); i = arr.indexOf(val); if(i>-1) arr.splice(i,1); else arr.push(val); }
-    } else if(key==="secteur" && val==="autre"){ arr = i>-1 ? [] : ["autre"]; }
-    else { if(key==="secteur") arr = arr.filter(function(x){return x!=="autre";}); i = arr.indexOf(val); if(i>-1) arr.splice(i,1); else arr.push(val); }
+    var arr = (A[key]||[]).slice(), i = arr.indexOf(val), ex = EXCLUSIF[key];
+    if(val===ex) arr = i>-1 ? [] : [ex];
+    else { arr = arr.filter(function(x){ return x!==ex; }); i = arr.indexOf(val); if(i>-1) arr.splice(i,1); else arr.push(val); }
     A[key] = arr;
   } else {
     A[key] = val;
+    if(key==="secteur" && val!=="sante") delete A.sante_type;
   }
   var y = window.scrollY; render(); window.scrollTo(0,y);
 }
-
 function toBox(){ var top = box.getBoundingClientRect().top + window.scrollY - 120; if(window.scrollY > top) window.scrollTo(0, top); }
 function go(i){ idx = i; render(); var t = document.getElementById("qt"); if(t){ try{ t.focus({preventScroll:true}); }catch(e){} } toBox(); }
 
-/* ---------- Adresse électronique, puis résultat ---------- */
+/* ---------- Adresse, puis résultat ---------- */
 var RESULT = null;
 function gate(){
-  RESULT = compute(A);
+  RESULT = C.orienter(A);
   box.innerHTML =
     '<p class="label">Dernière étape</p>'+
-    '<h3 class="qtitle">Votre résultat est prêt</h3>'+
+    '<h3 class="qtitle">Votre estimation est prête</h3>'+
     '<p class="qhint">'+esc("Indiquez votre adresse électronique professionnelle : votre résultat s'affiche aussitôt.")+'</p>'+
     '<form class="gate" id="gateform" novalidate>'+
       '<label for="email">Adresse électronique professionnelle</label>'+
@@ -711,9 +830,10 @@ function gate(){
       '<div class="check"><input type="checkbox" id="opposition" name="opposition"><label for="opposition" style="margin:0">'+esc("Je ne souhaite pas recevoir d'informations sur les services du cabinet.")+'</label></div>'+
       '<input type="text" name="bot-field" id="botfield" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px" aria-hidden="true">'+
       '<div class="dnav"><button type="button" class="linkbtn" id="back">Revoir mes réponses</button><button type="submit" class="btn btn-ink">Afficher mon résultat</button></div>'+
-      '<p class="small">'+esc("Responsable de traitement : Mᵉ François Césure (Hémistiches), 33, avenue Mac-Mahon, 75017 Paris. Seuls votre adresse et le résumé de votre résultat (cadence, orientation, intitulés des priorités, secteur, tranche d'effectif) me sont transmis, jamais vos réponses. Ils servent à reprendre contact avec vous au sujet de ce résultat et, sauf opposition, à vous informer des services du cabinet. Adresse conservée trois ans après le dernier contact, résumé supprimé après douze mois. Vous disposez des droits d'accès, de rectification, d'effacement, de limitation, d'opposition et de portabilité, et pouvez saisir la CNIL.")+' <button type="button" class="linkbtn" data-view="mentions" data-anchor="confidentialite">Politique de confidentialité</button></p>'+
+      '<p class="small">'+esc("Responsable de traitement : Mᵉ François Césure (Hémistiches), 33, avenue Mac-Mahon, 75017 Paris. Seuls votre adresse et le résumé de votre résultat (formule ou mode suggéré, volume estimé, orientation, durée envisagée, principales raisons, secteur, tranche d'effectif) me sont transmis, jamais vos réponses détaillées. Ils servent à reprendre contact avec vous au sujet de ce résultat et, sauf opposition, à vous informer des services du cabinet. Adresse conservée trois ans après le dernier contact, résumé supprimé après douze mois. Vous disposez des droits d'accès, de rectification, d'effacement, de limitation, d'opposition et de portabilité, et pouvez saisir la CNIL.")+' <button type="button" class="linkbtn" data-view="mentions" data-anchor="confidentialite">Politique de confidentialité</button></p>'+
     '</form>';
-  document.getElementById("back").onclick = function(){ go(STEPS.length-1); };
+  frDom(box);
+  document.getElementById("back").onclick = function(){ go(activeSteps().length-1); };
   box.querySelectorAll("[data-view]").forEach(bindView);
   document.getElementById("gateform").addEventListener("submit", function(ev){
     ev.preventDefault();
@@ -725,9 +845,12 @@ function gate(){
     var data = {
       "form-name":"rapport-cadence", "bot-field":document.getElementById("botfield").value, email:em,
       opposition: document.getElementById("opposition").checked ? "oui" : "non",
-      cadence: r.cad.key, charge: String(r.charge), orientation: r.orient,
-      priorites: r.prios.map(function(p){return p.k;}).join(","),
-      secteur: sect(A).join(","), effectif: A.effectif||"",
+      cadence: r.mode==="transition" ? "transition-"+r.jours+"j" : (r.jours ? C.formule(r.jours).cle+"-"+r.jours+"j" : r.cas),
+      charge: r.volume ? String(r.volume.jours) : "",
+      orientation: r.mode+":"+r.cas,
+      priorites: r.volume ? r.volume.sources.slice(0,3).map(function(s){return s.cle;}).join(",") : "",
+      secteur: [A.secteur, A.sante_type].filter(Boolean).join(","), effectif: A.effectif||"",
+      duree: A.duree||"",
       horodatage: new Date().toISOString(), version_information: VERSION
     };
     var body = Object.keys(data).map(function(k){ return encodeURIComponent(k)+"="+encodeURIComponent(data[k]); }).join("&");
@@ -736,108 +859,131 @@ function gate(){
   });
 }
 
-function eur(n){ return String(n).replace(/\B(?=(\d{3})+(?!\d))/g, NB)+NB+"€"; }
-
-function partition(cells){
-  var pat = {0:[],2:[[0,1],[2,1]],4:[[0,1],[1,1],[2,1],[3,1]],8:[[0,1],[0,3],[1,1],[1,3],[2,1],[2,3],[3,1],[3,3]],12:[[0,0],[0,2],[0,3],[1,0],[1,2],[1,3],[2,0],[2,2],[2,3],[3,0],[3,2],[3,3]],16:[[0,0],[0,1],[0,2],[0,3],[1,0],[1,1],[1,2],[1,3],[2,0],[2,1],[2,2],[2,3],[3,0],[3,1],[3,2],[3,3]]}[cells] || [];
-  var on = {}; pat.forEach(function(p){ on[p[0]+"-"+p[1]] = 1; });
-  var h = '<div class="partition" role="img" aria-label="'+cells+' jours sur un mois de quatre semaines"><span></span>';
-  ["L","M","M","J","V"].forEach(function(d){ h += '<span class="d">'+d+'</span>'; });
-  for(var w=0; w<4; w++){ h += '<span>Sem.'+NB+(w+1)+'</span>'; for(var d=0; d<5; d++){ h += '<i class="'+(on[w+"-"+d]?'on':'')+'"></i>'; } }
-  return h+'</div>';
+/* ---------- Contenu du résultat (partagé par l'écran, le PDF et le résumé envoyé) ---------- */
+function moisLabel(d){ return d.mois ? (d.mois===12 ? "un an ou plus" : d.mois+" mois") : "moins de trois mois"; }
+function contenu(r){
+  var o = { titre:"", sousTitre:"", prix:[], budget:[], scen:null, raisons:[], extras:[], conditions:[], fin:[], mode:r.mode };
+  var d = r.duree;
+  if(r.volume){
+    r.volume.sources.filter(function(s){ return s.v>0; }).slice(0,3).forEach(function(s){ o.raisons.push(SOURCES[s.cle]); });
+  }
+  if(r.mode==="ponctuel"){
+    o.titre = "Avocat conseil, au dossier";
+    o.sousTitre = "Votre besoin porte sur un dossier ou une question précise : il ne justifie pas un forfait mensuel.";
+    o.prix.push("Honoraires sur devis, selon le dossier, après un premier échange.");
+    o.conditions.push("Convention d'honoraires propre au dossier, qui en fixe le périmètre et le prix.");
+    return o;
+  }
+  if(r.mode==="externalisee"){
+    var j = r.jours, h = C.heures(j);
+    o.titre = "Direction juridique externalisée : "+NOMS[j];
+    o.sousTitre = j+" jours, soit "+h+" heures par mois, depuis le cabinet.";
+    if(d.incertaine){
+      o.prix.push("Selon la durée initiale retenue : de "+eur(C.mensuelExt(j,"des6"))+" à "+eur(C.mensuelExt(j,"lt3"))+" HT par mois.");
+      o.scen = [["Forfait de six mois", C.prixJourExt(j,"des6"), C.mensuelExt(j,"des6"), eur(C.mensuelExt(j,"des6")*6)+" pour six mois complets"],
+                ["De 3 à moins de 6 mois", C.prixJourExt(j,"de3a6"), C.mensuelExt(j,"de3a6"), "selon la durée convenue"],
+                ["Moins de 3 mois", C.prixJourExt(j,"lt3"), C.mensuelExt(j,"lt3"), "selon la durée convenue"]];
+      o.budget.push("La durée reste à préciser : aucun tarif n'est retenu par défaut. Nous la fixerons ensemble.");
+    } else if(d.tranche==="des6"){
+      o.prix.push(eur(C.mensuelExt(j,"des6"))+" HT par mois, soit "+eur(C.prixJourExt(j,"des6"))+" par jour.");
+      o.budget.push("Budget pour six mois complets : "+eur(C.mensuelExt(j,"des6")*6)+" HT, appelé mois par mois par provision ; il n'est pas exigible à la signature.");
+      if(d.mois>6) o.budget.push("Au-delà des six mois, la mission se poursuit au même tarif, pour une durée indéterminée, avec un mois de préavis.");
+    } else {
+      var m = C.mensuelExt(j, d.tranche);
+      o.prix.push(eur(m)+" HT par mois, soit "+eur(C.prixJourExt(j,d.tranche))+" par jour, pour une durée initiale "+TR[d.tranche]+".");
+      o.budget.push(d.mois ? "Budget pour "+d.mois+" mois : "+eur(m*d.mois)+" HT." : "Budget : "+eur(m)+" HT par mois, pour la durée convenue.");
+      o.budget.push("Pour comparaison, le forfait de six mois revient à "+eur(C.mensuelExt(j,"des6"))+" HT par mois.");
+    }
+    o.conditions.push("Provision mensuelle appelée avant chaque mois d'intervention ; relevé des diligences joint à la facture.");
+    o.conditions.push("Report de trois heures non consommées au plus, sur le mois suivant uniquement.");
+    o.conditions.push("Dépassements à "+eur(C.TARIFS.tauxHoraire)+" HT de l'heure, après estimation et accord préalable, sous réserve de disponibilité.");
+    if(d.incertaine || d.tranche==="des6"){
+      o.fin.push("Le forfait bénéficie d'un tarif lié à une durée initiale de six mois. Si vous mettez fin à la mission avant ce terme, hors manquement du cabinet, les diligences effectivement réalisées sont recalculées au taux horaire habituel du cabinet, "+eur(C.TARIFS.tauxHoraire)+" HT, en remplacement du forfait et après déduction des sommes déjà réglées, sans dépasser le prix publié d'un engagement court de même volume pour la durée réellement exécutée.");
+      o.fin.push("Ce décompte peut donner lieu à un complément ou à une restitution. Aucune mensualité future n'est exigée. Exemple, "+NOMS[2]+" arrêté après un mois et "+eur(C.mensuelExt(2,"des6"))+" réglés : 14 heures travaillées donnent "+eur(C.recalculDepart(14,C.mensuelExt(2,"des6"),2,1).solde)+" HT à compléter ; 5 heures donnent "+eur(-C.recalculDepart(5,C.mensuelExt(2,"des6"),2,1).solde)+" HT à restituer.");
+      o.fin.push("Après six mois : poursuite au même tarif, préavis d'un mois. Les modalités figurent dans la convention d'honoraires.");
+    } else {
+      o.fin.push("La convention fixe la durée et le volume ; toute prolongation ou modification tarifaire se convient par écrit.");
+    }
+  }
+  if(r.mode==="transition"){
+    var jt = r.jours;
+    o.titre = "Direction juridique de transition";
+    o.sousTitre = jt+" jours par mois dans vos locaux, selon un calendrier convenu.";
+    if(d.incertaine){
+      o.prix.push("Selon la durée initiale retenue : de "+eur(C.prixJourTransition("des6"))+" à "+eur(C.prixJourTransition("lt3"))+" HT par jour, soit "+eur(C.mensuelTransition(jt,"des6"))+" à "+eur(C.mensuelTransition(jt,"lt3"))+" HT par mois.");
+      o.scen = [["6 mois ou plus", C.prixJourTransition("des6"), C.mensuelTransition(jt,"des6"), ""],["De 3 à moins de 6 mois", C.prixJourTransition("de3a6"), C.mensuelTransition(jt,"de3a6"), ""],["Moins de 3 mois", C.prixJourTransition("lt3"), C.mensuelTransition(jt,"lt3"), ""]];
+      o.budget.push("La durée reste à préciser : aucun tarif n'est retenu par défaut.");
+    } else {
+      var mt = C.mensuelTransition(jt, d.tranche);
+      o.prix.push(eur(C.prixJourTransition(d.tranche))+" HT par jour pour une durée initiale "+TR[d.tranche]+", soit "+eur(mt)+" HT par mois.");
+      o.budget.push(d.mois ? "Budget pour "+d.mois+(d.mois===12?" mois et plus":" mois")+" : "+eur(mt*d.mois)+" HT." : "Budget : "+eur(mt)+" HT par mois, pour la durée convenue.");
+    }
+    o.conditions.push("Présence sur site comprise ; frais de déplacement et d'hébergement éventuels estimés et convenus au préalable.");
+    o.conditions.push("Jours supplémentaires au tarif journalier convenu, après accord préalable.");
+    o.conditions.push("Prise de fonction à convenir selon mes engagements en cours.");
+    o.fin.push("La convention fixe la durée, le calendrier et les conditions d'une fin anticipée. Aucune journée future non réalisée n'est facturée automatiquement.");
+  }
+  if(r.mode==="personnalise"){
+    var ext = r.jours ? NOMS[r.jours]+" ("+r.jours+" jours, "+C.heures(r.jours)+" heures par mois, à partir de "+eur(C.mensuelExt(r.jours,"des6"))+" HT par mois sur six mois)" : null;
+    var T = {
+      "presence-mensuelle": ["Proposition personnalisée","Vous souhaitez une présence régulière dans vos locaux, alors que votre volume relève d'un forfait depuis le cabinet."+(ext?" Volume estimé : "+ext+".":"")+" Les journées sur site, leur nombre et leurs frais se conviennent avant de fixer le prix."],
+      "presence-faible-volume": ["Proposition personnalisée","Une présence soutenue est demandée, mais la charge estimée reste inférieure aux 12 à 16 jours par mois d'une transition."+(ext?" Volume estimé : "+ext+".":"")+" Nous verrons ensemble comment organiser la présence sans facturer des journées inoccupées."],
+      "presence-permanente": ["Proposition personnalisée","Votre besoin est durable et suppose une présence soutenue : c'est le profil d'un poste de juriste interne. Une transition peut tenir la fonction le temps du recrutement ; nous en verrons les conditions."],
+      "entre-8-et-12": ["Proposition personnalisée","La charge estimée se situe entre 8 et 12 jours par mois : au-delà du forfait Intégré, en deçà d'une transition. Selon vos priorités, Intégré avec des dépassements accordés, ou une organisation sur mesure."],
+      "volume-eleve-a-distance": ["Proposition personnalisée","La charge estimée atteint 12 jours par mois ou plus sans présence sur site. Une transition dans vos locaux ou une organisation sur mesure seront à comparer."],
+      "au-dela-16": ["Proposition personnalisée","La charge estimée dépasse 16 jours par mois : elle excède ce qu'un seul intervenant peut tenir. Un recrutement, éventuellement préparé par une mission de transition, est à envisager."]
+    }[r.cas];
+    o.titre = T[0]; o.sousTitre = T[1];
+    o.prix.push("Estimation à établir lors d'un premier échange, à partir de la grille publiée.");
+    o.conditions.push("Aucun tarif journalier inférieur à "+eur(C.TARIFS.plancherJour)+" HT.");
+  }
+  if(r.reprise==="devis") o.extras.push("Reprise initiale du retard accumulé : sur devis, séparément du forfait mensuel, qu'elle ne consomme pas.");
+  if(r.reprise==="absorbee") o.extras.push("Les quelques dossiers en attente peuvent être absorbés dans les premières semaines du volume, ou traités en dépassement si vous le souhaitez.");
+  if(r.exceptionnelle) o.extras.push("Opération exceptionnelle prévue : mission distincte, sur devis.");
+  if(A.fonctions && A.fonctions.indexOf("donnees")>-1) o.extras.push("Données personnelles : le suivi courant est compris dans le volume ; une désignation comme délégué à la protection des données relève de Diapason, sous convention distincte.");
+  if(A.sante_type==="dm") o.extras.push("Dispositifs médicaux : une mission de conformité MDR ou IVDR relève de Concordance, sous convention distincte.");
+  return o;
 }
 
-var OFFERS = {
-  transition:["Direction juridique de transition","Votre juriste est absent, sur le départ, ou le poste est vacant. Je reprends la fonction juridique immédiatement, pour une durée déterminée, puis j'organise le passage de relais.","À partir de 800 € HT par jour, selon la durée d'engagement."],
-  operation:["Accompagnement de l'opération","Une cession ou une acquisition sans juriste en interne : la fonction juridique doit être tenue pendant toute l'opération, au-delà de la rédaction des actes.","Mission de transition à partir de 800 € HT par jour, ou forfait sur devis."],
-  relais:["Direction externalisée en relais, puis recrutement","Votre volume justifie un juriste interne. Je tiens la fonction le temps de le recruter, je vous aide à définir le poste et j'assure sa prise en main.","Deux jours par semaine : 5 400 € HT par mois, pendant la période de relais."],
-  partage:["Direction juridique à temps partagé","La fonction juridique tenue à votre cadence, avec un interlocuteur unique qui connaît votre entreprise, un point mensuel des priorités et un relevé du temps passé.",""],
-  secretariat:["Secrétariat juridique annuel","Votre fonction juridique tient, sauf votre vie sociale : approbation des comptes, registres, délégations et opérations courantes sur le capital, tenus sur l'année.","1 200 € HT par an, ou à l'acte sur devis."],
-  ponctuel:["Avocat conseil","Votre fonction juridique est tenue. Je reste disponible, au dossier, pour une question précise, une opération ou un point annuel.","Sur devis."]
-};
-
-var CONV = {
-  partage:function(c){ return "En cas d'accord, une convention d'honoraires signée fixe votre volume de "+c.hours+" heures par mois, le périmètre et ses exclusions, les délais de réponse et le relevé mensuel du temps passé, joint à chaque facture."; },
-  relais:function(){ return "En cas d'accord, une convention d'honoraires signée fixe le volume de 56 heures par mois, la durée du relais, le périmètre et le relevé mensuel du temps passé, joint à chaque facture."; },
-  transition:function(){ return "En cas d'accord, une convention d'honoraires signée fixe l'objet de la mission, sa durée, le taux journalier selon l'engagement et le relevé des jours travaillés, joint à chaque facture."; },
-  operation:function(){ return "En cas d'accord, une convention d'honoraires signée fixe le périmètre de l'opération, le prix ou le taux journalier, et le relevé du temps passé."; },
-  secretariat:function(){ return "En cas d'accord, une convention d'honoraires signée fixe les actes compris dans le forfait annuel et le prix des actes supplémentaires."; },
-  ponctuel:function(){ return "Chaque intervention fait l'objet d'une convention d'honoraires signée, qui en fixe le périmètre et le prix."; }
-};
 function report(r){
-  var cad = r.cad, html = "";
-  var isTr = r.orient==="transition" || r.orient==="operation";
-  html += '<div class="report-head">';
-  if(isTr){
-    html += '<p class="label">Votre résultat</p><h3>'+esc(r.orient==="transition"?"Une mission de transition, d'abord":"Une opération à tenir, d'abord")+'</h3>'+
-      '<p class="price">'+esc("À partir de 800 € HT par jour")+'<small>'+esc(cad.key==="aucune" ? "Ensuite, en régime courant, pas de cadence récurrente nécessaire." : "Ensuite, en régime courant : "+cad.label.charAt(0).toLowerCase()+cad.label.slice(1)+".")+'</small></p>'+partition(16)+
-      '<p class="partition-legend">'+esc("Une mission de transition mobilise en général trois à quatre jours par semaine.")+'</p>';
-  } else {
-    html += '<p class="label">Votre cadence</p><h3>'+esc(cad.label)+'</h3>';
-    if(cad.key==="aucune") html += '<p class="price">'+esc(r.orient==="secretariat"?"Secrétariat juridique : 1 200 € HT par an":"Avocat conseil, au dossier, sur devis")+'</p>';
-    else if(cad.key==="recrutement") html += '<p class="price">'+esc("Relais à deux jours par semaine : 5 400 € HT par mois")+'<small>'+esc("Le temps de recruter et d'installer votre juriste.")+'</small></p>';
-    else html += '<p class="price">'+esc(eur(cad.monthly)+" HT par mois, pour "+cad.hours+" heures de travail")+'<small>'+esc("Soit "+eur(cad.monthly*12)+" HT par an, secrétariat juridique compris.")+'</small></p>';
-    html += partition(cad.cells)+'<p class="partition-legend">'+esc(cad.cells? "Un mois type de quatre semaines. Les jours sont indicatifs : la cadence fixe un volume de travail, lissé sur le mois, pas des jours de présence." : "Aucune fonction ne demande de temps récurrent.")+'</p>';
-  }
-  html += '</div>';
-
-  html += '<div class="rsec"><h4>'+esc(r.prios.length===1?"Votre priorité":"Vos priorités")+'</h4><ul class="prio">';
-  if(!r.prios.length){ html += '<li><b>'+esc("Aucune fonction ouverte déclarée")+'</b><p>'+esc("Vos réponses, non vérifiées, ne font pas apparaître de fonction juridique non couverte. Un point annuel permet de le confirmer.")+'</p></li>'; }
-  r.prios.forEach(function(p){
-    var L = LABELS[p.k], txt = L[1];
-    if(p.k==="reglementation"){ txt = "Les nouvelles obligations vous parviennent tard, ou sans responsable désigné. Celles qui concernent en principe une entreprise de votre profil : " + r.echeances.map(function(e){return e.t.charAt(0).toLowerCase()+e.t.slice(1);}).join(" ; ")+". La cybersécurité NIS2 s'y ajoutera dès l'adoption de la loi de transposition."; }
-    html += '<li><b>'+esc(L[0])+'</b><p>'+esc(txt)+'</p></li>';
-  });
-  html += '</ul></div>';
-
-  var O = OFFERS[r.orient], price = O[2];
-  if(r.orient==="partage") price = eur(cad.monthly)+" HT par mois, engagement de six mois.";
-  html += '<div class="rsec"><h4>Ce que je vous recommande</h4><div class="offer-reco"><h5>'+esc(O[0])+'</h5><p>'+esc(O[1])+'</p><p class="p">'+esc(price)+'</p><p class="compl">'+esc(CONV[r.orient](cad))+'</p></div>';
-  var compl = [];
-  if(r.registre) compl.push("Votre protection des données n'est pas tenue : Diapason, l'offre de conformité RGPD d'Hémistiches, couvre la fonction de délégué à la protection des données.");
-  if(r.vieOpen && (r.orient==="partage" || r.orient==="relais")) compl.push("Votre vie sociale n'est pas suivie : le secrétariat juridique est inclus dans votre forfait.");
-  if(!r.prios.some(function(p){return p.k==="reglementation";})) compl.push("Cybersécurité NIS2 : la loi de transposition n'est pas encore adoptée en France. Selon votre secteur et votre taille, votre entreprise pourrait entrer dans son champ ; le point mérite d'être anticipé.");
-  html += compl.map(function(c){ return '<p class="compl">'+esc(c)+'</p>'; }).join("")+'</div>';
-
-  if(A.depense && !isTr && cad.monthly && cad.key!=="recrutement"){
-    html += '<div class="rsec"><h4>Mise en regard</h4><p class="compare">'+esc("Vous dépensez aujourd'hui "+DEPENSE[A.depense]+" HT par an en avocats, au coup par coup. Votre cadence représente "+eur(cad.monthly*12)+" HT par an pour une fonction juridique complète, pilotage de vos avocats compris.")+'</p></div>';
-  }
-
-  html += '<div class="rsec no-print"><h4>Conserver ce résultat</h4><div class="keep"><p class="compare">'+esc("Enregistrez-le en PDF, ou envoyez-le dans votre propre messagerie. Il n'est conservé ni sur ce site ni par le cabinet.")+'</p>'+
-    '<div class="actions"><button type="button" class="btn btn-ink" id="pdf">Enregistrer en PDF</button><a class="btn btn-line" id="selfmail" href="mailto:?subject='+encodeURIComponent("Mon résultat Cadence")+'&body='+encodeURIComponent(summary(r, cad, isTr))+'">'+esc("M'envoyer le résultat")+'</a></div></div></div>';
-
-  html += '<div class="rsec"><h4>Échanger sur votre résultat</h4><p class="compare">'+esc("Un premier échange de vingt minutes, gratuit et sans engagement, pour vérifier ce résultat sur votre situation réelle. Écrivez-moi en indiquant votre cadence :")+'</p>'+
-    '<div class="contactbox"><code id="mail">'+CONTACT+'</code><button type="button" class="btn btn-line" id="copy">'+esc("Copier l'adresse")+'</button><a class="btn btn-ink" href="mailto:'+CONTACT+'?subject='+encodeURIComponent("Cadence : "+(isTr?OFFERS[r.orient][0]:cad.label))+'&body='+encodeURIComponent("Bonjour,\n\nJe souhaite échanger sur mon résultat Cadence.\n\n"+summary(r, cad, isTr))+'">Écrire</a><span class="copied" id="copied" aria-live="polite"></span></div></div>';
-
-  html += '<p class="notice">'+esc("Ce résultat est généré automatiquement à partir de vos seules réponses, sans vérification ni examen de pièces, et arrêté à la date de sa génération. Il constitue une information indicative et ne vaut ni consultation juridique ni avis. Les montants s'entendent hors taxes ; toute mission fait l'objet d'une convention d'honoraires précisant le périmètre et les modalités de détermination du prix, et d'une vérification préalable des conflits d'intérêts.")+'</p>'+
-    '<div class="dnav" style="justify-content:flex-start"><button type="button" class="linkbtn" id="restart">Refaire le test</button></div>';
+  var o = contenu(r), html = "";
   var today = new Date().toLocaleDateString("fr-FR",{day:"numeric",month:"long",year:"numeric"});
-  html = '<div class="print-only print-head"><span><b>Cadence</b>, par Hémistiches</span><span>'+esc("Résultat établi le "+today)+'</span></div>'+html+
-    '<div class="print-only print-foot">'+esc("Mᵉ François Césure, avocat au barreau de Paris · Hémistiches, 33, avenue Mac-Mahon, 75017 Paris · francois.cesure@hemistiches.com · +33 6 47 88 80 25 · SIREN 833 468 358. Proposition indicative, sous réserve de l'échange préalable et de la signature d'une convention d'honoraires.")+'</div>';
+  html += '<div class="print-only print-head"><span><b>Cadence</b>, par Hémistiches</span><span>'+esc("Estimation établie le "+today)+'</span></div>';
+  html += '<div class="report-head"><p class="label">Mode et volume suggérés</p><h3>'+esc(o.titre)+'</h3><p class="price">'+esc(o.sousTitre)+'</p></div>';
+  if(o.raisons.length) html += '<div class="rsec"><h4>Principales raisons</h4><p class="compare">'+esc("Estimation fondée surtout sur "+o.raisons.join(", ")+".")+'</p></div>';
+  html += '<div class="rsec"><h4>Tarif et budget estimés</h4><div class="offer-reco">'+o.prix.map(function(p){return '<p class="p">'+esc(p)+'</p>';}).join("")+o.budget.map(function(p){return '<p>'+esc(p)+'</p>';}).join("");
+  if(o.scen){ html += '<div class="tbl-wrap"><table class="tbl"><thead><tr><th scope="col">Durée initiale</th><th scope="col">Prix par jour</th><th scope="col">Par mois</th><th scope="col">Budget</th></tr></thead><tbody>'+o.scen.map(function(s){ return '<tr><th scope="row">'+esc(s[0])+'</th><td>'+eur(s[1])+'</td><td>'+eur(s[2])+'</td><td>'+esc(s[3]||"selon la durée convenue")+'</td></tr>'; }).join("")+'</tbody></table></div>'; }
+  html += '</div></div>';
+  if(o.fin.length) html += '<div class="rsec"><h4>Durée et fin anticipée</h4><div class="note">'+o.fin.map(function(p){return '<p>'+esc(p)+'</p>';}).join("")+'</div></div>';
+  if(o.conditions.length) html += '<div class="rsec"><h4>Conditions essentielles</h4><ul class="prio">'+o.conditions.map(function(p){return '<li><p>'+esc(p)+'</p></li>';}).join("")+'</ul></div>';
+  if(o.extras.length) html += '<div class="rsec"><h4>À traiter à part</h4><ul class="prio">'+o.extras.map(function(p){return '<li><p>'+esc(p)+'</p></li>';}).join("")+'</ul></div>';
+
+  html += '<div class="rsec no-print"><h4>Conserver cette estimation</h4><div class="keep"><p class="compare">'+esc("Enregistrez-la en PDF, ou envoyez-la dans votre propre messagerie. Elle n'est conservée ni sur ce site ni par le cabinet.")+'</p>'+
+    '<div class="actions"><button type="button" class="btn btn-ink" id="pdf">Enregistrer en PDF</button><a class="btn btn-line" id="selfmail" href="mailto:?subject='+encodeURIComponent("Mon estimation Cadence")+'&body='+encodeURIComponent(summary(o))+'">'+esc("M'envoyer l'estimation")+'</a></div></div></div>';
+  html += '<div class="rsec"><h4>Confirmer le périmètre</h4><p class="compare">'+esc("Un premier échange de vingt minutes, gratuit et sans engagement, pour confirmer le périmètre, le volume et la durée. Écrivez-moi :")+'</p>'+
+    '<div class="contactbox"><code id="mail">'+CONTACT+'</code><button type="button" class="btn btn-line" id="copy">'+esc("Copier l'adresse")+'</button><a class="btn btn-ink" href="mailto:'+CONTACT+'?subject='+encodeURIComponent("Cadence : "+o.titre)+'&body='+encodeURIComponent(fr("Bonjour,\n\nJe souhaite échanger sur mon estimation Cadence.\n\n")+summary(o))+'">Écrire</a><span class="copied" id="copied" aria-live="polite"></span></div></div>';
+  html += '<p class="notice">'+esc("Cette estimation est établie automatiquement à partir de vos seules réponses, sans vérification ni examen de pièces, et arrêtée à la date de sa génération. Elle ne constitue ni une consultation juridique ni une offre contractuelle. Les montants s'entendent hors taxes ; toute mission fait l'objet d'une convention d'honoraires signée, qui fixe le périmètre, le volume, la durée et les modalités de détermination des honoraires, et d'une vérification préalable des conflits d'intérêts.")+'</p>'+
+    '<div class="dnav" style="justify-content:flex-start"><button type="button" class="linkbtn" id="restart">Refaire le test</button></div>';
+  html += '<div class="print-only print-foot">'+esc("Mᵉ François Césure, avocat au barreau de Paris · Hémistiches, 33, avenue Mac-Mahon, 75017 Paris · francois.cesure@hemistiches.com · +33 6 47 88 80 25 · SIREN 833 468 358. Estimation indicative, à confirmer lors d'un échange et par une convention d'honoraires signée.")+'</div>';
   box.innerHTML = html;
   document.getElementById("pdf").onclick = function(){ try{ window.print(); }catch(e){} };
-  document.getElementById("copy").onclick = function(){
-    var done = function(){ document.getElementById("copied").textContent = "Adresse copiée"; };
-    try{ navigator.clipboard.writeText(CONTACT).then(done, selectMail); }catch(e){ selectMail(); }
-  };
-  document.getElementById("restart").onclick = function(){ A = {projets:[]}; intro(); toBox(); };
+  document.getElementById("copy").onclick = function(){ var done = function(){ document.getElementById("copied").textContent = "Adresse copiée"; }; try{ navigator.clipboard.writeText(CONTACT).then(done, selectMail); }catch(e){ selectMail(); } };
+  document.getElementById("restart").onclick = function(){ A = {fonctions:[], perimetre:[]}; intro(); toBox(); };
   toBox();
 }
-function summary(r, cad, isTr){
-  var O = OFFERS[r.orient], L = [];
-  var today = new Date().toLocaleDateString("fr-FR",{day:"numeric",month:"long",year:"numeric"});
-  L.push("Résultat Cadence du "+today);
-  if(isTr) L.push("Résultat : "+(r.orient==="transition"?"une mission de transition, d'abord":"une opération à tenir, d'abord")+".");
-  else L.push("Cadence : "+cad.label.toLowerCase()+(cad.hours?" ("+cad.hours+" heures par mois)":"")+".");
-  var price = r.orient==="partage" ? eur(cad.monthly)+" HT par mois, engagement de six mois." : O[2];
-  L.push("Formule recommandée : "+O[0]+". "+price);
-  if(r.prios.length) L.push("Priorités : "+r.prios.map(function(p){return LABELS[p.k][0];}).join(", ")+".");
-  L.push("");
-  L.push("Proposition indicative, établie à partir de mes seules réponses, sous réserve d'un échange préalable et de la signature d'une convention d'honoraires. Montants hors taxes.");
+function summary(o){
+  var L = [], today = new Date().toLocaleDateString("fr-FR",{day:"numeric",month:"long",year:"numeric"});
+  L.push("Estimation Cadence du "+today); L.push(""); L.push(o.titre); L.push(o.sousTitre);
+  o.prix.concat(o.budget).forEach(function(p){ L.push(p); });
+  if(o.scen) o.scen.forEach(function(s){ L.push("- "+s[0]+" : "+eur(s[2])+" HT par mois"); });
+  if(o.fin.length){ L.push(""); L.push("Durée et fin anticipée"); o.fin.forEach(function(p){ L.push(p); }); }
+  if(o.conditions.length){ L.push(""); L.push("Conditions essentielles"); o.conditions.forEach(function(p){ L.push("- "+p); }); }
+  if(o.extras.length){ L.push(""); o.extras.forEach(function(p){ L.push("- "+p); }); }
+  L.push(""); L.push("Estimation indicative, établie à partir de mes seules réponses, à confirmer lors d'un échange et par une convention d'honoraires signée. Montants hors taxes.");
   L.push("Hémistiches, Mᵉ François Césure, avocat au barreau de Paris. "+CONTACT+" · +33 6 47 88 80 25");
   return fr(L.join("\n"));
 }
-function selectMail(){ var r = document.createRange(); r.selectNodeContents(document.getElementById("mail")); var s = window.getSelection(); s.removeAllRanges(); s.addRange(r); document.getElementById("copied").textContent = "Adresse sélectionnée"; }
+function selectMail(){ var rg = document.createRange(); rg.selectNodeContents(document.getElementById("mail")); var s = window.getSelection(); s.removeAllRanges(); s.addRange(rg); document.getElementById("copied").textContent = "Adresse sélectionnée"; }
 
 /* ---------- Vues : site et mentions ---------- */
 function show(view, anchor){
@@ -848,8 +994,9 @@ function show(view, anchor){
 }
 function bindView(el){ el.addEventListener("click", function(ev){ ev.preventDefault(); show(el.getAttribute("data-view"), el.getAttribute("data-anchor")); }); }
 document.querySelectorAll("[data-view]").forEach(bindView);
-document.querySelectorAll('.nav a, .drawer nav a, .hero a').forEach(function(a){ a.addEventListener("click", function(){ if(!document.getElementById("home").hidden) return; document.getElementById("home").hidden = false; document.getElementById("mentions").hidden = true; }); });
+document.querySelectorAll('.nav a, .drawer nav a, .hero a, a[href^="#faq"]').forEach(function(a){ a.addEventListener("click", function(){ if(document.getElementById("home").hidden){ document.getElementById("home").hidden = false; document.getElementById("mentions").hidden = true; } var h = a.getAttribute("href"); if(h==="#faq-fin"){ var d = document.getElementById("faq-fin"); if(d) d.open = true; } }); });
 if(location.hash==="#mentions") show("mentions"); else if(location.hash==="#confidentialite") show("mentions","confidentialite");
+else if(location.hash==="#faq-fin"){ var df = document.getElementById("faq-fin"); if(df) df.open = true; }
 
 /* ---------- Menu mobile ---------- */
 (function(){
@@ -861,9 +1008,11 @@ if(location.hash==="#mentions") show("mentions"); else if(location.hash==="#conf
   d.addEventListener('keydown',function(e){if(e.key==='Escape')set(false)});
 })();
 
+window.__cadence = { orienter: C.orienter, contenu: contenu, A: function(){ return A; }, setA: function(x){ A = x; } };
 frDom(document.body);
 intro();
 })();
 </script>
+
 </body>
 </html>
