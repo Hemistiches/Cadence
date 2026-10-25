@@ -345,6 +345,11 @@ h1,h2,h3,h4{margin:0;font-weight:300;line-height:1.1;letter-spacing:-0.01em;text
   .tbl{min-width:0}
   .note{break-inside:avoid}
 }
+/* Rapprocher le titre du test du paragraphe « Le nom » */
+@media screen{
+  .cesure-s{padding-bottom:clamp(20px,2.5vw,32px)}
+  .test-s{padding-top:clamp(20px,2.5vw,32px)}
+}
 </style>
 </head>
 <body>
@@ -928,8 +933,8 @@ function contenu(r){
       "presence-mensuelle": ["Proposition personnalisée","Vous souhaitez une présence régulière dans vos locaux, alors que votre volume relève d'un forfait depuis le cabinet."+(ext?" Volume estimé : "+ext+".":"")+" Les journées sur site, leur nombre et leurs frais se conviennent avant de fixer le prix."],
       "presence-faible-volume": ["Proposition personnalisée","Une présence soutenue est demandée, mais la charge estimée reste inférieure aux 12 à 16 jours par mois d'une transition."+(ext?" Volume estimé : "+ext+".":"")+" Nous verrons ensemble comment organiser la présence sans facturer des journées inoccupées."],
       "presence-permanente": ["Proposition personnalisée","Votre besoin est durable et suppose une présence soutenue : c'est le profil d'un poste de juriste interne. Une transition peut tenir la fonction le temps du recrutement ; nous en verrons les conditions."],
-      "entre-8-et-12": ["Proposition personnalisée","La charge estimée se situe entre 8 et 12 jours par mois : au-delà du forfait Intégré, en deçà d'une transition. Selon vos priorités, Intégré avec des dépassements accordés, ou une organisation sur mesure."],
-      "volume-eleve-a-distance": ["Proposition personnalisée","La charge estimée atteint 12 jours par mois ou plus sans présence sur site. Une mission de transition ou une organisation sur mesure seront à comparer."],
+      "entre-8-et-12": ["Proposition personnalisée","La charge estimée se situe entre 8 et 12 jours par mois, au-delà du forfait Intégré. Selon vos priorités, Intégré avec des dépassements accordés, ou une organisation sur mesure."],
+      "volume-eleve-a-distance": ["Proposition personnalisée","Votre besoin est durable et la charge estimée atteint 12 jours par mois ou plus : au-delà du forfait Intégré. Une organisation sur mesure ou le recrutement d'un juriste interne seront à comparer ; une mission de transition peut, le cas échéant, préparer ce recrutement."],
       "au-dela-16": ["Proposition personnalisée","La charge estimée dépasse 16 jours par mois : elle excède ce qu'un seul intervenant peut tenir. Un recrutement, éventuellement préparé par une mission de transition, est à envisager."]
     }[r.cas];
     o.titre = T[0]; o.sousTitre = T[1];

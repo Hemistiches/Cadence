@@ -101,25 +101,18 @@
 
     function forfaitPour(v) { return v <= SEUILS.essentiel ? 2 : (v <= SEUILS.regulier ? 4 : 8); }
 
-    if (a.presence === "soutenue") {
-      r.raisons.push("presence-soutenue");
-      if (V > SEUILS.transitionMax) { r.mode = "personnalise"; r.cas = "au-dela-16"; }
-      else if (V >= SEUILS.transitionMin && temporaire) {
-        r.mode = "transition"; r.cas = "transition";
-        r.jours = Math.min(SEUILS.transitionMax, Math.max(SEUILS.transitionMin, Math.round(V)));
-      }
-      else if (V >= SEUILS.transitionMin) { r.mode = "personnalise"; r.cas = "presence-permanente"; }
-      else { r.mode = "personnalise"; r.cas = "presence-faible-volume"; r.jours = V > SEUILS.integre ? null : forfaitPour(V); }
-    } else if (a.presence === "mensuelle") {
-      r.raisons.push("presence-mensuelle");
-      r.mode = "personnalise"; r.cas = V > SEUILS.transitionMax ? "au-dela-16" : "presence-mensuelle";
-      r.jours = V > SEUILS.integre ? null : forfaitPour(V);
-    } else {
-      if (V > SEUILS.transitionMax) { r.mode = "personnalise"; r.cas = "au-dela-16"; }
-      else if (V >= SEUILS.transitionMin) { r.mode = "personnalise"; r.cas = "volume-eleve-a-distance"; }
-      else if (V > SEUILS.integre) { r.mode = "personnalise"; r.cas = "entre-8-et-12"; }
-      else { r.mode = "externalisee"; r.cas = "forfait"; r.jours = forfaitPour(V); }
+    // La transition se définit par une durée limitée (remplacement, départ, renfort) et un volume de 12 à 16 jours :
+    // la présence ne choisit pas le mode, elle sert seulement à prévoir les journées sur place.
+    if (V > SEUILS.transitionMax) { r.mode = "personnalise"; r.cas = "au-dela-16"; }
+    else if (V >= SEUILS.transitionMin && temporaire) {
+      r.mode = "transition"; r.cas = "transition";
+      r.jours = Math.min(SEUILS.transitionMax, Math.max(SEUILS.transitionMin, Math.round(V)));
     }
+    else if (V >= SEUILS.transitionMin) { r.mode = "personnalise"; r.cas = a.presence === "soutenue" ? "presence-permanente" : "volume-eleve-a-distance"; }
+    else if (a.presence === "soutenue") { r.mode = "personnalise"; r.cas = "presence-faible-volume"; r.jours = V > SEUILS.integre ? null : forfaitPour(V); r.raisons.push("presence-soutenue"); }
+    else if (a.presence === "mensuelle") { r.mode = "personnalise"; r.cas = "presence-mensuelle"; r.jours = V > SEUILS.integre ? null : forfaitPour(V); r.raisons.push("presence-mensuelle"); }
+    else if (V > SEUILS.integre) { r.mode = "personnalise"; r.cas = "entre-8-et-12"; }
+    else { r.mode = "externalisee"; r.cas = "forfait"; r.jours = forfaitPour(V); }
     return r;
   }
 

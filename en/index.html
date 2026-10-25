@@ -345,6 +345,11 @@ h1,h2,h3,h4{margin:0;font-weight:300;line-height:1.1;letter-spacing:-0.01em;text
   .tbl{min-width:0}
   .note{break-inside:avoid}
 }
+/* Rapprocher le titre du test du paragraphe « Le nom » */
+@media screen{
+  .cesure-s{padding-bottom:clamp(20px,2.5vw,32px)}
+  .test-s{padding-top:clamp(20px,2.5vw,32px)}
+}
 </style>
 </head>
 <body>
@@ -919,8 +924,8 @@ function contenu(r){
       "presence-mensuelle": ["Personalised proposal","You would like a regular presence on your premises, while your volume fits a plan from the firm."+(ext?" Estimated volume: "+ext+".":"")+" On-site days, their number and their costs are agreed before the price is set."],
       "presence-faible-volume": ["Personalised proposal","A sustained presence is requested, but the estimated workload remains below the 12 to 16 days per month of an interim engagement."+(ext?" Estimated volume: "+ext+".":"")+" We will look together at how to organise the presence without charging for idle days."],
       "presence-permanente": ["Personalised proposal","Your need is lasting and requires a sustained presence: that is the profile of an in-house lawyer. An interim engagement can hold the function during recruitment; we will discuss the terms."],
-      "entre-8-et-12": ["Personalised proposal","The estimated workload lies between 8 and 12 days per month: above the Intégré plan, below an interim engagement. Depending on your priorities, Intégré with agreed additional hours, or a tailored arrangement."],
-      "volume-eleve-a-distance": ["Personalised proposal","The estimated workload reaches 12 days per month or more without presence on site. An interim engagement or a tailored arrangement should be compared."],
+      "entre-8-et-12": ["Personalised proposal","The estimated workload lies between 8 and 12 days per month, above the Intégré plan. Depending on your priorities, Intégré with agreed additional hours, or a tailored arrangement."],
+      "volume-eleve-a-distance": ["Personalised proposal","Your need is lasting and the estimated workload reaches 12 days per month or more: above the Intégré plan. A tailored arrangement or hiring an in-house lawyer should be compared; an interim engagement can, if needed, prepare that recruitment."],
       "au-dela-16": ["Personalised proposal","The estimated workload exceeds 16 days per month: more than a single person can hold. A recruitment, possibly prepared by an interim engagement, should be considered."]
     }[r.cas];
     o.titre = T[0]; o.sousTitre = T[1];
