@@ -439,7 +439,7 @@ h1,h2,h3,h4{margin:0;font-weight:300;line-height:1.1;letter-spacing:-0.01em;text
         <article>
           <p class="label">Pour reprendre la fonction</p>
           <h3>Direction juridique de transition</h3>
-          <p>La mission reprend temporairement la fonction juridique, selon un calendrier convenu : absence, départ, poste vacant ou renforcement temporaire substantiel. Elle s’exerce principalement à distance, avec une présence dans vos locaux pour les réunions et les moments qui l’exigent.</p>
+          <p>La mission reprend temporairement la fonction juridique, selon un calendrier convenu : absence, départ, poste vacant ou renforcement temporaire substantiel. Elle s’exerce de préférence à distance, et dans vos locaux lorsque la mission l’exige : réunions, comités, moments clés.</p>
           <p>Elle suppose un volume de 12 à 16 jours par mois. Les journées sur place sont comprises dans les honoraires ; les frais de déplacement et d’hébergement éventuels sont distincts, estimés et convenus au préalable.</p>
           <ul><li>12 à 16 jours par mois</li><li>Tarif journalier selon la durée initiale convenue</li><li>Calendrier et organisation fixés dans la convention</li></ul>
         </article>
@@ -907,7 +907,7 @@ function contenu(r){
   if(r.mode==="transition"){
     var jt = r.jours;
     o.titre = "Direction juridique de transition";
-    o.sousTitre = jt+" jours par mois, selon un calendrier convenu, principalement à distance.";
+    o.sousTitre = jt+" jours par mois, selon un calendrier convenu, de préférence à distance.";
     if(d.incertaine){
       o.prix.push("Selon la durée initiale retenue : de "+eur(C.prixJourTransition("des6"))+" à "+eur(C.prixJourTransition("lt3"))+" HT par jour, soit "+eur(C.mensuelTransition(jt,"des6"))+" à "+eur(C.mensuelTransition(jt,"lt3"))+" HT par mois.");
       o.scen = [["6 mois ou plus", C.prixJourTransition("des6"), C.mensuelTransition(jt,"des6"), ""],["De 3 à moins de 6 mois", C.prixJourTransition("de3a6"), C.mensuelTransition(jt,"de3a6"), ""],["Moins de 3 mois", C.prixJourTransition("lt3"), C.mensuelTransition(jt,"lt3"), ""]];

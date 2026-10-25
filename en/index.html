@@ -439,7 +439,7 @@ h1,h2,h3,h4{margin:0;font-weight:300;line-height:1.1;letter-spacing:-0.01em;text
         <article>
           <p class="label">To take over the function</p>
           <h3>Interim general counsel</h3>
-          <p>The engagement takes over the legal function temporarily, on an agreed schedule: absence, departure, vacant position or a substantial temporary reinforcement. It is carried out mainly remotely, with presence on your premises for meetings and the moments that require it.</p>
+          <p>The engagement takes over the legal function temporarily, on an agreed schedule: absence, departure, vacant position or a substantial temporary reinforcement. It is carried out remotely where possible, and on your premises when the engagement requires it: meetings, committees, key moments.</p>
           <p>It requires 12 to 16 days per month. Days on site are included in the fees; any travel and accommodation costs are separate, estimated and agreed in advance.</p>
           <ul><li>12 to 16 days per month</li><li>Day rate depending on the agreed initial term</li><li>Schedule and organisation set in the engagement letter</li></ul>
         </article>
@@ -898,7 +898,7 @@ function contenu(r){
   if(r.mode==="transition"){
     var jt = r.jours;
     o.titre = "Interim general counsel";
-    o.sousTitre = jt+" days per month, on an agreed schedule, mainly remotely.";
+    o.sousTitre = jt+" days per month, on an agreed schedule, remotely where possible.";
     if(d.incertaine){
       o.prix.push("Depending on the initial term chosen: from "+eur(C.prixJourTransition("des6"))+" to "+eur(C.prixJourTransition("lt3"))+" excl. VAT per day, i.e. "+eur(C.mensuelTransition(jt,"des6"))+" to "+eur(C.mensuelTransition(jt,"lt3"))+" excl. VAT per month.");
       o.scen = [["6 months or more", C.prixJourTransition("des6"), C.mensuelTransition(jt,"des6"), ""],["3 to less than 6 months", C.prixJourTransition("de3a6"), C.mensuelTransition(jt,"de3a6"), ""],["Less than 3 months", C.prixJourTransition("lt3"), C.mensuelTransition(jt,"lt3"), ""]];
