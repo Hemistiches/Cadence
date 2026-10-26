@@ -18,8 +18,8 @@
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-<meta name="description" content="Cadence, par Hémistiches : direction juridique externalisée (2, 4 ou 8 jours par mois) ou de transition (12 à 16 jours par mois sur site). Un test de quelques questions concrètes donne le mode, le volume et la durée adaptés, avec une estimation personnalisée à confirmer.">
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LegalService", "name": "Cadence, par Hémistiches", "url": "https://cadence.hemistiches.com/", "inLanguage": "fr", "description": "Cadence, par Hémistiches : direction juridique externalisée (2, 4 ou 8 jours par mois) ou de transition (12 à 16 jours par mois sur site). Un test de quelques questions concrètes donne le mode, le volume et la durée adaptés, avec une estimation personnalisée à confirmer.", "provider": {"@type": "Attorney", "name": "François Césure", "url": "https://www.hemistiches.com", "address": {"@type": "PostalAddress", "streetAddress": "33, avenue Mac-Mahon", "postalCode": "75017", "addressLocality": "Paris", "addressCountry": "FR"}, "telephone": "+33647888025", "email": "francois.cesure@hemistiches.com"}, "areaServed": "FR", "priceRange": "€€", "hasOfferCatalog": {"@type": "OfferCatalog", "name": "Tarifs HT", "itemListElement": [{"@type": "Offer", "name": "Essentiel", "description": "Direction juridique externalisée, 2 jours (14 heures) par mois, durée initiale de six mois", "priceSpecification": {"@type": "UnitPriceSpecification", "price": 1500, "priceCurrency": "EUR", "unitText": "MON", "valueAddedTaxIncluded": false}}, {"@type": "Offer", "name": "Régulier", "description": "Direction juridique externalisée, 4 jours (28 heures) par mois, durée initiale de six mois", "priceSpecification": {"@type": "UnitPriceSpecification", "price": 2900, "priceCurrency": "EUR", "unitText": "MON", "valueAddedTaxIncluded": false}}, {"@type": "Offer", "name": "Intégré", "description": "Direction juridique externalisée, 8 jours (56 heures) par mois, durée initiale de six mois", "priceSpecification": {"@type": "UnitPriceSpecification", "price": 5600, "priceCurrency": "EUR", "unitText": "MON", "valueAddedTaxIncluded": false}}, {"@type": "Offer", "name": "Direction juridique de transition", "description": "12 à 16 jours par mois sur site ; tarif journalier de 800 à 650 € HT selon la durée initiale convenue", "priceSpecification": {"@type": "UnitPriceSpecification", "minPrice": 650, "maxPrice": 800, "priceCurrency": "EUR", "unitText": "DAY", "valueAddedTaxIncluded": false}}]}}</script>
+<meta name="description" content="Cadence, par Hémistiches : direction juridique externalisée (2, 4 ou 8 jours par mois) ou de transition (12 à 16 jours par mois). Un test de quelques questions concrètes donne le mode, le volume et la durée adaptés, avec une estimation personnalisée à confirmer.">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LegalService", "name": "Cadence, par Hémistiches", "url": "https://cadence.hemistiches.com/", "inLanguage": "fr", "description": "Cadence, par Hémistiches : direction juridique externalisée (2, 4 ou 8 jours par mois) ou de transition (12 à 16 jours par mois). Un test de quelques questions concrètes donne le mode, le volume et la durée adaptés, avec une estimation personnalisée à confirmer.", "provider": {"@type": "Attorney", "name": "François Césure", "url": "https://www.hemistiches.com", "address": {"@type": "PostalAddress", "streetAddress": "33, avenue Mac-Mahon", "postalCode": "75017", "addressLocality": "Paris", "addressCountry": "FR"}, "telephone": "+33647888025", "email": "francois.cesure@hemistiches.com"}, "areaServed": "FR", "priceRange": "€€", "hasOfferCatalog": {"@type": "OfferCatalog", "name": "Tarifs HT", "itemListElement": [{"@type": "Offer", "name": "Essentiel", "description": "Direction juridique externalisée, 2 jours (14 heures) par mois, durée initiale de six mois", "priceSpecification": {"@type": "UnitPriceSpecification", "price": 1500, "priceCurrency": "EUR", "unitText": "MON", "valueAddedTaxIncluded": false}}, {"@type": "Offer", "name": "Régulier", "description": "Direction juridique externalisée, 4 jours (28 heures) par mois, durée initiale de six mois", "priceSpecification": {"@type": "UnitPriceSpecification", "price": 2900, "priceCurrency": "EUR", "unitText": "MON", "valueAddedTaxIncluded": false}}, {"@type": "Offer", "name": "Intégré", "description": "Direction juridique externalisée, 8 jours (56 heures) par mois, durée initiale de six mois", "priceSpecification": {"@type": "UnitPriceSpecification", "price": 5600, "priceCurrency": "EUR", "unitText": "MON", "valueAddedTaxIncluded": false}}, {"@type": "Offer", "name": "Direction juridique de transition", "description": "12 à 16 jours par mois ; tarif journalier de 800 à 650 € HT selon la durée initiale convenue", "priceSpecification": {"@type": "UnitPriceSpecification", "minPrice": 650, "maxPrice": 800, "priceCurrency": "EUR", "unitText": "DAY", "valueAddedTaxIncluded": false}}]}}</script>
 <style>
 /* Charte reprise de hemistiches.com : noir et blanc, Avenir Next léger, filets plutôt que cartes, angles droits, césure verticale. */
 :root{
@@ -345,6 +345,11 @@ h1,h2,h3,h4{margin:0;font-weight:300;line-height:1.1;letter-spacing:-0.01em;text
   .tbl{min-width:0}
   .note{break-inside:avoid}
 }
+/* Rapprocher le titre du test du paragraphe « Le nom » */
+@media screen{
+  .cesure-s{padding-bottom:clamp(20px,2.5vw,32px)}
+  .test-s{padding-top:clamp(20px,2.5vw,32px)}
+}
 </style>
 </head>
 <body>
@@ -410,7 +415,7 @@ h1,h2,h3,h4{margin:0;font-weight:300;line-height:1.1;letter-spacing:-0.01em;text
         <p class="verse">En musique, la cadence est le rythme qui porte une phrase et la conduit à sa résolution.</p>
       </div>
       <div class="prose">
-        <p>Pour une entreprise sans direction juridique, c’est le temps juridique dont elle a réellement besoin, ni plus ni moins : deux, quatre ou huit jours par mois depuis le cabinet, ou douze à seize jours par mois dans vos locaux le temps d’une transition.</p>
+        <p>Pour une entreprise sans direction juridique, c’est le temps juridique dont elle a réellement besoin, ni plus ni moins : deux, quatre ou huit jours par mois depuis le cabinet, ou douze à seize jours par mois le temps d’une transition.</p>
         <p>Le test le mesure à partir de situations concrètes. Il ne vous demande pas de fixer vous-même un nombre de jours.</p>
       </div>
     </div>
@@ -437,11 +442,11 @@ h1,h2,h3,h4{margin:0;font-weight:300;line-height:1.1;letter-spacing:-0.01em;text
           <ul><li>2, 4 ou 8 jours par mois</li><li>Durée initiale de six mois, puis poursuite avec un mois de préavis</li><li>Provision mensuelle et relevé des diligences</li></ul>
         </article>
         <article>
-          <p class="label">Dans vos locaux</p>
+          <p class="label">Pour reprendre la fonction</p>
           <h3>Direction juridique de transition</h3>
-          <p>La mission est exercée dans vos locaux, selon un calendrier convenu, pour reprendre temporairement la fonction juridique : absence, départ, poste vacant ou renforcement temporaire substantiel.</p>
-          <p>Elle suppose un volume de 12 à 16 jours par mois. La présence sur site est comprise dans les honoraires ; les frais de déplacement et d’hébergement éventuels sont distincts, estimés et convenus au préalable.</p>
-          <ul><li>12 à 16 jours par mois, sur site</li><li>Tarif journalier selon la durée initiale convenue</li><li>Calendrier et organisation fixés dans la convention</li></ul>
+          <p>La mission reprend temporairement la fonction juridique, selon un calendrier convenu : absence, départ, poste vacant ou renforcement temporaire substantiel. Elle s’exerce de préférence à distance, et dans vos locaux lorsque la mission l’exige : réunions, comités, moments clés.</p>
+          <p>Elle suppose un volume de 12 à 16 jours par mois. Les journées sur place sont comprises dans les honoraires ; les frais de déplacement et d’hébergement éventuels sont distincts, estimés et convenus au préalable.</p>
+          <ul><li>12 à 16 jours par mois</li><li>Tarif journalier selon la durée initiale convenue</li><li>Calendrier et organisation fixés dans la convention</li></ul>
         </article>
       </div>
     </div>
@@ -452,7 +457,7 @@ h1,h2,h3,h4{margin:0;font-weight:300;line-height:1.1;letter-spacing:-0.01em;text
       <h2 class="sec-h2" id="t-form">Tarifs</h2>
       <p class="intro">Tous les prix s’entendent hors taxes. Une journée correspond à sept heures. Le test vous donne une estimation personnalisée, à confirmer lors d’un échange.</p>
 
-      <h3 class="sub-h3">Direction juridique externalisée : trois forfaits sur six mois</h3>
+      <h3 class="sub-h3">Direction juridique externalisée : trois forfaits sur six mois ou plus</h3>
       <div class="three">
         <article>
           <h3>Essentiel</h3>
@@ -477,7 +482,7 @@ h1,h2,h3,h4{margin:0;font-weight:300;line-height:1.1;letter-spacing:-0.01em;text
 
       <div class="note" id="fin-anticipee">
         <h4>Durée et fin anticipée</h4>
-        <p>Les forfaits bénéficient d’un tarif lié à une durée initiale de six mois. Si vous mettez fin à la mission avant ce terme, hors manquement du cabinet, les diligences effectivement réalisées sont recalculées au taux horaire habituel du cabinet, <span data-p="taux">150 €</span> HT, en remplacement du forfait et après déduction des sommes déjà réglées, sans pouvoir dépasser le prix publié d’un engagement court de même volume pour la durée réellement exécutée. Ce décompte peut donner lieu à un complément ou à une restitution. Aucune mensualité future n’est exigée. Les modalités figurent dans la convention d’honoraires, qui seule les rend applicables. <a href="#faq-fin">Exemples</a></p>
+        <p>Vous pouvez arrêter à tout moment avec un mois de préavis. Quels que soient la formule et la durée choisies, c’est alors le tarif de la durée réellement exécutée qui s’applique.</p>
       </div>
 
       <h3 class="sub-h3">Engagements plus courts</h3>
@@ -492,7 +497,7 @@ h1,h2,h3,h4{margin:0;font-weight:300;line-height:1.1;letter-spacing:-0.01em;text
       </table></div>
       <p class="cadre">Pour ces engagements, la convention fixe la durée et le volume ; toute prolongation ou modification tarifaire fait l’objet d’un accord écrit.</p>
 
-      <h3 class="sub-h3">Direction juridique de transition : 12 à 16 jours par mois sur site</h3>
+      <h3 class="sub-h3">Direction juridique de transition : 12 à 16 jours par mois</h3>
       <div class="tbl-wrap"><table class="tbl">
         <caption>Direction juridique de transition, tarif journalier HT selon la durée initiale convenue</caption>
         <thead><tr><th scope="col">Durée initiale convenue</th><th scope="col">Prix par jour</th><th scope="col">Budget pour 12 à 16 jours par mois</th></tr></thead>
@@ -502,7 +507,7 @@ h1,h2,h3,h4{margin:0;font-weight:300;line-height:1.1;letter-spacing:-0.01em;text
           <tr><th scope="row">6 mois ou plus</th><td><span data-p="tj:des6">650 €</span></td><td><span data-p="tm:12:des6">7 800 €</span> à <span data-p="tm:16:des6">10 400 €</span> par mois</td></tr>
         </tbody>
       </table></div>
-      <p class="cadre">Le tarif dépend du volume et de la durée convenus au départ ; la seule prolongation d’une mission n’entraîne aucune baisse automatique. La convention fixe le calendrier, le volume mensuel et l’organisation sur site ; les jours supplémentaires sont facturés au tarif journalier convenu, après accord préalable. Frais de déplacement et d’hébergement éventuels distincts, estimés et convenus avant la mission.</p>
+      <p class="cadre">Le tarif dépend du volume et de la durée convenus au départ ; la seule prolongation d’une mission n’entraîne aucune baisse automatique. La convention fixe le calendrier, le volume mensuel et les journées sur place ; les jours supplémentaires sont facturés au tarif journalier convenu, après accord préalable. Frais de déplacement et d’hébergement éventuels distincts, estimés et convenus avant la mission.</p>
 
       <h3 class="sub-h3">Secrétariat juridique</h3>
       <div class="three one">
@@ -533,14 +538,13 @@ h1,h2,h3,h4{margin:0;font-weight:300;line-height:1.1;letter-spacing:-0.01em;text
         <details id="faq-fin">
           <summary>Que se passe-t-il si je mets fin à un forfait avant six mois ?</summary>
           <div>
-            <p>Vous pouvez mettre fin à la mission à tout moment. Le tarif du forfait étant lié à une durée initiale de six mois, les diligences effectivement réalisées depuis le début sont alors recalculées au taux horaire habituel du cabinet, <span data-p="taux">150 €</span> HT, qui est aussi celui des dépassements : le tarif du forfait est une remise consentie en contrepartie de la durée initiale. Ce décompte remplace le forfait. Il ne peut toutefois dépasser le prix publié d’un engagement court de même volume pour la durée réellement exécutée : vous ne payez jamais plus que si vous aviez choisi cet engagement dès le départ. Les dépassements accordés restent dus en sus. Les sommes déjà réglées sont déduites intégralement ; les dépassements déjà facturés ne sont pas comptés deux fois. Selon le cas, vous recevez une facture complémentaire ou une restitution. Aucune mensualité future n’est exigée.</p>
-            <p>Seules comptent les heures réellement travaillées et justifiées par le relevé des diligences : les heures réservées ou reportées mais non utilisées ne sont pas facturées. Cette règle ne s’applique pas si l’interruption tient à un manquement du cabinet ou intervient à son initiative.</p>
-            <p><b>Deux exemples, forfait Essentiel, fin après un mois, 1 500 € HT réglés :</b></p>
+            <p>Vous pouvez mettre fin à la mission à tout moment, moyennant un préavis d’un mois. Le tarif du forfait étant lié à une durée initiale de six mois, un arrêt anticipé fait s’appliquer le tarif publié pour la durée réellement exécutée : celui des engagements de moins de 3 mois, ou de 3 à moins de 6 mois. La différence avec les sommes déjà réglées est facturée ; aucune mensualité future n’est due.</p>
+            <p><b>Exemples, forfait Essentiel :</b></p>
             <ul>
-              <li>14 heures travaillées : 14 × 150 € = 2 100 € HT, ramenés au prix d’un mois d’engagement court, 1 800 € HT, soit 300 € HT à compléter.</li>
-              <li>5 heures travaillées : 5 × 150 € = 750 € HT, soit 750 € HT à restituer.</li>
+              <li>Arrêt après un mois : tarif « moins de 3 mois », 1 800 € HT au lieu de 1 500 €, soit 300 € HT de complément.</li>
+              <li>Arrêt après quatre mois : tarif « de 3 à moins de 6 mois », 4 × 1 650 € = 6 600 € HT au lieu de 6 000 €, soit 600 € HT de complément.</li>
             </ul>
-            <p>La présente information ne remplace pas la convention d’honoraires : le mécanisme ne s’applique que s’il y a été accepté, et reste soumis aux règles qui encadrent les honoraires d’avocat et à leur contrôle.</p>
+            <p>Les dépassements accordés, déjà facturés, ne sont pas affectés. Cette règle ne s’applique pas si l’arrêt tient à un manquement du cabinet ou intervient à son initiative. Elle figure dans la convention d’honoraires, qui seule la rend applicable.</p>
           </div>
         </details>
         <details>
@@ -557,7 +561,7 @@ h1,h2,h3,h4{margin:0;font-weight:300;line-height:1.1;letter-spacing:-0.01em;text
         </details>
         <details>
           <summary>La transition fonctionne-t-elle de la même façon ?</summary>
-          <div><p>Non. La transition repose sur un tarif journalier fixé selon la durée initiale convenue, pour 12 à 16 jours par mois sur site. Le report de trois heures et le recalcul à l’heure des forfaits ne s’y appliquent pas. La convention fixe la durée, le calendrier et les conditions d’une fin anticipée ; aucune journée future non réalisée n’est facturée automatiquement. Une prise de fonction se convient selon mes engagements en cours : je vous indique la date possible dès le premier échange.</p></div>
+          <div><p>Non. La transition repose sur un tarif journalier fixé selon la durée initiale convenue, pour 12 à 16 jours par mois. Le report de trois heures ne s’y applique pas. En cas d’arrêt anticipé, avec un préavis d’un mois, les journées accomplies sont facturées au tarif journalier de la durée réellement exécutée ; aucune journée future non réalisée n’est facturée. Une prise de fonction se convient selon mes engagements en cours : je vous indique la date possible dès le premier échange.</p></div>
         </details>
         <details>
           <summary>Pouvez-vous intervenir dans nos locaux dans le cadre d’un forfait ?</summary>
@@ -594,7 +598,7 @@ h1,h2,h3,h4{margin:0;font-weight:300;line-height:1.1;letter-spacing:-0.01em;text
       <ul class="eng">
         <li><b>Le test n’est pas une consultation</b><span>Le résultat est une estimation indicative, établie à partir de vos seules réponses. La consultation commence avec l’avocat, dans le cadre d’une convention d’honoraires.</span></li>
         <li><b>Une convention signée</b><span>Elle fixe le mode, le volume, la durée, le périmètre et ses exclusions, les délais, le report, les dépassements et les conditions de fin anticipée. Elle est précédée d’une vérification des conflits d’intérêts.</span></li>
-        <li><b>Un volume, pas une permanence</b><span>Le forfait réserve un volume mensuel ; la transition fixe un calendrier sur site. J’interviens en toute indépendance, sans lien hiérarchique.</span></li>
+        <li><b>Un volume, pas une permanence</b><span>Le forfait réserve un volume mensuel ; la transition fixe un calendrier convenu. J’interviens en toute indépendance, sans lien hiérarchique.</span></li>
         <li><b>Un interlocuteur, un rythme</b><span>Un référent désigné chez vous, un canal unique, un point mensuel des priorités et le relevé des diligences avec chaque facture.</span></li>
         <li><b>Un prix confirmé par écrit</b><span>Rien ne change de palier automatiquement, et aucun travail supplémentaire n’est facturé sans votre accord préalable.</span></li>
         <li><b>Vos réponses restent chez vous</b><span>Le questionnaire fonctionne dans votre navigateur. Seuls votre adresse électronique et le résumé de votre résultat me sont transmis.</span></li>
@@ -772,7 +776,7 @@ function intro(){
   idx = -1;
   box.innerHTML =
     '<p class="label">Avant de commencer</p>'+
-    '<h3 class="qtitle">'+esc("Répondez pour l'entreprise telle qu'elle est aujourd'hui, pas telle qu'elle devrait être.")+'</h3>'+
+    '<h3 class="qtitle">'+esc("Répondez d'après ce que vous vivez aujourd'hui : charge de travail, urgences, organisation.")+'</h3>'+
     '<p class="qhint">'+esc("Vos réponses restent dans votre navigateur. À la fin, votre adresse électronique vous est demandée pour afficher votre résultat ; seuls cette adresse et le résumé de ce résultat me sont transmis, jamais vos réponses.")+'</p>'+
     '<div class="dnav" style="justify-content:flex-start"><button class="btn btn-ink" type="button" id="start">Commencer le test</button></div>'+
     '<p class="notice">'+esc("Le résultat est une estimation établie automatiquement à partir de vos seules réponses, sans vérification ni examen de pièces. Il ne constitue ni une consultation juridique ni une offre contractuelle, et ne crée aucune relation entre vous et le cabinet.")+'</p>';
@@ -898,8 +902,8 @@ function contenu(r){
     o.conditions.push("Report de trois heures non consommées au plus, sur le mois suivant uniquement.");
     o.conditions.push("Dépassements à "+eur(C.TARIFS.tauxHoraire)+" HT de l'heure, après estimation et accord préalable, sous réserve de disponibilité.");
     if(d.incertaine || d.tranche==="des6"){
-      o.fin.push("Le forfait bénéficie d'un tarif lié à une durée initiale de six mois. Si vous mettez fin à la mission avant ce terme, hors manquement du cabinet, les diligences effectivement réalisées sont recalculées au taux horaire habituel du cabinet, "+eur(C.TARIFS.tauxHoraire)+" HT, en remplacement du forfait et après déduction des sommes déjà réglées, sans dépasser le prix publié d'un engagement court de même volume pour la durée réellement exécutée.");
-      o.fin.push("Ce décompte peut donner lieu à un complément ou à une restitution. Aucune mensualité future n'est exigée. Exemple, "+NOMS[2]+" arrêté après un mois et "+eur(C.mensuelExt(2,"des6"))+" réglés : 14 heures travaillées donnent "+eur(C.recalculDepart(14,C.mensuelExt(2,"des6"),2,1).solde)+" HT à compléter ; 5 heures donnent "+eur(-C.recalculDepart(5,C.mensuelExt(2,"des6"),2,1).solde)+" HT à restituer.");
+      o.fin.push("Le forfait est tarifé pour une durée initiale de six mois. En cas d'arrêt anticipé, avec un préavis d'un mois et hors manquement du cabinet, c'est le tarif de la durée réellement exécutée qui s'applique, et la différence avec les sommes réglées est facturée. Aucune mensualité future n'est due.");
+      o.fin.push("Exemple : "+NOMS[j]+" arrêté après un mois, tarif « moins de 3 mois » : "+eur(C.mensuelExt(j,"lt3"))+" HT au lieu de "+eur(C.mensuelExt(j,"des6"))+", soit "+eur(C.recalculDepart(j,1,C.mensuelExt(j,"des6")).solde)+" HT de complément.");
       o.fin.push("Après six mois : poursuite au même tarif, préavis d'un mois. Les modalités figurent dans la convention d'honoraires.");
     } else {
       o.fin.push("La convention fixe la durée et le volume ; toute prolongation ou modification tarifaire se convient par écrit.");
@@ -908,7 +912,7 @@ function contenu(r){
   if(r.mode==="transition"){
     var jt = r.jours;
     o.titre = "Direction juridique de transition";
-    o.sousTitre = jt+" jours par mois dans vos locaux, selon un calendrier convenu.";
+    o.sousTitre = jt+" jours par mois, selon un calendrier convenu, de préférence à distance.";
     if(d.incertaine){
       o.prix.push("Selon la durée initiale retenue : de "+eur(C.prixJourTransition("des6"))+" à "+eur(C.prixJourTransition("lt3"))+" HT par jour, soit "+eur(C.mensuelTransition(jt,"des6"))+" à "+eur(C.mensuelTransition(jt,"lt3"))+" HT par mois.");
       o.scen = [["6 mois ou plus", C.prixJourTransition("des6"), C.mensuelTransition(jt,"des6"), ""],["De 3 à moins de 6 mois", C.prixJourTransition("de3a6"), C.mensuelTransition(jt,"de3a6"), ""],["Moins de 3 mois", C.prixJourTransition("lt3"), C.mensuelTransition(jt,"lt3"), ""]];
@@ -918,10 +922,10 @@ function contenu(r){
       o.prix.push(eur(C.prixJourTransition(d.tranche))+" HT par jour pour une durée initiale "+TR[d.tranche]+", soit "+eur(mt)+" HT par mois.");
       o.budget.push(d.mois ? "Budget pour "+d.mois+(d.mois===12?" mois et plus":" mois")+" : "+eur(mt*d.mois)+" HT." : "Budget : "+eur(mt)+" HT par mois, pour la durée convenue.");
     }
-    o.conditions.push("Présence sur site comprise ; frais de déplacement et d'hébergement éventuels estimés et convenus au préalable.");
+    o.conditions.push("Journées sur place comprises ; frais de déplacement et d'hébergement éventuels estimés et convenus au préalable.");
     o.conditions.push("Jours supplémentaires au tarif journalier convenu, après accord préalable.");
     o.conditions.push("Prise de fonction à convenir selon mes engagements en cours.");
-    o.fin.push("La convention fixe la durée, le calendrier et les conditions d'une fin anticipée. Aucune journée future non réalisée n'est facturée automatiquement.");
+    o.fin.push("En cas d'arrêt anticipé, avec un préavis d'un mois, les journées accomplies sont facturées au tarif journalier de la durée réellement exécutée. Aucune journée future non réalisée n'est facturée.");
   }
   if(r.mode==="personnalise"){
     var ext = r.jours ? NOMS[r.jours]+" ("+r.jours+" jours, "+C.heures(r.jours)+" heures par mois, à partir de "+eur(C.mensuelExt(r.jours,"des6"))+" HT par mois sur six mois)" : null;
@@ -929,8 +933,8 @@ function contenu(r){
       "presence-mensuelle": ["Proposition personnalisée","Vous souhaitez une présence régulière dans vos locaux, alors que votre volume relève d'un forfait depuis le cabinet."+(ext?" Volume estimé : "+ext+".":"")+" Les journées sur site, leur nombre et leurs frais se conviennent avant de fixer le prix."],
       "presence-faible-volume": ["Proposition personnalisée","Une présence soutenue est demandée, mais la charge estimée reste inférieure aux 12 à 16 jours par mois d'une transition."+(ext?" Volume estimé : "+ext+".":"")+" Nous verrons ensemble comment organiser la présence sans facturer des journées inoccupées."],
       "presence-permanente": ["Proposition personnalisée","Votre besoin est durable et suppose une présence soutenue : c'est le profil d'un poste de juriste interne. Une transition peut tenir la fonction le temps du recrutement ; nous en verrons les conditions."],
-      "entre-8-et-12": ["Proposition personnalisée","La charge estimée se situe entre 8 et 12 jours par mois : au-delà du forfait Intégré, en deçà d'une transition. Selon vos priorités, Intégré avec des dépassements accordés, ou une organisation sur mesure."],
-      "volume-eleve-a-distance": ["Proposition personnalisée","La charge estimée atteint 12 jours par mois ou plus sans présence sur site. Une transition dans vos locaux ou une organisation sur mesure seront à comparer."],
+      "entre-8-et-12": ["Proposition personnalisée","La charge estimée se situe entre 8 et 12 jours par mois, au-delà du forfait Intégré. Selon vos priorités, Intégré avec des dépassements accordés, ou une organisation sur mesure."],
+      "volume-eleve-a-distance": ["Proposition personnalisée","Votre besoin est durable et la charge estimée atteint 12 jours par mois ou plus : au-delà du forfait Intégré. Une organisation sur mesure ou le recrutement d'un juriste interne seront à comparer ; une mission de transition peut, le cas échéant, préparer ce recrutement."],
       "au-dela-16": ["Proposition personnalisée","La charge estimée dépasse 16 jours par mois : elle excède ce qu'un seul intervenant peut tenir. Un recrutement, éventuellement préparé par une mission de transition, est à envisager."]
     }[r.cas];
     o.titre = T[0]; o.sousTitre = T[1];
