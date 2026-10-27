@@ -342,6 +342,17 @@ h1,h2,h3,h4{margin:0;font-weight:300;line-height:1.1;letter-spacing:-0.01em;text
 }
 @media print{
   .modes-s,.faq-s{display:none!important}
+  .print-card{width:calc(100% - 2px);display:flex;justify-content:space-between;gap:18px;border:1.5px solid #000;padding:12px 16px;margin:0 0 18px;break-inside:avoid}
+  .print-card .who{font-size:9pt;color:#444;letter-spacing:.02em}
+  .print-card .nm{font-size:15pt;color:#000;margin-top:2px}
+  .print-card .rl{font-size:10pt;color:#222}
+  .print-card .co{font-size:10.5pt;color:#000;text-align:right;line-height:1.55}
+  .print-card .co a{color:#000;text-decoration:none}
+  .print-card.end{margin:22px 0 0}
+  .ph-logo{display:flex;align-items:center;gap:10px}
+  .ph-logo img{height:20px;width:auto;filter:invert(1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .ph-logo i{width:0;height:18px;border-left:1px solid #000}
+  .ph-logo span{font-size:14pt;color:#000}
   .tbl{min-width:0}
   .note{break-inside:avoid}
 }
@@ -940,10 +951,14 @@ function contenu(r){
   return o;
 }
 
+/* Rapport imprimé : coordonnées de l'avocat en tête et en fin */
+var LOGO = (document.querySelector(".brand img")||{}).src || "";
+function carte(cls, titre){ return '<div class="print-only print-card'+cls+'"><div><div class="who">'+esc(titre)+'</div><div class="nm">Mᵉ François Césure</div><div class="rl">'+esc("Avocat, Paris Bar")+'</div><div class="rl">'+esc("Hémistiches, 33, avenue Mac-Mahon, 75017 Paris, France")+'</div></div><div class="co">francois.cesure@hemistiches.com<br>+33 6 47 88 80 25<br>+33 1 45 03 20 20<br><a href="https://www.hemistiches.com">www.hemistiches.com</a></div></div>'; }
 function report(r){
   var o = contenu(r), html = "";
   var today = new Date().toLocaleDateString("en-GB",{day:"numeric",month:"long",year:"numeric"});
-  html += '<div class="print-only print-head"><span><b>Cadence</b>, by Hémistiches</span><span>'+esc("Estimate generated on "+today)+'</span></div>';
+  html += '<div class="print-only print-head"><span class="ph-logo"><img src="'+LOGO+'" alt="Hémistiches."><i aria-hidden="true"></i><span>Cadence</span></span><span>'+esc("Estimate generated on "+today)+'</span></div>';
+  html += carte('', "Your contact");
   html += '<div class="report-head"><p class="label">Suggested mode and volume</p><h3>'+esc(o.titre)+'</h3><p class="price">'+esc(o.sousTitre)+'</p></div>';
   if(o.raisons.length) html += '<div class="rsec"><h4>Main reasons</h4><p class="compare">'+esc("Estimate based mainly on "+o.raisons.join(", ")+".")+'</p></div>';
   html += '<div class="rsec"><h4>Estimated rate and budget</h4><div class="offer-reco">'+o.prix.map(function(p){return '<p class="p">'+esc(p)+'</p>';}).join("")+o.budget.map(function(p){return '<p>'+esc(p)+'</p>';}).join("");
@@ -959,6 +974,7 @@ function report(r){
     '<div class="contactbox"><code id="mail">'+CONTACT+'</code><button type="button" class="btn btn-line" id="copy">'+esc("Copy address")+'</button><a class="btn btn-ink" href="mailto:'+CONTACT+'?subject='+encodeURIComponent("Cadence: "+o.titre)+'&body='+encodeURIComponent("Hello,\n\nI would like to discuss my Cadence estimate.\n\n"+summary(o))+'">Write</a><span class="copied" id="copied" aria-live="polite"></span></div></div>';
   html += '<p class="notice">'+esc("This estimate is generated automatically from your answers alone, without verification or review of documents, and fixed at the date it was generated. It is neither legal advice nor a contractual offer. Amounts are exclusive of VAT; any engagement is subject to a signed engagement letter, setting the scope, volume, duration and the method for determining fees, and to a prior conflict check.")+'</p>'+
     '<div class="dnav" style="justify-content:flex-start"><button type="button" class="linkbtn" id="restart">Take the test again</button></div>';
+  html += carte(' end', "To discuss this result");
   html += '<div class="print-only print-foot">'+esc("Mᵉ François Césure, avocat at the Paris Bar · Hémistiches, 33, avenue Mac-Mahon, 75017 Paris, France · francois.cesure@hemistiches.com · +33 6 47 88 80 25 · SIREN 833 468 358. Indicative estimate, to be confirmed in a conversation and by a signed engagement letter.")+'</div>';
   box.innerHTML = html;
   document.getElementById("pdf").onclick = function(){ try{ window.print(); }catch(e){} };

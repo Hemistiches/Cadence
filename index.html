@@ -342,6 +342,17 @@ h1,h2,h3,h4{margin:0;font-weight:300;line-height:1.1;letter-spacing:-0.01em;text
 }
 @media print{
   .modes-s,.faq-s{display:none!important}
+  .print-card{width:calc(100% - 2px);display:flex;justify-content:space-between;gap:18px;border:1.5px solid #000;padding:12px 16px;margin:0 0 18px;break-inside:avoid}
+  .print-card .who{font-size:9pt;color:#444;letter-spacing:.02em}
+  .print-card .nm{font-size:15pt;color:#000;margin-top:2px}
+  .print-card .rl{font-size:10pt;color:#222}
+  .print-card .co{font-size:10.5pt;color:#000;text-align:right;line-height:1.55}
+  .print-card .co a{color:#000;text-decoration:none}
+  .print-card.end{margin:22px 0 0}
+  .ph-logo{display:flex;align-items:center;gap:10px}
+  .ph-logo img{height:20px;width:auto;filter:invert(1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .ph-logo i{width:0;height:18px;border-left:1px solid #000}
+  .ph-logo span{font-size:14pt;color:#000}
   .tbl{min-width:0}
   .note{break-inside:avoid}
 }
@@ -949,10 +960,14 @@ function contenu(r){
   return o;
 }
 
+/* Rapport imprimé : coordonnées de l'avocat en tête et en fin */
+var LOGO = (document.querySelector(".brand img")||{}).src || "";
+function carte(cls, titre){ return '<div class="print-only print-card'+cls+'"><div><div class="who">'+esc(titre)+'</div><div class="nm">Mᵉ François Césure</div><div class="rl">'+esc("Avocat au barreau de Paris")+'</div><div class="rl">'+esc("Hémistiches, 33, avenue Mac-Mahon, 75017 Paris")+'</div></div><div class="co">francois.cesure@hemistiches.com<br>+33 6 47 88 80 25<br>+33 1 45 03 20 20<br><a href="https://www.hemistiches.com">www.hemistiches.com</a></div></div>'; }
 function report(r){
   var o = contenu(r), html = "";
   var today = new Date().toLocaleDateString("fr-FR",{day:"numeric",month:"long",year:"numeric"});
-  html += '<div class="print-only print-head"><span><b>Cadence</b>, par Hémistiches</span><span>'+esc("Estimation établie le "+today)+'</span></div>';
+  html += '<div class="print-only print-head"><span class="ph-logo"><img src="'+LOGO+'" alt="Hémistiches."><i aria-hidden="true"></i><span>Cadence</span></span><span>'+esc("Estimation établie le "+today)+'</span></div>';
+  html += carte('', "Votre interlocuteur");
   html += '<div class="report-head"><p class="label">Mode et volume suggérés</p><h3>'+esc(o.titre)+'</h3><p class="price">'+esc(o.sousTitre)+'</p></div>';
   if(o.raisons.length) html += '<div class="rsec"><h4>Principales raisons</h4><p class="compare">'+esc("Estimation fondée surtout sur "+o.raisons.join(", ")+".")+'</p></div>';
   html += '<div class="rsec"><h4>Tarif et budget estimés</h4><div class="offer-reco">'+o.prix.map(function(p){return '<p class="p">'+esc(p)+'</p>';}).join("")+o.budget.map(function(p){return '<p>'+esc(p)+'</p>';}).join("");
@@ -968,6 +983,7 @@ function report(r){
     '<div class="contactbox"><code id="mail">'+CONTACT+'</code><button type="button" class="btn btn-line" id="copy">'+esc("Copier l'adresse")+'</button><a class="btn btn-ink" href="mailto:'+CONTACT+'?subject='+encodeURIComponent("Cadence : "+o.titre)+'&body='+encodeURIComponent(fr("Bonjour,\n\nJe souhaite échanger sur mon estimation Cadence.\n\n")+summary(o))+'">Écrire</a><span class="copied" id="copied" aria-live="polite"></span></div></div>';
   html += '<p class="notice">'+esc("Cette estimation est établie automatiquement à partir de vos seules réponses, sans vérification ni examen de pièces, et arrêtée à la date de sa génération. Elle ne constitue ni une consultation juridique ni une offre contractuelle. Les montants s'entendent hors taxes ; toute mission fait l'objet d'une convention d'honoraires signée, qui fixe le périmètre, le volume, la durée et les modalités de détermination des honoraires, et d'une vérification préalable des conflits d'intérêts.")+'</p>'+
     '<div class="dnav" style="justify-content:flex-start"><button type="button" class="linkbtn" id="restart">Refaire le test</button></div>';
+  html += carte(' end', "Pour échanger sur ce résultat");
   html += '<div class="print-only print-foot">'+esc("Mᵉ François Césure, avocat au barreau de Paris · Hémistiches, 33, avenue Mac-Mahon, 75017 Paris · francois.cesure@hemistiches.com · +33 6 47 88 80 25 · SIREN 833 468 358. Estimation indicative, à confirmer lors d'un échange et par une convention d'honoraires signée.")+'</div>';
   box.innerHTML = html;
   document.getElementById("pdf").onclick = function(){ try{ window.print(); }catch(e){} };
