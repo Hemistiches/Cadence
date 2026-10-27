@@ -537,7 +537,7 @@ h1,h2,h3,h4{margin:0;font-weight:300;line-height:1.1;letter-spacing:-0.01em;text
         <li><b>Dépassements</b><span><span data-p="taux">150 €</span> HT de l’heure, après estimation et accord préalable de votre part, sous réserve de disponibilité. Un dépassement ponctuel ne change pas de forfait ; des dépassements répétés conduisent à proposer un volume mieux adapté.</span></li>
         <li><b>Délais</b><span>Premier retour le jour ouvré même pour une urgence signalée avant midi, sinon le jour ouvré suivant ; sous deux jours ouvrés pour une demande courante. Le premier retour fixe le calendrier de réalisation complète, selon l’ampleur du travail.</span></li>
         <li><b>Hors forfait, sur devis</b><span>Reprise d’un stock de dossiers en retard et opérations exceptionnelles (levée de fonds, cession, acquisition, réorganisation). Pas d’audit initial facturé systématiquement, ni de double facturation : une reprise sur devis ne consomme pas le volume mensuel.</span></li>
-        <li><b>Offres spécialisées</b><span>Le suivi courant inclut les questions de données personnelles ou de réglementation des produits qui s’y rattachent. La désignation comme délégué à la protection des données (<a href="https://diapason.hemistiches.com" target="_blank" rel="noopener">Diapason</a>) ou une mission de conformité des dispositifs médicaux (<a href="https://concordance.hemistiches.com" target="_blank" rel="noopener">Concordance</a>) font l’objet d’une convention distincte.</span></li>
+        <li><b>Offres spécialisées</b><span>Le suivi courant inclut les questions de données personnelles ou de réglementation des produits qui s’y rattachent. La désignation comme délégué à la protection des données (<a href="https://diapason.hemistiches.com" target="_blank" rel="noopener">Diapason</a>) ou une mission de conformité des dispositifs médicaux (<a href="https://concordance.hemistiches.com" target="_blank" rel="noopener">Concordance</a>) font l’objet d’une convention distincte. Relèvent notamment de Concordance la qualification ou la classification d’un produit, le diagnostic ou la mise en règle d’un distributeur ou d’un importateur, et la stratégie ou l’organisation de l’entrée sur le marché de l’Union. La revue d’un contrat de distribution dans le flux courant reste comprise dans le volume.</span></li>
       </ul>
     </div>
   </section>
@@ -956,7 +956,7 @@ function contenu(r){
   if(r.reprise==="absorbee") o.extras.push("Les quelques dossiers en attente peuvent être absorbés dans les premières semaines du volume, ou traités en dépassement si vous le souhaitez.");
   if(r.exceptionnelle) o.extras.push("Opération exceptionnelle prévue : mission distincte, sur devis.");
   if(A.fonctions && A.fonctions.indexOf("donnees")>-1) o.extras.push("Données personnelles : le suivi courant est compris dans le volume ; une désignation comme délégué à la protection des données relève de Diapason, sous convention distincte.");
-  if(A.sante_type==="dm") o.extras.push("Dispositifs médicaux : une mission de conformité MDR ou IVDR relève de Concordance, sous convention distincte.");
+  if(A.sante_type==="dm") o.extras.push("Dispositifs médicaux : une mission de conformité MDR ou IVDR (qualification ou classification d'un produit, diagnostic ou mise en règle d'un distributeur ou d'un importateur, stratégie ou organisation de l'entrée sur le marché de l'Union) relève de Concordance, sous convention distincte ; la revue d'un contrat de distribution dans le flux courant reste comprise dans le volume.");
   return o;
 }
 
