@@ -537,7 +537,7 @@ h1,h2,h3,h4{margin:0;font-weight:300;line-height:1.1;letter-spacing:-0.01em;text
         <li><b>Additional hours</b><span><span data-p="taux">€150</span> excl. VAT per hour, after an estimate and your prior agreement, subject to availability. A one-off overrun does not change the plan; repeated overruns lead to proposing a better-suited volume.</span></li>
         <li><b>Response times</b><span>First response the same working day for an urgent matter flagged before noon, otherwise the next working day; within two working days for a routine request. The first response sets the timetable for completing the work, depending on its scope.</span></li>
         <li><b>Outside the plan, on quotation</b><span>Clearing a backlog of overdue matters and exceptional operations (fundraising, sale, acquisition, reorganisation). No systematic paid initial audit and no double billing: a quoted backlog clearance does not use the monthly volume.</span></li>
-        <li><b>Specialised offers</b><span>Routine support includes the related personal data and product regulation questions. Appointment as data protection officer (<a href="https://diapason.hemistiches.com" target="_blank" rel="noopener">Diapason</a>) or a medical device compliance engagement (<a href="https://concordance.hemistiches.com" target="_blank" rel="noopener">Concordance</a>) is subject to a separate engagement letter.</span></li>
+        <li><b>Specialised offers</b><span>Routine support includes the related personal data and product regulation questions. Appointment as data protection officer (<a href="https://diapason.hemistiches.com" target="_blank" rel="noopener">Diapason</a>) or a medical device compliance engagement (<a href="https://concordance.hemistiches.com" target="_blank" rel="noopener">Concordance</a>) is subject to a separate engagement letter. Concordance covers in particular the qualification or classification of a product, the diagnostic or compliance package of a distributor or importer, and the strategy or legal organisation of entry into the EU market. Reviewing a distribution agreement in the routine flow remains within the volume.</span></li>
       </ul>
     </div>
   </section>
@@ -947,7 +947,7 @@ function contenu(r){
   if(r.reprise==="absorbee") o.extras.push("The few pending matters can be absorbed in the first weeks of the volume, or handled as additional hours if you prefer.");
   if(r.exceptionnelle) o.extras.push("Planned exceptional operation: separate engagement, on quotation.");
   if(A.fonctions && A.fonctions.indexOf("donnees")>-1) o.extras.push("Personal data: routine support is included in the volume; appointment as data protection officer falls under Diapason, with a separate engagement letter.");
-  if(A.sante_type==="dm") o.extras.push("Medical devices: an MDR or IVDR compliance engagement falls under Concordance, with a separate engagement letter.");
+  if(A.sante_type==="dm") o.extras.push("Medical devices: an MDR or IVDR compliance engagement (qualification or classification of a product, diagnostic or compliance package of a distributor or importer, strategy or organisation of entry into the EU market) falls under Concordance, with a separate engagement letter; reviewing a distribution agreement in the routine flow remains within the volume.");
   return o;
 }
 
