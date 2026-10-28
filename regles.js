@@ -81,7 +81,7 @@
      le retard accumulé et les opérations exceptionnelles n'augmentent pas le forfait récurrent. */
   var POIDS = {
     contrats: { c1: 0.75, c2: 1.75, c3: 3.5, c4: 6 },
-    fonctions: { vie: 0.25, reglementation: 0.75, donnees: 0.5, contentieux: 0.75, pi: 0.25, assurances: 0.25, conseils: 0.5, conformite: 0.5 },
+    fonctions: { vie: 0.25, reglementation: 0.75, donnees: 0,     /* relève de Diapason */ contentieux: 0.75, pi: 0.25, assurances: 0.25, conseils: 0.5, conformite: 0.5 },
     urgences: { rare: 0, mois: 0.5, semaine: 1.5 },
     referentAbsent: 0.5,
     multiplicateurs: { multi: 0.2, intervenants: 0.1, secteur: 0.15, plusieurs: 0.1 }
