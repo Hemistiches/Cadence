@@ -5,7 +5,7 @@
   "use strict";
 
   var TARIFS = {
-    version: "2026-10-25",
+    version: "2026-10-28",
     heuresParJour: 7,
     plancherJour: 650,            // aucun tarif journalier en dessous
     tauxHoraire: 150,             // taux horaire habituel du cabinet : dépassements accordés
@@ -20,7 +20,10 @@
     ],
     // Direction juridique de transition : sur site, 12 à 16 jours par mois
     transition: { joursMin: 12, joursMax: 16, lt3: 800, de3a6: 725, des6: 650 },
-    secretariatAnnuel: 1200       // société simple : approbation annuelle des comptes
+    secretariatAnnuel: 500,       // société simple : approbation annuelle des comptes, registres, contrôle de la DBE
+    operationsCourantes: 400,     // à partir de : cession, mise en sommeil, établissement secondaire, dirigeant, siège, dénomination, objet
+    operationsStructure: 1200     // à partir de : capital, transformation, dissolution et liquidation, TUP
+    // Prix hors frais de formalités, de greffe, d'annonces légales et droits d'enregistrement, toujours en sus
   };
 
   /* ---------- Prix ---------- */

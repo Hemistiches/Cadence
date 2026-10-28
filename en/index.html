@@ -522,23 +522,34 @@ h1,h2,h3,h4{margin:0;font-weight:300;line-height:1.1;letter-spacing:-0.01em;text
       </table></div>
       <p class="cadre">The rate depends on the volume and duration agreed at the outset; merely extending an engagement does not lower it automatically. The engagement letter sets the schedule, the monthly volume and the days on site; additional days are charged at the agreed day rate, with prior agreement. Any travel and accommodation costs are separate, estimated and agreed before the engagement.</p>
 
-      <h3 class="sub-h3">Corporate secretarial service</h3>
-      <div class="three one">
+      <h3 class="sub-h3">Corporate secretarial work and company operations</h3>
+      <div class="three">
         <article>
-          <h3>Annual corporate secretarial service</h3>
-          <div><p class="from">From</p><p class="amount"><span data-p="sec">€1,200</span> <small>excl. VAT per year</small></p></div>
-          <p>For a simple company: annual approval of the accounts and the corresponding corporate documents, prepared on the basis of the information you provide. Other operations quoted separately; registry and legal notice fees extra.</p>
+          <h3>Annual follow-up</h3>
+          <div><p class="from">From</p><p class="amount"><span data-p="sec">€500</span> <small>excl. VAT per year</small></p></div>
+          <p>For a simple company: annual approval of the accounts and the corresponding corporate documents, statutory registers, review of the beneficial ownership filing, prepared on the basis of the information you provide.</p>
+        </article>
+        <article>
+          <h3>Routine operations</h3>
+          <div><p class="from">From</p><p class="amount"><span data-p="opc">€400</span> <small>excl. VAT per operation</small></p></div>
+          <p>Transfer of shares, change of director, transfer of registered office, change of name or corporate purpose, opening or closing of an establishment, dormancy.</p>
+        </article>
+        <article>
+          <h3>Capital and structure</h3>
+          <div><p class="from">From</p><p class="amount"><span data-p="ops">€1,200</span> <small>excl. VAT per operation</small></p></div>
+          <p>Capital increase or reduction, conversion, voluntary dissolution and liquidation, universal transfer of assets.</p>
         </article>
       </div>
+      <p class="cadre">Documents drafted and checked by a lawyer, followed through to registration. The fixed price of each operation is confirmed before any work starts; operations not listed (merger, contribution in kind, sale of a business…) are quoted separately. Formality, registry and legal notice fees and registration duties are extra, recharged at cost.</p>
 
       <h3 class="sub-h3">What the outsourced plans cover</h3>
       <ul class="rules">
         <li><b>The same areas for all three plans</b><span>Contracts, corporate housekeeping, sector regulation, personal data, pre-litigation, intellectual property, risks and insurance, compliance. The volume determines the capacity.</span></li>
-        <li><b>What uses up the volume</b><span>Preparation, analysis, drafting, meetings, calls, substantive emails, monitoring specific to your company and coordination. Routine corporate secretarial work and managing your other advisers are included; their fees and disbursements remain separate.</span></li>
+        <li><b>What uses up the volume</b><span>Preparation, analysis, drafting, meetings, calls, substantive emails, monitoring specific to your company and coordination. Corporate secretarial work, company operations and managing your other advisers are included. Formality, registry and legal notice fees, registration duties, your other advisers’ fees and disbursements remain extra, recharged at cost.</span></li>
         <li><b>Limited carry-over</b><span>At most three unused hours are carried over to the following month only, and used first. They expire at the end of that month, are never carried over twice, and never beyond the end of the engagement.</span></li>
         <li><b>Additional hours</b><span><span data-p="taux">€150</span> excl. VAT per hour, after an estimate and your prior agreement, subject to availability. A one-off overrun does not change the plan; repeated overruns lead to proposing a better-suited volume.</span></li>
         <li><b>Response times</b><span>First response the same working day for an urgent matter flagged before noon, otherwise the next working day; within two working days for a routine request. The first response sets the timetable for completing the work, depending on its scope.</span></li>
-        <li><b>Outside the plan, on quotation</b><span>Clearing a backlog of overdue matters and exceptional operations (fundraising, sale, acquisition, reorganisation). No systematic paid initial audit and no double billing: a quoted backlog clearance does not use the monthly volume.</span></li>
+        <li><b>Outside the plan, on quotation</b><span>Clearing a backlog of overdue matters and exceptional operations (fundraising, sale or acquisition of a business, reorganisation). No systematic paid initial audit and no double billing: a quoted backlog clearance does not use the monthly volume.</span></li>
         <li><b>Specialised offers</b><span>Routine support includes the related personal data and product regulation questions. Appointment as data protection officer (<a href="https://diapason.hemistiches.com" target="_blank" rel="noopener">Diapason</a>) or a medical device compliance engagement (<a href="https://concordance.hemistiches.com" target="_blank" rel="noopener">Concordance</a>) is subject to a separate engagement letter. Concordance covers in particular the qualification or classification of a product, the diagnostic or compliance package of a distributor or importer, and the strategy or legal organisation of entry into the EU market. Reviewing a distribution agreement in the routine flow remains within the volume.</span></li>
       </ul>
     </div>
@@ -732,6 +743,8 @@ function prixAttr(code){
     case "tm": return eur(C.mensuelTransition(+p[1], p[2]));
     case "taux": return eur(C.TARIFS.tauxHoraire);
     case "sec": return eur(C.TARIFS.secretariatAnnuel);
+    case "opc": return eur(C.TARIFS.operationsCourantes);
+    case "ops": return eur(C.TARIFS.operationsStructure);
   }
   return null;
 }
