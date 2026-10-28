@@ -898,7 +898,6 @@ function contenu(r){
     o.conditions.push("Additional hours at "+eur(C.TARIFS.tauxHoraire)+" excl. VAT per hour, after an estimate and prior agreement, subject to availability.");
     if(d.incertaine || d.tranche==="des6"){
       o.fin.push("The plan is priced for an initial term of six months. If the engagement ends early, with one month's notice and other than for a failure on the firm's part, the rate for the period actually completed applies, and the difference from the sums paid is invoiced. No future monthly instalment is due.");
-      o.fin.push("Example: "+NOMS[j]+" ended after one month, “less than 3 months” rate: "+eur(C.mensuelExt(j,"lt3"))+" excl. VAT instead of "+eur(C.mensuelExt(j,"des6"))+", i.e. a top-up of "+eur(C.recalculDepart(j,1,C.mensuelExt(j,"des6")).solde)+" excl. VAT.");
       o.fin.push("After six months: continuation at the same rate, one month's notice. The terms are set out in the engagement letter.");
     } else {
       o.fin.push("The engagement letter sets the duration and the volume; any extension or change of price is agreed in writing.");

@@ -907,7 +907,6 @@ function contenu(r){
     o.conditions.push("Dépassements à "+eur(C.TARIFS.tauxHoraire)+" HT de l'heure, après estimation et accord préalable, sous réserve de disponibilité.");
     if(d.incertaine || d.tranche==="des6"){
       o.fin.push("Le forfait est tarifé pour une durée initiale de six mois. En cas d'arrêt anticipé, avec un préavis d'un mois et hors manquement du cabinet, c'est le tarif de la durée réellement exécutée qui s'applique, et la différence avec les sommes réglées est facturée. Aucune mensualité future n'est due.");
-      o.fin.push("Exemple : "+NOMS[j]+" arrêté après un mois, tarif « moins de 3 mois » : "+eur(C.mensuelExt(j,"lt3"))+" HT au lieu de "+eur(C.mensuelExt(j,"des6"))+", soit "+eur(C.recalculDepart(j,1,C.mensuelExt(j,"des6")).solde)+" HT de complément.");
       o.fin.push("Après six mois : poursuite au même tarif, préavis d'un mois. Les modalités figurent dans la convention d'honoraires.");
     } else {
       o.fin.push("La convention fixe la durée et le volume ; toute prolongation ou modification tarifaire se convient par écrit.");
