@@ -976,7 +976,7 @@ function report(r){
   html += '<div class="rsec no-print"><h4>Keep this estimate</h4><div class="keep"><p class="compare">'+esc("Save it as a PDF, or send it to your own mailbox. It is stored neither on this site nor by the firm.")+'</p>'+
     '<div class="actions"><button type="button" class="btn btn-ink" id="pdf">Save as PDF</button><a class="btn btn-line" id="selfmail" href="mailto:?subject='+encodeURIComponent("My Cadence estimate")+'&body='+encodeURIComponent(summary(o))+'">'+esc("Email me the estimate")+'</a></div></div></div>';
   html += '<div class="rsec"><h4>Confirm the scope</h4><p class="compare">'+esc("A first twenty-minute conversation, free and without commitment, to confirm the scope, the volume and the duration. Write to me:")+'</p>'+
-    '<div class="contactbox"><code id="mail">'+CONTACT+'</code><button type="button" class="btn btn-line" id="copy">'+esc("Copy address")+'</button><a class="btn btn-ink" href="mailto:'+CONTACT+'?subject='+encodeURIComponent("Cadence: "+o.titre)+'&body='+encodeURIComponent("Hello,\n\nI would like to discuss my Cadence estimate.\n\n"+summary(o))+'">Write</a><span class="copied" id="copied" aria-live="polite"></span></div></div>';
+    '<div class="contactbox"><code id="mail">'+CONTACT+'</code><button type="button" class="btn btn-line" id="copy">'+esc("Copy address")+'</button><a class="btn btn-ink" href="mailto:'+CONTACT+'?subject='+encodeURIComponent("Cadence: "+o.titre)+'&body='+encodeURIComponent("Hello,\n\nI would like to discuss my Cadence estimate.\n\n"+summary(o, true))+'">Write</a><span class="copied" id="copied" aria-live="polite"></span></div></div>';
   html += '<p class="notice">'+esc("This estimate is generated automatically from your answers alone, without verification or review of documents, and fixed at the date it was generated. It is neither legal advice nor a contractual offer. Amounts are exclusive of VAT; any engagement is subject to a signed engagement letter, setting the scope, volume, duration and the method for determining fees, and to a prior conflict check.")+'</p>'+
     '<div class="dnav" style="justify-content:flex-start"><button type="button" class="linkbtn" id="restart">Take the test again</button></div>';
   html += carte(' end', "To discuss this result");
@@ -987,16 +987,35 @@ function report(r){
   document.getElementById("restart").onclick = function(){ A = {fonctions:[], perimetre:[]}; intro(); toBox(); };
   toBox();
 }
-function summary(o){
+function summary(o, pourMoi){
   var L = [], today = new Date().toLocaleDateString("en-GB",{day:"numeric",month:"long",year:"numeric"});
-  L.push("Cadence estimate of "+today); L.push(""); L.push(o.titre); L.push(o.sousTitre);
-  o.prix.concat(o.budget).forEach(function(p){ L.push(p); });
-  if(o.scen) o.scen.forEach(function(s){ L.push("- "+s[0]+": "+eur(s[2])+" excl. VAT per month"); });
-  if(o.fin.length){ L.push(""); L.push("Term and early termination"); o.fin.forEach(function(p){ L.push(p); }); }
-  if(o.conditions.length){ L.push(""); L.push("Key conditions"); o.conditions.forEach(function(p){ L.push("- "+p); }); }
-  if(o.extras.length){ L.push(""); o.extras.forEach(function(p){ L.push("- "+p); }); }
-  L.push(""); L.push("Indicative estimate, based solely on my answers, to be confirmed in a conversation and by a signed engagement letter. Amounts excl. VAT.");
-  L.push("Hémistiches, Mᵉ François Césure, avocat at the Paris Bar. "+CONTACT+" · +33 6 47 88 80 25");
+  L.push("Cadence, by Hémistiches");
+  L.push("Outsourced and interim legal department · cadence.hemistiches.com/en/");
+  L.push("");
+  L.push("Estimate of "+today);
+  L.push("");
+  L.push(o.titre+(/[.!?]$/.test(o.titre)?"":"."));
+  if(o.sousTitre) L.push(o.sousTitre);
+  var px = o.prix.concat(o.budget);
+  if(px.length || o.scen){ L.push(""); L.push("Indicative fees"); px.forEach(function(p){ L.push("– "+p); }); }
+  if(o.scen) o.scen.forEach(function(s){ L.push("– "+s[0]+": "+eur(s[2])+" excl. VAT per month"); });
+  if(o.fin.length){ L.push(""); L.push("Term and early termination"); o.fin.forEach(function(p){ L.push("– "+p); }); }
+  if(o.conditions.length){ L.push(""); L.push("Key conditions"); o.conditions.forEach(function(p){ L.push("– "+p); }); }
+  if(o.extras.length){ L.push(""); o.extras.forEach(function(p){ L.push("– "+p); }); }
+  L.push("");
+  L.push("The full report can be saved as a PDF from the result page, using the \"Save as PDF\" button. It can be attached to this message before sending.");
+  L.push("");
+  L.push("Indicative estimate, based solely on the answers to the test, to be confirmed in a conversation and then in a signed engagement letter. Amounts excl. VAT.");
+  if(!pourMoi){
+    L.push(""); L.push("————————————"); L.push("Your contact"); L.push("");
+    L.push("Maître François Césure");
+    L.push("Avocat, Paris Bar");
+    L.push("Hémistiches · 33, avenue Mac-Mahon, 75017 Paris, France");
+    L.push("");
+    L.push(CONTACT);
+    L.push("+33 6 47 88 80 25 · +33 1 45 03 20 20");
+    L.push("www.hemistiches.com");
+  }
   return L.join("\n").replace(/'/g,"’");
 }
 function selectMail(){ var rg = document.createRange(); rg.selectNodeContents(document.getElementById("mail")); var s = window.getSelection(); s.removeAllRanges(); s.addRange(rg); document.getElementById("copied").textContent = "Address selected"; }

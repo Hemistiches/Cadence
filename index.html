@@ -985,7 +985,7 @@ function report(r){
   html += '<div class="rsec no-print"><h4>Conserver cette estimation</h4><div class="keep"><p class="compare">'+esc("Enregistrez-la en PDF, ou envoyez-la dans votre propre messagerie. Elle n'est conservée ni sur ce site ni par le cabinet.")+'</p>'+
     '<div class="actions"><button type="button" class="btn btn-ink" id="pdf">Enregistrer en PDF</button><a class="btn btn-line" id="selfmail" href="mailto:?subject='+encodeURIComponent("Mon estimation Cadence")+'&body='+encodeURIComponent(summary(o))+'">'+esc("M'envoyer l'estimation")+'</a></div></div></div>';
   html += '<div class="rsec"><h4>Confirmer le périmètre</h4><p class="compare">'+esc("Un premier échange de vingt minutes, gratuit et sans engagement, pour confirmer le périmètre, le volume et la durée. Écrivez-moi :")+'</p>'+
-    '<div class="contactbox"><code id="mail">'+CONTACT+'</code><button type="button" class="btn btn-line" id="copy">'+esc("Copier l'adresse")+'</button><a class="btn btn-ink" href="mailto:'+CONTACT+'?subject='+encodeURIComponent("Cadence : "+o.titre)+'&body='+encodeURIComponent(fr("Bonjour,\n\nJe souhaite échanger sur mon estimation Cadence.\n\n")+summary(o))+'">Écrire</a><span class="copied" id="copied" aria-live="polite"></span></div></div>';
+    '<div class="contactbox"><code id="mail">'+CONTACT+'</code><button type="button" class="btn btn-line" id="copy">'+esc("Copier l'adresse")+'</button><a class="btn btn-ink" href="mailto:'+CONTACT+'?subject='+encodeURIComponent("Cadence : "+o.titre)+'&body='+encodeURIComponent(fr("Bonjour,\n\nJe souhaite échanger sur mon estimation Cadence.\n\n")+summary(o, true))+'">Écrire</a><span class="copied" id="copied" aria-live="polite"></span></div></div>';
   html += '<p class="notice">'+esc("Cette estimation est établie automatiquement à partir de vos seules réponses, sans vérification ni examen de pièces, et arrêtée à la date de sa génération. Elle ne constitue ni une consultation juridique ni une offre contractuelle. Les montants s'entendent hors taxes ; toute mission fait l'objet d'une convention d'honoraires signée, qui fixe le périmètre, le volume, la durée et les modalités de détermination des honoraires, et d'une vérification préalable des conflits d'intérêts.")+'</p>'+
     '<div class="dnav" style="justify-content:flex-start"><button type="button" class="linkbtn" id="restart">Refaire le test</button></div>';
   html += carte(' end', "Pour échanger sur ce résultat");
@@ -996,16 +996,35 @@ function report(r){
   document.getElementById("restart").onclick = function(){ A = {fonctions:[], perimetre:[]}; intro(); toBox(); };
   toBox();
 }
-function summary(o){
+function summary(o, pourMoi){
   var L = [], today = new Date().toLocaleDateString("fr-FR",{day:"numeric",month:"long",year:"numeric"});
-  L.push("Estimation Cadence du "+today); L.push(""); L.push(o.titre); L.push(o.sousTitre);
-  o.prix.concat(o.budget).forEach(function(p){ L.push(p); });
-  if(o.scen) o.scen.forEach(function(s){ L.push("- "+s[0]+" : "+eur(s[2])+" HT par mois"); });
-  if(o.fin.length){ L.push(""); L.push("Durée et fin anticipée"); o.fin.forEach(function(p){ L.push(p); }); }
-  if(o.conditions.length){ L.push(""); L.push("Conditions essentielles"); o.conditions.forEach(function(p){ L.push("- "+p); }); }
-  if(o.extras.length){ L.push(""); o.extras.forEach(function(p){ L.push("- "+p); }); }
-  L.push(""); L.push("Estimation indicative, établie à partir de mes seules réponses, à confirmer lors d'un échange et par une convention d'honoraires signée. Montants hors taxes.");
-  L.push("Hémistiches, Mᵉ François Césure, avocat au barreau de Paris. "+CONTACT+" · +33 6 47 88 80 25");
+  L.push("Cadence, par Hémistiches");
+  L.push("Direction juridique externalisée et de transition · cadence.hemistiches.com");
+  L.push("");
+  L.push("Estimation du "+today);
+  L.push("");
+  L.push(o.titre+(/[.!?]$/.test(o.titre)?"":"."));
+  if(o.sousTitre) L.push(o.sousTitre);
+  var px = o.prix.concat(o.budget);
+  if(px.length || o.scen){ L.push(""); L.push("Honoraires indicatifs"); px.forEach(function(p){ L.push("– "+p); }); }
+  if(o.scen) o.scen.forEach(function(s){ L.push("– "+s[0]+" : "+eur(s[2])+" HT par mois"); });
+  if(o.fin.length){ L.push(""); L.push("Durée et fin anticipée"); o.fin.forEach(function(p){ L.push("– "+p); }); }
+  if(o.conditions.length){ L.push(""); L.push("Conditions essentielles"); o.conditions.forEach(function(p){ L.push("– "+p); }); }
+  if(o.extras.length){ L.push(""); o.extras.forEach(function(p){ L.push("– "+p); }); }
+  L.push("");
+  L.push("Le rapport complet s'enregistre en PDF depuis la page du résultat, bouton « Enregistrer en PDF ». Il peut être joint à ce message avant l'envoi.");
+  L.push("");
+  L.push("Estimation indicative, établie à partir des seules réponses au test, à confirmer lors d'un échange puis dans une convention d'honoraires signée. Montants hors taxes.");
+  if(!pourMoi){
+    L.push(""); L.push("————————————"); L.push("Votre interlocuteur"); L.push("");
+    L.push("Mᵉ François Césure");
+    L.push("Avocat au barreau de Paris");
+    L.push("Hémistiches · 33, avenue Mac-Mahon, 75017 Paris");
+    L.push("");
+    L.push(CONTACT);
+    L.push("+33 6 47 88 80 25 · +33 1 45 03 20 20");
+    L.push("www.hemistiches.com");
+  }
   return fr(L.join("\n"));
 }
 function selectMail(){ var rg = document.createRange(); rg.selectNodeContents(document.getElementById("mail")); var s = window.getSelection(); s.removeAllRanges(); s.addRange(rg); document.getElementById("copied").textContent = "Adresse sélectionnée"; }
