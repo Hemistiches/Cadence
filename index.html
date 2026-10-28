@@ -300,6 +300,7 @@ h1,h2,h3,h4{margin:0;font-weight:300;line-height:1.1;letter-spacing:-0.01em;text
 .two p{font-size:clamp(15px,1.25vw,17px);color:var(--ink-2);max-width:56ch}
 .two ul{list-style:none;margin:6px 0 0;padding:0;border-top:1px solid var(--rule)}
 .two li{padding:10px 0;border-bottom:1px solid var(--rule);font-size:15px;color:var(--ink-2)}
+.two.trois{grid-template-columns:repeat(3,minmax(0,1fr))}
 .sub-h3{font-size:clamp(20px,1.8vw,26px);font-weight:400;margin-top:clamp(56px,7vw,96px)}
 .sub-h3 + .three,.sub-h3 + .tbl-wrap{margin-top:22px}
 .three.one{grid-template-columns:minmax(0,1fr)}
@@ -338,6 +339,7 @@ h1,h2,h3,h4{margin:0;font-weight:300;line-height:1.1;letter-spacing:-0.01em;text
 .rsec .tbl th,.rsec .tbl td{padding-right:10px}
 @media (max-width:860px){
   .two{grid-template-columns:minmax(0,1fr)}
+  .two.trois{grid-template-columns:minmax(0,1fr)}
   .two article{padding:28px 0}
   .two article + article{padding-left:0;border-left:0;border-top:1px solid var(--ink)}
   .rules{grid-template-columns:minmax(0,1fr)}
@@ -373,7 +375,7 @@ h1,h2,h3,h4{margin:0;font-weight:300;line-height:1.1;letter-spacing:-0.01em;text
     <div class="brand"><a class="brand-home" href="https://www.hemistiches.com/" aria-label="Hémistiches, site du cabinet"><img src="/logo.png" alt="Hémistiches." width="181" height="30"></a><i class="sep" aria-hidden="true"></i><a href="#top" data-view="home" aria-label="Cadence, par Hémistiches, accueil"><span>Cadence</span></a></div>
     <div class="right">
     <nav class="nav" aria-label="Navigation principale">
-      <a href="#modes">Deux modes</a>
+      <a href="#modes">Trois rythmes</a>
       <a href="#formules">Tarifs</a>
       <a href="#faq">Questions</a>
       <a class="cta" href="#test">Faire le test</a>
@@ -395,7 +397,7 @@ h1,h2,h3,h4{margin:0;font-weight:300;line-height:1.1;letter-spacing:-0.01em;text
   </div>
   <nav aria-label="Navigation mobile">
     <a href="#test">Faire le test</a>
-    <a href="#modes">Deux modes</a>
+    <a href="#modes">Trois rythmes</a>
     <a href="#formules">Tarifs</a>
     <a href="#faq">Questions</a>
     <a href="#contact">Échanger</a>
@@ -444,9 +446,16 @@ h1,h2,h3,h4{margin:0;font-weight:300;line-height:1.1;letter-spacing:-0.01em;text
 
   <section class="modes-s" id="modes" aria-labelledby="t-modes">
     <div class="wrap">
-      <h2 class="sec-h2" id="t-modes">Deux modes d’intervention</h2>
-      <p class="intro">Le même avocat, les mêmes domaines de compétence. Ce qui change : l’organisation, le volume et la durée.</p>
-      <div class="two">
+      <h2 class="sec-h2" id="t-modes">Trois rythmes d’intervention</h2>
+      <p class="intro">Le même avocat, la même exigence. Ce qui change : la fréquence, le volume et la durée.</p>
+      <div class="two trois">
+        <article>
+          <p class="label">À l’opération</p>
+          <h3>Opérations sur la société</h3>
+          <p>Une opération précise, un prix fixe annoncé avant toute intervention : les actes sont rédigés et vérifiés par un avocat, les formalités suivies jusqu’à l’inscription au registre.</p>
+          <p>Pour une société qui n’a pas besoin d’une fonction juridique permanente, ou qui veut faire connaissance avant de la confier.</p>
+          <ul><li>Transfert de siège, cession, dirigeant, capital, dissolution</li><li>Prix fixe, frais de greffe et d’annonce compris</li><li>Suivi annuel des comptes et des registres</li></ul>
+        </article>
         <article>
           <p class="label">Depuis le cabinet</p>
           <h3>Direction juridique externalisée</h3>
@@ -522,33 +531,24 @@ h1,h2,h3,h4{margin:0;font-weight:300;line-height:1.1;letter-spacing:-0.01em;text
       </table></div>
       <p class="cadre">Le tarif dépend du volume et de la durée convenus au départ ; la seule prolongation d’une mission n’entraîne aucune baisse automatique. La convention fixe le calendrier, le volume mensuel et les journées sur place ; les jours supplémentaires sont facturés au tarif journalier convenu, après accord préalable. Frais de déplacement et d’hébergement éventuels distincts, estimés et convenus avant la mission.</p>
 
-      <h3 class="sub-h3">Secrétariat juridique et opérations sur la société</h3>
+      <h3 class="sub-h3">Opérations sur la société : prix fixes, frais de greffe et d’annonce compris</h3>
       <div class="tbl-wrap"><table class="tbl">
-        <caption>Prix HT par opération, frais de greffe et d’annonce légale compris</caption>
+        <caption>Exemples de prix HT pour une société simple</caption>
         <thead><tr><th scope="col">Opération</th><th scope="col">Prix HT</th></tr></thead>
         <tbody>
-          <tr><th scope="row">Suivi annuel : approbation des comptes, tenue des registres, contrôle de la déclaration des bénéficiaires effectifs (société simple)</th><td>À partir de <span data-p="sec">500 €</span> par an</td></tr>
-          <tr><th scope="row">Cession d’actions</th><td>À partir de <span data-p="op:cessionActions">400 €</span></td></tr>
-          <tr><th scope="row">Cession de parts de SARL ou d’EURL</th><td>À partir de <span data-p="op:cessionParts">500 €</span></td></tr>
-          <tr><th scope="row">Cession de parts de société civile</th><td>À partir de <span data-p="op:cessionPartsSC">650 €</span></td></tr>
-          <tr><th scope="row">Mise en sommeil</th><td>À partir de <span data-p="op:sommeil">500 €</span></td></tr>
-          <tr><th scope="row">Changement de date de clôture</th><td>À partir de <span data-p="op:cloture">600 €</span></td></tr>
-          <tr><th scope="row">Ouverture d’un établissement secondaire</th><td>À partir de <span data-p="op:etablissement">650 €</span></td></tr>
-          <tr><th scope="row">Changement de dirigeant, de dénomination ou d’objet ; transfert de siège dans le même ressort</th><td>À partir de <span data-p="op:modification">1 300 €</span></td></tr>
-          <tr><th scope="row">Transfert de siège hors ressort</th><td>À partir de <span data-p="op:siegeHors">1 500 €</span></td></tr>
-          <tr><th scope="row">Réduction de capital motivée par des pertes</th><td>À partir de <span data-p="op:reductionPertes">1 400 €</span></td></tr>
-          <tr><th scope="row">Dissolution et liquidation amiables</th><td>À partir de <span data-p="op:dissolutionLiquidation">1 700 €</span></td></tr>
-          <tr><th scope="row">Augmentation de capital</th><td>À partir de <span data-p="op:augmentation">1 800 €</span></td></tr>
-          <tr><th scope="row">Transmission universelle de patrimoine</th><td>À partir de <span data-p="op:tup">2 100 €</span></td></tr>
-          <tr><th scope="row">Transformation de société</th><td>À partir de <span data-p="op:transformation">2 300 €</span></td></tr>
+          <tr><th scope="row">Suivi annuel : approbation des comptes, registres, déclaration des bénéficiaires effectifs</th><td>À partir de <span data-p="sec">500 €</span> par an</td></tr>
+          <tr><th scope="row">Cession de parts ou d’actions</th><td>À partir de <span data-p="op:cessionActions">400 €</span></td></tr>
+          <tr><th scope="row">Changement de dirigeant, de dénomination ou d’objet, transfert de siège</th><td>À partir de <span data-p="op:modification">1 300 €</span></td></tr>
+          <tr><th scope="row">Augmentation ou réduction de capital</th><td>À partir de <span data-p="op:reductionPertes">1 400 €</span></td></tr>
+          <tr><th scope="row">Dissolution et liquidation amiables, transformation</th><td>À partir de <span data-p="op:dissolutionLiquidation">1 700 €</span></td></tr>
         </tbody>
       </table></div>
-      <p class="cadre">Actes rédigés et vérifiés par un avocat, formalités suivies jusqu’à l’inscription au registre. Prix pour une société simple, frais de greffe et d’annonce légale compris ; droits d’enregistrement en sus, le cas échéant. Le prix ferme de chaque opération est confirmé avant toute intervention ; les opérations non listées (fusion, apport, cession de fonds de commerce…) font l’objet d’un devis. Pour les forfaits de direction juridique externalisée, ces opérations entrent dans le volume mensuel : seuls les frais de formalités, de greffe, d’annonce et d’enregistrement s’y ajoutent, refacturés à leur coût.</p>
+      <p class="cadre">Le prix ferme de chaque opération est confirmé avant toute intervention ; droits d’enregistrement en sus, le cas échéant. Les opérations non listées (fusion, apport, cession de fonds de commerce…) font l’objet d’un devis. Clients en direction juridique externalisée : la vie sociale courante entre dans le volume mensuel, les autres opérations bénéficient d’un tarif préférentiel.</p>
 
       <h3 class="sub-h3">Ce que couvrent les forfaits externalisés</h3>
       <ul class="rules">
         <li><b>Mêmes domaines pour les trois forfaits</b><span>Contrats, vie sociale, réglementation sectorielle, données personnelles, précontentieux, propriété intellectuelle, risques et assurances, conformité. Le volume détermine la capacité de traitement.</span></li>
-        <li><b>Ce qui consomme le volume</b><span>Préparation, analyse, rédaction, réunions, appels, courriels substantiels, veille propre à votre entreprise et coordination. Le secrétariat juridique, les opérations sur la société et le pilotage de vos autres conseils en font partie. Restent en sus et refacturés à leur coût : frais de formalités, de greffe, d’annonces légales, droits d’enregistrement, honoraires de vos autres conseils et débours.</span></li>
+        <li><b>Ce qui consomme le volume</b><span>Préparation, analyse, rédaction, réunions, appels, courriels substantiels, veille propre à votre entreprise et coordination. La vie sociale courante (approbation annuelle des comptes, assemblées ordinaires, registres, changement de dirigeant) et le pilotage de vos autres conseils en font partie ; les autres opérations sur la société sont facturées à part, à tarif préférentiel. Restent en sus et refacturés à leur coût : frais de formalités, de greffe, d’annonces légales, droits d’enregistrement, honoraires de vos autres conseils et débours.</span></li>
         <li><b>Report limité</b><span>Trois heures non consommées au plus sont reportées sur le mois suivant uniquement, et utilisées en priorité. Elles expirent à la fin de ce mois, ne sont jamais reportées deux fois ni au-delà de la fin du contrat.</span></li>
         <li><b>Dépassements</b><span><span data-p="taux">150 €</span> HT de l’heure, après estimation et accord préalable de votre part, sous réserve de disponibilité. Un dépassement ponctuel ne change pas de forfait ; des dépassements répétés conduisent à proposer un volume mieux adapté.</span></li>
         <li><b>Délais</b><span>Premier retour le jour ouvré même pour une urgence signalée avant midi, sinon le jour ouvré suivant ; sous deux jours ouvrés pour une demande courante. Le premier retour fixe le calendrier de réalisation complète, selon l’ampleur du travail.</span></li>

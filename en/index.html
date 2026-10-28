@@ -300,6 +300,7 @@ h1,h2,h3,h4{margin:0;font-weight:300;line-height:1.1;letter-spacing:-0.01em;text
 .two p{font-size:clamp(15px,1.25vw,17px);color:var(--ink-2);max-width:56ch}
 .two ul{list-style:none;margin:6px 0 0;padding:0;border-top:1px solid var(--rule)}
 .two li{padding:10px 0;border-bottom:1px solid var(--rule);font-size:15px;color:var(--ink-2)}
+.two.trois{grid-template-columns:repeat(3,minmax(0,1fr))}
 .sub-h3{font-size:clamp(20px,1.8vw,26px);font-weight:400;margin-top:clamp(56px,7vw,96px)}
 .sub-h3 + .three,.sub-h3 + .tbl-wrap{margin-top:22px}
 .three.one{grid-template-columns:minmax(0,1fr)}
@@ -338,6 +339,7 @@ h1,h2,h3,h4{margin:0;font-weight:300;line-height:1.1;letter-spacing:-0.01em;text
 .rsec .tbl th,.rsec .tbl td{padding-right:10px}
 @media (max-width:860px){
   .two{grid-template-columns:minmax(0,1fr)}
+  .two.trois{grid-template-columns:minmax(0,1fr)}
   .two article{padding:28px 0}
   .two article + article{padding-left:0;border-left:0;border-top:1px solid var(--ink)}
   .rules{grid-template-columns:minmax(0,1fr)}
@@ -373,7 +375,7 @@ h1,h2,h3,h4{margin:0;font-weight:300;line-height:1.1;letter-spacing:-0.01em;text
     <div class="brand"><a class="brand-home" href="https://www.hemistiches.com/en.html" aria-label="Hémistiches, firm website"><img src="/logo.png" alt="Hémistiches." width="181" height="30"></a><i class="sep" aria-hidden="true"></i><a href="#top" data-view="home" aria-label="Cadence, by Hémistiches, home"><span>Cadence</span></a></div>
     <div class="right">
     <nav class="nav" aria-label="Main navigation">
-      <a href="#modes">Two modes</a>
+      <a href="#modes">Three rhythms</a>
       <a href="#formules">Fees</a>
       <a href="#faq">Questions</a>
       <a class="cta" href="#test">Take the test</a>
@@ -395,7 +397,7 @@ h1,h2,h3,h4{margin:0;font-weight:300;line-height:1.1;letter-spacing:-0.01em;text
   </div>
   <nav aria-label="Mobile navigation">
     <a href="#test">Take the test</a>
-    <a href="#modes">Two modes</a>
+    <a href="#modes">Three rhythms</a>
     <a href="#formules">Fees</a>
     <a href="#faq">Questions</a>
     <a href="#contact">Get in touch</a>
@@ -444,9 +446,16 @@ h1,h2,h3,h4{margin:0;font-weight:300;line-height:1.1;letter-spacing:-0.01em;text
 
   <section class="modes-s" id="modes" aria-labelledby="t-modes">
     <div class="wrap">
-      <h2 class="sec-h2" id="t-modes">Two modes of intervention</h2>
-      <p class="intro">The same lawyer, the same areas of expertise. What changes is the organisation, the volume and the duration.</p>
-      <div class="two">
+      <h2 class="sec-h2" id="t-modes">Three rhythms of intervention</h2>
+      <p class="intro">The same lawyer, the same standards. What changes is the frequency, the volume and the duration.</p>
+      <div class="two trois">
+        <article>
+          <p class="label">Per operation</p>
+          <h3>Company operations</h3>
+          <p>One specific operation, a fixed price confirmed before any work starts: documents drafted and checked by a lawyer, formalities followed through to registration.</p>
+          <p>For a company that does not need a permanent legal function, or wants to get to know the firm before entrusting it with one.</p>
+          <ul><li>Registered office, share transfers, directors, capital, dissolution</li><li>Fixed price, registry and legal notice fees included</li><li>Annual follow-up of accounts and registers</li></ul>
+        </article>
         <article>
           <p class="label">From the firm</p>
           <h3>Outsourced general counsel</h3>
@@ -522,33 +531,24 @@ h1,h2,h3,h4{margin:0;font-weight:300;line-height:1.1;letter-spacing:-0.01em;text
       </table></div>
       <p class="cadre">The rate depends on the volume and duration agreed at the outset; merely extending an engagement does not lower it automatically. The engagement letter sets the schedule, the monthly volume and the days on site; additional days are charged at the agreed day rate, with prior agreement. Any travel and accommodation costs are separate, estimated and agreed before the engagement.</p>
 
-      <h3 class="sub-h3">Corporate secretarial work and company operations</h3>
+      <h3 class="sub-h3">Company operations: fixed prices, registry and legal notice fees included</h3>
       <div class="tbl-wrap"><table class="tbl">
-        <caption>Price per operation excl. VAT, registry and legal notice fees included</caption>
+        <caption>Example prices excl. VAT for a simple company</caption>
         <thead><tr><th scope="col">Operation</th><th scope="col">Price excl. VAT</th></tr></thead>
         <tbody>
-          <tr><th scope="row">Annual follow-up: approval of the accounts, statutory registers, review of the beneficial ownership filing (simple company)</th><td>From <span data-p="sec">€500</span> per year</td></tr>
-          <tr><th scope="row">Transfer of shares (SAS, SA)</th><td>From <span data-p="op:cessionActions">€400</span></td></tr>
-          <tr><th scope="row">Transfer of SARL or EURL shares</th><td>From <span data-p="op:cessionParts">€500</span></td></tr>
-          <tr><th scope="row">Transfer of shares in a société civile</th><td>From <span data-p="op:cessionPartsSC">€650</span></td></tr>
-          <tr><th scope="row">Dormancy</th><td>From <span data-p="op:sommeil">€500</span></td></tr>
-          <tr><th scope="row">Change of financial year end</th><td>From <span data-p="op:cloture">€600</span></td></tr>
-          <tr><th scope="row">Opening of a secondary establishment</th><td>From <span data-p="op:etablissement">€650</span></td></tr>
-          <tr><th scope="row">Change of director, name or corporate purpose; transfer of registered office within the same court district</th><td>From <span data-p="op:modification">€1,300</span></td></tr>
-          <tr><th scope="row">Transfer of registered office to another court district</th><td>From <span data-p="op:siegeHors">€1,500</span></td></tr>
-          <tr><th scope="row">Capital reduction due to losses</th><td>From <span data-p="op:reductionPertes">€1,400</span></td></tr>
-          <tr><th scope="row">Voluntary dissolution and liquidation</th><td>From <span data-p="op:dissolutionLiquidation">€1,700</span></td></tr>
-          <tr><th scope="row">Capital increase</th><td>From <span data-p="op:augmentation">€1,800</span></td></tr>
-          <tr><th scope="row">Universal transfer of assets</th><td>From <span data-p="op:tup">€2,100</span></td></tr>
-          <tr><th scope="row">Conversion of company form</th><td>From <span data-p="op:transformation">€2,300</span></td></tr>
+          <tr><th scope="row">Annual follow-up: approval of the accounts, registers, beneficial ownership filing</th><td>From <span data-p="sec">€500</span> per year</td></tr>
+          <tr><th scope="row">Transfer of shares</th><td>From <span data-p="op:cessionActions">€400</span></td></tr>
+          <tr><th scope="row">Change of director, name or corporate purpose, transfer of registered office</th><td>From <span data-p="op:modification">€1,300</span></td></tr>
+          <tr><th scope="row">Capital increase or reduction</th><td>From <span data-p="op:reductionPertes">€1,400</span></td></tr>
+          <tr><th scope="row">Voluntary dissolution and liquidation, conversion</th><td>From <span data-p="op:dissolutionLiquidation">€1,700</span></td></tr>
         </tbody>
       </table></div>
-      <p class="cadre">Documents drafted and checked by a lawyer, formalities followed through to registration. Prices for a simple company, registry and legal notice fees included; registration duties extra, where applicable. The fixed price of each operation is confirmed before any work starts; operations not listed (merger, contribution in kind, sale of a business…) are quoted separately. Under the outsourced general counsel plans, these operations are covered by the monthly volume: only formality, registry, legal notice and registration costs are added, recharged at cost.</p>
+      <p class="cadre">The fixed price of each operation is confirmed before any work starts; registration duties extra, where applicable. Operations not listed (merger, contribution in kind, sale of a business…) are quoted separately. Outsourced general counsel clients: routine corporate housekeeping is covered by the monthly volume, other operations benefit from a preferential rate.</p>
 
       <h3 class="sub-h3">What the outsourced plans cover</h3>
       <ul class="rules">
         <li><b>The same areas for all three plans</b><span>Contracts, corporate housekeeping, sector regulation, personal data, pre-litigation, intellectual property, risks and insurance, compliance. The volume determines the capacity.</span></li>
-        <li><b>What uses up the volume</b><span>Preparation, analysis, drafting, meetings, calls, substantive emails, monitoring specific to your company and coordination. Corporate secretarial work, company operations and managing your other advisers are included. Formality, registry and legal notice fees, registration duties, your other advisers’ fees and disbursements remain extra, recharged at cost.</span></li>
+        <li><b>What uses up the volume</b><span>Preparation, analysis, drafting, meetings, calls, substantive emails, monitoring specific to your company and coordination. Routine corporate housekeeping (annual approval of the accounts, ordinary general meetings, registers, change of director) and managing your other advisers are included; other company operations are billed separately, at a preferential rate. Formality, registry and legal notice fees, registration duties, your other advisers’ fees and disbursements remain extra, recharged at cost.</span></li>
         <li><b>Limited carry-over</b><span>At most three unused hours are carried over to the following month only, and used first. They expire at the end of that month, are never carried over twice, and never beyond the end of the engagement.</span></li>
         <li><b>Additional hours</b><span><span data-p="taux">€150</span> excl. VAT per hour, after an estimate and your prior agreement, subject to availability. A one-off overrun does not change the plan; repeated overruns lead to proposing a better-suited volume.</span></li>
         <li><b>Response times</b><span>First response the same working day for an urgent matter flagged before noon, otherwise the next working day; within two working days for a routine request. The first response sets the timetable for completing the work, depending on its scope.</span></li>

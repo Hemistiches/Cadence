@@ -24,6 +24,7 @@
     // Opérations sur la société : coût HT du prestataire de formalités (grille publique, frais de greffe et d’annonce compris),
     // multiplié par coefOperations puis arrondi au 50 € supérieur (100 € au-delà de 1 000 €). Droits d’enregistrement en sus.
     coefOperations: 2,
+    coefOperationsForfait: 1.5,   // tarif préférentiel des clients en direction juridique externalisée (hors vie sociale courante, comprise dans le volume)
     coutsOperations: {
       cessionActions: 190.00,
       cessionParts: 239.96,
@@ -52,8 +53,8 @@
   }
   function prixJourExt(jours, tr) { return formule(jours)[tr]; }
   function mensuelExt(jours, tr) { return jours * prixJourExt(jours, tr); }
-  function prixOperation(cle) {
-    var v = TARIFS.coutsOperations[cle] * TARIFS.coefOperations;
+  function prixOperation(cle, forfait) {
+    var v = TARIFS.coutsOperations[cle] * (forfait ? TARIFS.coefOperationsForfait : TARIFS.coefOperations);
     return v < 1000 ? Math.ceil(v / 50) * 50 : Math.ceil(v / 100) * 100;
   }
   function heures(jours) { return jours * TARIFS.heuresParJour; }
