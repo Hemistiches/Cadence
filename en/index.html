@@ -523,24 +523,27 @@ h1,h2,h3,h4{margin:0;font-weight:300;line-height:1.1;letter-spacing:-0.01em;text
       <p class="cadre">The rate depends on the volume and duration agreed at the outset; merely extending an engagement does not lower it automatically. The engagement letter sets the schedule, the monthly volume and the days on site; additional days are charged at the agreed day rate, with prior agreement. Any travel and accommodation costs are separate, estimated and agreed before the engagement.</p>
 
       <h3 class="sub-h3">Corporate secretarial work and company operations</h3>
-      <div class="three">
-        <article>
-          <h3>Annual follow-up</h3>
-          <div><p class="from">From</p><p class="amount"><span data-p="sec">€500</span> <small>excl. VAT per year</small></p></div>
-          <p>For a simple company: annual approval of the accounts and the corresponding corporate documents, statutory registers, review of the beneficial ownership filing, prepared on the basis of the information you provide.</p>
-        </article>
-        <article>
-          <h3>Routine operations</h3>
-          <div><p class="from">From</p><p class="amount"><span data-p="opc">€400</span> <small>excl. VAT per operation</small></p></div>
-          <p>Transfer of shares, change of director, transfer of registered office, change of name or corporate purpose, opening or closing of an establishment, dormancy.</p>
-        </article>
-        <article>
-          <h3>Capital and structure</h3>
-          <div><p class="from">From</p><p class="amount"><span data-p="ops">€1,200</span> <small>excl. VAT per operation</small></p></div>
-          <p>Capital increase or reduction, conversion, voluntary dissolution and liquidation, universal transfer of assets.</p>
-        </article>
-      </div>
-      <p class="cadre">Documents drafted and checked by a lawyer, followed through to registration. The fixed price of each operation is confirmed before any work starts; operations not listed (merger, contribution in kind, sale of a business…) are quoted separately. Formality, registry and legal notice fees and registration duties are extra, recharged at cost.</p>
+      <div class="tbl-wrap"><table class="tbl">
+        <caption>Price per operation excl. VAT, registry and legal notice fees included</caption>
+        <thead><tr><th scope="col">Operation</th><th scope="col">Price excl. VAT</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Annual follow-up: approval of the accounts, statutory registers, review of the beneficial ownership filing (simple company)</th><td>From <span data-p="sec">€500</span> per year</td></tr>
+          <tr><th scope="row">Transfer of shares (SAS, SA)</th><td>From <span data-p="op:cessionActions">€400</span></td></tr>
+          <tr><th scope="row">Transfer of SARL or EURL shares</th><td>From <span data-p="op:cessionParts">€500</span></td></tr>
+          <tr><th scope="row">Transfer of shares in a société civile</th><td>From <span data-p="op:cessionPartsSC">€650</span></td></tr>
+          <tr><th scope="row">Dormancy</th><td>From <span data-p="op:sommeil">€500</span></td></tr>
+          <tr><th scope="row">Change of financial year end</th><td>From <span data-p="op:cloture">€600</span></td></tr>
+          <tr><th scope="row">Opening of a secondary establishment</th><td>From <span data-p="op:etablissement">€650</span></td></tr>
+          <tr><th scope="row">Change of director, name or corporate purpose; transfer of registered office within the same court district</th><td>From <span data-p="op:modification">€1,300</span></td></tr>
+          <tr><th scope="row">Transfer of registered office to another court district</th><td>From <span data-p="op:siegeHors">€1,500</span></td></tr>
+          <tr><th scope="row">Capital reduction due to losses</th><td>From <span data-p="op:reductionPertes">€1,400</span></td></tr>
+          <tr><th scope="row">Voluntary dissolution and liquidation</th><td>From <span data-p="op:dissolutionLiquidation">€1,700</span></td></tr>
+          <tr><th scope="row">Capital increase</th><td>From <span data-p="op:augmentation">€1,800</span></td></tr>
+          <tr><th scope="row">Universal transfer of assets</th><td>From <span data-p="op:tup">€2,100</span></td></tr>
+          <tr><th scope="row">Conversion of company form</th><td>From <span data-p="op:transformation">€2,300</span></td></tr>
+        </tbody>
+      </table></div>
+      <p class="cadre">Documents drafted and checked by a lawyer, formalities followed through to registration. Prices for a simple company, registry and legal notice fees included; registration duties extra, where applicable. The fixed price of each operation is confirmed before any work starts; operations not listed (merger, contribution in kind, sale of a business…) are quoted separately. Under the outsourced general counsel plans, these operations are covered by the monthly volume: only formality, registry, legal notice and registration costs are added, recharged at cost.</p>
 
       <h3 class="sub-h3">What the outsourced plans cover</h3>
       <ul class="rules">
@@ -743,8 +746,7 @@ function prixAttr(code){
     case "tm": return eur(C.mensuelTransition(+p[1], p[2]));
     case "taux": return eur(C.TARIFS.tauxHoraire);
     case "sec": return eur(C.TARIFS.secretariatAnnuel);
-    case "opc": return eur(C.TARIFS.operationsCourantes);
-    case "ops": return eur(C.TARIFS.operationsStructure);
+    case "op": return eur(C.prixOperation(p[1]));
   }
   return null;
 }

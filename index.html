@@ -523,24 +523,27 @@ h1,h2,h3,h4{margin:0;font-weight:300;line-height:1.1;letter-spacing:-0.01em;text
       <p class="cadre">Le tarif dépend du volume et de la durée convenus au départ ; la seule prolongation d’une mission n’entraîne aucune baisse automatique. La convention fixe le calendrier, le volume mensuel et les journées sur place ; les jours supplémentaires sont facturés au tarif journalier convenu, après accord préalable. Frais de déplacement et d’hébergement éventuels distincts, estimés et convenus avant la mission.</p>
 
       <h3 class="sub-h3">Secrétariat juridique et opérations sur la société</h3>
-      <div class="three">
-        <article>
-          <h3>Suivi annuel</h3>
-          <div><p class="from">À partir de</p><p class="amount"><span data-p="sec">500 €</span> <small>HT par an</small></p></div>
-          <p>Pour une société simple : approbation annuelle des comptes et documents sociaux correspondants, tenue des registres, contrôle de la déclaration des bénéficiaires effectifs, établis sur la base des informations que vous fournissez.</p>
-        </article>
-        <article>
-          <h3>Opérations courantes</h3>
-          <div><p class="from">À partir de</p><p class="amount"><span data-p="opc">400 €</span> <small>HT par opération</small></p></div>
-          <p>Cession de parts ou d’actions, changement de dirigeant, transfert de siège, modification de la dénomination ou de l’objet, ouverture ou fermeture d’un établissement, mise en sommeil.</p>
-        </article>
-        <article>
-          <h3>Capital et structure</h3>
-          <div><p class="from">À partir de</p><p class="amount"><span data-p="ops">1 200 €</span> <small>HT par opération</small></p></div>
-          <p>Augmentation ou réduction de capital, transformation, dissolution et liquidation amiables, transmission universelle de patrimoine.</p>
-        </article>
-      </div>
-      <p class="cadre">Actes rédigés et vérifiés par un avocat, suivis jusqu’à l’inscription au registre. Le prix ferme de chaque opération est annoncé avant toute intervention ; les opérations non listées (fusion, apport, cession de fonds de commerce…) font l’objet d’un devis. Frais de formalités, de greffe, d’annonces légales et droits d’enregistrement en sus, refacturés à leur coût.</p>
+      <div class="tbl-wrap"><table class="tbl">
+        <caption>Prix HT par opération, frais de greffe et d’annonce légale compris</caption>
+        <thead><tr><th scope="col">Opération</th><th scope="col">Prix HT</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Suivi annuel : approbation des comptes, tenue des registres, contrôle de la déclaration des bénéficiaires effectifs (société simple)</th><td>À partir de <span data-p="sec">500 €</span> par an</td></tr>
+          <tr><th scope="row">Cession d’actions</th><td>À partir de <span data-p="op:cessionActions">400 €</span></td></tr>
+          <tr><th scope="row">Cession de parts de SARL ou d’EURL</th><td>À partir de <span data-p="op:cessionParts">500 €</span></td></tr>
+          <tr><th scope="row">Cession de parts de société civile</th><td>À partir de <span data-p="op:cessionPartsSC">650 €</span></td></tr>
+          <tr><th scope="row">Mise en sommeil</th><td>À partir de <span data-p="op:sommeil">500 €</span></td></tr>
+          <tr><th scope="row">Changement de date de clôture</th><td>À partir de <span data-p="op:cloture">600 €</span></td></tr>
+          <tr><th scope="row">Ouverture d’un établissement secondaire</th><td>À partir de <span data-p="op:etablissement">650 €</span></td></tr>
+          <tr><th scope="row">Changement de dirigeant, de dénomination ou d’objet ; transfert de siège dans le même ressort</th><td>À partir de <span data-p="op:modification">1 300 €</span></td></tr>
+          <tr><th scope="row">Transfert de siège hors ressort</th><td>À partir de <span data-p="op:siegeHors">1 500 €</span></td></tr>
+          <tr><th scope="row">Réduction de capital motivée par des pertes</th><td>À partir de <span data-p="op:reductionPertes">1 400 €</span></td></tr>
+          <tr><th scope="row">Dissolution et liquidation amiables</th><td>À partir de <span data-p="op:dissolutionLiquidation">1 700 €</span></td></tr>
+          <tr><th scope="row">Augmentation de capital</th><td>À partir de <span data-p="op:augmentation">1 800 €</span></td></tr>
+          <tr><th scope="row">Transmission universelle de patrimoine</th><td>À partir de <span data-p="op:tup">2 100 €</span></td></tr>
+          <tr><th scope="row">Transformation de société</th><td>À partir de <span data-p="op:transformation">2 300 €</span></td></tr>
+        </tbody>
+      </table></div>
+      <p class="cadre">Actes rédigés et vérifiés par un avocat, formalités suivies jusqu’à l’inscription au registre. Prix pour une société simple, frais de greffe et d’annonce légale compris ; droits d’enregistrement en sus, le cas échéant. Le prix ferme de chaque opération est confirmé avant toute intervention ; les opérations non listées (fusion, apport, cession de fonds de commerce…) font l’objet d’un devis. Pour les forfaits de direction juridique externalisée, ces opérations entrent dans le volume mensuel : seuls les frais de formalités, de greffe, d’annonce et d’enregistrement s’y ajoutent, refacturés à leur coût.</p>
 
       <h3 class="sub-h3">Ce que couvrent les forfaits externalisés</h3>
       <ul class="rules">
@@ -745,8 +748,7 @@ function prixAttr(code){
     case "tm": return eur(C.mensuelTransition(+p[1], p[2]));
     case "taux": return eur(C.TARIFS.tauxHoraire);
     case "sec": return eur(C.TARIFS.secretariatAnnuel);
-    case "opc": return eur(C.TARIFS.operationsCourantes);
-    case "ops": return eur(C.TARIFS.operationsStructure);
+    case "op": return eur(C.prixOperation(p[1]));
   }
   return null;
 }

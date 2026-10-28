@@ -21,9 +21,24 @@
     // Direction juridique de transition : sur site, 12 à 16 jours par mois
     transition: { joursMin: 12, joursMax: 16, lt3: 800, de3a6: 725, des6: 650 },
     secretariatAnnuel: 500,       // société simple : approbation annuelle des comptes, registres, contrôle de la DBE
-    operationsCourantes: 400,     // à partir de : cession, mise en sommeil, établissement secondaire, dirigeant, siège, dénomination, objet
-    operationsStructure: 1200     // à partir de : capital, transformation, dissolution et liquidation, TUP
-    // Prix hors frais de formalités, de greffe, d'annonces légales et droits d'enregistrement, toujours en sus
+    // Opérations sur la société : coût HT du prestataire de formalités (grille publique, frais de greffe et d’annonce compris),
+    // multiplié par coefOperations puis arrondi au 50 € supérieur (100 € au-delà de 1 000 €). Droits d’enregistrement en sus.
+    coefOperations: 2,
+    coutsOperations: {
+      cessionActions: 190.00,
+      cessionParts: 239.96,
+      cessionPartsSC: 300.01,
+      sommeil: 226.00,
+      cloture: 275.01,
+      etablissement: 302.02,
+      modification: 611.01,
+      siegeHors: 728.86,
+      reductionPertes: 662.01,
+      dissolutionLiquidation: 811.80,
+      augmentation: 892.01,
+      tup: 1012.01,
+      transformation: 1107.08
+    }
   };
 
   /* ---------- Prix ---------- */
@@ -37,6 +52,10 @@
   }
   function prixJourExt(jours, tr) { return formule(jours)[tr]; }
   function mensuelExt(jours, tr) { return jours * prixJourExt(jours, tr); }
+  function prixOperation(cle) {
+    var v = TARIFS.coutsOperations[cle] * TARIFS.coefOperations;
+    return v < 1000 ? Math.ceil(v / 50) * 50 : Math.ceil(v / 100) * 100;
+  }
   function heures(jours) { return jours * TARIFS.heuresParJour; }
   function prixJourTransition(tr) { return TARIFS.transition[tr]; }
   function mensuelTransition(jours, tr) { return jours * prixJourTransition(tr); }
@@ -132,7 +151,7 @@
 
   g.CADENCE = {
     TARIFS: TARIFS, POIDS: POIDS, SEUILS: SEUILS,
-    tranche: tranche, formule: formule, prixJourExt: prixJourExt, mensuelExt: mensuelExt, heures: heures,
+    tranche: tranche, formule: formule, prixJourExt: prixJourExt, mensuelExt: mensuelExt, heures: heures, prixOperation: prixOperation,
     prixJourTransition: prixJourTransition, mensuelTransition: mensuelTransition,
     recalculDepart: recalculDepart, recalculTransition: recalculTransition,
     volume: volume, orienter: orienter, scenarios: scenarios
