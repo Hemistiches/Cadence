@@ -350,7 +350,7 @@ h1,h2,h3,h4{margin:0;font-weight:300;line-height:1.1;letter-spacing:-0.01em;text
   .print-card .co a{color:#000;text-decoration:none}
   .print-card.end{margin:22px 0 0}
   .ph-logo{display:flex;align-items:center;gap:10px}
-  .ph-logo img{height:20px;width:auto;filter:invert(1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .ph-logo img{height:20px;width:auto}
   .ph-logo i{width:0;height:18px;border-left:1px solid #000}
   .ph-logo span{font-size:14pt;color:#000}
   .tbl{min-width:0}
@@ -952,12 +952,17 @@ function contenu(r){
 }
 
 /* Rapport imprimé : coordonnées de l'avocat en tête et en fin */
-var LOGO = (document.querySelector(".brand img")||{}).src || "";
+var LOGO = "";
+(function(){ var img = document.querySelector(".brand img"); if(!img) return;
+  function noir(){ try{ var c = document.createElement("canvas"); c.width = img.naturalWidth; c.height = img.naturalHeight; var x = c.getContext("2d");
+    x.drawImage(img, 0, 0); x.globalCompositeOperation = "source-in"; x.fillStyle = "#000"; x.fillRect(0, 0, c.width, c.height); LOGO = c.toDataURL("image/png"); }
+    catch(e){ LOGO = ""; } }
+  if(img.complete && img.naturalWidth) noir(); else img.addEventListener("load", noir); })();
 function carte(cls, titre){ return '<div class="print-only print-card'+cls+'"><div><div class="who">'+esc(titre)+'</div><div class="nm">Mᵉ François Césure</div><div class="rl">'+esc("Avocat, Paris Bar")+'</div><div class="rl">'+esc("Hémistiches, 33, avenue Mac-Mahon, 75017 Paris, France")+'</div></div><div class="co">francois.cesure@hemistiches.com<br>+33 6 47 88 80 25<br>+33 1 45 03 20 20<br><a href="https://www.hemistiches.com">www.hemistiches.com</a></div></div>'; }
 function report(r){
   var o = contenu(r), html = "";
   var today = new Date().toLocaleDateString("en-GB",{day:"numeric",month:"long",year:"numeric"});
-  html += '<div class="print-only print-head"><span class="ph-logo"><img src="'+LOGO+'" alt="Hémistiches."><i aria-hidden="true"></i><span>Cadence</span></span><span>'+esc("Estimate generated on "+today)+'</span></div>';
+  html += '<div class="print-only print-head"><span class="ph-logo">'+(LOGO?'<img src="'+LOGO+'" alt="Hémistiches.">':'<b>Hémistiches.</b>')+'<i aria-hidden="true"></i><span>Cadence</span></span><span>'+esc("Estimate generated on "+today)+'</span></div>';
   html += carte('', "Your contact");
   html += '<div class="report-head"><p class="label">Suggested mode and volume</p><h3>'+esc(o.titre)+'</h3><p class="price">'+esc(o.sousTitre)+'</p></div>';
   if(o.raisons.length) html += '<div class="rsec"><h4>Main reasons</h4><p class="compare">'+esc("Estimate based mainly on "+o.raisons.join(", ")+".")+'</p></div>';
