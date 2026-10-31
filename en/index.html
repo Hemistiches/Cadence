@@ -363,6 +363,39 @@ h1,h2,h3,h4{margin:0;font-weight:300;line-height:1.1;letter-spacing:-0.01em;text
   .cesure-s{padding-bottom:clamp(20px,2.5vw,32px)}
   .test-s{padding-top:clamp(20px,2.5vw,32px)}
 }
+/* Rapport : même construction que Diapason (31 octobre 2026) — indicateurs, points qualifiés, missions chiffrées, ordre de grandeur */
+.report-head .meta{font-size:14px;color:var(--on-dark-mute);margin-top:14px}
+.levels{margin-top:28px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;max-width:720px}
+.lv{min-width:0}
+.lv b{display:block;font-weight:400;font-size:13px;color:var(--on-dark-mute);letter-spacing:.02em}
+.lv span{display:block;font-size:clamp(20px,1.8vw,26px);font-weight:300;color:#fff;margin-top:2px}
+.meter{display:flex;gap:3px;margin-top:10px}
+.meter i{flex:1;height:6px;background:#262626}
+.meter i.on{background:var(--on-dark)}
+.lv p{font-size:12px;line-height:1.5;color:var(--on-dark-mute);margin-top:10px}
+.prio .kind{display:block;font-size:13px;color:var(--mute);letter-spacing:.02em;margin-bottom:2px}
+.prio li.good b,.prio li.info b{font-weight:400}
+.parcours{list-style:none;margin:16px 0 0;padding:0;border-top:1px solid var(--ink)}
+.parcours li{display:grid;grid-template-columns:minmax(0,1fr);gap:4px 20px;padding:16px 0;border-bottom:1px solid var(--rule)}
+.parcours b{font-weight:400;font-size:clamp(18px,1.5vw,20px)}
+.parcours .pr{text-align:left;font-size:16px;color:var(--ink-2);font-variant-numeric:tabular-nums}
+.parcours p{font-size:15px;color:var(--ink-2)}
+.parcours .hyp{font-size:14px;color:var(--mute);margin-top:-2px}
+.budget{margin-top:20px;border:1px solid var(--rule);padding:18px 20px}
+.budget h5{font-family:var(--font);font-weight:400;font-size:clamp(18px,1.5vw,20px);margin:0}
+.budget dl{margin:10px 0 0;display:grid;gap:6px}
+.budget dl div{display:flex;justify-content:space-between;gap:16px;border-bottom:1px solid var(--rule);padding:6px 0}
+.budget dt{color:var(--ink-2);font-size:15px}
+.budget dd{margin:0;font-variant-numeric:tabular-nums;white-space:nowrap}
+.budget p{font-size:14px;color:var(--mute);margin-top:10px;max-width:72ch}
+@media (max-width:720px){.levels{grid-template-columns:minmax(0,1fr);gap:18px}}
+@media print{
+  .report-head .meta,.lv b,.lv p{color:#444}
+  .lv span{color:#000}
+  .meter i{background:#e6e6e6;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .meter i.on{background:#000}
+  .budget,.parcours li{break-inside:avoid}
+}
 </style>
 </head>
 <body>
@@ -681,7 +714,7 @@ h1,h2,h3,h4{margin:0;font-weight:300;line-height:1.1;letter-spacing:-0.01em;text
     <div class="twelve">
       <div class="head">
         <h2 id="t-contact">Let’s discuss your cadence</h2>
-        <p class="contact-lede">For a first twenty-minute conversation, free and without commitment, write to me or call me directly.</p>
+        <p class="contact-lede">For a first conversation, write to me or call me directly.</p>
         <a class="btn btn-light" href="mailto:francois.cesure@hemistiches.com?subject=Cadence">Write to the firm</a>
       </div>
       <address class="coords">
@@ -827,7 +860,7 @@ function gate(){
   RESULT = C.orienter(A);
   box.innerHTML =
     '<p class="label">Last step</p>'+
-    '<h3 class="qtitle">Your estimate is ready</h3>'+
+    '<h3 class="qtitle">Your result is ready</h3>'+
     '<p class="qhint">'+esc("Enter your business email address: your result is displayed immediately.")+'</p>'+
     '<form class="gate" id="gateform" novalidate>'+
       '<label for="email">Business email address</label>'+
@@ -955,28 +988,103 @@ var LOGO = "";
     catch(e){ LOGO = ""; } }
   if(img.complete && img.naturalWidth) noir(); else img.addEventListener("load", noir); })();
 function carte(cls, titre){ return '<div class="print-only print-card'+cls+'"><div><div class="who">'+esc(titre)+'</div><div class="nm">Mᵉ François Césure</div><div class="rl">'+esc("Avocat, Paris Bar")+'</div><div class="rl">'+esc("Hémistiches, 33, avenue Mac-Mahon, 75017 Paris, France")+'</div></div><div class="co">francois.cesure@hemistiches.com<br>+33 6 47 88 80 25<br>+33 1 45 03 20 20<br><a href="https://www.hemistiches.com">www.hemistiches.com</a></div></div>'; }
-function report(r){
-  var o = contenu(r), html = "";
-  var today = new Date().toLocaleDateString("en-GB",{day:"numeric",month:"long",year:"numeric"});
-  html += '<div class="print-only print-head"><span class="ph-logo">'+(LOGO?'<img src="'+LOGO+'" alt="Hémistiches.">':'<b>Hémistiches.</b>')+'<i aria-hidden="true"></i><span>Cadence</span></span><span>'+esc("Estimate generated on "+today)+'</span></div>';
-  html += carte('', "Your contact");
-  html += '<div class="report-head"><p class="label">Suggested mode and volume</p><h3>'+esc(o.titre)+'</h3><p class="price">'+esc(o.sousTitre)+'</p></div>';
-  if(o.raisons.length) html += '<div class="rsec"><h4>Main reasons</h4><p class="compare">'+esc("Estimate based mainly on "+o.raisons.join(", ")+".")+'</p></div>';
-  html += '<div class="rsec"><h4>Estimated rate and budget</h4><div class="offer-reco">'+o.prix.map(function(p){return '<p class="p">'+esc(p)+'</p>';}).join("")+o.budget.map(function(p){return '<p>'+esc(p)+'</p>';}).join("");
-  if(o.scen){ html += '<div class="tbl-wrap"><table class="tbl"><thead><tr><th scope="col">Initial term</th><th scope="col">Day rate</th><th scope="col">Per month</th><th scope="col">Budget</th></tr></thead><tbody>'+o.scen.map(function(s){ return '<tr><th scope="row">'+esc(s[0])+'</th><td>'+eur(s[1])+'</td><td>'+eur(s[2])+'</td><td>'+esc(s[3]||"depending on the agreed term")+'</td></tr>'; }).join("")+'</tbody></table></div>'; }
-  html += '</div></div>';
-  if(o.fin.length) html += '<div class="rsec"><h4>Term and early termination</h4><div class="note">'+o.fin.map(function(p){return '<p>'+esc(p)+'</p>';}).join("")+'</div></div>';
-  if(o.conditions.length) html += '<div class="rsec"><h4>Key conditions</h4><ul class="prio">'+o.conditions.map(function(p){return '<li><p>'+esc(p)+'</p></li>';}).join("")+'</ul></div>';
-  if(o.extras.length) html += '<div class="rsec"><h4>Handled separately</h4><ul class="prio">'+o.extras.map(function(p){return '<li><p>'+esc(p)+'</p></li>';}).join("")+'</ul></div>';
+/* ---------- Result: same construction as Diapason, Concordance and Unisson (31 October 2026) ---------- */
+var NIV = {eleve:"high", modere:"moderate", limite:"limited"};
+function niveau(v){ return v>=70 ? "eleve" : (v>=40 ? "modere" : "limite"); }
+function cap(s){ return s.charAt(0).toUpperCase()+s.slice(1); }
+function meter(v){ var n = Math.max(1, Math.round(v/20)), h = '<div class="meter" aria-hidden="true">'; for(var i=0;i<5;i++) h += '<i class="'+(i<n?'on':'')+'"></i>'; return h+'</div>'; }
+function indicateurs(r){
+  if(!r.volume) return null;
+  var V = r.volume.jours;
+  var charge = V<=2.5 ? 25 : (V<=5 ? 50 : (V<=8.5 ? 75 : 95));
+  var org = {juriste:15, avocat:45, dirigeant:65, vacant:85}[A.organisation] || 40;
+  if(A.referent==="non") org += 15; if(A.referent==="plusieurs") org += 10;
+  var urg = {rare:15, mois:45, semaine:80}[A.urgences] || 15;
+  if(A.retard==="important") urg += 20; if(A.retard==="quelques") urg += 5; if(A.exceptionnelle==="oui") urg += 10;
+  return {charge:charge, org:Math.min(100, org), urg:Math.min(100, urg)};
+}
+function secteurLabel(){ return {sante:"Healthcare", reglemente:"Other regulated sector", autre:"Non-regulated sector"}[A.secteur] || ""; }
+/* Points of attention, qualified as in Diapason */
+function vigilance(r){
+  var L = [];
+  function add(kind, t, p){ L.push([kind, t, p]); }
+  if(r.mode==="ponctuel") add("Finding", "A one-off need", "Your need concerns a specific matter or question: it does not justify a monthly package and is handled matter by matter.");
+  if(A.organisation==="vacant") add("Declared gap", "A vacant legal function", "While the position is vacant, contracts, corporate housekeeping and deadlines rest on people for whom this is not their job: that is where poorly controlled commitments arise.");
+  if(A.organisation==="dirigeant") add("Point of method", "Legal matters handled by management", "The CEO, CFO or HR handle them on top of their own duties: time runs short first for what is not urgent, such as contract review and tracking deadlines.");
+  if(A.referent==="non") add("Declared gap", "No one to centralise requests", "Without a point of contact, requests arrive through several channels and priorities are set as things come. Appointing one contact is the first condition for an effective package.");
+  if(A.referent==="plusieurs") add("Point of method", "Several contacts, without centralisation", "Everyone asks directly: coordination takes time out of the volume. A simple request channel is set from the outset.");
+  if(A.retard==="important") add("Declared gap", "A significant backlog", "Contracts not reviewed, corporate housekeeping behind, matters pending: this backlog is handled separately, on quotation, without using up the monthly package.");
+  if(A.retard==="quelques") add("Point of method", "A few matters pending", "They can be absorbed in the first weeks of the volume, or handled as additional hours if you prefer.");
+  if(A.urgences==="semaine") add("Point of method", "Urgent matters every week", "Frequent urgent matters often point to issues handled too late: part of them can be anticipated with a deadline calendar and templates.");
+  if(A.exceptionnelle==="oui") add("Point of method", "An exceptional transaction planned", "Fundraising, disposal, acquisition or reorganisation: a separate assignment, on quotation, prepared ahead rather than in a rush.");
+  if(r.duree && r.duree.incertaine) add("Point of method", "A term still to be set", "The rate depends on the initial term agreed: none is assumed by default. We will set it together.");
+  if(A.fonctions && A.fonctions.indexOf("donnees")>-1) add("Point of method", "Personal data", "This falls under Diapason (GDPR compliance, record of processing, impact assessments, data protection officer), under a separate agreement; only the data clauses of your contracts remain within the volume.");
+  if(A.sante_type==="dm") add("Point of method", "Medical devices", "An MDR or IVDR compliance assignment (product qualification, bringing a distributor or importer into compliance, entry into the EU market) falls under Concordance, under a separate agreement; reviewing a distribution contract in the ordinary flow remains within the volume.");
+  add("Point of method", "What this result does not do", "It does not fix the scope or the volume of the assignment: it estimates a workload from the situations you described, without reviewing any documents. Scope, volume and term are confirmed in a conversation, in light of your contracts, your deadlines and your organisation.");
+  return L;
+}
+function prixCourt(r){
+  var d = r.duree;
+  if(r.mode==="externalisee") return d.incertaine ? "From "+eur(C.mensuelExt(r.jours,"des6"))+" to "+eur(C.mensuelExt(r.jours,"lt3"))+" excl. VAT per month" : eur(C.mensuelExt(r.jours, d.tranche))+" excl. VAT per month";
+  if(r.mode==="transition") return d.incertaine ? "From "+eur(C.prixJourTransition("des6"))+" to "+eur(C.prixJourTransition("lt3"))+" excl. VAT per day" : eur(C.prixJourTransition(d.tranche))+" excl. VAT per day";
+  if(r.mode==="ponctuel") return "On quotation";
+  return "On proposal";
+}
 
-  html += '<div class="rsec no-print"><h4>Keep this estimate</h4><div class="keep"><p class="compare">'+esc("Save it as a PDF, or send it to your own mailbox. It is stored neither on this site nor by the firm.")+'</p>'+
-    '<div class="actions"><button type="button" class="btn btn-ink" id="pdf">Save as PDF</button><a class="btn btn-line" id="selfmail" href="mailto:?subject='+encodeURIComponent("My Cadence estimate")+'&body='+encodeURIComponent(summary(o))+'">'+esc("Email me the estimate")+'</a></div></div></div>';
-  html += '<div class="rsec"><h4>Confirm the scope</h4><p class="compare">'+esc("A first twenty-minute conversation, free and without commitment, to confirm the scope, the volume and the duration. Write to me:")+'</p>'+
-    '<div class="contactbox"><code id="mail">'+CONTACT+'</code><button type="button" class="btn btn-line" id="copy">'+esc("Copy address")+'</button><a class="btn btn-ink" href="mailto:'+CONTACT+'?subject='+encodeURIComponent("Cadence: "+o.titre)+'&body='+encodeURIComponent("Hello,\n\nI would like to discuss my Cadence estimate.\n\n"+summary(o, true))+'">Write</a><span class="copied" id="copied" aria-live="polite"></span></div></div>';
-  html += '<p class="notice">'+esc("This estimate is generated automatically from your answers alone, without verification or review of documents, and fixed at the date it was generated. It is neither legal advice nor a contractual offer. Amounts are exclusive of VAT; any engagement is subject to a signed engagement letter, setting the scope, volume, duration and the method for determining fees, and to a prior conflict check.")+'</p>'+
+function report(r){
+  var o = contenu(r), html = "", ind = indicateurs(r), d = r.duree, sect = secteurLabel();
+  var today = new Date().toLocaleDateString("en-GB",{day:"numeric",month:"long",year:"numeric"});
+  html += '<div class="report-head"><p class="label">Your result</p><h3>'+esc(o.titre)+'</h3><p class="price">'+esc(o.sousTitre)+'</p>'+
+    (ind ? '<p class="meta" style="margin-top:22px">'+esc("Situation indicators")+'</p><div class="levels">'+
+      '<div class="lv"><b>'+esc("Legal workload")+'</b><span>'+esc(cap(NIV[niveau(ind.charge)]))+'</span>'+meter(ind.charge)+'<p>'+esc("Contracts, functions to cover and scope: the estimated monthly volume.")+'</p></div>'+
+      '<div class="lv"><b>'+esc("Organisational fragility")+'</b><span>'+esc(cap(NIV[niveau(ind.org)]))+'</span>'+meter(ind.org)+'<p>'+esc("Who handles legal matters today, and who centralises requests.")+'</p></div>'+
+      '<div class="lv"><b>'+esc("Urgency")+'</b><span>'+esc(cap(NIV[niveau(ind.urg)]))+'</span>'+meter(ind.urg)+'<p>'+esc("Same-day matters, backlog, planned transaction.")+'</p></div>'+
+    '</div>' : '')+
+    '<p class="meta">'+esc("As at "+today+(sect?" · "+sect:""))+'</p></div>';
+  if(o.raisons.length) html += '<p class="compl">'+esc("Estimate based mainly on "+o.raisons.join(", ")+".")+'</p>';
+
+  html += '<div class="rsec"><h4>Your points of attention</h4><ul class="prio">'+vigilance(r).map(function(v){
+    return '<li class="'+(v[0]==="Point of method"?'info':(v[0]==="Finding"?'good':'gap'))+'"><span class="kind">'+esc(v[0])+'</span><b>'+esc(v[1])+'</b><p>'+esc(v[2])+'</p></li>'; }).join("")+'</ul></div>';
+
+  var M = [[o.titre, prixCourt(r), o.prix.concat(o.budget).join(" "), o.conditions.join(" ")]];
+  if(r.reprise==="devis") M.push(["Clearing the backlog", "On quotation", "Contracts not reviewed, corporate housekeeping behind, matters pending: handled separately from the monthly package, which it does not use up.", "Quotation agreed before any work."]);
+  if(r.exceptionnelle) M.push(["Exceptional transaction", "On quotation", "Fundraising, disposal, acquisition or reorganisation: an assignment separate from the package.", "Fixed-price quotation agreed before any work; filing costs and duties extra."]);
+  if(A.fonctions && A.fonctions.indexOf("donnees")>-1) M.push(["Personal data: Diapason", "Separate agreement", "GDPR compliance, record of processing, impact assessments, data protection officer.", "Fees published on diapason.hemistiches.com."]);
+  if(A.sante_type==="dm") M.push(["Medical devices: Concordance", "Separate agreement", "Product qualification, bringing a distributor or importer into compliance, entry into the EU market.", "Fees published on concordance.hemistiches.com."]);
+  html += '<div class="rsec"><h4>What I propose</h4><p class="compl">'+esc(M.length===1 ? "One assignment, at its own price." : "Separate assignments, each at its own price: you only engage those you need.")+'</p><ol class="parcours">'+
+    M.map(function(m){ return '<li><b>'+esc(m[0])+'</b><span class="pr">'+esc(m[1])+'</span><p>'+esc(m[2])+'</p>'+(m[3]?'<p class="hyp">'+esc(m[3])+'</p>':'')+'</li>'; }).join("")+'</ol>';
+  if(o.fin.length) html += o.fin.map(function(p){ return '<p class="compl">'+esc(p)+'</p>'; }).join("");
+
+  /* Ordre de grandeur */
+  var dl = "";
+  if(r.mode==="externalisee" || r.mode==="transition"){
+    var mens = function(t){ return r.mode==="externalisee" ? C.mensuelExt(r.jours, t) : C.mensuelTransition(r.jours, t); };
+    if(d.incertaine){
+      dl += '<div><dt>'+esc("Per month, six-month package")+'</dt><dd>'+esc(eur(mens("des6")))+' excl. VAT</dd></div>';
+      dl += '<div><dt>'+esc("Per month, under three months")+'</dt><dd>'+esc(eur(mens("lt3")))+' excl. VAT</dd></div>';
+      dl += '<div><dt>'+esc("Illustration over six months")+'</dt><dd>'+esc(eur(mens("des6")*6))+' excl. VAT</dd></div>';
+    } else {
+      var m = mens(d.tranche), n = d.mois || 0;
+      dl += '<div><dt>'+esc("Per month")+'</dt><dd>'+esc(eur(m))+' excl. VAT</dd></div>';
+      if(n) dl += '<div><dt>'+esc("Over "+n+(n===12?" months or more":" months"))+'</dt><dd>'+esc(eur(m*n))+' excl. VAT</dd></div>';
+    }
+  } else {
+    dl += '<div><dt>'+esc(r.mode==="ponctuel" ? "Matter-by-matter assignment" : "Tailored arrangement")+'</dt><dd>'+esc(r.mode==="ponctuel" ? "On quotation" : "On proposal")+'</dd></div>';
+  }
+  if(M.length>1) dl += '<div><dt>'+esc("Separate assignments flagged above")+'</dt><dd>'+esc("Separately")+'</dd></div>';
+  html += '<div class="budget"><h5>'+esc("Order of magnitude, to be confirmed")+'</h5><dl>'+dl+'</dl><p>'+esc(
+    (r.mode==="externalisee" ? "Advance called month by month; the budget is not payable on signature. " : (r.mode==="transition" ? "Days worked, at the rate for the agreed term. " : ""))+
+    (r.mode==="ponctuel" ? "Fees set by quotation before any work, in light of the matter." : "Not included: clearing the backlog and exceptional transactions (on quotation), filing, registry and publication costs, agreed additional hours"+(r.mode==="transition"?", travel costs":"")+"."))+'</p>';
+  html += '</div><p class="compl">'+esc("This orientation is an automatic estimate: the scope, the volume and the price are confirmed in a conversation, then in a signed engagement letter.")+'</p></div>';
+
+  html += '<div class="rsec no-print"><h4>Keep this result</h4><div class="keep"><p class="compare">'+esc("Save it as a PDF, or send it to your own mailbox. It is kept neither on this site nor by the firm.")+'</p>'+
+    '<div class="actions"><button type="button" class="btn btn-ink" id="pdf">Save as PDF</button><a class="btn btn-line" id="selfmail" href="mailto:?subject='+encodeURIComponent("My Cadence result")+'&body='+encodeURIComponent(summary(o))+'">'+esc("Email me the result")+'</a></div></div></div>';
+  html += '<div class="rsec"><h4>Discuss your result</h4><p class="compare">'+esc("To confirm the scope, the volume and the term against your actual situation, write to me:")+'</p>'+
+    '<div class="contactbox"><code id="mail">'+CONTACT+'</code><button type="button" class="btn btn-line" id="copy">'+esc("Copy address")+'</button><a class="btn btn-ink" href="mailto:'+CONTACT+'?subject='+encodeURIComponent("Cadence: "+o.titre)+'&body='+encodeURIComponent("Hello,\n\nI would like to discuss my Cadence result.\n\n"+summary(o, true))+'">Write</a><span class="copied" id="copied" aria-live="polite"></span></div></div>';
+  html += '<p class="notice">'+esc("This result is generated automatically from your answers alone, without verification or review of documents, and is valid as at the date it is generated. It is indicative information and is neither legal advice nor a contractual offer. Amounts exclude VAT; every assignment is subject to a signed engagement letter setting the scope, volume, term and how fees are determined, and to a prior conflict-of-interest check.")+'</p>'+
     '<div class="dnav" style="justify-content:flex-start"><button type="button" class="linkbtn" id="restart">Take the test again</button></div>';
-  html += carte(' end', "To discuss this result");
-  html += '<div class="print-only print-foot">'+esc("Mᵉ François Césure, avocat at the Paris Bar · Hémistiches, 33, avenue Mac-Mahon, 75017 Paris, France · francois.cesure@hemistiches.com · +33 6 47 88 80 25 · SIREN 833 468 358. Indicative estimate, to be confirmed in a conversation and by a signed engagement letter.")+'</div>';
+  html = '<div class="print-only print-head"><span class="ph-logo">'+(LOGO?'<img src="'+LOGO+'" alt="Hémistiches.">':'<b>Hémistiches.</b>')+'<i aria-hidden="true"></i><span>Cadence</span></span><span>'+esc("Result issued on "+today)+'</span></div>'+carte('', "Your contact")+html+carte(' end', "To discuss this result")+
+    '<div class="print-only print-foot">'+esc("Mᵉ François Césure, avocat at the Paris Bar · Hémistiches, 33, avenue Mac-Mahon, 75017 Paris, France · francois.cesure@hemistiches.com · +33 6 47 88 80 25 · SIREN 833 468 358. Indicative orientation, subject to a prior conversation and the signature of an engagement letter.")+'</div>';
   box.innerHTML = html;
   document.getElementById("pdf").onclick = function(){ try{ window.print(); }catch(e){} };
   document.getElementById("copy").onclick = function(){ var done = function(){ document.getElementById("copied").textContent = "Address copied"; }; try{ navigator.clipboard.writeText(CONTACT).then(done, selectMail); }catch(e){ selectMail(); } };
@@ -988,7 +1096,7 @@ function summary(o, pourMoi){
   L.push("Cadence, by Hémistiches");
   L.push("Outsourced and interim legal department · cadence.hemistiches.com/en/");
   L.push("");
-  L.push("Estimate of "+today);
+  L.push("Result of "+today);
   L.push("");
   L.push(o.titre+(/[.!?]$/.test(o.titre)?"":"."));
   if(o.sousTitre) L.push(o.sousTitre);
@@ -999,9 +1107,9 @@ function summary(o, pourMoi){
   if(o.conditions.length){ L.push(""); L.push("Key conditions"); o.conditions.forEach(function(p){ L.push("– "+p); }); }
   if(o.extras.length){ L.push(""); o.extras.forEach(function(p){ L.push("– "+p); }); }
   L.push("");
-  L.push("The full report can be saved as a PDF from the result page, using the \"Save as PDF\" button. It can be attached to this message before sending.");
+  L.push("The full result (indicators, points of attention, proposed assignments and order of magnitude) can be saved as a PDF from the result page, using the \"Save as PDF\" button. It can be attached to this message before sending.");
   L.push("");
-  L.push("Indicative estimate, based solely on the answers to the test, to be confirmed in a conversation and then in a signed engagement letter. Amounts excl. VAT.");
+  L.push("Indicative orientation, based solely on the answers to the test, to be confirmed in a conversation and then in a signed engagement letter. Amounts excl. VAT.");
   if(!pourMoi){
     L.push(""); L.push("————————————"); L.push("Your contact"); L.push("");
     L.push("Maître François Césure");

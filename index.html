@@ -363,6 +363,39 @@ h1,h2,h3,h4{margin:0;font-weight:300;line-height:1.1;letter-spacing:-0.01em;text
   .cesure-s{padding-bottom:clamp(20px,2.5vw,32px)}
   .test-s{padding-top:clamp(20px,2.5vw,32px)}
 }
+/* Rapport : même construction que Diapason (31 octobre 2026) — indicateurs, points qualifiés, missions chiffrées, ordre de grandeur */
+.report-head .meta{font-size:14px;color:var(--on-dark-mute);margin-top:14px}
+.levels{margin-top:28px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;max-width:720px}
+.lv{min-width:0}
+.lv b{display:block;font-weight:400;font-size:13px;color:var(--on-dark-mute);letter-spacing:.02em}
+.lv span{display:block;font-size:clamp(20px,1.8vw,26px);font-weight:300;color:#fff;margin-top:2px}
+.meter{display:flex;gap:3px;margin-top:10px}
+.meter i{flex:1;height:6px;background:#262626}
+.meter i.on{background:var(--on-dark)}
+.lv p{font-size:12px;line-height:1.5;color:var(--on-dark-mute);margin-top:10px}
+.prio .kind{display:block;font-size:13px;color:var(--mute);letter-spacing:.02em;margin-bottom:2px}
+.prio li.good b,.prio li.info b{font-weight:400}
+.parcours{list-style:none;margin:16px 0 0;padding:0;border-top:1px solid var(--ink)}
+.parcours li{display:grid;grid-template-columns:minmax(0,1fr);gap:4px 20px;padding:16px 0;border-bottom:1px solid var(--rule)}
+.parcours b{font-weight:400;font-size:clamp(18px,1.5vw,20px)}
+.parcours .pr{text-align:left;font-size:16px;color:var(--ink-2);font-variant-numeric:tabular-nums}
+.parcours p{font-size:15px;color:var(--ink-2)}
+.parcours .hyp{font-size:14px;color:var(--mute);margin-top:-2px}
+.budget{margin-top:20px;border:1px solid var(--rule);padding:18px 20px}
+.budget h5{font-family:var(--font);font-weight:400;font-size:clamp(18px,1.5vw,20px);margin:0}
+.budget dl{margin:10px 0 0;display:grid;gap:6px}
+.budget dl div{display:flex;justify-content:space-between;gap:16px;border-bottom:1px solid var(--rule);padding:6px 0}
+.budget dt{color:var(--ink-2);font-size:15px}
+.budget dd{margin:0;font-variant-numeric:tabular-nums;white-space:nowrap}
+.budget p{font-size:14px;color:var(--mute);margin-top:10px;max-width:72ch}
+@media (max-width:720px){.levels{grid-template-columns:minmax(0,1fr);gap:18px}}
+@media print{
+  .report-head .meta,.lv b,.lv p{color:#444}
+  .lv span{color:#000}
+  .meter i{background:#e6e6e6;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .meter i.on{background:#000}
+  .budget,.parcours li{break-inside:avoid}
+}
 </style>
 </head>
 <body>
@@ -678,7 +711,7 @@ h1,h2,h3,h4{margin:0;font-weight:300;line-height:1.1;letter-spacing:-0.01em;text
     <div class="twelve">
       <div class="head">
         <h2 id="t-contact">Échanger sur votre cadence</h2>
-        <p class="contact-lede">Pour un premier échange de vingt minutes, gratuit et sans engagement, écrivez-moi ou appelez-moi directement.</p>
+        <p class="contact-lede">Pour un premier échange, écrivez-moi ou appelez-moi directement.</p>
         <a class="btn btn-light" href="mailto:francois.cesure@hemistiches.com?subject=Cadence">Écrire au cabinet</a>
       </div>
       <address class="coords">
@@ -833,7 +866,7 @@ function gate(){
   RESULT = C.orienter(A);
   box.innerHTML =
     '<p class="label">Dernière étape</p>'+
-    '<h3 class="qtitle">Votre estimation est prête</h3>'+
+    '<h3 class="qtitle">Votre résultat est prêt</h3>'+
     '<p class="qhint">'+esc("Indiquez votre adresse électronique professionnelle : votre résultat s'affiche aussitôt.")+'</p>'+
     '<form class="gate" id="gateform" novalidate>'+
       '<label for="email">Adresse électronique professionnelle</label>'+
@@ -964,28 +997,103 @@ var LOGO = "";
     catch(e){ LOGO = ""; } }
   if(img.complete && img.naturalWidth) noir(); else img.addEventListener("load", noir); })();
 function carte(cls, titre){ return '<div class="print-only print-card'+cls+'"><div><div class="who">'+esc(titre)+'</div><div class="nm">Mᵉ François Césure</div><div class="rl">'+esc("Avocat au barreau de Paris")+'</div><div class="rl">'+esc("Hémistiches, 33, avenue Mac-Mahon, 75017 Paris")+'</div></div><div class="co">francois.cesure@hemistiches.com<br>+33 6 47 88 80 25<br>+33 1 45 03 20 20<br><a href="https://www.hemistiches.com">www.hemistiches.com</a></div></div>'; }
-function report(r){
-  var o = contenu(r), html = "";
-  var today = new Date().toLocaleDateString("fr-FR",{day:"numeric",month:"long",year:"numeric"});
-  html += '<div class="print-only print-head"><span class="ph-logo">'+(LOGO?'<img src="'+LOGO+'" alt="Hémistiches.">':'<b>Hémistiches.</b>')+'<i aria-hidden="true"></i><span>Cadence</span></span><span>'+esc("Estimation établie le "+today)+'</span></div>';
-  html += carte('', "Votre interlocuteur");
-  html += '<div class="report-head"><p class="label">Mode et volume suggérés</p><h3>'+esc(o.titre)+'</h3><p class="price">'+esc(o.sousTitre)+'</p></div>';
-  if(o.raisons.length) html += '<div class="rsec"><h4>Principales raisons</h4><p class="compare">'+esc("Estimation fondée surtout sur "+o.raisons.join(", ")+".")+'</p></div>';
-  html += '<div class="rsec"><h4>Tarif et budget estimés</h4><div class="offer-reco">'+o.prix.map(function(p){return '<p class="p">'+esc(p)+'</p>';}).join("")+o.budget.map(function(p){return '<p>'+esc(p)+'</p>';}).join("");
-  if(o.scen){ html += '<div class="tbl-wrap"><table class="tbl"><thead><tr><th scope="col">Durée initiale</th><th scope="col">Prix par jour</th><th scope="col">Par mois</th><th scope="col">Budget</th></tr></thead><tbody>'+o.scen.map(function(s){ return '<tr><th scope="row">'+esc(s[0])+'</th><td>'+eur(s[1])+'</td><td>'+eur(s[2])+'</td><td>'+esc(s[3]||"selon la durée convenue")+'</td></tr>'; }).join("")+'</tbody></table></div>'; }
-  html += '</div></div>';
-  if(o.fin.length) html += '<div class="rsec"><h4>Durée et fin anticipée</h4><div class="note">'+o.fin.map(function(p){return '<p>'+esc(p)+'</p>';}).join("")+'</div></div>';
-  if(o.conditions.length) html += '<div class="rsec"><h4>Conditions essentielles</h4><ul class="prio">'+o.conditions.map(function(p){return '<li><p>'+esc(p)+'</p></li>';}).join("")+'</ul></div>';
-  if(o.extras.length) html += '<div class="rsec"><h4>À traiter à part</h4><ul class="prio">'+o.extras.map(function(p){return '<li><p>'+esc(p)+'</p></li>';}).join("")+'</ul></div>';
+/* ---------- Résultat : même construction que Diapason, Concordance et Unisson (31 octobre 2026) ---------- */
+var NIV = {eleve:"élevé", modere:"modéré", limite:"limité"};
+function niveau(v){ return v>=70 ? "eleve" : (v>=40 ? "modere" : "limite"); }
+function cap(s){ return s.charAt(0).toUpperCase()+s.slice(1); }
+function meter(v){ var n = Math.max(1, Math.round(v/20)), h = '<div class="meter" aria-hidden="true">'; for(var i=0;i<5;i++) h += '<i class="'+(i<n?'on':'')+'"></i>'; return h+'</div>'; }
+function indicateurs(r){
+  if(!r.volume) return null;
+  var V = r.volume.jours;
+  var charge = V<=2.5 ? 25 : (V<=5 ? 50 : (V<=8.5 ? 75 : 95));
+  var org = {juriste:15, avocat:45, dirigeant:65, vacant:85}[A.organisation] || 40;
+  if(A.referent==="non") org += 15; if(A.referent==="plusieurs") org += 10;
+  var urg = {rare:15, mois:45, semaine:80}[A.urgences] || 15;
+  if(A.retard==="important") urg += 20; if(A.retard==="quelques") urg += 5; if(A.exceptionnelle==="oui") urg += 10;
+  return {charge:charge, org:Math.min(100, org), urg:Math.min(100, urg)};
+}
+function secteurLabel(){ return {sante:"Santé", reglemente:"Autre secteur réglementé", autre:"Secteur non réglementé"}[A.secteur] || ""; }
+/* Points de vigilance, qualifiés comme dans Diapason */
+function vigilance(r){
+  var L = [];
+  function add(kind, t, p){ L.push([kind, t, p]); }
+  if(r.mode==="ponctuel") add("Constat", "Un besoin ponctuel", "Votre besoin porte sur un dossier ou une question précise : il ne justifie pas un forfait mensuel, et se traite au dossier.");
+  if(A.organisation==="vacant") add("Manque déclaré", "Une fonction juridique vacante", "Tant que le poste est vacant, contrats, vie sociale et échéances reposent sur des personnes dont ce n'est pas le métier : c'est là que naissent les engagements mal maîtrisés.");
+  if(A.organisation==="dirigeant") add("Point de méthode", "Le juridique tenu par la direction", "Le dirigeant, le DAF ou les RH le tiennent en plus de leurs fonctions : le temps manque d'abord pour ce qui n'est pas urgent, la revue des contrats et le suivi des échéances.");
+  if(A.referent==="non") add("Manque déclaré", "Personne pour centraliser les demandes", "Sans référent, les demandes arrivent par plusieurs canaux et les priorités se fixent au fil de l'eau. Désigner un interlocuteur est la première condition d'un forfait efficace.");
+  if(A.referent==="plusieurs") add("Point de méthode", "Plusieurs interlocuteurs, sans centralisation", "Chacun sollicite directement : la coordination prend du temps sur le volume. Un circuit simple des demandes se fixe dès le départ.");
+  if(A.retard==="important") add("Manque déclaré", "Un retard important accumulé", "Contrats non revus, vie sociale en retard, dossiers en attente : ce stock se traite à part, sur devis, sans consommer le forfait mensuel.");
+  if(A.retard==="quelques") add("Point de méthode", "Quelques dossiers en attente", "Ils peuvent être absorbés dans les premières semaines du volume, ou traités en dépassement si vous le souhaitez.");
+  if(A.urgences==="semaine") add("Point de méthode", "Des urgences chaque semaine", "Des urgences fréquentes signalent souvent des sujets traités trop tard : une partie s'anticipe par un calendrier des échéances et des modèles.");
+  if(A.exceptionnelle==="oui") add("Point de méthode", "Une opération exceptionnelle prévue", "Levée de fonds, cession, acquisition ou réorganisation : une mission distincte, sur devis, préparée en amont plutôt que dans l'urgence.");
+  if(r.duree && r.duree.incertaine) add("Point de méthode", "Une durée encore à préciser", "Le tarif dépend de la durée initiale convenue : aucun n'est retenu par défaut. Nous la fixerons ensemble.");
+  if(A.fonctions && A.fonctions.indexOf("donnees")>-1) add("Point de méthode", "Données personnelles", "Elles relèvent de Diapason (conformité au RGPD, registre, analyses d'impact, délégué à la protection des données), sous convention distincte ; seules les clauses de données de vos contrats restent comprises dans le volume.");
+  if(A.sante_type==="dm") add("Point de méthode", "Dispositifs médicaux", "Une mission de conformité MDR ou IVDR (qualification d'un produit, mise en règle d'un distributeur ou d'un importateur, entrée sur le marché de l'Union) relève de Concordance, sous convention distincte ; la revue d'un contrat de distribution dans le flux courant reste comprise dans le volume.");
+  add("Point de méthode", "Ce que ce résultat ne fait pas", "Il n'arrête ni le périmètre ni le volume de la mission : il estime une charge à partir des situations que vous avez décrites, sans examen de pièces. Périmètre, volume et durée se confirment lors d'un échange, au vu de vos contrats, de vos échéances et de votre organisation.");
+  return L;
+}
+function prixCourt(r){
+  var d = r.duree;
+  if(r.mode==="externalisee") return d.incertaine ? "De "+eur(C.mensuelExt(r.jours,"des6"))+" à "+eur(C.mensuelExt(r.jours,"lt3"))+" HT par mois" : eur(C.mensuelExt(r.jours, d.tranche))+" HT par mois";
+  if(r.mode==="transition") return d.incertaine ? "De "+eur(C.prixJourTransition("des6"))+" à "+eur(C.prixJourTransition("lt3"))+" HT par jour" : eur(C.prixJourTransition(d.tranche))+" HT par jour";
+  if(r.mode==="ponctuel") return "Sur devis";
+  return "Sur proposition";
+}
 
-  html += '<div class="rsec no-print"><h4>Conserver cette estimation</h4><div class="keep"><p class="compare">'+esc("Enregistrez-la en PDF, ou envoyez-la dans votre propre messagerie. Elle n'est conservée ni sur ce site ni par le cabinet.")+'</p>'+
-    '<div class="actions"><button type="button" class="btn btn-ink" id="pdf">Enregistrer en PDF</button><a class="btn btn-line" id="selfmail" href="mailto:?subject='+encodeURIComponent("Mon estimation Cadence")+'&body='+encodeURIComponent(summary(o))+'">'+esc("M'envoyer l'estimation")+'</a></div></div></div>';
-  html += '<div class="rsec"><h4>Confirmer le périmètre</h4><p class="compare">'+esc("Un premier échange de vingt minutes, gratuit et sans engagement, pour confirmer le périmètre, le volume et la durée. Écrivez-moi :")+'</p>'+
-    '<div class="contactbox"><code id="mail">'+CONTACT+'</code><button type="button" class="btn btn-line" id="copy">'+esc("Copier l'adresse")+'</button><a class="btn btn-ink" href="mailto:'+CONTACT+'?subject='+encodeURIComponent("Cadence : "+o.titre)+'&body='+encodeURIComponent(fr("Bonjour,\n\nJe souhaite échanger sur mon estimation Cadence.\n\n")+summary(o, true))+'">Écrire</a><span class="copied" id="copied" aria-live="polite"></span></div></div>';
-  html += '<p class="notice">'+esc("Cette estimation est établie automatiquement à partir de vos seules réponses, sans vérification ni examen de pièces, et arrêtée à la date de sa génération. Elle ne constitue ni une consultation juridique ni une offre contractuelle. Les montants s'entendent hors taxes ; toute mission fait l'objet d'une convention d'honoraires signée, qui fixe le périmètre, le volume, la durée et les modalités de détermination des honoraires, et d'une vérification préalable des conflits d'intérêts.")+'</p>'+
+function report(r){
+  var o = contenu(r), html = "", ind = indicateurs(r), d = r.duree, sect = secteurLabel();
+  var today = new Date().toLocaleDateString("fr-FR",{day:"numeric",month:"long",year:"numeric"});
+  html += '<div class="report-head"><p class="label">Votre résultat</p><h3>'+esc(o.titre)+'</h3><p class="price">'+esc(o.sousTitre)+'</p>'+
+    (ind ? '<p class="meta" style="margin-top:22px">'+esc("Indicateurs de situation")+'</p><div class="levels">'+
+      '<div class="lv"><b>'+esc("Charge juridique")+'</b><span>'+esc(cap(NIV[niveau(ind.charge)]))+'</span>'+meter(ind.charge)+'<p>'+esc("Contrats, fonctions à tenir et périmètre : le volume mensuel estimé.")+'</p></div>'+
+      '<div class="lv"><b>'+esc("Fragilité de l'organisation")+'</b><span>'+esc(cap(NIV[niveau(ind.org)]))+'</span>'+meter(ind.org)+'<p>'+esc("Qui traite le juridique aujourd'hui, et qui centralise les demandes.")+'</p></div>'+
+      '<div class="lv"><b>'+esc("Urgence")+'</b><span>'+esc(cap(NIV[niveau(ind.urg)]))+'</span>'+meter(ind.urg)+'<p>'+esc("Sujets à traiter dans la journée, retard accumulé, opération prévue.")+'</p></div>'+
+    '</div>' : '')+
+    '<p class="meta">'+esc("Arrêté le "+today+(sect?" · "+sect:""))+'</p></div>';
+  if(o.raisons.length) html += '<p class="compl">'+esc("Estimation fondée surtout sur "+o.raisons.join(", ")+".")+'</p>';
+
+  html += '<div class="rsec"><h4>Vos points de vigilance</h4><ul class="prio">'+vigilance(r).map(function(v){
+    return '<li class="'+(v[0]==="Point de méthode"?'info':(v[0]==="Constat"?'good':'gap'))+'"><span class="kind">'+esc(v[0])+'</span><b>'+esc(v[1])+'</b><p>'+esc(v[2])+'</p></li>'; }).join("")+'</ul></div>';
+
+  var M = [[o.titre, prixCourt(r), o.prix.concat(o.budget).join(" "), o.conditions.join(" ")]];
+  if(r.reprise==="devis") M.push(["Reprise du retard accumulé", "Sur devis", "Contrats non revus, vie sociale en retard, dossiers en attente : traités séparément du forfait mensuel, qu'elle ne consomme pas.", "Devis arrêté avant toute intervention."]);
+  if(r.exceptionnelle) M.push(["Opération exceptionnelle", "Sur devis", "Levée de fonds, cession, acquisition ou réorganisation : une mission distincte du forfait.", "Devis à prix fixe, arrêté avant toute intervention ; frais de formalités et droits en sus."]);
+  if(A.fonctions && A.fonctions.indexOf("donnees")>-1) M.push(["Données personnelles : Diapason", "Convention distincte", "Conformité au RGPD, registre, analyses d'impact, délégué à la protection des données.", "Grille publiée sur diapason.hemistiches.com."]);
+  if(A.sante_type==="dm") M.push(["Dispositifs médicaux : Concordance", "Convention distincte", "Qualification d'un produit, mise en règle d'un distributeur ou d'un importateur, entrée sur le marché de l'Union.", "Grille publiée sur concordance.hemistiches.com."]);
+  html += '<div class="rsec"><h4>Ce que je vous propose</h4><p class="compl">'+esc(M.length===1 ? "Une mission, à son prix." : "Des missions distinctes, chacune à son prix : vous n'engagez que celles dont vous avez besoin.")+'</p><ol class="parcours">'+
+    M.map(function(m){ return '<li><b>'+esc(m[0])+'</b><span class="pr">'+esc(m[1])+'</span><p>'+esc(m[2])+'</p>'+(m[3]?'<p class="hyp">'+esc(m[3])+'</p>':'')+'</li>'; }).join("")+'</ol>';
+  if(o.fin.length) html += o.fin.map(function(p){ return '<p class="compl">'+esc(p)+'</p>'; }).join("");
+
+  /* Ordre de grandeur */
+  var dl = "";
+  if(r.mode==="externalisee" || r.mode==="transition"){
+    var mens = function(t){ return r.mode==="externalisee" ? C.mensuelExt(r.jours, t) : C.mensuelTransition(r.jours, t); };
+    if(d.incertaine){
+      dl += '<div><dt>'+esc("Par mois, forfait de six mois")+'</dt><dd>'+esc(eur(mens("des6")))+' HT</dd></div>';
+      dl += '<div><dt>'+esc("Par mois, moins de trois mois")+'</dt><dd>'+esc(eur(mens("lt3")))+' HT</dd></div>';
+      dl += '<div><dt>'+esc("Illustration sur six mois")+'</dt><dd>'+esc(eur(mens("des6")*6))+' HT</dd></div>';
+    } else {
+      var m = mens(d.tranche), n = d.mois || 0;
+      dl += '<div><dt>'+esc("Par mois")+'</dt><dd>'+esc(eur(m))+' HT</dd></div>';
+      if(n) dl += '<div><dt>'+esc("Sur "+n+(n===12?" mois et plus":" mois"))+'</dt><dd>'+esc(eur(m*n))+' HT</dd></div>';
+    }
+  } else {
+    dl += '<div><dt>'+esc(r.mode==="ponctuel" ? "Mission au dossier" : "Organisation sur mesure")+'</dt><dd>'+esc(r.mode==="ponctuel" ? "Sur devis" : "Sur proposition")+'</dd></div>';
+  }
+  if(M.length>1) dl += '<div><dt>'+esc("Missions distinctes signalées ci-dessus")+'</dt><dd>'+esc("À part")+'</dd></div>';
+  html += '<div class="budget"><h5>'+esc("Ordre de grandeur, à confirmer")+'</h5><dl>'+dl+'</dl><p>'+esc(
+    (r.mode==="externalisee" ? "Provision appelée mois par mois ; le budget n'est pas exigible à la signature. " : (r.mode==="transition" ? "Journées accomplies, au tarif de la durée convenue. " : ""))+
+    (r.mode==="ponctuel" ? "Honoraires arrêtés par devis avant toute intervention, au vu du dossier." : "Non compris : reprise du retard et opérations exceptionnelles (sur devis), frais de formalités, de greffe et d'annonces, dépassements accordés"+(r.mode==="transition"?", frais de déplacement":"")+"."))+'</p>';
+  html += '</div><p class="compl">'+esc("Cette orientation est une estimation automatique : le périmètre, le volume et le prix sont confirmés lors d'un échange, puis dans une convention d'honoraires signée.")+'</p></div>';
+
+  html += '<div class="rsec no-print"><h4>Conserver ce résultat</h4><div class="keep"><p class="compare">'+esc("Enregistrez-le en PDF, ou envoyez-le dans votre propre messagerie. Il n'est conservé ni sur ce site ni par le cabinet.")+'</p>'+
+    '<div class="actions"><button type="button" class="btn btn-ink" id="pdf">Enregistrer en PDF</button><a class="btn btn-line" id="selfmail" href="mailto:?subject='+encodeURIComponent("Mon résultat Cadence")+'&body='+encodeURIComponent(summary(o))+'">'+esc("M'envoyer le résultat")+'</a></div></div></div>';
+  html += '<div class="rsec"><h4>Échanger sur votre résultat</h4><p class="compare">'+esc("Pour confirmer le périmètre, le volume et la durée sur votre situation réelle, écrivez-moi :")+'</p>'+
+    '<div class="contactbox"><code id="mail">'+CONTACT+'</code><button type="button" class="btn btn-line" id="copy">'+esc("Copier l'adresse")+'</button><a class="btn btn-ink" href="mailto:'+CONTACT+'?subject='+encodeURIComponent("Cadence : "+o.titre)+'&body='+encodeURIComponent(fr("Bonjour,\n\nJe souhaite échanger sur mon résultat Cadence.\n\n")+summary(o, true))+'">Écrire</a><span class="copied" id="copied" aria-live="polite"></span></div></div>';
+  html += '<p class="notice">'+esc("Ce résultat est établi automatiquement à partir de vos seules réponses, sans vérification ni examen de pièces, et arrêté à la date de sa génération. Il constitue une information indicative et ne vaut ni consultation juridique ni offre contractuelle. Les montants s'entendent hors taxes ; toute mission fait l'objet d'une convention d'honoraires signée, qui fixe le périmètre, le volume, la durée et les modalités de détermination des honoraires, et d'une vérification préalable des conflits d'intérêts.")+'</p>'+
     '<div class="dnav" style="justify-content:flex-start"><button type="button" class="linkbtn" id="restart">Refaire le test</button></div>';
-  html += carte(' end', "Pour échanger sur ce résultat");
-  html += '<div class="print-only print-foot">'+esc("Mᵉ François Césure, avocat au barreau de Paris · Hémistiches, 33, avenue Mac-Mahon, 75017 Paris · francois.cesure@hemistiches.com · +33 6 47 88 80 25 · SIREN 833 468 358. Estimation indicative, à confirmer lors d'un échange et par une convention d'honoraires signée.")+'</div>';
+  html = '<div class="print-only print-head"><span class="ph-logo">'+(LOGO?'<img src="'+LOGO+'" alt="Hémistiches.">':'<b>Hémistiches.</b>')+'<i aria-hidden="true"></i><span>Cadence</span></span><span>'+esc("Résultat établi le "+today)+'</span></div>'+carte('', "Votre interlocuteur")+html+carte(' end', "Pour échanger sur ce résultat")+
+    '<div class="print-only print-foot">'+esc("Mᵉ François Césure, avocat au barreau de Paris · Hémistiches, 33, avenue Mac-Mahon, 75017 Paris · francois.cesure@hemistiches.com · +33 6 47 88 80 25 · SIREN 833 468 358. Orientation indicative, sous réserve de l'échange préalable et de la signature d'une convention d'honoraires.")+'</div>';
   box.innerHTML = html;
   document.getElementById("pdf").onclick = function(){ try{ window.print(); }catch(e){} };
   document.getElementById("copy").onclick = function(){ var done = function(){ document.getElementById("copied").textContent = "Adresse copiée"; }; try{ navigator.clipboard.writeText(CONTACT).then(done, selectMail); }catch(e){ selectMail(); } };
@@ -997,7 +1105,7 @@ function summary(o, pourMoi){
   L.push("Cadence, par Hémistiches");
   L.push("Direction juridique externalisée et de transition · cadence.hemistiches.com");
   L.push("");
-  L.push("Estimation du "+today);
+  L.push("Résultat du "+today);
   L.push("");
   L.push(o.titre+(/[.!?]$/.test(o.titre)?"":"."));
   if(o.sousTitre) L.push(o.sousTitre);
@@ -1008,9 +1116,9 @@ function summary(o, pourMoi){
   if(o.conditions.length){ L.push(""); L.push("Conditions essentielles"); o.conditions.forEach(function(p){ L.push("– "+p); }); }
   if(o.extras.length){ L.push(""); o.extras.forEach(function(p){ L.push("– "+p); }); }
   L.push("");
-  L.push("Le rapport complet s'enregistre en PDF depuis la page du résultat, bouton « Enregistrer en PDF ». Il peut être joint à ce message avant l'envoi.");
+  L.push("Le résultat complet (indicateurs, points de vigilance, missions proposées et ordre de grandeur) s'enregistre en PDF depuis la page du résultat, bouton « Enregistrer en PDF ». Il peut être joint à ce message avant l'envoi.");
   L.push("");
-  L.push("Estimation indicative, établie à partir des seules réponses au test, à confirmer lors d'un échange puis dans une convention d'honoraires signée. Montants hors taxes.");
+  L.push("Orientation indicative, établie à partir des seules réponses au test, à confirmer lors d'un échange puis dans une convention d'honoraires signée. Montants hors taxes.");
   if(!pourMoi){
     L.push(""); L.push("————————————"); L.push("Votre interlocuteur"); L.push("");
     L.push("Mᵉ François Césure");
