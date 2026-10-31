@@ -788,7 +788,7 @@ var SOURCES = {
 /* ---------- Questions ---------- */
 var STEPS = [
   {id:"profil", kicker:"Votre entreprise", title:"Votre secteur et votre taille", groups:[
-    {key:"secteur", label:"Dans quel secteur exercez-vous ?", opts:[["sante","Santé"],["reglemente","Autre secteur réglementé","Défense, énergie et nucléaire, aéronautique, électronique avancée"],["autre","Secteur non réglementé"]]},
+    {key:"secteur", label:"Dans quel secteur exercez-vous ?", opts:[["sante","Santé"],["reglemente","Autre secteur réglementé","Industrie, énergie, technologies avancées"],["autre","Secteur non réglementé"]]},
     {key:"sante_type", label:"Dans la santé, plus précisément ?", when:function(a){return a.secteur==="sante";}, opts:[["dm","Dispositifs médicaux ou diagnostic in vitro"],["medicament","Médicament ou biotechnologie"],["sante_autre","Autre activité de santé","E-santé, études cliniques, prestataire de soins…"]]},
     {key:"effectif", label:"Combien de salariés ?", opts:[["lt50","Moins de 50"],["50-249","De 50 à 249"],["gte250","250 et plus"]]}]},
   {id:"organisation", kicker:"Organisation actuelle", title:"Aujourd'hui, qui traite le juridique chez vous ?", groups:[{key:"organisation", opts:[

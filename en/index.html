@@ -784,7 +784,7 @@ var SOURCES = {
 
 var STEPS = [
   {id:"profil", kicker:"Your company", title:"Your sector and size", groups:[
-    {key:"secteur", label:"Which sector do you operate in?", opts:[["sante","Healthcare"],["reglemente","Another regulated sector","Defence, energy and nuclear, aerospace, advanced electronics"],["autre","A non-regulated sector"]]},
+    {key:"secteur", label:"Which sector do you operate in?", opts:[["sante","Healthcare"],["reglemente","Another regulated sector","Industry, energy, advanced technologies"],["autre","A non-regulated sector"]]},
     {key:"sante_type", label:"Within healthcare, more precisely?", when:function(a){return a.secteur==="sante";}, opts:[["dm","Medical devices or in vitro diagnostics"],["medicament","Medicines or biotechnology"],["sante_autre","Other healthcare activity","Digital health, clinical studies, care provider…"]]},
     {key:"effectif", label:"How many employees?", opts:[["lt50","Fewer than 50"],["50-249","50 to 249"],["gte250","250 or more"]]}]},
   {id:"organisation", kicker:"Current organisation", title:"Who handles legal matters at your company today?", groups:[{key:"organisation", opts:[
