@@ -756,7 +756,7 @@ h3,h4,.qtitle,.cesure-s .verse,.quote blockquote,.lv span,.six .kind{font-weight
 (function(){
 "use strict";
 var C = window.CADENCE;
-var VERSION = "cadence-2026-10-25";
+var VERSION = "cadence-2026-11-03";
 var CONTACT = "francois.cesure@hemistiches.com";
 var NB = " ", FN = " ";
 
@@ -984,22 +984,33 @@ function contenu(r){
   if(r.mode==="personnalise"){
     var ext = r.jours ? NOMS[r.jours]+" ("+r.jours+" jours, "+C.heures(r.jours)+" heures par mois, à partir de "+eur(C.mensuelExt(r.jours,"des6"))+" HT par mois sur six mois)" : null;
     var T = {
-      "presence-mensuelle": ["Proposition personnalisée","Vous souhaitez une présence régulière dans vos locaux, alors que votre volume relève d'un forfait depuis le cabinet."+(ext?" Volume estimé : "+ext+".":"")+" Les journées sur site, leur nombre et leurs frais se conviennent avant de fixer le prix."],
+      "presence-mensuelle": ["Proposition personnalisée",(r.jours ? r.jours+" jours, soit "+C.heures(r.jours)+" heures par mois, depuis le cabinet, avec les journées de présence dans vos locaux que vous souhaitez : elles sont décomptées du volume, et leurs frais se conviennent au préalable." : "Vous souhaitez une présence régulière dans vos locaux, pour une charge qui dépasse le forfait Intégré.")],
       "presence-faible-volume": ["Proposition personnalisée","Une présence soutenue est demandée, mais la charge estimée reste inférieure aux 12 à 16 jours par mois d'une transition."+(ext?" Volume estimé : "+ext+".":"")+" Nous verrons ensemble comment organiser la présence sans facturer des journées inoccupées."],
       "presence-permanente": ["Proposition personnalisée","Votre besoin est durable et suppose une présence soutenue : c'est le profil d'un poste de juriste interne. Une transition peut tenir la fonction le temps du recrutement ; nous en verrons les conditions."],
       "entre-8-et-12": ["Proposition personnalisée","La charge estimée se situe entre 8 et 12 jours par mois, au-delà du forfait Intégré. Selon vos priorités, Intégré avec des dépassements accordés, ou une organisation sur mesure."],
       "volume-eleve-a-distance": ["Proposition personnalisée","Votre besoin est durable et la charge estimée atteint 12 jours par mois ou plus : au-delà du forfait Intégré. Une organisation sur mesure ou le recrutement d'un juriste interne seront à comparer ; une mission de transition peut, le cas échéant, préparer ce recrutement."],
       "au-dela-16": ["Proposition personnalisée","La charge estimée dépasse 16 jours par mois : elle excède ce qu'un seul intervenant peut tenir. Un recrutement, éventuellement préparé par une mission de transition, est à envisager."]
     }[r.cas];
-    o.titre = T[0]; o.sousTitre = T[1];
-    o.prix.push("Estimation à établir lors d'un premier échange, à partir de la grille publiée.");
-    o.conditions.push("Aucun tarif journalier inférieur à "+eur(C.TARIFS.plancherJour)+" HT.");
+    o.titre = (r.cas==="presence-mensuelle" && r.jours) ? "Direction juridique externalisée : "+NOMS[r.jours]+", avec présence sur place" : T[0]; o.sousTitre = T[1];
+    var e = C.estimPerso(r), trs = d && !d.incertaine ? d.tranche : null;
+    if(e){
+      var base = "forfait "+NOMS[e.jours]+" ("+e.jours+" jours, "+C.heures(e.jours)+" heures par mois)";
+      var mt = trs ? eur(e.mensuel(trs)) : "de "+eur(e.mensuel("des6"))+" à "+eur(e.mensuel("lt3"));
+      o.prix.push("Estimation : "+base+(e.heuresSup ? " et environ "+e.heuresSup+" heures de dépassement par mois à "+eur(C.TARIFS.tauxHoraire)+" HT" : "")+", soit "+mt+" HT par mois"+(trs ? ", pour une durée initiale "+TR[trs] : ", selon la durée initiale retenue")+".");
+      if(trs && d.mois) o.budget.push("Budget pour "+d.mois+(d.mois===12?" mois et plus":" mois")+" : "+eur(e.mensuel(trs)*d.mois)+" HT.");
+      if(e.plafonne) o.budget.push("Ce montant correspond à 16 jours par mois, ce qu'un seul intervenant peut tenir ; le surplus relève d'un recrutement.");
+      if(r.cas.indexOf("presence")===0) o.budget.push("Les journées passées dans vos locaux sont décomptées du volume ; les frais de déplacement éventuels sont estimés et convenus au préalable.");
+      o.conditions.push("Provision mensuelle appelée avant chaque mois d'intervention ; relevé des diligences joint à la facture.");
+      if(!trs || trs==="des6"){ o.fin.push("Le forfait est tarifé pour une durée initiale de six mois. En cas d'arrêt anticipé, avec un préavis d'un mois et hors manquement du cabinet, c'est le tarif de la durée réellement exécutée qui s'applique, et la différence avec les sommes réglées est facturée. Aucune mensualité future n'est due."); o.fin.push("Après six mois : poursuite au même tarif, préavis d'un mois. Les modalités figurent dans la convention d'honoraires."); }
+      if(e.heuresSup) o.conditions.push("Heures de dépassement à "+eur(C.TARIFS.tauxHoraire)+" HT de l'heure, après accord préalable ; un volume plus juste peut être convenu au vu des premiers mois.");
+    } else o.prix.push("Estimation à établir lors d'un premier échange.");
   }
   if(r.reprise==="devis") o.extras.push("Reprise initiale du retard accumulé : sur devis, séparément du forfait mensuel, qu'elle ne consomme pas.");
   if(r.reprise==="absorbee") o.extras.push("Les quelques dossiers en attente peuvent être absorbés dans les premières semaines du volume, ou traités en dépassement si vous le souhaitez.");
   if(r.exceptionnelle) o.extras.push("Opération exceptionnelle prévue : mission distincte, sur devis.");
   if(A.fonctions && A.fonctions.indexOf("donnees")>-1) o.extras.push("Données personnelles : elles relèvent de Diapason (conformité au RGPD, registre, analyses d’impact, délégué à la protection des données), sous convention distincte ; seules les clauses de données de vos contrats restent comprises dans le volume.");
   if(A.sante_type==="dm") o.extras.push("Dispositifs médicaux : une mission de conformité MDR ou IVDR (qualification ou classification d'un produit, diagnostic ou mise en règle d'un distributeur ou d'un importateur, stratégie ou organisation de l'entrée sur le marché de l'Union) relève de Concordance, sous convention distincte ; la revue d'un contrat de distribution dans le flux courant reste comprise dans le volume.");
+  if(A.secteur==="sante") o.extras.push("Professionnels de santé : l'encadrement des relations avec les professionnels de santé (conventions, hospitalités, advisory boards, transparence) relève d'Unisson, sous convention distincte ; la revue courante d'un contrat reste comprise dans le volume.");
   return o;
 }
 
@@ -1043,6 +1054,7 @@ function vigilance(r){
   if(r.duree && r.duree.incertaine) add("Point de méthode", "Une durée encore à préciser", "Le tarif dépend de la durée initiale convenue : aucun n'est retenu par défaut. Nous la fixerons ensemble.");
   if(A.fonctions && A.fonctions.indexOf("donnees")>-1) add("Point de méthode", "Données personnelles", "Elles relèvent de Diapason (conformité au RGPD, registre, analyses d'impact, délégué à la protection des données), sous convention distincte ; seules les clauses de données de vos contrats restent comprises dans le volume.");
   if(A.sante_type==="dm") add("Point de méthode", "Dispositifs médicaux", "Une mission de conformité MDR ou IVDR (qualification d'un produit, mise en règle d'un distributeur ou d'un importateur, entrée sur le marché de l'Union) relève de Concordance, sous convention distincte ; la revue d'un contrat de distribution dans le flux courant reste comprise dans le volume.");
+  if(A.secteur==="sante") add("Point de méthode", "Relations avec les professionnels de santé", "Conventions, hospitalités, advisory boards et transparence relèvent d'Unisson, sous convention distincte ; la revue courante d'un contrat reste comprise dans le volume.");
   add("Point de méthode", "Ce que ce résultat ne fait pas", "Il n'arrête ni le périmètre ni le volume de la mission : il estime une charge à partir des situations que vous avez décrites, sans examen de pièces. Périmètre, volume et durée se confirment lors d'un échange, au vu de vos contrats, de vos échéances et de votre organisation.");
   return L;
 }
@@ -1051,6 +1063,8 @@ function prixCourt(r){
   if(r.mode==="externalisee") return d.incertaine ? "De "+eur(C.mensuelExt(r.jours,"des6"))+" à "+eur(C.mensuelExt(r.jours,"lt3"))+" HT par mois" : eur(C.mensuelExt(r.jours, d.tranche))+" HT par mois";
   if(r.mode==="transition") return d.incertaine ? "De "+eur(C.prixJourTransition("des6"))+" à "+eur(C.prixJourTransition("lt3"))+" HT par jour" : eur(C.prixJourTransition(d.tranche))+" HT par jour";
   if(r.mode==="ponctuel") return "Sur devis";
+  var e = C.estimPerso(r);
+  if(e) return d.incertaine ? "De "+eur(e.mensuel("des6"))+" à "+eur(e.mensuel("lt3"))+" HT par mois" : (e.heuresSup ? "Environ " : "")+eur(e.mensuel(d.tranche))+" HT par mois";
   return "Sur proposition";
 }
 
@@ -1074,6 +1088,7 @@ function report(r){
   if(r.exceptionnelle) M.push(["Opération exceptionnelle", "Sur devis", "Levée de fonds, cession, acquisition ou réorganisation : une mission distincte du forfait.", "Devis à prix fixe, arrêté avant toute intervention ; frais de formalités et droits en sus."]);
   if(A.fonctions && A.fonctions.indexOf("donnees")>-1) M.push(["Données personnelles : Diapason", "Convention distincte", "Conformité au RGPD, registre, analyses d'impact, délégué à la protection des données.", "Grille publiée sur diapason.hemistiches.com."]);
   if(A.sante_type==="dm") M.push(["Dispositifs médicaux : Concordance", "Convention distincte", "Qualification d'un produit, mise en règle d'un distributeur ou d'un importateur, entrée sur le marché de l'Union.", "Grille publiée sur concordance.hemistiches.com."]);
+  if(A.secteur==="sante") M.push(["Professionnels de santé : Unisson", "Convention distincte", "Encadrement des relations avec les professionnels de santé : conventions, hospitalités, opérations, transparence.", "Grille publiée sur unisson.hemistiches.com."]);
   html += '<div class="rsec"><h4>Ce que je vous propose</h4><p class="compl">'+esc(M.length===1 ? "Une mission, à son prix." : "Des missions distinctes, chacune à son prix : vous n'engagez que celles dont vous avez besoin.")+'</p><ol class="parcours">'+
     M.map(function(m){ return '<li><b>'+esc(m[0])+'</b><span class="pr">'+esc(m[1])+'</span><p>'+esc(m[2])+'</p>'+(m[3]?'<p class="hyp">'+esc(m[3])+'</p>':'')+'</li>'; }).join("")+'</ol>';
   if(o.fin.length) html += o.fin.map(function(p){ return '<p class="compl">'+esc(p)+'</p>'; }).join("");
@@ -1092,7 +1107,14 @@ function report(r){
       if(n) dl += '<div><dt>'+esc("Sur "+n+(n===12?" mois et plus":" mois"))+'</dt><dd>'+esc(eur(m*n))+' HT</dd></div>';
     }
   } else {
-    dl += '<div><dt>'+esc(r.mode==="ponctuel" ? "Mission au dossier" : "Organisation sur mesure")+'</dt><dd>'+esc(r.mode==="ponctuel" ? "Sur devis" : "Sur proposition")+'</dd></div>';
+    var ep = C.estimPerso(r);
+    if(ep && d.incertaine){
+      dl += '<div><dt>'+esc("Par mois, forfait de six mois")+'</dt><dd>'+esc(eur(ep.mensuel("des6")))+' HT</dd></div>';
+      dl += '<div><dt>'+esc("Par mois, moins de trois mois")+'</dt><dd>'+esc(eur(ep.mensuel("lt3")))+' HT</dd></div>';
+    } else if(ep){
+      dl += '<div><dt>'+esc("Par mois, estimation")+'</dt><dd>'+esc(eur(ep.mensuel(d.tranche)))+' HT</dd></div>';
+      if(d.mois) dl += '<div><dt>'+esc("Sur "+d.mois+(d.mois===12?" mois et plus":" mois"))+'</dt><dd>'+esc(eur(ep.mensuel(d.tranche)*d.mois))+' HT</dd></div>';
+    } else dl += '<div><dt>'+esc(r.mode==="ponctuel" ? "Mission au dossier" : "Organisation sur mesure")+'</dt><dd>'+esc(r.mode==="ponctuel" ? "Sur devis" : "Sur proposition")+'</dd></div>';
   }
   if(M.length>1) dl += '<div><dt>'+esc("Missions distinctes signalées ci-dessus")+'</dt><dd>'+esc("À part")+'</dd></div>';
   html += '<div class="budget"><h5>'+esc("Ordre de grandeur, à confirmer")+'</h5><dl>'+dl+'</dl><p>'+esc(

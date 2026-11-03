@@ -7,7 +7,6 @@
   var TARIFS = {
     version: "2026-10-28",
     heuresParJour: 7,
-    plancherJour: 650,            // aucun tarif journalier en dessous
     tauxHoraire: 150,             // taux horaire habituel du cabinet : dépassements accordés
     reportMaxHeures: 3,           // heures non consommées reportables sur le mois suivant uniquement
     dureeInitialeForfaits: 6,     // mois
@@ -137,6 +136,19 @@
     return r;
   }
 
+  /* Estimation chiffrée d'une proposition personnalisée (pour que le rapport donne toujours un montant) :
+     forfait de référence (Essentiel, Régulier ou Intégré) + heures de dépassement estimées au-delà de 8 jours,
+     au taux horaire habituel, dans la limite de 16 jours par mois (ce qu'un intervenant peut tenir). */
+  function estimPerso(r) {
+    if (!r || r.mode !== "personnalise" || !r.volume) return null;
+    var V = r.volume.jours, jours = r.jours || 8;
+    var h = r.jours ? 0 : Math.max(0, Math.round((Math.min(V, SEUILS.transitionMax) - 8) * TARIFS.heuresParJour));
+    return {
+      jours: jours, heuresSup: h, plafonne: V > SEUILS.transitionMax,
+      mensuel: function (tr) { return mensuelExt(jours, tr) + h * TARIFS.tauxHoraire; }
+    };
+  }
+
   /* Scénarios de prix pour une orientation donnée (pour l'affichage) */
   function scenarios(r) {
     var tr = ["des6", "de3a6", "lt3"], out = [];
@@ -153,6 +165,6 @@
     tranche: tranche, formule: formule, prixJourExt: prixJourExt, mensuelExt: mensuelExt, heures: heures, prixOperation: prixOperation,
     prixJourTransition: prixJourTransition, mensuelTransition: mensuelTransition,
     recalculDepart: recalculDepart, recalculTransition: recalculTransition,
-    volume: volume, orienter: orienter, scenarios: scenarios
+    volume: volume, orienter: orienter, scenarios: scenarios, estimPerso: estimPerso
   };
 })(typeof window !== "undefined" ? window : this);

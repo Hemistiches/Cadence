@@ -759,7 +759,7 @@ h3,h4,.qtitle,.cesure-s .verse,.quote blockquote,.lv span,.six .kind{font-weight
 (function(){
 "use strict";
 var C = window.CADENCE;
-var VERSION = "cadence-2026-10-25-en";
+var VERSION = "cadence-2026-11-03-en";
 var CONTACT = "francois.cesure@hemistiches.com";
 
 function esc(s){ return String(s).replace(/'/g,"’").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;"); }
@@ -975,22 +975,33 @@ function contenu(r){
   if(r.mode==="personnalise"){
     var ext = r.jours ? NOMS[r.jours]+" ("+r.jours+" days, "+C.heures(r.jours)+" hours per month, from "+eur(C.mensuelExt(r.jours,"des6"))+" excl. VAT per month over six months)" : null;
     var T = {
-      "presence-mensuelle": ["Personalised proposal","You would like a regular presence on your premises, while your volume fits a plan from the firm."+(ext?" Estimated volume: "+ext+".":"")+" On-site days, their number and their costs are agreed before the price is set."],
+      "presence-mensuelle": ["Personalised proposal",(r.jours ? r.jours+" days, i.e. "+C.heures(r.jours)+" hours per month, from the firm, with the days on your premises you wish: they are counted against the volume, and their costs are agreed in advance." : "You would like a regular presence on your premises, for a workload above the Intégré plan.")],
       "presence-faible-volume": ["Personalised proposal","A sustained presence is requested, but the estimated workload remains below the 12 to 16 days per month of an interim engagement."+(ext?" Estimated volume: "+ext+".":"")+" We will look together at how to organise the presence without charging for idle days."],
       "presence-permanente": ["Personalised proposal","Your need is lasting and requires a sustained presence: that is the profile of an in-house lawyer. An interim engagement can hold the function during recruitment; we will discuss the terms."],
       "entre-8-et-12": ["Personalised proposal","The estimated workload lies between 8 and 12 days per month, above the Intégré plan. Depending on your priorities, Intégré with agreed additional hours, or a tailored arrangement."],
       "volume-eleve-a-distance": ["Personalised proposal","Your need is lasting and the estimated workload reaches 12 days per month or more: above the Intégré plan. A tailored arrangement or hiring an in-house lawyer should be compared; an interim engagement can, if needed, prepare that recruitment."],
       "au-dela-16": ["Personalised proposal","The estimated workload exceeds 16 days per month: more than a single person can hold. A recruitment, possibly prepared by an interim engagement, should be considered."]
     }[r.cas];
-    o.titre = T[0]; o.sousTitre = T[1];
-    o.prix.push("Estimate to be drawn up in a first conversation, on the basis of the published fee grid.");
-    o.conditions.push("No day rate below "+eur(C.TARIFS.plancherJour)+" excl. VAT.");
+    o.titre = (r.cas==="presence-mensuelle" && r.jours) ? "Outsourced general counsel: "+NOMS[r.jours]+", with on-site presence" : T[0]; o.sousTitre = T[1];
+    var e = C.estimPerso(r), trs = d && !d.incertaine ? d.tranche : null;
+    if(e){
+      var base = NOMS[e.jours]+" plan ("+e.jours+" days, "+C.heures(e.jours)+" hours per month)";
+      var mt = trs ? eur(e.mensuel(trs)) : "from "+eur(e.mensuel("des6"))+" to "+eur(e.mensuel("lt3"));
+      o.prix.push("Estimate: "+base+(e.heuresSup ? " and about "+e.heuresSup+" additional hours per month at "+eur(C.TARIFS.tauxHoraire)+" excl. VAT" : "")+", i.e. "+mt+" excl. VAT per month"+(trs ? ", for an initial term "+TR[trs] : ", depending on the initial term chosen")+".");
+      if(trs && d.mois) o.budget.push("Budget for "+d.mois+(d.mois===12?" months or more":" months")+": "+eur(e.mensuel(trs)*d.mois)+" excl. VAT.");
+      if(e.plafonne) o.budget.push("This amount corresponds to 16 days per month, what a single person can hold; the remainder calls for a recruitment.");
+      if(r.cas.indexOf("presence")===0) o.budget.push("Days spent on your premises are counted against the volume; any travel costs are estimated and agreed in advance.");
+      o.conditions.push("Monthly retainer called before each month of work; statement of work attached to the invoice.");
+      if(!trs || trs==="des6"){ o.fin.push("The plan is priced for an initial term of six months. If the engagement ends early, with one month's notice and other than for a failure on the firm's part, the rate for the period actually completed applies, and the difference from the sums paid is invoiced. No future monthly instalment is due."); o.fin.push("After six months: continuation at the same rate, one month's notice. The terms are set out in the engagement letter."); }
+      if(e.heuresSup) o.conditions.push("Additional hours at "+eur(C.TARIFS.tauxHoraire)+" excl. VAT per hour, with prior agreement; a better-suited volume can be agreed after the first months.");
+    } else o.prix.push("Estimate to be drawn up in a first conversation.");
   }
   if(r.reprise==="devis") o.extras.push("Initial clearance of the backlog: quoted separately from the monthly plan, which it does not use up.");
   if(r.reprise==="absorbee") o.extras.push("The few pending matters can be absorbed in the first weeks of the volume, or handled as additional hours if you prefer.");
   if(r.exceptionnelle) o.extras.push("Planned exceptional operation: separate engagement, on quotation.");
   if(A.fonctions && A.fonctions.indexOf("donnees")>-1) o.extras.push("Personal data: falls under Diapason (GDPR compliance, record of processing, impact assessments, data protection officer), under a separate engagement letter; only the data clauses of your contracts remain within the volume.");
   if(A.sante_type==="dm") o.extras.push("Medical devices: an MDR or IVDR compliance engagement (qualification or classification of a product, diagnostic or compliance package of a distributor or importer, strategy or organisation of entry into the EU market) falls under Concordance, with a separate engagement letter; reviewing a distribution agreement in the routine flow remains within the volume.");
+  if(A.secteur==="sante") o.extras.push("Healthcare professionals: the framework for interactions with healthcare professionals (agreements, hospitality, advisory boards, transparency) falls under Unisson, with a separate engagement letter; routine review of a contract remains within the volume.");
   return o;
 }
 
@@ -1034,6 +1045,7 @@ function vigilance(r){
   if(r.duree && r.duree.incertaine) add("Point of method", "A term still to be set", "The rate depends on the initial term agreed: none is assumed by default. We will set it together.");
   if(A.fonctions && A.fonctions.indexOf("donnees")>-1) add("Point of method", "Personal data", "This falls under Diapason (GDPR compliance, record of processing, impact assessments, data protection officer), under a separate agreement; only the data clauses of your contracts remain within the volume.");
   if(A.sante_type==="dm") add("Point of method", "Medical devices", "An MDR or IVDR compliance assignment (product qualification, bringing a distributor or importer into compliance, entry into the EU market) falls under Concordance, under a separate agreement; reviewing a distribution contract in the ordinary flow remains within the volume.");
+  if(A.secteur==="sante") add("Point of method", "Interactions with healthcare professionals", "Agreements, hospitality, advisory boards and transparency fall under Unisson, with a separate engagement letter; routine review of a contract remains within the volume.");
   add("Point of method", "What this result does not do", "It does not fix the scope or the volume of the assignment: it estimates a workload from the situations you described, without reviewing any documents. Scope, volume and term are confirmed in a conversation, in light of your contracts, your deadlines and your organisation.");
   return L;
 }
@@ -1042,6 +1054,8 @@ function prixCourt(r){
   if(r.mode==="externalisee") return d.incertaine ? "From "+eur(C.mensuelExt(r.jours,"des6"))+" to "+eur(C.mensuelExt(r.jours,"lt3"))+" excl. VAT per month" : eur(C.mensuelExt(r.jours, d.tranche))+" excl. VAT per month";
   if(r.mode==="transition") return d.incertaine ? "From "+eur(C.prixJourTransition("des6"))+" to "+eur(C.prixJourTransition("lt3"))+" excl. VAT per day" : eur(C.prixJourTransition(d.tranche))+" excl. VAT per day";
   if(r.mode==="ponctuel") return "On quotation";
+  var e = C.estimPerso(r);
+  if(e) return d.incertaine ? "From "+eur(e.mensuel("des6"))+" to "+eur(e.mensuel("lt3"))+" excl. VAT per month" : (e.heuresSup ? "About " : "")+eur(e.mensuel(d.tranche))+" excl. VAT per month";
   return "On proposal";
 }
 
@@ -1065,6 +1079,7 @@ function report(r){
   if(r.exceptionnelle) M.push(["Exceptional transaction", "On quotation", "Fundraising, disposal, acquisition or reorganisation: an assignment separate from the package.", "Fixed-price quotation agreed before any work; filing costs and duties extra."]);
   if(A.fonctions && A.fonctions.indexOf("donnees")>-1) M.push(["Personal data: Diapason", "Separate agreement", "GDPR compliance, record of processing, impact assessments, data protection officer.", "Fees published on diapason.hemistiches.com."]);
   if(A.sante_type==="dm") M.push(["Medical devices: Concordance", "Separate agreement", "Product qualification, bringing a distributor or importer into compliance, entry into the EU market.", "Fees published on concordance.hemistiches.com."]);
+  if(A.secteur==="sante") M.push(["Healthcare professionals: Unisson", "Separate agreement", "Framework for interactions with healthcare professionals: agreements, hospitality, operations, transparency.", "Fees published on unisson.hemistiches.com."]);
   html += '<div class="rsec"><h4>What I propose</h4><p class="compl">'+esc(M.length===1 ? "One assignment, at its own price." : "Separate assignments, each at its own price: you only engage those you need.")+'</p><ol class="parcours">'+
     M.map(function(m){ return '<li><b>'+esc(m[0])+'</b><span class="pr">'+esc(m[1])+'</span><p>'+esc(m[2])+'</p>'+(m[3]?'<p class="hyp">'+esc(m[3])+'</p>':'')+'</li>'; }).join("")+'</ol>';
   if(o.fin.length) html += o.fin.map(function(p){ return '<p class="compl">'+esc(p)+'</p>'; }).join("");
@@ -1083,7 +1098,14 @@ function report(r){
       if(n) dl += '<div><dt>'+esc("Over "+n+(n===12?" months or more":" months"))+'</dt><dd>'+esc(eur(m*n))+' excl. VAT</dd></div>';
     }
   } else {
-    dl += '<div><dt>'+esc(r.mode==="ponctuel" ? "Matter-by-matter assignment" : "Tailored arrangement")+'</dt><dd>'+esc(r.mode==="ponctuel" ? "On quotation" : "On proposal")+'</dd></div>';
+    var ep = C.estimPerso(r);
+    if(ep && d.incertaine){
+      dl += '<div><dt>'+esc("Per month, six-month plan")+'</dt><dd>'+esc(eur(ep.mensuel("des6")))+' excl. VAT</dd></div>';
+      dl += '<div><dt>'+esc("Per month, less than three months")+'</dt><dd>'+esc(eur(ep.mensuel("lt3")))+' excl. VAT</dd></div>';
+    } else if(ep){
+      dl += '<div><dt>'+esc("Per month, estimate")+'</dt><dd>'+esc(eur(ep.mensuel(d.tranche)))+' excl. VAT</dd></div>';
+      if(d.mois) dl += '<div><dt>'+esc("Over "+d.mois+(d.mois===12?" months or more":" months"))+'</dt><dd>'+esc(eur(ep.mensuel(d.tranche)*d.mois))+' excl. VAT</dd></div>';
+    } else dl += '<div><dt>'+esc(r.mode==="ponctuel" ? "Matter-by-matter assignment" : "Tailored arrangement")+'</dt><dd>'+esc(r.mode==="ponctuel" ? "On quotation" : "On proposal")+'</dd></div>';
   }
   if(M.length>1) dl += '<div><dt>'+esc("Separate assignments flagged above")+'</dt><dd>'+esc("Separately")+'</dd></div>';
   html += '<div class="budget"><h5>'+esc("Order of magnitude, to be confirmed")+'</h5><dl>'+dl+'</dl><p>'+esc(

@@ -4,7 +4,7 @@ Direction juridique externalisée et de transition : présentation, tarifs et te
 
 Deux pages, française (`index.html`) et anglaise (`en/index.html`), reliées par le sélecteur FR | EN de l'en-tête. Chacune contient les deux modes d'intervention, les tarifs, la FAQ, le test, les mentions légales et la politique de confidentialité ; toute modification de texte se reporte dans les deux fichiers.
 
-**Les prix et les règles de calcul sont centralisés dans `regles.js`**, chargé par les deux pages : grille externalisée et transition, taux horaire, plancher journalier, seuils de durée (3 et 6 mois), report, pondérations du test et orientation. Les montants affichés dans les pages (`data-p`) sont recalculés depuis ce fichier au chargement ; une modification de prix se fait donc là, et nulle part ailleurs. Aucune compilation ni dépendance : ce que contient ce dépôt est exactement ce qui est publié.
+**Les prix et les règles de calcul sont centralisés dans `regles.js`**, chargé par les deux pages : grille externalisée et transition, taux horaire, seuils de durée (3 et 6 mois), report, pondérations du test et orientation. Les montants affichés dans les pages (`data-p`) sont recalculés depuis ce fichier au chargement ; une modification de prix se fait donc là, et nulle part ailleurs. Aucune compilation ni dépendance : ce que contient ce dépôt est exactement ce qui est publié.
 
 ## Contenu
 
