@@ -80,7 +80,7 @@
      le retard accumulé et les opérations exceptionnelles n'augmentent pas le forfait récurrent. */
   var POIDS = {
     contrats: { c1: 0.75, c2: 1.75, c3: 3.5, c4: 6 },
-    fonctions: { vie: 0.25, reglementation: 0.75, donnees: 0,     /* relève de Diapason */ contentieux: 0.75, pi: 0.25, assurances: 0.25, conseils: 0.5, conformite: 0.5 },
+    fonctions: { vie: 0.25, direction: 0.75, reglementation: 0, donnees: 0,     /* relève de Diapason */ contentieux: 0.75, pi: 0.25, assurances: 0.25, conseils: 0.5, organisation: 0.5, conformite: 0, concordance: 0, unisson: 0 },
     urgences: { rare: 0, mois: 0.5, semaine: 1.5 },
     referentAbsent: 0.5,
     multiplicateurs: { multi: 0.2, intervenants: 0.1, secteur: 0.15, plusieurs: 0.1 }
@@ -112,6 +112,7 @@
 
   function orienter(a) {
     var r = { mode: null, cas: null, jours: null, volume: null, duree: null, reprise: null, exceptionnelle: false, raisons: [] };
+    if (["diapason", "concordance", "unisson"].indexOf(a.besoin) >= 0) { r.mode = "ponctuel"; r.cas = "specialise"; return r; }
     if (a.besoin === "ponctuel") { r.mode = "ponctuel"; r.cas = "ponctuel"; r.raisons.push("besoin-ponctuel"); return r; }
     var vol = volume(a), V = vol.jours, temporaire = (a.besoin === "remplacement" || a.besoin === "renfort");
     r.volume = vol; r.duree = duree(a);
@@ -168,3 +169,4 @@
     volume: volume, orienter: orienter, scenarios: scenarios, estimPerso: estimPerso
   };
 })(typeof window !== "undefined" ? window : this);
+
