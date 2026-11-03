@@ -7,7 +7,7 @@
   var TARIFS = {
     version: "2026-10-28",
     heuresParJour: 7,
-    tauxHoraire: 150,             // taux horaire habituel du cabinet : dépassements accordés
+    tauxHoraire: 180,             // taux horaire habituel du cabinet : dépassements accordés
     reportMaxHeures: 3,           // heures non consommées reportables sur le mois suivant uniquement
     dureeInitialeForfaits: 6,     // mois
     preavisMois: 1,
