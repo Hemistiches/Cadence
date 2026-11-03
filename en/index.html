@@ -200,7 +200,7 @@ h1,h2,h3,h4{margin:0;font-weight:300;line-height:1.1;letter-spacing:-0.01em;text
   .report-head .label,.report-head .price small,.partition,.partition-legend{color:#444}
   .partition i{background:#e6e6e6;-webkit-print-color-adjust:exact;print-color-adjust:exact}
   .partition i.on{background:#000}
-  .rsec,.prio li,.offer-reco{break-inside:avoid}
+  .prio li,.offer-reco{break-inside:avoid} .rsec h4{break-after:avoid} /* comme Diapason : une section longue peut se poursuivre sur la page suivante (Safari sur iPhone tronquait le résultat) */
   .print-foot{margin-top:18px;border-top:1px solid #999;padding-top:8px;font-size:8.5pt;color:#444}
 }
 
