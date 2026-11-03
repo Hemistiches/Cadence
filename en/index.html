@@ -200,7 +200,7 @@ h1,h2,h3,h4{margin:0;font-weight:300;line-height:1.1;letter-spacing:-0.01em;text
   .report-head .label,.report-head .price small,.partition,.partition-legend{color:#444}
   .partition i{background:#e6e6e6;-webkit-print-color-adjust:exact;print-color-adjust:exact}
   .partition i.on{background:#000}
-  .rsec,.prio li,.offer-reco{break-inside:avoid}
+  .prio li,.offer-reco{break-inside:avoid} .rsec h4{break-after:avoid} /* comme Diapason : une section longue peut se poursuivre sur la page suivante (Safari sur iPhone tronquait le résultat) */
   .print-foot{margin-top:18px;border-top:1px solid #999;padding-top:8px;font-size:8.5pt;color:#444}
 }
 
@@ -1012,7 +1012,7 @@ var LOGO = "";
     x.drawImage(img, 0, 0); x.globalCompositeOperation = "source-in"; x.fillStyle = "#000"; x.fillRect(0, 0, c.width, c.height); LOGO = c.toDataURL("image/png"); }
     catch(e){ LOGO = ""; } }
   if(img.complete && img.naturalWidth) noir(); else img.addEventListener("load", noir); })();
-function carte(cls, titre){ return '<div class="print-only print-card'+cls+'"><div><div class="who">'+esc(titre)+'</div><div class="nm">Mᵉ François Césure</div><div class="rl">'+esc("Avocat, Paris Bar")+'</div><div class="rl">'+esc("Hémistiches, 33, avenue Mac-Mahon, 75017 Paris, France")+'</div>'+(cls?'<div class=\"rl\">SIREN 833 468 358</div>':'')+'</div><div class="co">francois.cesure@hemistiches.com<br>+33 6 47 88 80 25<br>+33 1 45 03 20 20<br><a href="https://www.hemistiches.com">www.hemistiches.com</a></div></div>'; }
+function carte(cls, titre){ return '<div class="print-only print-card'+cls+'"><div><div class="who">'+esc(titre)+'</div><div class="nm">Mᵉ François Césure</div><div class="rl">'+esc("Avocat at the Paris Bar")+'</div><div class="rl">'+esc("Hémistiches, 33, avenue Mac-Mahon, 75017 Paris, France")+'</div>'+(cls?'<div class=\"rl\">SIREN 833 468 358</div>':'')+'</div><div class="co">francois.cesure@hemistiches.com<br>+33 6 47 88 80 25<br>+33 1 45 03 20 20<br><a href="https://www.hemistiches.com">www.hemistiches.com</a></div></div>'; }
 /* ---------- Result: same construction as Diapason, Concordance and Unisson (31 October 2026) ---------- */
 var NIV = {eleve:"high", modere:"moderate", limite:"limited"};
 function niveau(v){ return v>=70 ? "eleve" : (v>=40 ? "modere" : "limite"); }
