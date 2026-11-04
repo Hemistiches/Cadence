@@ -19,7 +19,7 @@ Deux pages, française (`index.html`) et anglaise (`en/index.html`), reliées pa
 
 ## Test d'orientation
 
-Trois décisions séparées : le mode (externalisée, transition, proposition personnalisée ou dossier ponctuel), le volume récurrent (estimé en jours par mois à partir de situations concrètes, jamais choisi par le prospect) et la durée, qui fixe le tarif. Le retard accumulé et les opérations exceptionnelles sont signalés à part et n'augmentent pas le forfait ; une durée incertaine affiche les scénarios sans appliquer le tarif le plus bas.
+Trois décisions séparées : le mode (externalisée, transition, proposition personnalisée ou dossier ponctuel), le volume récurrent (estimé en jours par mois à partir de situations concrètes, jamais choisi par le prospect) et la durée, qui fixe le tarif. Le test estime le besoin récurrent. Le retard accumulé et les opérations importantes sont signalés pour une estimation complémentaire de charge avec le client : leur temps consomme le volume disponible, puis un complément éventuel est convenu au préalable. Leur seule présence ne permet pas d'inventer un nombre d'heures ni de chiffrer un supplément automatique. Une durée incertaine affiche les scénarios sans appliquer le tarif le plus bas.
 
 Champs transmis par le formulaire `rapport-cadence` : email, opposition, cadence, charge, orientation, priorites, secteur, effectif, duree, horodatage, version_information.
 
