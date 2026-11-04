@@ -5,7 +5,7 @@
   "use strict";
 
   var TARIFS = {
-    version: "2026-10-28",
+    version: "2026-11-04",
     heuresParJour: 7,
     tauxHoraire: 180,             // taux horaire habituel du cabinet : dépassements accordés
     reportMaxHeures: 3,           // heures non consommées reportables sur le mois suivant uniquement
@@ -77,7 +77,9 @@
      Trois décisions séparées : 1) le mode d'intervention, 2) le volume récurrent, 3) la durée et le tarif.
      Le volume est estimé en jours par mois à partir de situations concrètes ; le prospect ne le choisit jamais lui-même.
      Le secteur ne fait que pondérer une charge réelle ; la taille de l'entreprise n'entre pas dans le calcul ;
-     le retard accumulé et les opérations exceptionnelles n'augmentent pas le forfait récurrent. */
+     le retard accumulé et les opérations importantes sont signalés pour estimation de charge,
+     sans inventer un volume à partir de leur seule présence. Leur temps consomme le forfait
+     disponible ; un complément éventuel est soumis à accord préalable. */
   var POIDS = {
     contrats: { c1: 0.75, c2: 1.75, c3: 3.5, c4: 6 },
     fonctions: { vie: 0.25, direction: 0.75, reglementation: 0, donnees: 0,     /* relève de Diapason */ contentieux: 0.75, pi: 0.25, assurances: 0.25, conseils: 0.5, organisation: 0.5, conformite: 0, concordance: 0, unisson: 0 },
@@ -116,7 +118,7 @@
     if (a.besoin === "ponctuel") { r.mode = "ponctuel"; r.cas = "ponctuel"; r.raisons.push("besoin-ponctuel"); return r; }
     var vol = volume(a), V = vol.jours, temporaire = (a.besoin === "remplacement" || a.besoin === "renfort");
     r.volume = vol; r.duree = duree(a);
-    r.reprise = a.retard === "important" ? "devis" : (a.retard === "quelques" ? "absorbee" : null);
+    r.reprise = a.retard === "important" ? "a-estimer" : (a.retard === "quelques" ? "absorbee" : null);
     r.exceptionnelle = a.exceptionnelle === "oui";
     if (temporaire) r.raisons.push("besoin-" + a.besoin);
 
