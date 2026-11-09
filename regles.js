@@ -5,17 +5,18 @@
   "use strict";
 
   var TARIFS = {
-    version: "2026-11-04",
+    version: "2026-11-09",
     heuresParJour: 7,
     tauxHoraire: 180,             // taux horaire habituel du cabinet : dépassements accordés
     reportMaxHeures: 3,           // heures non consommées reportables sur le mois suivant uniquement
     dureeInitialeForfaits: 6,     // mois
     preavisMois: 1,
-    // Direction juridique externalisée : prix par jour selon le volume mensuel et la durée initiale convenue
+    // Direction juridique externalisée : prix mensuel selon le volume réservé et la durée initiale convenue
     externalisee: [
-      { jours: 2, cle: "essentiel", lt3: 900, de3a6: 825, des6: 750 },
-      { jours: 4, cle: "regulier",  lt3: 875, de3a6: 800, des6: 725 },
-      { jours: 8, cle: "integre",   lt3: 850, de3a6: 775, des6: 700 }
+      { jours: 2, cle: "essentiel", lt3: 1800, de3a6: 1650, des6: 1500 },
+      { jours: 4, cle: "regulier",  lt3: 3500, de3a6: 3200, des6: 2900 },
+      { jours: 6, cle: "renforce",  lt3: 5150, de3a6: 4700, des6: 4250 },
+      { jours: 8, cle: "integre",   lt3: 6800, de3a6: 6200, des6: 5600 }
     ],
     // Direction juridique de transition : sur site, 12 à 16 jours par mois
     transition: { joursMin: 12, joursMax: 16, lt3: 800, de3a6: 725, des6: 650 },
@@ -48,8 +49,8 @@
     for (var i = 0; i < TARIFS.externalisee.length; i++) if (TARIFS.externalisee[i].jours === jours) return TARIFS.externalisee[i];
     return null;
   }
-  function prixJourExt(jours, tr) { return formule(jours)[tr]; }
-  function mensuelExt(jours, tr) { return jours * prixJourExt(jours, tr); }
+  function mensuelExt(jours, tr) { return formule(jours)[tr]; }
+  function prixJourExt(jours, tr) { return mensuelExt(jours, tr) / jours; }
   function prixOperation(cle) {
     var v = TARIFS.coutsOperations[cle] * TARIFS.coefOperations;
     return v < 1000 ? Math.ceil(v / 50) * 50 : Math.ceil(v / 100) * 100;
@@ -87,7 +88,7 @@
     referentAbsent: 0.5,
     multiplicateurs: { multi: 0.2, intervenants: 0.1, secteur: 0.15, plusieurs: 0.1 }
   };
-  var SEUILS = { essentiel: 2.5, regulier: 5, integre: 8.5, transitionMin: 12, transitionMax: 16 };
+  var SEUILS = { integre: 8, transitionMin: 12, transitionMax: 16 };
 
   function volume(a) {
     var s = POIDS.contrats[a.contrats] || 0, sources = [];
@@ -122,7 +123,7 @@
     r.exceptionnelle = a.exceptionnelle === "oui";
     if (temporaire) r.raisons.push("besoin-" + a.besoin);
 
-    function forfaitPour(v) { return v <= SEUILS.essentiel ? 2 : (v <= SEUILS.regulier ? 4 : 8); }
+    function forfaitPour(v) { return TARIFS.externalisee.find(function (f) { return f.jours >= v; }).jours; }
 
     // La transition se définit par une durée limitée (remplacement, départ, renfort) et un volume de 12 à 16 jours :
     // la présence ne choisit pas le mode, elle sert seulement à prévoir les journées sur place.
