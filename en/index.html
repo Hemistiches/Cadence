@@ -460,6 +460,18 @@ h1,h2,.hero .slogan,.drawer nav a,.axes .num{font-weight:200}
 /* Quatre références sur deux rangées (12 novembre 2026) */
 .conviction .creds{grid-template-columns:repeat(2,minmax(0,1fr))}
 @media (max-width:720px){.conviction .creds{grid-template-columns:minmax(0,1fr)}}
+/* Notes et questions fréquentes calées sur la colonne de droite sur ordinateur (12 novembre 2026) ; tablette et mobile inchangés */
+@media (min-width:1025px){
+  .wrap > .cadre{margin-left:calc((100% - clamp(28px,4vw,64px)) * 5 / 12 + clamp(28px,4vw,64px))}
+  .faq-s .wrap{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);column-gap:clamp(28px,4vw,64px);align-items:start}
+  .faq-s .wrap > .sec-h2{grid-column:1;margin-bottom:0;text-wrap:balance}
+  .faq-s .faq{grid-column:2;margin-top:0;max-width:none}
+}
+/* Grilles d'offres : pas de filet vertical en début de rangée, filet horizontal entre les rangées (12 novembre 2026) */
+@media (min-width:721px){
+  .three:not(.duo):not(.one) > article:nth-child(3n+1),.three.duo > article:nth-child(2n+1){padding-left:0;border-left:0}
+  .three:not(.duo):not(.one) > article:nth-child(n+4),.three.duo > article:nth-child(n+3){border-top:1px solid var(--rule)}
+}
 </style>
 </head>
 <body>
