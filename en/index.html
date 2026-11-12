@@ -472,6 +472,36 @@ h1,h2,.hero .slogan,.drawer nav a,.axes .num{font-weight:200}
   .three:not(.duo):not(.one) > article:nth-child(3n+1),.three.duo > article:nth-child(2n+1){padding-left:0;border-left:0}
   .three:not(.duo):not(.one) > article:nth-child(n+4),.three.duo > article:nth-child(n+3){border-top:1px solid var(--rule)}
 }
+/* Grille commune sur ordinateur (12 novembre 2026) : titres et intitulés à gauche, texte courant à droite sur un même axe, grilles et tableaux en pleine largeur ; tablette et mobile inchangés */
+@media (min-width:1025px){
+  .sec-head > .sec-text > .cadre:first-child{margin-top:0}
+  .sec-head > .sec-text > .cadre{max-width:62ch}
+  .wrap > .lab-row{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);column-gap:clamp(28px,4vw,64px);margin-left:0;max-width:none}
+  .wrap > .lab-row > .lab-l{grid-column:1;color:var(--ink);font-weight:400;text-wrap:balance}
+  .wrap > .lab-row > .lab-t{grid-column:2;max-width:76ch}
+  .wrap > .note{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);column-gap:clamp(28px,4vw,64px);border-left:0;padding:0;max-width:none}
+  .wrap > .note > h4{grid-column:1;margin:0}
+  .wrap > .note > :not(h4){grid-column:2;max-width:76ch}
+  .wrap > .warn{margin-left:calc((100% - clamp(28px,4vw,64px)) * 5 / 12 + clamp(28px,4vw,64px));max-width:none}
+  .rules > li#outil,.rules > li#outil-ai{grid-template-columns:minmax(0,5fr) minmax(0,3.5fr) minmax(0,3.5fr);column-gap:clamp(28px,4vw,64px)}
+  .rules > li#outil > b,.rules > li#outil-ai > b{grid-column:1;grid-row:1 / span 3;text-wrap:balance}
+  .rules > li#outil > span:nth-of-type(1),.rules > li#outil-ai > span:nth-of-type(1){grid-column:2 / span 2;grid-row:1;padding-right:0}
+  .rules > li#outil > span:nth-of-type(2),.rules > li#outil-ai > span:nth-of-type(2){grid-column:2;grid-row:2}
+  .rules > li#outil > span:nth-of-type(3),.rules > li#outil-ai > span:nth-of-type(3){grid-column:3;grid-row:2}
+  .rules > li#outil > span:nth-of-type(4),.rules > li#outil-ai > span:nth-of-type(4){grid-column:2;grid-row:3}
+  .rules > li#outil > span:nth-of-type(5),.rules > li#outil-ai > span:nth-of-type(5){grid-column:3;grid-row:3}
+}
+/* Listes à deux colonnes : un dernier élément isolé occupe la rangée entière, intitulé à gauche, texte à droite */
+@media (min-width:861px){
+  .rules > li:last-child:nth-child(odd):not(#outil):not(#outil-ai),.rules > li#brique-formation{grid-column:1 / -1;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:clamp(24px,3vw,48px);row-gap:10px}
+  .rules > li:last-child:nth-child(odd):not(#outil):not(#outil-ai) > b,.rules > li#brique-formation > b{grid-column:1}
+  .rules > li:last-child:nth-child(odd):not(#outil):not(#outil-ai) > :not(b),.rules > li#brique-formation > :not(b){grid-column:2;margin-top:0}
+}
+@media (min-width:1025px){.sec-head > .sec-text > .cadre{max-width:none}}
+@media (min-width:1025px){
+  .sec-head.sub > .sec-text{padding-top:.15em}
+  .wrap > .note > p{font-size:17px;color:var(--mute)}
+}
 </style>
 </head>
 <body>
@@ -582,7 +612,7 @@ h1,h2,.hero .slogan,.drawer nav a,.axes .num{font-weight:200}
           <ul><li>12 to 16 days per month</li><li>The whole function, company law included; external costs extra</li><li>Day rate depending on the agreed initial term</li><li>Schedule and organisation set in the engagement letter</li></ul>
         </article>
       </div>
-      <p class="intro"><strong>Need help with a contract or a specific matter?</strong> One-off legal support is available on quotation.</p>
+      <p class="intro lab-row"><b class="lab-l">Need help with a contract or a specific matter?</b> <span class="lab-t">One-off legal support is available on quotation.</span></p>
     </div>
   </section>
 
@@ -634,7 +664,12 @@ h1,h2,.hero .slogan,.drawer nav a,.axes .num{font-weight:200}
         <p>You may stop at any time with one month’s notice. The rate for the period actually completed then applies, unless the firm ends the engagement or the termination results from a failure on the firm’s part.</p>
       </div>
 
-      <h3 class="sub-h3">Shorter commitments</h3>
+      <div class="sec-head sub">
+        <h3 class="sub-h3">Shorter commitments</h3>
+        <div class="sec-text">
+          <p class="cadre">For these commitments, the engagement letter sets the duration and the volume; any extension or change of price requires written agreement.</p>
+        </div>
+      </div>
       <div class="tbl-wrap"><table class="tbl">
         <caption>Outsourced general counsel, monthly fees excl. VAT depending on the agreed initial term</caption>
         <thead><tr><th scope="col">Monthly volume</th><th scope="col">Less than 3 months</th><th scope="col">3 to less than 6 months</th></tr></thead>
@@ -645,9 +680,13 @@ h1,h2,.hero .slogan,.drawer nav a,.axes .num{font-weight:200}
           <tr><th scope="row">8 days / 56 h</th><td><span data-p="m:8:lt3">€6,800</span></td><td><span data-p="m:8:de3a6">€6,200</span></td></tr>
         </tbody>
       </table></div>
-      <p class="cadre">For these commitments, the engagement letter sets the duration and the volume; any extension or change of price requires written agreement.</p>
 
-      <h3 class="sub-h3">Interim general counsel: 12 to 16 days per month</h3>
+      <div class="sec-head sub">
+        <h3 class="sub-h3">Interim general counsel: 12 to 16 days per month</h3>
+        <div class="sec-text">
+          <p class="cadre">The rate depends on the volume and duration agreed at the outset; merely extending an engagement does not lower it automatically. The engagement letter sets the schedule, the monthly volume and the days on site; additional days are charged at the agreed day rate, with prior agreement. Any travel and accommodation costs are separate, estimated and agreed before the engagement.</p>
+        </div>
+      </div>
       <div class="tbl-wrap"><table class="tbl">
         <caption>Interim general counsel, day rate excl. VAT depending on the agreed initial term</caption>
         <thead><tr><th scope="col">Agreed initial term</th><th scope="col">Day rate</th><th scope="col">Budget for 12 to 16 days per month</th></tr></thead>
@@ -657,7 +696,6 @@ h1,h2,.hero .slogan,.drawer nav a,.axes .num{font-weight:200}
           <tr><th scope="row">6 months or more</th><td><span data-p="tj:des6">€650</span></td><td><span data-p="tm:12:des6">€7,800</span> to <span data-p="tm:16:des6">€10,400</span> per month</td></tr>
         </tbody>
       </table></div>
-      <p class="cadre">The rate depends on the volume and duration agreed at the outset; merely extending an engagement does not lower it automatically. The engagement letter sets the schedule, the monthly volume and the days on site; additional days are charged at the agreed day rate, with prior agreement. Any travel and accommodation costs are separate, estimated and agreed before the engagement.</p>
 
 
       <h3 class="sub-h3">What the outsourced plans cover</h3>
