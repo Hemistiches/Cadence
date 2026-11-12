@@ -472,6 +472,36 @@ h1,h2,.hero .slogan,.drawer nav a,.axes .num{font-weight:200}
   .three:not(.duo):not(.one) > article:nth-child(3n+1),.three.duo > article:nth-child(2n+1){padding-left:0;border-left:0}
   .three:not(.duo):not(.one) > article:nth-child(n+4),.three.duo > article:nth-child(n+3){border-top:1px solid var(--rule)}
 }
+/* Grille commune sur ordinateur (12 novembre 2026) : titres et intitulés à gauche, texte courant à droite sur un même axe, grilles et tableaux en pleine largeur ; tablette et mobile inchangés */
+@media (min-width:1025px){
+  .sec-head > .sec-text > .cadre:first-child{margin-top:0}
+  .sec-head > .sec-text > .cadre{max-width:62ch}
+  .wrap > .lab-row{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);column-gap:clamp(28px,4vw,64px);margin-left:0;max-width:none}
+  .wrap > .lab-row > .lab-l{grid-column:1;color:var(--ink);font-weight:400;text-wrap:balance}
+  .wrap > .lab-row > .lab-t{grid-column:2;max-width:76ch}
+  .wrap > .note{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);column-gap:clamp(28px,4vw,64px);border-left:0;padding:0;max-width:none}
+  .wrap > .note > h4{grid-column:1;margin:0}
+  .wrap > .note > :not(h4){grid-column:2;max-width:76ch}
+  .wrap > .warn{margin-left:calc((100% - clamp(28px,4vw,64px)) * 5 / 12 + clamp(28px,4vw,64px));max-width:none}
+  .rules > li#outil,.rules > li#outil-ai{grid-template-columns:minmax(0,5fr) minmax(0,3.5fr) minmax(0,3.5fr);column-gap:clamp(28px,4vw,64px)}
+  .rules > li#outil > b,.rules > li#outil-ai > b{grid-column:1;grid-row:1 / span 3;text-wrap:balance}
+  .rules > li#outil > span:nth-of-type(1),.rules > li#outil-ai > span:nth-of-type(1){grid-column:2 / span 2;grid-row:1;padding-right:0}
+  .rules > li#outil > span:nth-of-type(2),.rules > li#outil-ai > span:nth-of-type(2){grid-column:2;grid-row:2}
+  .rules > li#outil > span:nth-of-type(3),.rules > li#outil-ai > span:nth-of-type(3){grid-column:3;grid-row:2}
+  .rules > li#outil > span:nth-of-type(4),.rules > li#outil-ai > span:nth-of-type(4){grid-column:2;grid-row:3}
+  .rules > li#outil > span:nth-of-type(5),.rules > li#outil-ai > span:nth-of-type(5){grid-column:3;grid-row:3}
+}
+/* Listes à deux colonnes : un dernier élément isolé occupe la rangée entière, intitulé à gauche, texte à droite */
+@media (min-width:861px){
+  .rules > li:last-child:nth-child(odd):not(#outil):not(#outil-ai),.rules > li#brique-formation{grid-column:1 / -1;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:clamp(24px,3vw,48px);row-gap:10px}
+  .rules > li:last-child:nth-child(odd):not(#outil):not(#outil-ai) > b,.rules > li#brique-formation > b{grid-column:1}
+  .rules > li:last-child:nth-child(odd):not(#outil):not(#outil-ai) > :not(b),.rules > li#brique-formation > :not(b){grid-column:2;margin-top:0}
+}
+@media (min-width:1025px){.sec-head > .sec-text > .cadre{max-width:none}}
+@media (min-width:1025px){
+  .sec-head.sub > .sec-text{padding-top:.15em}
+  .wrap > .note > p{font-size:17px;color:var(--mute)}
+}
 </style>
 </head>
 <body>
@@ -582,7 +612,7 @@ h1,h2,.hero .slogan,.drawer nav a,.axes .num{font-weight:200}
           <ul><li>12 à 16 jours par mois</li><li>Toute la fonction, droit des sociétés compris ; frais externes en sus</li><li>Tarif journalier selon la durée initiale convenue</li><li>Calendrier et organisation fixés dans la convention</li></ul>
         </article>
       </div>
-      <p class="intro"><strong>Un contrat ou un dossier précis ?</strong> Intervention ponctuelle sur devis.</p>
+      <p class="intro lab-row"><b class="lab-l">Un contrat ou un dossier précis ?</b> <span class="lab-t">Intervention ponctuelle sur devis.</span></p>
     </div>
   </section>
 
@@ -634,7 +664,12 @@ h1,h2,.hero .slogan,.drawer nav a,.axes .num{font-weight:200}
         <p>Vous pouvez arrêter à tout moment avec un mois de préavis. Le tarif de la durée réellement exécutée s’applique, sauf si l’arrêt intervient à l’initiative du cabinet ou en raison d’un manquement de sa part.</p>
       </div>
 
-      <h3 class="sub-h3">Engagements plus courts</h3>
+      <div class="sec-head sub">
+        <h3 class="sub-h3">Engagements plus courts</h3>
+        <div class="sec-text">
+          <p class="cadre">Pour ces engagements, la convention fixe la durée et le volume ; toute prolongation ou modification tarifaire fait l’objet d’un accord écrit.</p>
+        </div>
+      </div>
       <div class="tbl-wrap"><table class="tbl">
         <caption>Direction juridique externalisée, honoraires mensuels HT selon la durée initiale convenue</caption>
         <thead><tr><th scope="col">Volume mensuel</th><th scope="col">Moins de 3 mois</th><th scope="col">De 3 à moins de 6 mois</th></tr></thead>
@@ -645,9 +680,13 @@ h1,h2,.hero .slogan,.drawer nav a,.axes .num{font-weight:200}
           <tr><th scope="row">8 jours / 56 h</th><td><span data-p="m:8:lt3">6 800 €</span></td><td><span data-p="m:8:de3a6">6 200 €</span></td></tr>
         </tbody>
       </table></div>
-      <p class="cadre">Pour ces engagements, la convention fixe la durée et le volume ; toute prolongation ou modification tarifaire fait l’objet d’un accord écrit.</p>
 
-      <h3 class="sub-h3">Direction juridique de transition : 12 à 16 jours par mois</h3>
+      <div class="sec-head sub">
+        <h3 class="sub-h3">Direction juridique de transition : 12 à 16 jours par mois</h3>
+        <div class="sec-text">
+          <p class="cadre">Le tarif dépend du volume et de la durée convenus au départ ; la seule prolongation d’une mission n’entraîne aucune baisse automatique. La convention fixe le calendrier, le volume mensuel et les journées sur place ; les jours supplémentaires sont facturés au tarif journalier convenu, après accord préalable. Frais de déplacement et d’hébergement éventuels distincts, estimés et convenus avant la mission.</p>
+        </div>
+      </div>
       <div class="tbl-wrap"><table class="tbl">
         <caption>Direction juridique de transition, tarif journalier HT selon la durée initiale convenue</caption>
         <thead><tr><th scope="col">Durée initiale convenue</th><th scope="col">Prix par jour</th><th scope="col">Budget pour 12 à 16 jours par mois</th></tr></thead>
@@ -657,7 +696,6 @@ h1,h2,.hero .slogan,.drawer nav a,.axes .num{font-weight:200}
           <tr><th scope="row">6 mois ou plus</th><td><span data-p="tj:des6">650 €</span></td><td><span data-p="tm:12:des6">7 800 €</span> à <span data-p="tm:16:des6">10 400 €</span> par mois</td></tr>
         </tbody>
       </table></div>
-      <p class="cadre">Le tarif dépend du volume et de la durée convenus au départ ; la seule prolongation d’une mission n’entraîne aucune baisse automatique. La convention fixe le calendrier, le volume mensuel et les journées sur place ; les jours supplémentaires sont facturés au tarif journalier convenu, après accord préalable. Frais de déplacement et d’hébergement éventuels distincts, estimés et convenus avant la mission.</p>
 
 
       <h3 class="sub-h3">Ce que couvrent les forfaits externalisés</h3>
