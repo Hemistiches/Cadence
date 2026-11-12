@@ -191,7 +191,7 @@ h1,h2,h3,h4{margin:0;font-weight:300;line-height:1.1;letter-spacing:-0.01em;text
   @page{margin:16mm 14mm}
   :root{background:#fff}
   body{background:#fff;color:#000;font-size:11pt}
-  body::before,.skip,.top,.drawer,.contact,.hero,.cesure-s,.fonction-s,.formules-s,.conviction,.cadre-s,#test > .wrap > h2,#test > .wrap > .intro,.no-print,.dnav,.contactbox button,.contactbox a{display:none!important}
+  body::before,.skip,.top,.drawer,.contact,.hero,.cesure-s,.fonction-s,.formules-s,.conviction,.cadre-s,#test .sec-head,.no-print,.dnav,.contactbox button,.contactbox a{display:none!important}
   .test-s{padding:0}
   .wrap{padding:0!important;max-width:none}
   .diagbox{border:0;margin:0;padding:0;max-width:none}
@@ -445,6 +445,21 @@ h1,h2,.hero .slogan,.drawer nav a,.axes .num{font-weight:200}
   .hero .lede{max-width:44ch}
   .hero .facts{column-gap:18px}
 }
+/* En-têtes de section en deux colonnes sur ordinateur : titre à gauche, texte à droite (12 novembre 2026) ; tablette et mobile inchangés */
+@media (min-width:1025px){
+  .sec-head{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);column-gap:clamp(28px,4vw,64px);align-items:start}
+  .sec-head > .label{grid-column:1 / -1}
+  .sec-head > .sec-h2,.sec-head > .rules-h,.sec-head > .sub-h3{grid-column:1;margin-bottom:0;text-wrap:balance}
+  .sec-head > .sec-text{grid-column:2;padding-top:.5em}
+  .sec-head > .sec-text > .intro:first-child{margin-top:0}
+  .sec-head > .sec-text > .intro{max-width:62ch}
+  .sec-head.sub{margin-top:clamp(48px,6vw,80px)}
+  .sec-head.sub > .rules-h,.sec-head.sub > .sub-h3{margin-top:0}
+  .test-s .diagbox{max-width:none;margin-left:calc((100% - clamp(28px,4vw,64px)) * 5 / 12 + clamp(28px,4vw,64px))}
+}
+/* Quatre références sur deux rangées (12 novembre 2026) */
+.conviction .creds{grid-template-columns:repeat(2,minmax(0,1fr))}
+@media (max-width:720px){.conviction .creds{grid-template-columns:minmax(0,1fr)}}
 </style>
 </head>
 <body>
@@ -521,16 +536,24 @@ h1,h2,.hero .slogan,.drawer nav a,.axes .num{font-weight:200}
 <section class="fonction-s" aria-labelledby="t-fonctions"><div class="wrap"><h2 class="sec-h2" id="t-fonctions">What Cadence handles</h2><ul class="fonctions"><li><b>Commercial contracts</b><span>Drafting, review and negotiation: customers, suppliers, distribution and services.</span></li><li><b>Advice to management and teams</b><span>Risk analysis, decision support and advice on projects.</span></li><li><b>Corporate matters</b><span>Corporate governance, shareholder decisions, routine capital matters and initial assessment of major transactions, within the agreed scope.</span></li><li><b>Pre-litigation</b><span>Claims, formal notices, negotiations and settlement discussions.</span></li><li><b>Legal organisation</b><span>Contract templates, approval processes, delegations of authority and monitoring commitments.</span></li><li><b>Matter management</b><span>Prioritising requests, coordinating specialist advisers and monitoring litigation.</span></li></ul></div></section>
   <section class="test-s" id="test" aria-labelledby="t-test">
     <div class="wrap">
-      <h2 class="sec-h2" id="t-test">How should your legal function be organised?</h2>
-      <p class="intro">Ten questions at most, framed as concrete situations. The test adapts to your answers and never asks for documents or case details.</p>
+      <div class="sec-head">
+        <h2 class="sec-h2" id="t-test">How should your legal function be organised?</h2>
+        <div class="sec-text">
+          <p class="intro">Ten questions at most, framed as concrete situations. The test adapts to your answers and never asks for documents or case details.</p>
+        </div>
+      </div>
       <div class="diagbox" id="diagbox" aria-live="polite"><noscript><p class="qhint">The test runs in your browser and requires JavaScript. You can also write directly to francois.cesure@hemistiches.com.</p></noscript></div>
     </div>
   </section>
 
   <section class="modes-s" id="modes" aria-labelledby="t-modes">
     <div class="wrap">
-      <h2 class="sec-h2" id="t-modes">Two modes of intervention</h2>
-      <p class="intro">One counsel for the whole of the company’s legal life: carrying the core work, bringing in the expertise required, keeping the tempo. From one mode to the other, only the organisation, the volume and the duration change.</p>
+      <div class="sec-head">
+        <h2 class="sec-h2" id="t-modes">Two modes of intervention</h2>
+        <div class="sec-text">
+          <p class="intro">One counsel for the whole of the company’s legal life: carrying the core work, bringing in the expertise required, keeping the tempo. From one mode to the other, only the organisation, the volume and the duration change.</p>
+        </div>
+      </div>
       <div class="two">
         <article>
           <p class="label">From the firm</p>
@@ -553,11 +576,19 @@ h1,h2,.hero .slogan,.drawer nav a,.axes .num{font-weight:200}
 
   <section class="formules-s" id="formules" aria-labelledby="t-form">
     <div class="wrap">
-      <h2 class="sec-h2" id="t-form">Fees</h2>
-      <p class="intro">All prices are exclusive of VAT. One day means seven hours. The test gives you a personalised estimate, to be confirmed in a conversation.</p>
+      <div class="sec-head">
+        <h2 class="sec-h2" id="t-form">Fees</h2>
+        <div class="sec-text">
+          <p class="intro">All prices are exclusive of VAT. One day means seven hours. The test gives you a personalised estimate, to be confirmed in a conversation.</p>
+        </div>
+      </div>
 
-      <h3 class="sub-h3">Outsourced general counsel: four plans for six months or more</h3>
-      <p class="intro">All four plans cover the same areas of legal support. The time you reserve determines how much work can be undertaken, based on the work required and your business priorities.</p>
+      <div class="sec-head sub">
+        <h3 class="sub-h3">Outsourced general counsel: four plans for six months or more</h3>
+        <div class="sec-text">
+          <p class="intro">All four plans cover the same areas of legal support. The time you reserve determines how much work can be undertaken, based on the work required and your business priorities.</p>
+        </div>
+      </div>
       <div class="three">
         <article>
           <h3>Essentiel</h3>
@@ -692,6 +723,7 @@ h1,h2,.hero .slogan,.drawer nav a,.axes .num{font-weight:200}
         <ul class="creds">
           <li><strong>Avocat</strong>Paris Bar, since 2012</li>
           <li><strong>General counsel</strong>more than ten years, healthcare industry</li>
+          <li><strong>Legal management</strong>master’s degree in corporate legal practice</li>
           <li><strong>Regulated sectors</strong>healthcare, defence, energy, aerospace, electronics</li>
         </ul>
       </figure>
