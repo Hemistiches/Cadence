@@ -191,7 +191,7 @@ h1,h2,h3,h4{margin:0;font-weight:300;line-height:1.1;letter-spacing:-0.01em;text
   @page{margin:16mm 14mm}
   :root{background:#fff}
   body{background:#fff;color:#000;font-size:11pt}
-  body::before,.skip,.top,.drawer,.contact,.hero,.cesure-s,.fonction-s,.formules-s,.conviction,.cadre-s,#test > .wrap > h2,#test > .wrap > .intro,.no-print,.dnav,.contactbox button,.contactbox a{display:none!important}
+  body::before,.skip,.top,.drawer,.contact,.hero,.cesure-s,.fonction-s,.formules-s,.conviction,.cadre-s,#test .sec-head,.no-print,.dnav,.contactbox button,.contactbox a{display:none!important}
   .test-s{padding:0}
   .wrap{padding:0!important;max-width:none}
   .diagbox{border:0;margin:0;padding:0;max-width:none}
@@ -445,6 +445,21 @@ h1,h2,.hero .slogan,.drawer nav a,.axes .num{font-weight:200}
   .hero .lede{max-width:44ch}
   .hero .facts{column-gap:18px}
 }
+/* En-têtes de section en deux colonnes sur ordinateur : titre à gauche, texte à droite (12 novembre 2026) ; tablette et mobile inchangés */
+@media (min-width:1025px){
+  .sec-head{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);column-gap:clamp(28px,4vw,64px);align-items:start}
+  .sec-head > .label{grid-column:1 / -1}
+  .sec-head > .sec-h2,.sec-head > .rules-h,.sec-head > .sub-h3{grid-column:1;margin-bottom:0;text-wrap:balance}
+  .sec-head > .sec-text{grid-column:2;padding-top:.5em}
+  .sec-head > .sec-text > .intro:first-child{margin-top:0}
+  .sec-head > .sec-text > .intro{max-width:62ch}
+  .sec-head.sub{margin-top:clamp(48px,6vw,80px)}
+  .sec-head.sub > .rules-h,.sec-head.sub > .sub-h3{margin-top:0}
+  .test-s .diagbox{max-width:none;margin-left:calc((100% - clamp(28px,4vw,64px)) * 5 / 12 + clamp(28px,4vw,64px))}
+}
+/* Quatre références sur deux rangées (12 novembre 2026) */
+.conviction .creds{grid-template-columns:repeat(2,minmax(0,1fr))}
+@media (max-width:720px){.conviction .creds{grid-template-columns:minmax(0,1fr)}}
 </style>
 </head>
 <body>
@@ -521,16 +536,24 @@ h1,h2,.hero .slogan,.drawer nav a,.axes .num{font-weight:200}
 <section class="fonction-s" aria-labelledby="t-fonctions"><div class="wrap"><h2 class="sec-h2" id="t-fonctions">Ce que Cadence prend en charge</h2><ul class="fonctions"><li><b>Contrats commerciaux</b><span>Rédaction, revue et négociation : clients, fournisseurs, distribution et prestations de services.</span></li><li><b>Conseil à la direction et aux équipes</b><span>Analyse des risques, aide à la décision et accompagnement des projets.</span></li><li><b>Droit des sociétés</b><span>Vie sociale, décisions des associés, opérations courantes sur le capital et cadrage des opérations importantes, dans le périmètre convenu.</span></li><li><b>Précontentieux</b><span>Réclamations, mises en demeure, négociations et recherche d’accords amiables.</span></li><li><b>Organisation juridique</b><span>Modèles de contrats, circuits de validation, délégations et suivi des engagements.</span></li><li><b>Pilotage des dossiers</b><span>Priorisation des demandes, coordination des conseils spécialisés et suivi des contentieux.</span></li></ul></div></section>
   <section class="test-s" id="test" aria-labelledby="t-test">
     <div class="wrap">
-      <h2 class="sec-h2" id="t-test">Quelle organisation pour votre fonction juridique ?</h2>
-      <p class="intro">Dix questions au plus, posées comme des situations concrètes. Le parcours s’adapte à vos réponses et ne vous demande aucun document ni détail de dossier.</p>
+      <div class="sec-head">
+        <h2 class="sec-h2" id="t-test">Quelle organisation pour votre fonction juridique ?</h2>
+        <div class="sec-text">
+          <p class="intro">Dix questions au plus, posées comme des situations concrètes. Le parcours s’adapte à vos réponses et ne vous demande aucun document ni détail de dossier.</p>
+        </div>
+      </div>
       <div class="diagbox" id="diagbox" aria-live="polite"><noscript><p class="qhint">Le test fonctionne dans votre navigateur et nécessite JavaScript. Vous pouvez aussi écrire directement à francois.cesure@hemistiches.com.</p></noscript></div>
     </div>
   </section>
 
   <section class="modes-s" id="modes" aria-labelledby="t-modes">
     <div class="wrap">
-      <h2 class="sec-h2" id="t-modes">Deux modes d’intervention</h2>
-      <p class="intro">Un seul interlocuteur pour toute la vie juridique de l’entreprise : il porte l’essentiel, réunit les expertises nécessaires et tient le tempo. D’un mode à l’autre, seuls changent l’organisation, le volume et la durée.</p>
+      <div class="sec-head">
+        <h2 class="sec-h2" id="t-modes">Deux modes d’intervention</h2>
+        <div class="sec-text">
+          <p class="intro">Un seul interlocuteur pour toute la vie juridique de l’entreprise : il porte l’essentiel, réunit les expertises nécessaires et tient le tempo. D’un mode à l’autre, seuls changent l’organisation, le volume et la durée.</p>
+        </div>
+      </div>
       <div class="two">
         <article>
           <p class="label">Depuis le cabinet</p>
@@ -553,11 +576,19 @@ h1,h2,.hero .slogan,.drawer nav a,.axes .num{font-weight:200}
 
   <section class="formules-s" id="formules" aria-labelledby="t-form">
     <div class="wrap">
-      <h2 class="sec-h2" id="t-form">Tarifs</h2>
-      <p class="intro">Tous les prix s’entendent hors taxes. Une journée correspond à sept heures. Le test vous donne une estimation personnalisée, à confirmer lors d’un échange.</p>
+      <div class="sec-head">
+        <h2 class="sec-h2" id="t-form">Tarifs</h2>
+        <div class="sec-text">
+          <p class="intro">Tous les prix s’entendent hors taxes. Une journée correspond à sept heures. Le test vous donne une estimation personnalisée, à confirmer lors d’un échange.</p>
+        </div>
+      </div>
 
-      <h3 class="sub-h3">Direction juridique externalisée : quatre forfaits sur six mois ou plus</h3>
-      <p class="intro">Les quatre formules donnent accès aux mêmes domaines d’intervention. Le volume réservé détermine la capacité de traitement, en fonction du travail nécessaire et des priorités de votre entreprise.</p>
+      <div class="sec-head sub">
+        <h3 class="sub-h3">Direction juridique externalisée : quatre forfaits sur six mois ou plus</h3>
+        <div class="sec-text">
+          <p class="intro">Les quatre formules donnent accès aux mêmes domaines d’intervention. Le volume réservé détermine la capacité de traitement, en fonction du travail nécessaire et des priorités de votre entreprise.</p>
+        </div>
+      </div>
       <div class="three">
         <article>
           <h3>Essentiel</h3>
@@ -692,6 +723,7 @@ h1,h2,.hero .slogan,.drawer nav a,.axes .num{font-weight:200}
         <ul class="creds">
           <li><strong>Avocat</strong>Barreau de Paris, depuis 2012</li>
           <li><strong>Directeur juridique</strong>plus de dix ans, industrie de santé</li>
+          <li><strong>Juriste d’entreprise</strong>master de management juridique des entreprises</li>
           <li><strong>Secteurs réglementés</strong>santé, défense, énergie, aéronautique, électronique</li>
         </ul>
       </figure>
