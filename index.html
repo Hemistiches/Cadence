@@ -502,6 +502,15 @@ h1,h2,.hero .slogan,.drawer nav a,.axes .num{font-weight:200}
   .sec-head.sub > .sec-text{padding-top:.15em}
   .wrap > .note > p{font-size:17px;color:var(--mute)}
 }
+/* Intitulés plus marqués et aération des notes (12 novembre 2026) */
+.rules > li > b,.fonctions b,.eng b,.three h3,.two h3,.steps3 h3,.note h4,.creds strong,.lab-row > .lab-l,.rules > li > span > b,.rules > li > span > .lab{font-weight:500}
+@media (min-width:1025px){
+  .lab-row .lab-p{display:none}
+  .wrap > .cadre,.wrap > .lab-row,.wrap > .note{margin-top:clamp(30px,2.8vw,44px)}
+  .wrap > .note > h4,.wrap > .lab-row > .lab-l{font-size:clamp(17px,1.4vw,19px);line-height:1.35}
+  .wrap > .lab-row > .lab-t,.wrap > .cadre{line-height:1.7}
+  .rules li{padding:24px 0}
+}
 </style>
 </head>
 <body>
@@ -657,7 +666,10 @@ h1,h2,.hero .slogan,.drawer nav a,.axes .num{font-weight:200}
           <ul><li>Budget pour six mois complets : <span data-p="b:8:des6:6">33 600 €</span> HT</li></ul>
         </article>
       </div>
-      <p class="cadre">Les budgets correspondent à six mois complets d’exécution ; ils ne sont pas exigibles à la signature. Une provision mensuelle est appelée avant chaque mois d’intervention, et le relevé des diligences accompagne la facture.</p>
+      <div class="note" id="budget-facturation">
+        <h4>Budget et facturation</h4>
+        <p>Les budgets correspondent à six mois complets d’exécution ; ils ne sont pas exigibles à la signature. Une provision mensuelle est appelée avant chaque mois d’intervention, et le relevé des diligences accompagne la facture.</p>
+      </div>
 
       <div class="note" id="fin-anticipee">
         <h4>Durée et fin anticipée</h4>
